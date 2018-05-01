@@ -13,32 +13,27 @@
 				</a>
 
 				<p>
-					Vivamus imperdiet felis consectetur onec eget orci adipiscing nunc. <br />
-					Pellentesque fermentum, ante ac interdum ullamcorper.
+					#TuVotoCuenta, una iniciativa de ciudadanos mexicanos.
 				</p>
 
 			</div>
 
 			<div class="col-sm-3">
 
-				<h5>Address</h5>
+				<h5>Dirección</h5>
 
 				<p>
-					Loop, Inc. <br />
-					795 Park Ave, Suite 120 <br />
-					San Francisco, CA 94107
+					México.
 				</p>
 
 			</div>
 
 			<div class="col-sm-3">
 
-				<h5>Contact</h5>
+				<h5>Contacto</h5>
 
 				<p>
-					Phone: +1 (52) 2215-251 <br />
-					Fax: +1 (22) 5138-219 <br />
-					info@laborator.al
+					info@tuvotocuenta.com.mx
 				</p>
 
 			</div>
@@ -57,7 +52,7 @@
 		<div class="row">
 
 			<div class="col-sm-6">
-				Copyright &copy; Neon - All Rights Reserved.
+				Copyleft &copy; Tu Voto Cuenta <?php echo date('Y') ?>
 			</div>
 
 			<div class="col-sm-6">
