@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.ProductTeamPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,40,40,40">
+                <Label Text="¿Quiénes Somos?" Style="{DynamicResource PageTitle}" />
+                <Label Text="Appacha.me (se pronuncia apapáchame) es una empresa dedicada a la elaboración de alimento de alta calidad para tus mascotas, buscamos que todo nuestro proceso de entrega sea ágil y a través de nuestra aplicación móvil y de una manera rápida y segura puedas consultar las porciones de ingesta de tu mascota, recibir sugerencias de alimentación, realizar y rastrear tus pedidos." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="Nuestro alimento está elaborado con los ingredientes de la más alta calidad siguiendo una dieta B.A.R.F." Style="{DynamicResource PageDarkSmall}" />
+                <Image Source="barf.jpg" Margin="0,20,0,20" />
+                 <Label Text="¿Donde entregamos?" Style="{DynamicResource PageTitle}" />
+                <Label Text="Por el momento realizamos entregas en la Ciudad de México solamente." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="¿Cuanto nos tardamos?" Style="{DynamicResource PageTitle}" />
+                <Label Text="Depende de la cantidad de tu pedido por lo general inmediatamente al recibir tu orden, comenzamos a prepararla, ordenes pequeñas pueden salir en el transcurso de un día, sin embargo, ordenes grandes pueden demorar de dos a tres días." Style="{DynamicResource PageDarkSmall}" Margin="0,0,0,40" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" x:Class="TuVotoCuenta.Pages.LegalConcernsPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".15*" />
+                <RowDefinition Height=".75*" />
+                <RowDefinition Height=".1*" />
+            </Grid.RowDefinitions>
+            <Label Text="Términos y Condiciones &amp; Política de Privacidad" FontSize="Medium" Grid.Row="0" Margin="40,20,40,0" HorizontalTextAlignment="Center" />
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Margin="40,0,40,0">
+                    <Label LineBreakMode="WordWrap" Text="{Binding LegalConcerns}" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+            </ScrollView>
+            <Label Grid.Row="2" Text="México - 2018" Margin="0,0,0,10" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
