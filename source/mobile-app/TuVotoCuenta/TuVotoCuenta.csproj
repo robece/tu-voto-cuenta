@@ -26,6 +26,7 @@
     <Folder Include="ViewModels\AddReport\" />
     <Folder Include="Pages\AddReport\" />
     <Folder Include="Behaviors\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
@@ -40,7 +41,6 @@
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
     <Compile Remove="Pages\Profile\PetsProfilePage.xaml.cs" />
-    <Compile Remove="Converters\IntToStringConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignUp\LegalConcernsPage.xaml.cs">

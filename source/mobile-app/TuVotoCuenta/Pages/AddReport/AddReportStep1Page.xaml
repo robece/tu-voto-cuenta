@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:classes="clr-namespace:TuVotoCuenta.Classes" xmlns:local="clr-namespace:TuVotoCuenta" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.AddReportStep1Page">
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:classes="clr-namespace:TuVotoCuenta.Classes" xmlns:local="clr-namespace:TuVotoCuenta" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.AddReportStep1Page" xmlns:converters="clr-namespace:TuVotoCuenta.Converters">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
@@ -10,7 +10,11 @@
             </Style>
             <Style BasedOn="{StaticResource arrowEntry}" TargetType="controls:ImageEntry" x:Key="numericArrowEntry">
                 <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="Grid.Column" Value="1"/>              
             </Style>
+
+            <converters:IntToStringConverter x:Key="intToStringConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -60,43 +64,83 @@
                         </Grid.RowDefinitions>
                         <Image Grid.Column="0" Grid.Row="0" Source="ppan.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="0" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PANVotesSelectedIndex}" />
+                        <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
 
                         <Image Grid.Column="0" Grid.Row="1" Source="ppri.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="1" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PRIVotesSelectedIndex}" />
-
+                        <Entry Grid.Row="1" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPRI, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="2" Source="pprd.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="2" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PRDVotesSelectedIndex}" />
-
+                        <Entry Grid.Row="2" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="3" Source="pverde.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="3" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding VerdeVotesSelectedIndex}" />
-
+                        <Entry Grid.Row="3" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyVerde, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="4" Source="ppt.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="4" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PTVotesSelectedIndex}" />
-                     
+                        <Entry Grid.Row="4" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPT, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="5" Source="pmovciud.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="5" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding MCVotesSelectedIndex}" />
-
+                        <Entry Grid.Row="5" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyMC, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="6" Source="pnuevaalianza.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="6" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding NAVotesSelectedIndex}" />
-                     
+                        <Entry Grid.Row="6" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyNA, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="7" Source="pmorena.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="7" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding MORVotesSelectedIndex}" />
-
+                        <Entry Grid.Row="7" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyMOR, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Image Grid.Column="0" Grid.Row="8" Source="ppes.png">
                         </Image>
-                        <Picker Grid.Column="1" Grid.Row="8" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding ESVotesSelectedIndex}" />
-                     
+                        <Entry Grid.Row="8" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyES, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                         <Label Grid.Column="0" Grid.Row="9" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-                        <Picker Grid.Column="1" Grid.Row="9" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding INDVotesSelectedIndex}" />
-                     
+                        <Entry Grid.Row="9" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyIND, Converter={StaticResource intToStringConverter}}" >
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        
                     </Grid>
                 </StackLayout>
                 <Label Text="Adicional" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />

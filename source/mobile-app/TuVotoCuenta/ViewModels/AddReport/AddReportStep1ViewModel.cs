@@ -114,354 +114,76 @@ namespace TuVotoCuenta.ViewModels
 		List<string> votingValues = Catalogs.GetVotingValues();
 		public List<string> VotingValues => votingValues;
 
-        /* PAN */
-         
-        string selectedPANVote;
-		public string SelectedPANVote
+        /* COUNTERS */
+
+        int partyPAN = -1;
+        public int PartyPAN
         {
-			get { return selectedPANVote; }
-			set { SetProperty(ref selectedPANVote, value); }
+            get { return partyPAN; }
+            set { SetProperty(ref partyPAN, value); }
         }
 
-        string selectedPANVoteText;
-		public string SelectedPANVoteText
+        int partyPRI = -1;
+        public int PartyPRI
         {
-			get { return selectedPANVoteText; }
-			set { SetProperty(ref selectedPANVoteText, value); }
+            get { return partyPRI; }
+            set { SetProperty(ref partyPRI, value); }
         }
 
-        int panVotesSelectedIndex;
-        public int PANVotesSelectedIndex
-		{
-			get
-			{
-				return panVotesSelectedIndex;
-			}
-			set
-			{
-				panVotesSelectedIndex = value;
-
-				// trigger some action to take such as updating other labels or fields
-				OnPropertyChanged(nameof(PANVotesSelectedIndex));
-
-				SelectedPANVoteText = votingValues[PANVotesSelectedIndex];
-				SelectedPANVote = Catalogs.GetVotingValueKey(SelectedPANVoteText);
-			}
-		}
-
-		/* PRI */
-
-        string selectedPRIVote;
-        public string SelectedPRIVote
+        int partyPRD = -1;
+        public int PartyPRD
         {
-            get { return selectedPRIVote; }
-            set { SetProperty(ref selectedPRIVote, value); }
+            get { return partyPRD; }
+            set { SetProperty(ref partyPRD, value); }
         }
 
-        string selectedPRIVoteText;
-        public string SelectedPRIVoteText
+        int partyVerde = -1;
+        public int PartyVerde
         {
-            get { return selectedPRIVoteText; }
-            set { SetProperty(ref selectedPRIVoteText, value); }
+            get { return partyVerde; }
+            set { SetProperty(ref partyVerde, value); }
         }
 
-        int priVotesSelectedIndex;
-        public int PRIVotesSelectedIndex
+        int partyPT = -1;
+        public int PartyPT
         {
-            get
-            {
-                return priVotesSelectedIndex;
-            }
-            set
-            {
-                priVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(PRIVotesSelectedIndex));
-                
-                SelectedPRIVoteText = votingValues[PRIVotesSelectedIndex];
-                SelectedPRIVote = Catalogs.GetVotingValueKey(SelectedPRIVoteText);
-            }
+            get { return partyPT; }
+            set { SetProperty(ref partyPT, value); }
         }
 
-		/* PRD */
-
-		string selectedPRDVote;
-        public string SelectedPRDVote
+        int partyMC = -1;
+        public int PartyMC
         {
-            get { return selectedPRDVote; }
-            set { SetProperty(ref selectedPRDVote, value); }
+            get { return partyMC; }
+            set { SetProperty(ref partyMC, value); }
         }
 
-        string selectedPRDVoteText;
-        public string SelectedPRDVoteText
+        int partyNA = -1;
+        public int PartyNA
         {
-            get { return selectedPRDVoteText; }
-            set { SetProperty(ref selectedPRDVoteText, value); }
+            get { return partyNA; }
+            set { SetProperty(ref partyNA, value); }
         }
 
-        int prdVotesSelectedIndex;
-        public int PRDVotesSelectedIndex
+        int partyMOR = -1;
+        public int PartyMOR
         {
-            get
-            {
-                return prdVotesSelectedIndex;
-            }
-            set
-            {
-                prdVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(PRDVotesSelectedIndex));
-
-                SelectedPRDVoteText = votingValues[PRDVotesSelectedIndex];
-                SelectedPRDVote = Catalogs.GetVotingValueKey(SelectedPRDVoteText);
-            }
+            get { return partyMOR; }
+            set { SetProperty(ref partyMOR, value); }
         }
 
-        /* Verde */
-
-		string selectedVerdeVote;
-        public string SelectedVerdeVote
+        int partyES = -1;
+        public int PartyES
         {
-            get { return selectedVerdeVote; }
-            set { SetProperty(ref selectedVerdeVote, value); }
+            get { return partyES; }
+            set { SetProperty(ref partyES, value); }
         }
 
-        string selectedVerdeVoteText;
-        public string SelectedVerdeVoteText
+        int partyIND = -1;
+        public int PartyIND
         {
-            get { return selectedVerdeVoteText; }
-            set { SetProperty(ref selectedVerdeVoteText, value); }
-        }
-
-        int verdeVotesSelectedIndex;
-        public int VerdeVotesSelectedIndex
-        {
-            get
-            {
-                return verdeVotesSelectedIndex;
-            }
-            set
-            {
-                verdeVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(VerdeVotesSelectedIndex));
-
-                SelectedVerdeVoteText = votingValues[VerdeVotesSelectedIndex];
-                SelectedVerdeVote = Catalogs.GetVotingValueKey(SelectedVerdeVoteText);
-            }
-        }
-
-        /* PT */
-
-		string selectedPTVote;
-        public string SelectedPTVote
-        {
-            get { return selectedPTVote; }
-            set { SetProperty(ref selectedPTVote, value); }
-        }
-
-        string selectedPTVoteText;
-        public string SelectedPTVoteText
-        {
-            get { return selectedPTVoteText; }
-            set { SetProperty(ref selectedPTVoteText, value); }
-        }
-
-        int ptVotesSelectedIndex;
-        public int PTVotesSelectedIndex
-        {
-            get
-            {
-                return ptVotesSelectedIndex;
-            }
-            set
-            {
-                ptVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(PTVotesSelectedIndex));
-
-                SelectedPTVoteText = votingValues[PTVotesSelectedIndex];
-                SelectedPTVote = Catalogs.GetVotingValueKey(SelectedPTVoteText);
-            }
-        }
-
-        /* Movimiento Ciudadano */
-
-		string selectedMCVote;
-        public string SelectedMCVote
-        {
-            get { return selectedMCVote; }
-            set { SetProperty(ref selectedMCVote, value); }
-        }
-
-        string selectedMCVoteText;
-        public string SelectedMCVoteText
-        {
-            get { return selectedMCVoteText; }
-            set { SetProperty(ref selectedMCVoteText, value); }
-        }
-
-        int mcVotesSelectedIndex;
-        public int MCVotesSelectedIndex
-        {
-            get
-            {
-                return mcVotesSelectedIndex;
-            }
-            set
-            {
-                mcVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(MCVotesSelectedIndex));
-
-                SelectedMCVoteText = votingValues[MCVotesSelectedIndex];
-                SelectedMCVote = Catalogs.GetVotingValueKey(SelectedMCVoteText);
-            }
-        }
-
-        /* Nueva Alianza */
-
-		string selectedNAVote;
-        public string SelectedNAVote
-        {
-            get { return selectedNAVote; }
-            set { SetProperty(ref selectedNAVote, value); }
-        }
-
-        string selectedNAVoteText;
-        public string SelectedNAVoteText
-        {
-            get { return selectedNAVoteText; }
-            set { SetProperty(ref selectedNAVoteText, value); }
-        }
-
-        int naVotesSelectedIndex;
-        public int NAVotesSelectedIndex
-        {
-            get
-            {
-                return naVotesSelectedIndex;
-            }
-            set
-            {
-                naVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(NAVotesSelectedIndex));
-
-                SelectedNAVoteText = votingValues[NAVotesSelectedIndex];
-                SelectedNAVote = Catalogs.GetVotingValueKey(SelectedNAVoteText);
-            }
-        }
-
-	    /* Morena */
-
-		string selectedMORVote;
-        public string SelectedMORVote
-        {
-            get { return selectedMORVote; }
-            set { SetProperty(ref selectedMORVote, value); }
-        }
-
-        string selectedMORVoteText;
-        public string SelectedMORVoteText
-        {
-            get { return selectedMORVoteText; }
-            set { SetProperty(ref selectedMORVoteText, value); }
-        }
-
-        int morVotesSelectedIndex;
-        public int MORVotesSelectedIndex
-        {
-            get
-            {
-                return morVotesSelectedIndex;
-            }
-            set
-            {
-                morVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(MORVotesSelectedIndex));
-
-                SelectedMORVoteText = votingValues[MORVotesSelectedIndex];
-                SelectedMORVote = Catalogs.GetVotingValueKey(SelectedMORVoteText);
-            }
-        }
-
-        /* Encuentro Social */
-
-		string selectedESVote;
-        public string SelectedESVote
-        {
-            get { return selectedESVote; }
-            set { SetProperty(ref selectedESVote, value); }
-        }
-
-        string selectedESVoteText;
-        public string SelectedESVoteText
-        {
-            get { return selectedESVoteText; }
-            set { SetProperty(ref selectedESVoteText, value); }
-        }
-
-        int esVotesSelectedIndex;
-        public int ESVotesSelectedIndex
-        {
-            get
-            {
-                return esVotesSelectedIndex;
-            }
-            set
-            {
-                esVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(ESVotesSelectedIndex));
-
-                SelectedESVoteText = votingValues[ESVotesSelectedIndex];
-                SelectedESVote = Catalogs.GetVotingValueKey(SelectedESVoteText);
-            }
-        }
-
-        /* Independiente */
-        
-		string selectedINDVote;
-        public string SelectedINDVote
-        {
-            get { return selectedINDVote; }
-            set { SetProperty(ref selectedINDVote, value); }
-        }
-
-        string selectedINDVoteText;
-        public string SelectedINDVoteText
-        {
-            get { return selectedINDVoteText; }
-            set { SetProperty(ref selectedINDVoteText, value); }
-        }
-
-        int indVotesSelectedIndex;
-        public int INDVotesSelectedIndex
-        {
-            get
-            {
-                return indVotesSelectedIndex;
-            }
-            set
-            {
-                indVotesSelectedIndex = value;
-
-                // trigger some action to take such as updating other labels or fields
-                OnPropertyChanged(nameof(INDVotesSelectedIndex));
-
-                SelectedINDVoteText = votingValues[INDVotesSelectedIndex];
-                SelectedINDVote = Catalogs.GetVotingValueKey(SelectedINDVoteText);
-            }
+            get { return partyIND; }
+            set { SetProperty(ref partyIND, value); }
         }
 
         #endregion

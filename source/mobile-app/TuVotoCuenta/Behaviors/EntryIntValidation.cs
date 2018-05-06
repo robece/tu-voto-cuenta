@@ -21,7 +21,7 @@ namespace TuVotoCuenta.Behaviors
             if (e.OldTextValue != e.NewTextValue && !string.IsNullOrWhiteSpace(e.NewTextValue))
             {
                 int result = 0;
-                if (!int.TryParse(e.NewTextValue, out result))
+                if (!int.TryParse(e.NewTextValue, out result) || result>9999)
                     ((Entry)sender).Text = e.OldTextValue;
             } 
         }
