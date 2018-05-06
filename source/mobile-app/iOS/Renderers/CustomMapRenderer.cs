@@ -24,7 +24,9 @@ namespace TuVotoCuenta.iOS.Renderers
                 var nativeMap = Control as MKMapView;
                 if (nativeMap != null)
                 {
-                    nativeMap.RemoveOverlays(nativeMap.Overlays);
+					if (nativeMap.Overlays != null)
+						nativeMap.RemoveOverlays(nativeMap.Overlays);
+                    
                     nativeMap.OverlayRenderer = null;
                     circleRenderer = null;
                 }
