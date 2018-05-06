@@ -12,11 +12,7 @@
                 </StackLayout>
                 <Label Text="Ubicación" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <classes:CustomMap x:Name="customMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationLongitude}" Placeholder="Longitud" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationLatitude}" Placeholder="Latitud" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
+                    <classes:CustomMap x:Name="customMap" IsVisible="false" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationDetails}" Placeholder="Detalles de la ubicación" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding State}" Placeholder="Estado" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
@@ -30,26 +26,65 @@
                 </StackLayout>
                 <Label Text="Votos" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPAN}" Placeholder="Votos para PAN" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPRI}" Placeholder="Votos para PRI" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPRD}" Placeholder="Votos para PRD" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyVerde}" Placeholder="Votos para Verde Ecologista" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPT}" Placeholder="Votos para Partido del Trabajo" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyMC}" Placeholder="Votos para Movimiento Ciudadano" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyNA}" Placeholder="Votos para Nueva Alianza" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyMOR}" Placeholder="Votos para Morena" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyES}" Placeholder="Votos para Encuentro Social" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyIND}" Placeholder="Votos para Independiente" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
-                    </controls:ImageEntry>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100">
+                            </ColumnDefinition>
+                            <ColumnDefinition Width="*">
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Column="0" Grid.Row="0" Source="ppan.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="0" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PANVotesSelectedIndex}" />
+
+                        <Image Grid.Column="0" Grid.Row="1" Source="ppri.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="1" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PRIVotesSelectedIndex}" />
+
+                        <Image Grid.Column="0" Grid.Row="2" Source="pprd.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="2" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PRDVotesSelectedIndex}" />
+
+                        <Image Grid.Column="0" Grid.Row="3" Source="pverde.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="3" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding VerdeVotesSelectedIndex}" />
+
+                        <Image Grid.Column="0" Grid.Row="4" Source="ppt.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="4" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding PTVotesSelectedIndex}" />
+                     
+                        <Image Grid.Column="0" Grid.Row="5" Source="pmovciud.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="5" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding MCVotesSelectedIndex}" />
+
+                        <Image Grid.Column="0" Grid.Row="6" Source="pnuevaalianza.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="6" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding NAVotesSelectedIndex}" />
+                     
+                        <Image Grid.Column="0" Grid.Row="7" Source="pmorena.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="7" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding MORVotesSelectedIndex}" />
+
+                        <Image Grid.Column="0" Grid.Row="8" Source="ppes.png">
+                        </Image>
+                        <Picker Grid.Column="1" Grid.Row="8" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding ESVotesSelectedIndex}" />
+                     
+                        <Label Grid.Column="0" Grid.Row="9" Text="Independiente" FontAttributes="Bold" VerticalTextAlignment="Center" />
+                        <Picker Grid.Column="1" Grid.Row="9" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding INDVotesSelectedIndex}" />
+                     
+                    </Grid>
                 </StackLayout>
                 <Label Text="Adicional" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">

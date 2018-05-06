@@ -1,5 +1,6 @@
 ﻿using System;
 using Android.Content;
+using Android.Gms.Maps;
 using Android.Gms.Maps.Model;
 using MapOverlay.Droid;
 using TuVotoCuenta.Classes;
@@ -28,15 +29,18 @@ namespace MapOverlay.Droid
 
             if (e.NewElement != null)
             {
-                var formsMap = (CustomMap)e.NewElement;
-                circle = formsMap.Circle;
+				var formsMap = (CustomMap)e.NewElement;            
+                circle = formsMap.Circle;            
                 Control.GetMapAsync(this);
-            }
+            } 
         }
 
         protected override void OnMapReady(Android.Gms.Maps.GoogleMap map)
         {
             base.OnMapReady(map);
+
+			if (circle == null)
+				return;
 
             var circleOptions = new CircleOptions();
             circleOptions.InvokeCenter(new LatLng(circle.Position.Latitude, circle.Position.Longitude));

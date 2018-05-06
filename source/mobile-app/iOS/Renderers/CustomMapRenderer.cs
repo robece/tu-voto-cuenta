@@ -38,6 +38,9 @@ namespace TuVotoCuenta.iOS.Renderers
 
                 nativeMap.OverlayRenderer = GetOverlayRenderer;
 
+				if (circle == null)
+					return;
+				
                 var circleOverlay = MKCircle.Circle(new CoreLocation.CLLocationCoordinate2D(circle.Position.Latitude, circle.Position.Longitude), circle.Radius);
                 nativeMap.AddOverlay(circleOverlay);
             }

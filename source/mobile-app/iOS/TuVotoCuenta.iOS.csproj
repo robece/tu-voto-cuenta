@@ -286,6 +286,16 @@
     <BundleResource Include="Resources\svgdarkview.svg" />
     <BundleResource Include="Resources\svgdarkprivacy.svg" />
     <BundleResource Include="Resources\svgdarkarrow.svg" />
+    <BundleResource Include="Resources\phumanista.png" />
+    <BundleResource Include="Resources\pmorena.png" />
+    <BundleResource Include="Resources\pmovciud.png" />
+    <BundleResource Include="Resources\pnuevaalianza.png" />
+    <BundleResource Include="Resources\ppan.png" />
+    <BundleResource Include="Resources\ppes.png" />
+    <BundleResource Include="Resources\pprd.png" />
+    <BundleResource Include="Resources\ppri.png" />
+    <BundleResource Include="Resources\ppt.png" />
+    <BundleResource Include="Resources\pverde.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets')" />
