@@ -94,7 +94,7 @@
                         </Image>
                         <Picker Grid.Column="1" Grid.Row="8" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding ESVotesSelectedIndex}" />
                      
-                        <Label Grid.Column="0" Grid.Row="9" Text="Independiente" FontAttributes="Bold" VerticalTextAlignment="Center" />
+                        <Label Grid.Column="0" Grid.Row="9" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                         <Picker Grid.Column="1" Grid.Row="9" Title="Votos" TextColor="#303030" ItemsSource="{Binding VotingValues}" SelectedIndex="{Binding INDVotesSelectedIndex}" />
                      
                     </Grid>
