@@ -169,70 +169,70 @@ namespace TuVotoCuenta.ViewModels
         
         /* COUNTERS */
 
-		int partyPAN;
+		int partyPAN = -1;
 		public int PartyPAN
         {
 			get { return partyPAN; }
 			set { SetProperty(ref partyPAN, value); }
         }
   
-		int partyPRI;
+        int partyPRI = -1;
         public int PartyPRI
         {
 			get { return partyPRI; }
 			set { SetProperty(ref partyPRI, value); }
         }
 
-		int partyPRD;
+        int partyPRD = -1;
         public int PartyPRD
         {
             get { return partyPRD; }
             set { SetProperty(ref partyPRD, value); }
         }
         
-		int partyVerde;
+        int partyVerde = -1;
         public int PartyVerde
         {
 			get { return partyVerde; }
 			set { SetProperty(ref partyVerde, value); }
         }
 
-		int partyPT;
+        int partyPT = -1;
         public int PartyPT
         {
             get { return partyPT; }
             set { SetProperty(ref partyPT, value); }
         }
 
-		int partyMC;
+        int partyMC = -1;
         public int PartyMC
         {
             get { return partyMC; }
             set { SetProperty(ref partyMC, value); }
         }
 
-		int partyNA;
+        int partyNA = -1;
         public int PartyNA
         {
             get { return partyNA; }
             set { SetProperty(ref partyNA, value); }
         }
 
-		int partyMOR;
+        int partyMOR = -1;
         public int PartyMOR
         {
             get { return partyMOR; }
             set { SetProperty(ref partyMOR, value); }
         }
 
-		int partyES;
+        int partyES = -1;
         public int PartyES
         {
             get { return partyES; }
             set { SetProperty(ref partyES, value); }
         }
         
-		int partyIND;
+        int partyIND= -1;
         public int PartyIND
         {
             get { return partyIND; }

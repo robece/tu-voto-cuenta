@@ -1,61 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:classes="clr-namespace:TuVotoCuenta.Classes" xmlns:local="clr-namespace:TuVotoCuenta" x:Class="TuVotoCuenta.Pages.AddReportStep1Page">
+=======
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.AddReportStep1Page" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:IntToStringConverter x:Key="intToStringConverter" />
+            <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightPlaceHolder}"/>
+                 <Setter Property="TextColor" Value="{StaticResource PrimaryDark}"/>
+                <Setter Property="Image" Value="svgdarkarrow.svg"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+
+            <Style BasedOn="{StaticResource arrowEntry}" TargetType="controls:ImageEntry" x:Key="numericArrowEntry">
+                <Setter Property="Keyboard" Value="Numeric" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+>>>>>>> 61989fb... Report UX improvements Votes entries now show the placeholder by default Votes entries only accept int values
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
                 <Label Text="Casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding BoxNumber}" Placeholder="No. de casilla" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry Text="{Binding BoxNumber}" Placeholder="No. de casilla"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding BoxSection}" Placeholder="Sección de casilla" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding BoxSection}" Placeholder="Sección de casilla"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
+<<<<<<< HEAD
                 </StackLayout>
                 <Label Text="Ubicación" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <classes:CustomMap x:Name="customMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationLongitude}" Placeholder="Longitud" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+=======
+                    <controls:ImageEntry  Text="{Binding LocationLongitude}" Placeholder="Longitud"  Style="{StaticResource arrowEntry}">
+>>>>>>> 61989fb... Report UX improvements Votes entries now show the placeholder by default Votes entries only accept int values
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationLatitude}" Placeholder="Latitud" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding LocationLatitude}" Placeholder="Latitud"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationDetails}" Placeholder="Detalles de la ubicación" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry Text="{Binding LocationDetails}" Placeholder="Detalles de la ubicación"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding State}" Placeholder="Estado" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding State}" Placeholder="Estado"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding City}" Placeholder="Ciudad" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding City}" Placeholder="Ciudad"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Municipality}" Placeholder="Municipio" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding Municipality}" Placeholder="Municipio"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Town}" Placeholder="Población (Colonia/Pueblo/Barrio)" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding Town}" Placeholder="Población (Colonia/Pueblo/Barrio)"  Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
                 </StackLayout>
                 <Label Text="Votos" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPAN}" Placeholder="Votos para PAN" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para PAN"  Style="{StaticResource numericArrowEntry}">
+                        <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPRI}" Placeholder="Votos para PRI" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyPRI, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para PRI" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPRD}" Placeholder="Votos para PRD" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyPRD, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para PRD" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyVerde}" Placeholder="Votos para Verde Ecologista" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyVerde, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Verde Ecologista" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPT}" Placeholder="Votos para Partido del Trabajo" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyPT, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Partido del Trabajo" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyMC}" Placeholder="Votos para Movimiento Ciudadano" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry Text="{Binding PartyMC, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Movimiento Ciudadano" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyNA}" Placeholder="Votos para Nueva Alianza" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry Text="{Binding PartyNA, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Nueva Alianza" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyMOR}" Placeholder="Votos para Morena" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyMOR, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Morena" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyES}" Placeholder="Votos para Encuentro Social" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyES, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Encuentro Social" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyIND}" Placeholder="Votos para Independiente" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry  Text="{Binding PartyIND, Converter={StaticResource intToStringConverter}}" Placeholder="Votos para Independiente" Style="{StaticResource numericArrowEntry}">
+                       <controls:ImageEntry.Behaviors>
+                            <behaviors:EntryIntValidation />
+                        </controls:ImageEntry.Behaviors>
                     </controls:ImageEntry>
                 </StackLayout>
                 <Label Text="Adicional" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PhotoTimestamp}" Placeholder="Marca de tiempo de la foto" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PhotoTimestamp}" Placeholder="Marca de tiempo de la foto" Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
-                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding DeviceHash}" Placeholder="Hash del dispositivo" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
+                    <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding DeviceHash}" Placeholder="Hash del dispositivo" Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
                 </StackLayout>
                 <Button Text="Continuar" Margin="0,10,0,0" Style="{DynamicResource ExplicitButton}" Command="{Binding SignUpCommand}" />
