@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuVotoCuenta.iOS", "iOS\TuV
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuVotoCuenta.Droid", "Droid\TuVotoCuenta.Droid.csproj", "{5A53C0FF-2466-442A-92BD-1D8B7F02CADF}"
 EndProject
-Project("{9344BDBB-3E7F-41FC-A0DD-8665D75EE146}") = "TuVotoCuenta", "TuVotoCuenta\TuVotoCuenta.csproj", "{209B994A-2590-4342-B928-D15F17512373}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TuVotoCuenta", "TuVotoCuenta\TuVotoCuenta.csproj", "{209B994A-2590-4342-B928-D15F17512373}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

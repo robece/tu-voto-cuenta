@@ -27,14 +27,13 @@
     <Folder Include="Pages\AddReport\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
-    <PackageReference Include="Xamarin.Forms.CarouselView" Version="2.3.0-pre2" />
-    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="1.8.1" />
-    <PackageReference Include="Xam.Plugins.Settings" Version="3.1.1" />
-    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.1" />
-    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.1" />
-    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="3.1.0" />
-    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.2.0" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="2.0.2" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.7" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.0.0.5" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
