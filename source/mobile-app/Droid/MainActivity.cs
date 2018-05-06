@@ -25,13 +25,20 @@ namespace TuVotoCuenta.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+			var width = Resources.DisplayMetrics.WidthPixels;
+            var height = Resources.DisplayMetrics.HeightPixels;
+            var density = Resources.DisplayMetrics.Density;
+
+            App.ScreenWidth = (width - 0.5f) / density;
+            App.ScreenHeight = (height - 0.5f) / density;
+
             ImageCircleRenderer.Init();
 
             CachedImageRenderer.Init(true);
             var ignore = typeof(SvgCachedImage);
 
             Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
-
+            
             LoadApplication(new App());
         }
 

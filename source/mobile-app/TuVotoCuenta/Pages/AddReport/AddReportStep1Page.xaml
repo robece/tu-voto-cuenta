@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.AddReportStep1Page">
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:classes="clr-namespace:TuVotoCuenta.Classes" xmlns:local="clr-namespace:TuVotoCuenta" x:Class="TuVotoCuenta.Pages.AddReportStep1Page">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-                <Label Text="Información localización de casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <Label Text="Casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding BoxNumber}" Placeholder="No. de casilla" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding BoxSection}" Placeholder="Sección de casilla" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
+                </StackLayout>
+                <Label Text="Ubicación" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <StackLayout Spacing="10">
+                    <classes:CustomMap x:Name="customMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationLongitude}" Placeholder="Longitud" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding LocationLatitude}" Placeholder="Latitud" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
@@ -24,7 +28,7 @@
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Town}" Placeholder="Población (Colonia/Pueblo/Barrio)" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
                 </StackLayout>
-                <Label Text="Información votos" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <Label Text="Votos" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyPAN}" Placeholder="Votos para PAN" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
@@ -47,7 +51,7 @@
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PartyIND}" Placeholder="Votos para Independiente" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>
                 </StackLayout>
-                <Label Text="Información adicional" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <Label Text="Adicional" Margin="0,20,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding PhotoTimestamp}" Placeholder="Marca de tiempo de la foto" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkarrow.svg" HorizontalOptions="FillAndExpand">
                     </controls:ImageEntry>

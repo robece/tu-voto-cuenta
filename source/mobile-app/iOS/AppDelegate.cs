@@ -16,6 +16,9 @@ namespace TuVotoCuenta.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+			App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
+            App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;
+
             app.StatusBarStyle = UIStatusBarStyle.LightContent;
 
             LoadApplication(new App());
@@ -30,7 +33,7 @@ namespace TuVotoCuenta.iOS
             {
                 statusBar.BackgroundColor = UIColor.Black;
             }
-
+         
             return base.FinishedLaunching(app, options);
         }
     }

@@ -34,6 +34,7 @@
     <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.0.0.5" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.1.527436" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />

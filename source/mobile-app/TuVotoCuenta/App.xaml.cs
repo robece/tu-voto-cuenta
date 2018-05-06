@@ -6,7 +6,10 @@ namespace TuVotoCuenta
 {
     public partial class App : Application
     {
-        public App()
+		public static double ScreenWidth;
+		public static double ScreenHeight;
+        
+		public App()
         {
             InitializeComponent();
             MainPage = new MasterPage();
