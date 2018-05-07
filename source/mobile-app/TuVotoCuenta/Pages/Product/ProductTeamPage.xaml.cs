@@ -11,12 +11,12 @@ namespace TuVotoCuenta.Pages
         public ProductTeamPage()
         {
             InitializeComponent();
+			BindingContext = new ProductTeamViewModel(this.Navigation);
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            BindingContext = new ProductTeamViewModel(this.Navigation);
+            base.OnAppearing();          
         }
     }
 }

@@ -10,12 +10,12 @@ namespace TuVotoCuenta.Pages
         public SettingsPage()
         {
             InitializeComponent();
+			BindingContext = new SettingsViewModel(this.Navigation);
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            BindingContext = new SettingsViewModel(this.Navigation);
+            base.OnAppearing();          
         }
     }
 }

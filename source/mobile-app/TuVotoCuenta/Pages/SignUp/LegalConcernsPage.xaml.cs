@@ -11,12 +11,12 @@ namespace TuVotoCuenta.Pages
         public LegalConcernsPage()
         {
             InitializeComponent();
+			BindingContext = new LegalConcernsViewModel(this.Navigation);
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            BindingContext = new LegalConcernsViewModel(this.Navigation);
+            base.OnAppearing();         
         }
     }
 }

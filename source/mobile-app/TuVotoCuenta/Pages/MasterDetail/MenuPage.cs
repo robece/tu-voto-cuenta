@@ -15,12 +15,12 @@ namespace TuVotoCuenta.Pages
             InitializeComponent();
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+			BindingContext = new MenuViewModel(this.Navigation);
         }
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-            BindingContext = new MenuViewModel(this.Navigation);
+            base.OnAppearing();        
         }
 
         void InitializeComponent()

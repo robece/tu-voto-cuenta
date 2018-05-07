@@ -14,13 +14,13 @@ namespace TuVotoCuenta.Pages
         public AddReportStep1Page()
         {
             InitializeComponent();
+			BindingContext = new AddReportStep1ViewModel(this.Navigation);
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            BindingContext = new AddReportStep1ViewModel(this.Navigation);        
-
+                          
 			Task.Run(() => {
                 if (IsLocationAvailable())
                 {
