@@ -10,6 +10,7 @@ using Android.OS;
 using ImageCircle.Forms.Plugin.Droid;
 using FFImageLoading.Forms.Droid;
 using FFImageLoading.Svg.Forms;
+using Plugin.CurrentActivity;
 
 namespace TuVotoCuenta.Droid
 {
@@ -36,9 +37,7 @@ namespace TuVotoCuenta.Droid
 
             CachedImageRenderer.Init(true);
             var ignore = typeof(SvgCachedImage);
-
-            Plugin.CurrentActivity.CrossCurrentActivity.Current.Activity = this;
-            
+                     
             LoadApplication(new App());
         }
 

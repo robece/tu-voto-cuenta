@@ -27,6 +27,7 @@
     <Folder Include="Pages\AddReport\" />
     <Folder Include="Behaviors\" />
     <Folder Include="Converters\" />
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
@@ -37,6 +38,7 @@
     <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.0.0.5" />
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.1" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.1.527436" />
+    <PackageReference Include="Xam.Plugin.Media" Version="3.2.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
@@ -102,5 +104,16 @@
     <EmbeddedResource Remove="Pages\Profile\PetDetailPage.xaml" />
     <EmbeddedResource Remove="Pages\Profile\PetsProfilePage.xaml" />
     <EmbeddedResource Remove="Pages\Profile\PortionsReportPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevKit.Xamarin.ImageKit.Abstractions">
+      <HintPath>BinExternal\libs\DevKit.Xamarin.ImageKit\DevKit.Xamarin.ImageKit.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevKit.Xamarin.ImageKit">
+      <HintPath>BinExternal\libs\DevKit.Xamarin.ImageKit\DevKit.Xamarin.ImageKit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\.DS_Store" />
   </ItemGroup>
 </Project>

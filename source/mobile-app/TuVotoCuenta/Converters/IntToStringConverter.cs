@@ -5,11 +5,7 @@ using Xamarin.Forms;
 namespace TuVotoCuenta.Converters
 {
     public class IntToStringConverter: IValueConverter
-    {
-        public IntToStringConverter()
-        {
-        }
-
+	{
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string result = string.Empty;

@@ -23,6 +23,9 @@ namespace TuVotoCuenta.ViewModels
         {
             Title = "Registro de casilla";
 
+			TakePhotoCommand = new Command(async () => await TakePhoto());
+            ChoosePhotoCommand = new Command(async () => await ChoosePhoto());
+
             Task.Run(() =>
             {
                 using(var sha256 = SHA256.Create())  
@@ -30,10 +33,23 @@ namespace TuVotoCuenta.ViewModels
                     var dh = sha256.ComputeHash(Encoding.UTF8.GetBytes(CrossDeviceInfo.Current.Id));
                     DeviceHash = System.BitConverter.ToString(dh).Replace("-", "").ToLower();  
                 }  
-            });           
+            });         
         }
 
         #region Commands
+
+		public Command TakePhotoCommand { get; set; }
+        public Command ChoosePhotoCommand { get; set; }
+
+		async Task ChoosePhoto()
+        {
+			Photo = await Helpers.MediaHelper.PickPhotoAsync();
+        }
+
+        async Task TakePhoto()
+        {
+			Photo = await Helpers.MediaHelper.TakePhotoAsync();
+        }
 
         #endregion
 
@@ -95,6 +111,13 @@ namespace TuVotoCuenta.ViewModels
             set { SetProperty(ref town, value); }
         }
 
+		byte[] photo;
+		public byte[] Photo
+        {
+			get { return photo; }
+			set { SetProperty(ref photo, value); }
+        }
+
 		string photoTimestamp;
         public string PhotoTimestamp
         {
@@ -108,11 +131,6 @@ namespace TuVotoCuenta.ViewModels
             get { return deviceHash; }
             set { SetProperty(ref deviceHash, value); }
         }
-        
-        /* Votes */
-
-		List<string> votingValues = Catalogs.GetVotingValues();
-		public List<string> VotingValues => votingValues;
 
         /* COUNTERS */
 

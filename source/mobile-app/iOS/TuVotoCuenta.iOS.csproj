@@ -241,6 +241,18 @@
     <Reference Include="Xamarin.Forms.Maps.iOS">
       <HintPath>..\packages\Xamarin.Forms.Maps.2.5.1.527436\lib\Xamarin.iOS10\Xamarin.Forms.Maps.iOS.dll</HintPath>
     </Reference>
+    <Reference Include="DevKit.Xamarin.ImageKit.Abstractions">
+      <HintPath>..\TuVotoCuenta\BinExternal\libs\DevKit.Xamarin.ImageKit.iOS\DevKit.Xamarin.ImageKit.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevKit.Xamarin.ImageKit">
+      <HintPath>..\TuVotoCuenta\BinExternal\libs\DevKit.Xamarin.ImageKit.iOS\DevKit.Xamarin.ImageKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.Media.3.2.1\lib\Xamarin.iOS10\Plugin.Media.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Media">
+      <HintPath>..\packages\Xam.Plugin.Media.3.2.1\lib\Xamarin.iOS10\Plugin.Media.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
