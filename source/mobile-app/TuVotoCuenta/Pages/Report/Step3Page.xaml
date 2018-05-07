@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" x:Class="TuVotoCuenta.Pages.Step3Page">
+    <controls:StepPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightPlaceHolder}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDark}" />
+                <Setter Property="Image" Value="svgdarkarrow.svg" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style BasedOn="{StaticResource arrowEntry}" TargetType="controls:ImageEntry" x:Key="numericArrowEntry">
+                <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="Grid.Column" Value="1" />
+            </Style>
+            <converters:IntToStringConverter x:Key="intToStringConverter" />
+        </ResourceDictionary>
+    </controls:StepPage.Resources>
+    <controls:StepPage.ToolbarItems>
+        <ToolbarItem Text="Siguiente" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
+    </controls:StepPage.ToolbarItems>
+    <controls:StepPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,30,40,30">
+                <controls:StepProgressBar3 />
+                  <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />
+                <Label Text="Votos" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <StackLayout Spacing="10">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100">
+                            </ColumnDefinition>
+                            <ColumnDefinition Width="*">
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Column="0" Grid.Row="0" Source="ppan.png">
+                        </Image>
+                        <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="1" Source="ppri.png">
+                        </Image>
+                        <Entry Grid.Row="1" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPRI, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="2" Source="pprd.png">
+                        </Image>
+                        <Entry Grid.Row="2" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="3" Source="pverde.png">
+                        </Image>
+                        <Entry Grid.Row="3" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyVerde, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="4" Source="ppt.png">
+                        </Image>
+                        <Entry Grid.Row="4" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPT, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="5" Source="pmovciud.png">
+                        </Image>
+                        <Entry Grid.Row="5" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyMC, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="6" Source="pnuevaalianza.png">
+                        </Image>
+                        <Entry Grid.Row="6" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyNA, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="7" Source="pmorena.png">
+                        </Image>
+                        <Entry Grid.Row="7" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyMOR, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Image Grid.Column="0" Grid.Row="8" Source="ppes.png">
+                        </Image>
+                        <Entry Grid.Row="8" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyES, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                        <Label Grid.Column="0" Grid.Row="9" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <Entry Grid.Row="9" Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyIND, Converter={StaticResource intToStringConverter}}">
+                            <Entry.Behaviors>
+                                <behaviors:EntryIntValidation />
+                            </Entry.Behaviors>
+                        </Entry>
+                    </Grid>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </controls:StepPage.Content>
+</controls:StepPage>

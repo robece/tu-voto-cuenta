@@ -1,0 +1,115 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Pages\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Legal\" />
+    <Folder Include="Pages\Legal\" />
+    <Folder Include="Controls\" />
+    <Folder Include="Domain\" />
+    <Folder Include="MasterDetail\" />
+    <Folder Include="Pages\MasterDetail\" />
+    <Folder Include="Pages\Welcome\" />
+    <Folder Include="ViewModels\Welcome\" />
+    <Folder Include="ViewModels\MasterDetail\" />
+    <Folder Include="Pages\Settings\" />
+    <Folder Include="ViewModels\Settings\" />
+    <Folder Include="Effects\" />
+    <Folder Include="Classes\" />
+    <Folder Include="ViewModels\Report\" />
+    <Folder Include="Pages\Report\" />
+    <Folder Include="Behaviors\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Helpers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="2.0.2" />
+    <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.7" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.3.6" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.3.6" />
+    <PackageReference Include="Xam.Plugin.DeviceInfo" Version="4.0.0.5" />
+    <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.1" />
+    <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.1.527436" />
+    <PackageReference Include="Xam.Plugin.Media" Version="3.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
+    <Compile Remove="Pages\Profile\PetsProfilePage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignUp\LegalConcernsPage.xaml.cs">
+      <DependentUpon>LegalConcernsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignUp\LoginPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Login\SignUpPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Login\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignIn\LoginPage.xaml.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignIn\SignInPage.xaml %28copy%29.cs">
+      <DependentUpon>SignInPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignOut\HomePage.xaml.cs">
+      <DependentUpon>SignOutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Home\HomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Home\welcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Home\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\WelcomePage\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Welcome\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Profile\WelcomePage.xaml.cs">
+      <DependentUpon>PortionsReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Profile\ProfilePage.xaml.cs">
+      <DependentUpon>ProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Product\WelcomePage.xaml.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\Product\ProductPage.xaml %28copy%29.cs">
+      <DependentUpon>ProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Pages\Report\Step1.xaml.cs">
+      <DependentUpon>Step1Page.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Pages\Profile\PetDetailPage.xaml" />
+    <EmbeddedResource Remove="Pages\Profile\PetsProfilePage.xaml" />
+    <EmbeddedResource Remove="Pages\Profile\PortionsReportPage.xaml" />
+    <EmbeddedResource Remove="Pages\Product\ProductPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevKit.Xamarin.ImageKit.Abstractions">
+      <HintPath>BinExternal\libs\DevKit.Xamarin.ImageKit\DevKit.Xamarin.ImageKit.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevKit.Xamarin.ImageKit">
+      <HintPath>BinExternal\libs\DevKit.Xamarin.ImageKit\DevKit.Xamarin.ImageKit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Pages\.DS_Store" />
+  </ItemGroup>
+</Project>

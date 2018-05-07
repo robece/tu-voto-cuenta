@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.WelcomePage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,40,40,40">
+                <Label Text="¿Cómo surge TuVotoCuenta?" Style="{DynamicResource PageTitle}" />
+                <Label Text="TuVotoCuenta surge como consecuencia de la inquietud de un colectivo de ciudadanos Mexicanos con el fin de llevar a la práctica sistemas de seguridad electrónica que nos permitan contar con un proceso electoral más transparente, y en consecuencia, seguro y confiable." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="Dicha inquietud surge debido a la gran apatía hacia el proceso electoral, ya que no se tiene confianza en la transparencia del mismo. TuVotoCuenta está pensado para devolver dicha confianza a la ciudadanía, de modo que se vaya generando una mayor participación en tan importante acto cívico." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="¿En qué consiste TuVotoCuenta?" Style="{DynamicResource PageTitle}" />
+                <Label Text="El objetivo principal es generar una plataforma pública de consulta basada en el sistema blockchain, que permita almacenar de manera segura una base de datos descentralizada alimentada por la misma ciudadanía mediante una app que permita recabar los datos de salida a colocarse de forma pública en cada casilla; mediante el registro fotográfico de las mantas o carteles en los cuales deberán manifestarse los resultados de cada casilla correspondiente." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="Conforme vaya recabándose la información de las casillas en tiempo real, se realizará un registro criptográfico de los datos y se ingresarán en un bloque de datos (blockchain), dando una mucho mayor garantía a la inmutabilidad e inviolabilidad de los mismos; con lo cual se contará con una referencia confiable de datos que permitirán a cualquier organización o individuo utilizarlos para hacer cualquier tipo de análisis con los mismos." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="¿Qué seguridad existe para garantizar que la recaudación de información no sea modificada?" Style="{DynamicResource PageTitle}" />
+                <Label Text="La app funcionará mediante geolocalización, para confirmar que la persona que haya tomado la foto de la manta o cartel, efectivamente se encuentre en la casilla que corresponda." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="El guardado de registros en una base de datos tipo “Blockchain” garantiza la inmutabilidad de la información; en el caso que cualquier dato fuera alterado, se contará con un indicador verificable que mostrará de manera clara que hubo una modificación al dato registrado originalmente." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="Asimismo, cuando una casilla aparezca en varios registros con votos diferentes se mantendrá fuera o se esperará a que aparezca con al menos tres ID diferentes (del dispositivo) que estén de acuerdo en los votos. Si esto no ocurre, la Foto de la casilla tendrá que ser inspeccionada ocularmente por voluntarios independientes a los notarios y se relegará al conteo lento." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="¿Qué datos se recaban?" Style="{DynamicResource PageTitle}" />
+                <Label Text="La plataforma de TuVotoCuenta hace uso de los siguientes datos de acceso público:" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Número o identidad de la casilla de votación" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Sección de la casilla (o estado)" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Marca temporal de la Localización (Latitud y Longitud, via GPS del teléfono del verificador)" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Estado, Municipio, Ciudad, Población (Colonia/Pueblo/Barrio)" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Señas particulares" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Votos por partido/candidato" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- Marca de tiempo de la foto" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="- ID del dispositivo móvil “hasheado” (es un cifrado de datos irreversible que nos permite identificar cada dispositivo registrado mediante su registro cifrado; pero no nos permite descifrar el registro para ver el identificador original del teléfono.)" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="" Margin="0,0,0,30" Style="{DynamicResource PageDarkSmall}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

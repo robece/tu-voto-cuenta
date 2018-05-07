@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:controls="clr-namespace:TuVotoCuenta.Controls"
+    xmlns:pages="clr-namespace:TuVotoCuenta.Pages"
+    x:Class="TuVotoCuenta.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PrimaryDark">#303030</Color>
+            <Color x:Key="DarkPlaceHolder">#303030</Color>
+            <Color x:Key="LightPlaceHolder">#afafaf</Color>
+            <!-- Application resource dictionary -->
+            <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style TargetType="Label" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="#303030" />
+            </Style>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+             <Style x:Key="PageTitleNormal" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Medium" />
+            </Style>
+            <Style x:Key="PageDarkSmall" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="PageLightSmall" TargetType="Label">
+                <Setter Property="TextColor" Value="#afafaf" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style TargetType="pages:CustomNavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#3f3f44" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#3f3f44" />
+                <Setter Property="BarTextColor" Value="White" />
+            </Style>
+            <Style x:Key="ExplicitButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4fc2d1" />
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style x:Key="ImplicitButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="TextColor" Value="#4fc2d1" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderColor" Value="Transparent" />
+            </Style>
+            <Style TargetType="controls:ImageEntry" ApplyToDerivedTypes="True">
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="MasterDetailHeaderUserDetailCell" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="MasterDetailHeaderFullMenu" TargetType="StackLayout">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="MasterDetailMenuCell" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="MasterDetailMenuLabelCell" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="MasterDetailHeaderCell" TargetType="ContentView">
+                <Setter Property="BackgroundColor" Value="White" />
+            </Style>
+            <Style x:Key="MasterDetailHeaderLabelCell" TargetType="Label">
+                <Setter Property="TextColor" Value="#afafaf" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="MasterDetailHeaderFullnameCell" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="MasterDetailHeaderEmailCell" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="StepBarTitle" TargetType="Label">
+                <Setter Property="TextColor" Value="#303030" />
+                <Setter Property="FontSize" Value="Small" />
+            </Style>
+            <Style x:Key="ProgressBarStepSelectorDark" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="#fcbc0b" />
+            </Style>
+            <Style x:Key="ProgressBarStepSelectorLight" TargetType="Label">
+                <Setter Property="BackgroundColor" Value="#ffe7a8" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

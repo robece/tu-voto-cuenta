@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" x:Class="TuVotoCuenta.Pages.Step1Page">
+    <controls:StepPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightPlaceHolder}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDark}" />
+                <Setter Property="Image" Value="svgdarkarrow.svg" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style BasedOn="{StaticResource arrowEntry}" TargetType="controls:ImageEntry" x:Key="numericArrowEntry">
+                <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="Grid.Column" Value="1" />
+            </Style>
+        </ResourceDictionary>
+    </controls:StepPage.Resources>
+    <controls:StepPage.ToolbarItems>
+        <ToolbarItem Text="Siguiente" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
+    </controls:StepPage.ToolbarItems>
+    <controls:StepPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,30,40,30">
+                <controls:StepProgressBar1 />
+                <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />               
+                <Label Text="Casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                <StackLayout Spacing="10">
+                    <controls:ImageEntry Text="{Binding BoxNumber}" Placeholder="No. de casilla" Style="{StaticResource arrowEntry}">
+                    </controls:ImageEntry>
+                    <controls:ImageEntry Text="{Binding BoxSection}" Placeholder="Sección de casilla" Style="{StaticResource arrowEntry}">
+                    </controls:ImageEntry>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </controls:StepPage.Content>
+</controls:StepPage>
