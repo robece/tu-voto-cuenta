@@ -21,7 +21,7 @@ namespace TuVotoCuenta.Domain
             {
                 Title = "Registro",
                 IconSource = "svgdarkadd.svg",
-                TargetType = typeof(AddReportStep1Page)
+                TargetType = typeof(Step1Page)
             });
 
             g1.Add(new MasterPageItem

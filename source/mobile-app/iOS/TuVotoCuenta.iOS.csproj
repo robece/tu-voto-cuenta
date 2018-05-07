@@ -281,6 +281,7 @@
     <Compile Include="Effects\PanelShadowEffect.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Renderers\CustomMapRenderer.cs" />
+    <Compile Include="Renderers\CustomPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">
