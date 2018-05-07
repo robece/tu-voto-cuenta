@@ -21,14 +21,14 @@ class Estados_republica extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('snippets/header');
-		$this->load->view('blog');
+		$this->load->view('estados-republica/main');
 		$this->load->view('snippets/footer');
 	}
 
 	public function estado()
 	{
 		$this->load->view('snippets/header');
-		$this->load->view('blog-post');
+		$this->load->view('estados-republica/detail');
 		$this->load->view('snippets/footer');
 	}
 }

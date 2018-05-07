@@ -9,7 +9,7 @@
 			<div class="col-sm-6">
 
 				<a href="#">
-					<img src="<?php echo base_url('frontend-assets/assets/images/logo@2x.png'); ?>" width="100" />
+					<img src="<?php echo base_url('frontend-assets/assets/images/Artboard 8.png'); ?>" width="100" />
 				</a>
 
 				<p>

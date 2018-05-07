@@ -43,8 +43,8 @@
 
 				<section class="site-logo">
 
-					<a href="index.html">
-						<img src="<?php echo base_url('frontend-assets/assets/images/logo@2x.png'); ?>" width="120" />
+					<a href="/">
+						<img src="<?php echo base_url('frontend-assets/assets/images/Artboard 8.png'); ?>" width="120" />
 					</a>
 
 				</section>

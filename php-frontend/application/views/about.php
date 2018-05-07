@@ -98,7 +98,7 @@
 			<div class="col-sm-5">
 
 				<a href="#">
-					<img src="<?php echo base_url('frontend-assets/assets/images/about-img-1.png'); ?>" class="img-rounded" />
+					<img src="<?php echo base_url('frontend-assets/assets/images/Artboard 8.png'); ?>" class="img-rounded" style="max-width:359px; max-height:252px"/>
 				</a>
 
 			</div>

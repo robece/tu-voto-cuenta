@@ -63,10 +63,10 @@
 		<div class="col-md-12">
 
 			<div class="callout-action">
-				<h2>DONACIÓNES</h2>
+				<h2>APÓYANOS</h2>
 
 				<div class="callout-button">
-					<a href="#" class="btn btn-secondary">Donar aquí</a>
+					<a href="#" class="btn btn-secondary">¡Quiero apoyar!</a>
 				</div>
 			</div>
 
@@ -85,6 +85,19 @@
 				<div class="carousel-inner">
 
 					<div class="item active">
+
+						<blockquote>
+							<p>
+									¿Por qué BlockChain?
+							</p>
+							<small>
+								<cite>Dummy</cite> - Test
+							</small>
+						</blockquote>
+
+					</div>
+
+					<div class="item">
 
 						<blockquote>
 							<p>
