@@ -6,13 +6,13 @@
         </ResourceDictionary>
     </controls:StepPage.Resources>
     <controls:StepPage.ToolbarItems>
-        <ToolbarItem Text="Siguiente" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
+        <ToolbarItem Text="Finalizar" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
     </controls:StepPage.ToolbarItems>
     <controls:StepPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
                 <controls:StepProgressBar4 />
-                  <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />   
+                <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />
                 <Label Text="Imagen" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <Frame Margin="0,5,0,0" WidthRequest="154" HeightRequest="154" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Black" OutlineColor="Black" Padding="2">
@@ -21,8 +21,10 @@
                     <Label Margin="5" Style="{DynamicResource PageDarkSmall}" Text="Importante: Centra la imagen para que sea clara y legible." HorizontalTextAlignment="Center" />
                     <StackLayout Margin="40,0,40,0" VerticalOptions="Center" Orientation="Horizontal">
                         <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding TakePhotoCommand}" Text="Cámara" />
-                        <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding ChoosePhotoCommand}" Text="Galería" />
+                        <!-- <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding ChoosePhotoCommand}" Text="Galería" />-->
                     </StackLayout>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,40">
                 </StackLayout>
             </StackLayout>
         </ScrollView>

@@ -16,20 +16,14 @@ namespace TuVotoCuenta.ViewModels
 
         void InitializeViewModel()
         {
-            Title = "Votos";
-
-			SaveChangesCommand = new Command(async () => await Save());
+            Title = "Candidatos";
+            
             NextCommand = new Command(async () => await Next());
         }
 
         #region Commands
-
-		public Command SaveChangesCommand { get; set; }
+        
         public Command NextCommand { get; set; }
-
-        async Task Save()
-        {
-        }
 
         async Task Next()
         {
@@ -103,11 +97,25 @@ namespace TuVotoCuenta.ViewModels
             set { SetProperty(ref partyES, value); }
         }
 
-        int partyIND = -1;
-        public int PartyIND
+        int partyINDMar = -1;
+        public int PartyINDMar
         {
-            get { return partyIND; }
-            set { SetProperty(ref partyIND, value); }
+            get { return partyINDMar; }
+            set { SetProperty(ref partyINDMar, value); }
+        }
+
+		int partyINDJai = -1;
+        public int PartyINDJai
+        {
+            get { return partyINDJai; }
+            set { SetProperty(ref partyINDJai, value); }
+        }
+
+		int partyOtro = -1;
+        public int PartyOtro
+        {
+			get { return partyOtro; }
+            set { SetProperty(ref partyOtro, value); }
         }
 
         #endregion

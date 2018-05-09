@@ -21,8 +21,7 @@
     <controls:StepPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-                <controls:StepProgressBar1 />
-                <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />               
+                <controls:StepProgressBar1 />    
                 <Label Text="Casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <controls:ImageEntry Text="{Binding BoxNumber}" Placeholder="No. de casilla" Style="{StaticResource arrowEntry}">
@@ -30,6 +29,7 @@
                     <controls:ImageEntry Text="{Binding BoxSection}" Placeholder="Sección de casilla" Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
                 </StackLayout>
+                <StackLayout Margin="0,0,0,40"></StackLayout>
             </StackLayout>
         </ScrollView>
     </controls:StepPage.Content>

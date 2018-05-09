@@ -37,6 +37,7 @@
     <PackageReference Include="Xam.Plugin.Geolocator" Version="4.5.0.1" />
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.1.527436" />
     <PackageReference Include="Xam.Plugin.Media" Version="3.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
