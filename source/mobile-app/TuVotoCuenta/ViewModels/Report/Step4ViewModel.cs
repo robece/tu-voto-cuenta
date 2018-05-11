@@ -20,8 +20,7 @@ namespace TuVotoCuenta.ViewModels
 
 			TakePhotoCommand = new Command(async () => await TakePhoto());
 			ChoosePhotoCommand = new Command(async () => await ChoosePhoto());
-
-			SaveChangesCommand = new Command(async () => await Save());
+            
             NextCommand = new Command(async () => await Next());
 		}
 
@@ -39,13 +38,8 @@ namespace TuVotoCuenta.ViewModels
         {
             Photo = await Helpers.MediaHelper.TakePhotoAsync();
         }
-
-		public Command SaveChangesCommand { get; set; }
+        
         public Command NextCommand { get; set; }
-
-        async Task Save()
-        {
-        }
 
         async Task Next()
         {
@@ -61,13 +55,6 @@ namespace TuVotoCuenta.ViewModels
         {
             get { return photo; }
             set { SetProperty(ref photo, value); }
-        }
-
-		string photoTimestamp;
-        public string PhotoTimestamp
-        {
-            get { return photoTimestamp; }
-            set { SetProperty(ref photoTimestamp, value); }
         }
 
         #endregion

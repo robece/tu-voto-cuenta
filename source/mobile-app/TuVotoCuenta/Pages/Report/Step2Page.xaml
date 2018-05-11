@@ -21,8 +21,7 @@
     <controls:StepPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-                <controls:StepProgressBar2 />
-                  <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />          
+                <controls:StepProgressBar2 />    
                 <Label Text="Ubicación" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <classes:CustomMap x:Name="customMap" IsVisible="false" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
@@ -37,6 +36,7 @@
                     <controls:ImageEntry Text="{Binding Town}" Placeholder="Población (Colonia/Pueblo/Barrio)" Style="{StaticResource arrowEntry}">
                     </controls:ImageEntry>
                 </StackLayout>
+                <StackLayout Margin="0,0,0,40"></StackLayout>
             </StackLayout>
         </ScrollView>
     </controls:StepPage.Content>

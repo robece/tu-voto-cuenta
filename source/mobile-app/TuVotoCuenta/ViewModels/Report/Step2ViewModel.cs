@@ -17,19 +17,13 @@ namespace TuVotoCuenta.ViewModels
         void InitializeViewModel()
         {
             Title = "Ubicación";
-
-			SaveChangesCommand = new Command(async () => await Save());
+            
 			NextCommand = new Command(async () => await Next());
         }
 
         #region Commands
-
-		public Command SaveChangesCommand { get; set; }
+        
 		public Command NextCommand { get; set; }
-
-		async Task Save()
-        {
-        }
 
         async Task Next()
         {

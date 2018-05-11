@@ -18,6 +18,7 @@ namespace TuVotoCuenta
         static readonly string SettingsDefault = string.Empty;
 
         const string IsLoggedInKey = "IsLoggedIn";
+		const string CurrentRecordItemKey = "CurrentRecordItem";
 
         #endregion
 
@@ -32,5 +33,17 @@ namespace TuVotoCuenta
                 AppSettings.AddOrUpdateValue(IsLoggedInKey, value);
             }
         }
+
+        public static string CurrentRecordItem
+		{
+			get
+            {
+				return AppSettings.GetValueOrDefault(CurrentRecordItemKey, string.Empty);
+            }
+            set
+            {
+				AppSettings.AddOrUpdateValue(CurrentRecordItemKey, value);
+            }
+		}
     }
 }
