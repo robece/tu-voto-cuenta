@@ -68,7 +68,7 @@
 						<div class="post-details">
 
 							<h3>
-								<a href="<?php echo site_url("estados_republica/estado/") ?>">Estado # <?php echo $i ?> (Contrato # <?php echo $i ?> Ethereal)</a>
+								<a href="<?php echo site_url("estados_republica/estado/") ?>"><?php echo str_replace('_', ' ', substr($file, 0, strrpos($file, '.'))); ?></a>
 							</h3>
 
 							<div class="post-meta">
@@ -90,7 +90,7 @@
 					</div>
 
 				<?php } ?>
-
+				<?php /* ?>
 					<!-- Blog Pagination -->
 					<div class="text-center">
 
@@ -116,7 +116,7 @@
 						</ul>
 
 					</div>
-
+				<?php */ ?>
 				</div>
 
 			</div>
