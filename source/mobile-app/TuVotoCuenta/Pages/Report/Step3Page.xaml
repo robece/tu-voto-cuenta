@@ -54,7 +54,7 @@
                         <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Vertical">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -66,7 +66,7 @@
                         <StackLayout Grid.Row="1" Grid.Column="1" Orientation="Vertical">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPRI, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPRI, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -78,7 +78,7 @@
                         <StackLayout Grid.Row="2" Grid.Column="1" Orientation="Vertical">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPRD, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPRD, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -90,7 +90,7 @@
                         <StackLayout Grid.Row="3" Grid.Column="1" Orientation="Vertical">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyVerde, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyVerde, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -102,7 +102,7 @@
                         <StackLayout Grid.Row="4" Grid.Column="1" Orientation="Vertical">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyPT, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPT, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -114,7 +114,7 @@
                         <StackLayout Grid.Row="5" Grid.Column="1" Orientation="Vertical">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyMC, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMC, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -126,7 +126,7 @@
                         <StackLayout Grid.Row="6" Grid.Column="1" Orientation="Vertical">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyNA, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyNA, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -138,7 +138,7 @@
                         <StackLayout Grid.Row="7" Grid.Column="1" Orientation="Vertical">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyMOR, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMOR, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -150,7 +150,7 @@
                         <StackLayout Grid.Row="8" Grid.Column="1" Orientation="Vertical">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyES, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyES, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -161,7 +161,7 @@
                         <StackLayout Grid.Row="9" Grid.Column="1" Orientation="Vertical">
                             <Label Text="MARGARITA E. ZAVALA" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyINDMar, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyINDMar, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -172,7 +172,7 @@
                         <StackLayout Grid.Row="10" Grid.Column="1" Orientation="Vertical">
                             <Label Text="JAIME H. RODRIGUEZ" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyINDJai, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyINDJai, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />
@@ -183,7 +183,7 @@
                         <StackLayout Grid.Row="11" Grid.Column="1" Orientation="Vertical">
                             <Label Text="OTROS" Style="{StaticResource PartyTitle}">
                             </Label>
-                            <Entry Style="{StaticResource numericArrowEntry}" BindingContext="{Binding PartyOtro, Converter={StaticResource intToStringConverter}}">
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyOtro, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>
                                     <behaviors:EntryIntValidation />
                                     <behaviors:StepEntryLostFocus />

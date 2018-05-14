@@ -6,19 +6,18 @@
         </ResourceDictionary>
     </controls:StepPage.Resources>
     <controls:StepPage.ToolbarItems>
-        <ToolbarItem Text="Finalizar" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
+        <ToolbarItem Text="Siguiente" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
     </controls:StepPage.ToolbarItems>
     <controls:StepPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-                <controls:StepProgressBar4 />
-                <Button Text="Guardar y procesar más tarde " Style="{DynamicResource ImplicitButton}" Command="{Binding SaveChangesCommand}" Margin="0,-20,0,20" />
+                <controls:StepProgressBar4 /> 
                 <Label Text="Imagen" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
                     <Frame Margin="0,5,0,0" WidthRequest="154" HeightRequest="154" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Black" OutlineColor="Black" Padding="2">
                         <Image WidthRequest="150" HeightRequest="150" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFill" Source="{Binding Photo,&#xA;Converter={StaticResource ByteArrayToImageConverter}}" />
                     </Frame>
-                    <Label Margin="5" Style="{DynamicResource PageDarkSmall}" Text="Importante: Centra la imagen para que sea clara y legible." HorizontalTextAlignment="Center" />
+                    <Label Margin="5" Style="{DynamicResource PageDarkSmall}" Text="Importante: Centra la imagen para que sea clara y legible, al usar la cámara se tomarán las coordenadas donde fue realizada la captura de la imagen como mecanismo de confianza." HorizontalTextAlignment="Center" />
                     <StackLayout Margin="40,0,40,0" VerticalOptions="Center" Orientation="Horizontal">
                         <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding TakePhotoCommand}" Text="Cámara" />
                         <!-- <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding ChoosePhotoCommand}" Text="Galería" />-->

@@ -1,6 +1,5 @@
 ﻿using TuVotoCuenta.Controls;
 using TuVotoCuenta.ViewModels;
-using Xamarin.Forms;
 
 namespace TuVotoCuenta.Pages
 {
@@ -10,6 +9,6 @@ namespace TuVotoCuenta.Pages
         {
             InitializeComponent();
 			BindingContext = new Step4ViewModel(this.Navigation);
-        }
+        }      
     }
 }

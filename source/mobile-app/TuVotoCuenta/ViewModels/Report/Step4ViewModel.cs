@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Plugin.Geolocator;
 using TuVotoCuenta.Pages;
 using Xamarin.Forms;
 
@@ -24,6 +26,43 @@ namespace TuVotoCuenta.ViewModels
             NextCommand = new Command(async () => await Next());
 		}
 
+		bool IsLocationAvailable()
+        {
+            if (!CrossGeolocator.IsSupported)
+                return false;
+
+            return CrossGeolocator.Current.IsGeolocationAvailable;
+        }
+
+        async Task StartLocationAsync()
+        {
+            var locator = CrossGeolocator.Current;
+            try
+            {
+                locator.DesiredAccuracy = 50;
+                var position = await locator.GetPositionAsync(TimeSpan.FromSeconds(2));
+                if (position != null)
+                {
+                    App.Latitude = position.Latitude;
+                    App.Longitude = position.Longitude;
+                }
+                else
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await Application.Current.MainPage.DisplayAlert("TuVotoCuenta", "Es necesario que actives la localización desde tu dispositivo móvil para poder usar la funcionalidad de mapas y geolocalización.", "Aceptar");
+                    });
+                }
+            }
+            catch
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    await Application.Current.MainPage.DisplayAlert("TuVotoCuenta", "Es necesario que actives la localización desde tu dispositivo móvil para poder usar la funcionalidad de mapas y geolocalización.", "Aceptar");
+                });
+            }
+        }
+
         #region Commands
 
 		public Command TakePhotoCommand { get; set; }
@@ -37,6 +76,13 @@ namespace TuVotoCuenta.ViewModels
         async Task TakePhoto()
         {
             Photo = await Helpers.MediaHelper.TakePhotoAsync();
+
+			await Task.Run(async () => {
+                if (IsLocationAvailable())
+                {
+                    await StartLocationAsync();
+                }
+            });
         }
         
         public Command NextCommand { get; set; }

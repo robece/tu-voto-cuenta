@@ -6,22 +6,27 @@ namespace TuVotoCuenta.Controls
 {
     public class StepProgressBar1 : StepProgressBarBase
     {
-        public StepProgressBar1() : base(4, 1) { }
+        public StepProgressBar1() : base(5, 1) { }
     }
 
     public class StepProgressBar2 : StepProgressBarBase
     {
-        public StepProgressBar2() : base(4, 2) { }
+        public StepProgressBar2() : base(5, 2) { }
     }
 
     public class StepProgressBar3 : StepProgressBarBase
     {
-        public StepProgressBar3() : base(4, 3) { }
+        public StepProgressBar3() : base(5, 3) { }
     }
 
     public class StepProgressBar4 : StepProgressBarBase
     {
-        public StepProgressBar4() : base(4, 4) { }
+        public StepProgressBar4() : base(5, 4) { }
+    }
+
+	public class StepProgressBar5 : StepProgressBarBase
+    {
+        public StepProgressBar5() : base(5, 4) { }
     }
 
     public class StepProgressBarBase : ContentView
