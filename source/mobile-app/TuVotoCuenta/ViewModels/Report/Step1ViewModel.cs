@@ -11,12 +11,12 @@ using Xamarin.Forms;
 namespace TuVotoCuenta.ViewModels
 {
     public class Step1ViewModel : BaseViewModel
-    {
-        INavigation navigation = null;
-        
-		public Step1ViewModel(INavigation navigation)
-        {
-            this.navigation = navigation;
+    {        
+		INavigation navigation = null;
+
+        public Step1ViewModel(INavigation navigation)
+		{
+			this.navigation = navigation;
 			InitializeViewModel();         
         }
         
@@ -62,6 +62,16 @@ namespace TuVotoCuenta.ViewModels
 			return true;
 		}
 
+        public void Save()
+		{
+			RecordItem item = (!String.IsNullOrEmpty(Settings.CurrentRecordItem)) ? JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem) : new RecordItem();
+
+            item.BoxNumber = BoxNumber;
+            item.BoxSection = BoxSection;
+
+            Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
+		}
+
         #region Commands
         
 		public Command NextCommand { get; set; }
@@ -72,11 +82,7 @@ namespace TuVotoCuenta.ViewModels
 				await Application.Current.MainPage.DisplayAlert("Error", "Ingresa la información correcta.", "Aceptar");
             else if (!IsBusy)
             {
-				RecordItem item = new RecordItem();
-				item.BoxNumber = BoxNumber;
-				item.BoxSection = BoxSection;
-				Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
-				await navigation.PushAsync(new Step2Page());
+				await navigation.PushAsync(new Step2Page());            
             }
         }
 
@@ -102,14 +108,14 @@ namespace TuVotoCuenta.ViewModels
         public string BoxNumber
         {
             get { return boxNumber; }
-            set { SetProperty(ref boxNumber, value); }
+			set { SetProperty(ref boxNumber, value); }
         }
 
         string boxSection;
         public string BoxSection
         {
             get { return boxSection; }
-            set { SetProperty(ref boxSection, value); }
+			set { SetProperty(ref boxSection, value); }
         }
 
         #endregion

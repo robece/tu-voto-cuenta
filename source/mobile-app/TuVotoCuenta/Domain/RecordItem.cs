@@ -10,10 +10,9 @@ namespace TuVotoCuenta.Domain
 		public double Latitude { get; set; }
 		public double Longitude { get; set; }
 		public string LocationDetails { get; set; }
-		public string State { get; set; }
-		public string City { get; set; }
+		public string Entity { get; set; }
 		public string Municipality { get; set; }
-		public string Town { get; set; }
+		public string Locality { get; set; }
 		public int PartyPAN { get; set; }
 		public int PartyPRI { get; set; }
 		public int PartyPRD { get; set; }

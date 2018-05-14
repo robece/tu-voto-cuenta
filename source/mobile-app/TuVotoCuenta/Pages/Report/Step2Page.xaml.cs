@@ -10,11 +10,17 @@ using Xamarin.Forms.Maps;
 namespace TuVotoCuenta.Pages
 {
 	public partial class Step2Page : StepPage
-    {
+    {      
         public Step2Page()
         {
             InitializeComponent();
 			BindingContext = new Step2ViewModel(this.Navigation);
+        }
+
+		public override void UnfocusSave()
+        {
+            base.UnfocusSave();
+            ((Step2ViewModel)BindingContext).Save();
         }
 
 		protected override void OnAppearing()
@@ -29,7 +35,7 @@ namespace TuVotoCuenta.Pages
             });
         }
 
-        bool IsLocationAvailable()
+		bool IsLocationAvailable()
         {
             if (!CrossGeolocator.IsSupported)
                 return false;
@@ -54,7 +60,7 @@ namespace TuVotoCuenta.Pages
                         Device.BeginInvokeOnMainThread(() =>
                         {
                             InitDrawing();
-                            customMap.IsVisible = true;
+                            MapStackLayout.IsVisible = true;
                         });
                     }
                 }

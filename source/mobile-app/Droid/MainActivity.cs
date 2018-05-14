@@ -1,21 +1,17 @@
-﻿using System;
-
-using Android.App;
-using Android.Content;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.OS;
 using ImageCircle.Forms.Plugin.Droid;
 using FFImageLoading.Forms.Droid;
 using FFImageLoading.Svg.Forms;
-using Plugin.CurrentActivity;
+using TuVotoCuenta.Controls;
+using System.Linq;
 
 namespace TuVotoCuenta.Droid
 {
     [Activity(Label = "TuVotoCuenta.Droid", Icon = "@drawable/icon", Theme = "@style/MyTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-    public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
+	public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
         {
@@ -38,12 +34,12 @@ namespace TuVotoCuenta.Droid
             CachedImageRenderer.Init(true);
             var ignore = typeof(SvgCachedImage);
                      
-            LoadApplication(new App());
+            LoadApplication(new App());         
         }
 
-        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
+		public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Android.Content.PM.Permission[] grantResults)
         {
             Plugin.Permissions.PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
-        }
+        }      
     }
 }

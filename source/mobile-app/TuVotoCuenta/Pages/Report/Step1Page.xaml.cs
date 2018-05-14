@@ -10,5 +10,11 @@ namespace TuVotoCuenta.Pages
             InitializeComponent();
 			BindingContext = new Step1ViewModel(this.Navigation);
         }
-    }
+
+		public override void UnfocusSave()
+		{
+			base.UnfocusSave();
+			((Step1ViewModel)BindingContext).Save();
+		}
+	}
 }

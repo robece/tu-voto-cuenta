@@ -18,7 +18,7 @@ namespace TuVotoCuenta
             MainPage = new MasterPage();
 
 			//init catalogs
-            Catalogs.InitVotingValues();
+            Catalogs.InitEntities();
         }
 
         protected override void OnStart()

@@ -1,4 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using TuVotoCuenta.Domain;
 using TuVotoCuenta.Pages;
 using Xamarin.Forms;
 
@@ -18,16 +21,63 @@ namespace TuVotoCuenta.ViewModels
         {
             Title = "Candidatos";
             
+			if (!String.IsNullOrEmpty(Settings.CurrentRecordItem))
+            {
+                RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
+				PartyPAN = item.PartyPAN;
+				PartyPRI = item.PartyPRI;
+				PartyPRD = item.PartyPRD;
+				PartyVerde = item.PartyVerde;
+				PartyPT = item.PartyPT;
+				PartyMC = item.PartyMC;
+				PartyNA = item.PartyNA;
+				PartyMOR = item.PartyMOR;
+				PartyES = item.PartyES;
+				partyINDMar = item.PartyINDMar;
+				PartyINDJai = item.PartyINDJai;
+				PartyOtro = item.PartyOtro;
+            }
+
             NextCommand = new Command(async () => await Next());
+        }
+
+		bool ValidateInformation()
+        {
+            return true;
+        }
+
+		public void Save()
+        {
+            RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
+
+			item.PartyPAN = PartyPAN;
+			item.PartyPRI = PartyPRI;
+			item.PartyPRD= PartyPRD;
+			item.PartyVerde = PartyVerde;
+			item.PartyPT = PartyPT;
+			item.PartyMC = PartyMC;
+			item.PartyNA = PartyNA;
+			item.PartyMOR = PartyMOR;
+			item.PartyES = PartyES;
+			item.PartyINDMar = partyINDMar;
+			item.PartyINDJai = PartyINDJai;
+			item.PartyOtro = PartyOtro;
+
+            Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
         }
 
         #region Commands
         
         public Command NextCommand { get; set; }
 
-        async Task Next()
+		async Task Next()
         {
-            await navigation.PushAsync(new Step4Page());
+            if (!ValidateInformation())
+                await Application.Current.MainPage.DisplayAlert("Error", "Ingresa la información correcta.", "Aceptar");
+            else if (!IsBusy)
+            {
+                await navigation.PushAsync(new Step4Page());
+            }
         }
 
         #endregion

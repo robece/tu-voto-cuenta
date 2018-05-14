@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:local="clr-namespace:TuVotoCuenta" xmlns:classes="clr-namespace:TuVotoCuenta.Classes" x:Class="TuVotoCuenta.Pages.Step2Page">
+<controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:local="clr-namespace:TuVotoCuenta" xmlns:classes="clr-namespace:TuVotoCuenta.Classes" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.Step2Page">
     <controls:StepPage.Resources>
         <ResourceDictionary>
             <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
@@ -21,22 +21,38 @@
     <controls:StepPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-                <controls:StepProgressBar2 />    
+                <controls:StepProgressBar2 />
                 <Label Text="Ubicación" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <classes:CustomMap x:Name="customMap" IsVisible="false" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
+                    <Picker Title="Entidad Federativa" TextColor="Gray" ItemsSource="{Binding Entities}" SelectedIndex="{Binding EntitySelectedIndex}">
+                        <Entry.Behaviors>
+                            <behaviors:StepPickerLostFocus />
+                        </Entry.Behaviors>
+                    </Picker>
+                    <Picker Title="Municipio" TextColor="Gray" ItemsSource="{Binding Municipalities}" SelectedIndex="{Binding MunicipalitySelectedIndex}">
+                        <Entry.Behaviors>
+                            <behaviors:StepPickerLostFocus />
+                        </Entry.Behaviors>
+                    </Picker>
+                    <Picker Title="Localidad" TextColor="Gray" ItemsSource="{Binding Localities}" SelectedIndex="{Binding LocalitySelectedIndex}">
+                        <Entry.Behaviors>
+                            <behaviors:StepPickerLostFocus />
+                        </Entry.Behaviors>
+                    </Picker>
                     <controls:ImageEntry Text="{Binding LocationDetails}" Placeholder="Detalles de la ubicación" Style="{StaticResource arrowEntry}">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry Text="{Binding State}" Placeholder="Estado" Style="{StaticResource arrowEntry}">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry Text="{Binding City}" Placeholder="Ciudad" Style="{StaticResource arrowEntry}">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry Text="{Binding Municipality}" Placeholder="Municipio" Style="{StaticResource arrowEntry}">
-                    </controls:ImageEntry>
-                    <controls:ImageEntry Text="{Binding Town}" Placeholder="Población (Colonia/Pueblo/Barrio)" Style="{StaticResource arrowEntry}">
+                        <Entry.Behaviors>
+                            <behaviors:StepImageEntryLostFocus />
+                        </Entry.Behaviors>
                     </controls:ImageEntry>
                 </StackLayout>
-                <StackLayout Margin="0,0,0,40"></StackLayout>
+                <StackLayout x:Name="MapStackLayout" IsVisible="false">
+                    <Label Text="Mapa" Margin="0,10,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    <StackLayout Spacing="10">
+                        <classes:CustomMap x:Name="customMap" MapType="Street" WidthRequest="{x:Static local:App.ScreenWidth}" HeightRequest="200" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout Margin="0,0,0,40">
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </controls:StepPage.Content>
