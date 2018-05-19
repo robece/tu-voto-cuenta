@@ -24,6 +24,7 @@ namespace TuVotoCuenta.iOS
             LoadApplication(new App());
 
             ImageCircleRenderer.Init();
+            SvgCachedImage.Init();
 
             CachedImageRenderer.Init();
             var ignore = typeof(SvgCachedImage);

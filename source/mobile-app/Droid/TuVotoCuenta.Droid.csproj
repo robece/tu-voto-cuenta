@@ -598,6 +598,7 @@
     <AndroidResource Include="Resources\drawable\ppt.png" />
     <AndroidResource Include="Resources\drawable\pverde.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
+    <AndroidResource Include="Resources\drawable\filter.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">

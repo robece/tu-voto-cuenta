@@ -26,6 +26,13 @@
     <Folder Include="Behaviors\" />
     <Folder Include="Converters\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Pages\Search\" />
+    <Folder Include="ViewModels\Search\" />
+    <Folder Include="Services\" />
+    <Folder Include="Interfaces\Services\" />
+    <Folder Include="Services\MockServices\" />
+    <Folder Include="Files\" />
+    <Folder Include="Services\RestApi\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
@@ -101,6 +108,7 @@
     <EmbeddedResource Remove="Pages\Profile\PetsProfilePage.xaml" />
     <EmbeddedResource Remove="Pages\Profile\PortionsReportPage.xaml" />
     <EmbeddedResource Remove="Pages\Product\ProductPage.xaml" />
+    <EmbeddedResource Remove="Controls\CustomPicker.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevKit.Xamarin.ImageKit.Abstractions">
@@ -112,5 +120,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Pages\.DS_Store" />
+    <None Remove="Files\data.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Files\data.json" />
   </ItemGroup>
 </Project>

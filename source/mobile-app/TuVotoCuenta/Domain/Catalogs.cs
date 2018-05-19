@@ -99,7 +99,7 @@ namespace TuVotoCuenta.Domain
 			localities.Clear();
 			//TODO: Implement logic to retrieve real data.
 
-			if (municipalityKey == "CDMX001")
+            if (municipalityKey.StartsWith("CDMX", StringComparison.InvariantCultureIgnoreCase))
 			{
 				localities.Add("CDMX001", "LOCALIDAD CDMX 001");
 				localities.Add("CDMX002", "LOCALIDAD CDMX 002");

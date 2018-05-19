@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.SearchStep2Page" xmlns:vm="clr-namespace:TuVotoCuenta.ViewModels.Search" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvt:SearchResultToColorConverter x:Key="searchResultToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Margin="0,30,0,0">
+            <Label Text="Resultados" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+            <Label Text="{Binding SelectedEntityText,StringFormat='Entidad: {0}'}" HorizontalTextAlignment="Center" />
+            <Label Text="{Binding SelectedMunicipalityText,StringFormat='Municipio: {0}'}" HorizontalTextAlignment="Center" />
+            <Label Text="{Binding SelectedLocalityText,StringFormat='Localidad: {0}'}" HorizontalTextAlignment="Center" />
+            <BoxView Margin="40,0" HeightRequest="20" BackgroundColor="{StaticResource DarkSelector}" />
+            <ListView ItemsSource="{Binding SearchResults}" RowHeight="130" Footer="">
+                <ListView.Header>
+                    <Grid BackgroundColor="LightYellow">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="1" />
+                            <ColumnDefinition Width="80" />
+                        </Grid.ColumnDefinitions>
+                        <Label FontSize="Small" VerticalOptions="Center" Margin="40,0" Text="{Binding SearchResults.Count,StringFormat='{0} casillas encontradas'}" />
+                        <BoxView BackgroundColor="Black" Grid.Column="1" />
+                        <ffSvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Grid.Column="2" Source="filter.svg">
+                            <ffSvg:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Handle_Tapped" />
+                            </ffSvg:SvgCachedImage.GestureRecognizers>
+                        </ffSvg:SvgCachedImage>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10" />
+                                    <ColumnDefinition Width="150" />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <BoxView Grid.RowSpan="2" Grid.Column="0" BackgroundColor="{Binding Converter={StaticResource searchResultToColorConverter}}" />
+                                <ffImageLoading:CachedImage Grid.RowSpan="2" Source="{Binding PhotoUrl}" LoadingPlaceholder="{Binding DefaultPhotoUrl}" ErrorPlaceholder="{Binding DefaultPhotoUrl}" CacheDuration="2" DownsampleToViewSize="true" DownsampleUseDipUnits="true" Grid.Column="1" WidthRequest="100" HeightRequest="110"
+                                    VerticalOptions="Center" HorizontalOptions="Center" Aspect="AspectFill" />
+                                <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2" Text="{Binding Section,StringFormat='Casilla {0}'}}" FontSize="Large" VerticalOptions="Center" />
+                                <Label Grid.Column="2" Grid.Row="1" TextColor="Green" Text="{Binding UpVotes,StringFormat='+ {0}'}" FontSize="Large" VerticalOptions="Center" />
+                                <Label Grid.Column="3" Grid.Row="1" TextColor="Red" Text="{Binding DownVotes,StringFormat='- {0}'}" FontSize="Large" VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

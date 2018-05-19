@@ -1,13 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:controls="clr-namespace:TuVotoCuenta.Controls"
     xmlns:pages="clr-namespace:TuVotoCuenta.Pages"
-    x:Class="TuVotoCuenta.App">
+    x:Class="TuVotoCuenta.App" >
     <Application.Resources>
         <ResourceDictionary>
+            <x:Boolean x:Key="UseMock">true</x:Boolean>
             <Color x:Key="PrimaryDark">#303030</Color>
             <Color x:Key="DarkPlaceHolder">#303030</Color>
             <Color x:Key="LightPlaceHolder">#afafaf</Color>
+            <Color x:Key="DarkSelector">#fcbc0b</Color>
             <!-- Application resource dictionary -->
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
@@ -92,7 +94,7 @@
                 <Setter Property="BackgroundColor" Value="#fcbc0b" />
             </Style>
             <Style x:Key="ProgressBarStepSelectorLight" TargetType="Label">
-                <Setter Property="BackgroundColor" Value="#ffe7a8" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkSelector}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

@@ -312,6 +312,7 @@
     <BundleResource Include="Resources\ppri.png" />
     <BundleResource Include="Resources\ppt.png" />
     <BundleResource Include="Resources\pverde.png" />
+    <BundleResource Include="Resources\filter.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets')" />

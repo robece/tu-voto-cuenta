@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TuVotoCuenta.MasterDetail;
 using TuVotoCuenta.Pages;
+using TuVotoCuenta.Pages.Search;
 
 namespace TuVotoCuenta.Domain
 {
@@ -28,7 +29,7 @@ namespace TuVotoCuenta.Domain
             {
                 Title = "Consulta",
                 IconSource = "svgdarkview.svg",
-                TargetType = typeof(SettingsPage)
+                TargetType = typeof(SearchStep1Page)
             });
 
             g1.Add(new MasterPageItem
