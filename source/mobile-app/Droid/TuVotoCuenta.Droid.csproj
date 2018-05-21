@@ -564,6 +564,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Renderers\CustomMapRenderer.cs" />
     <Compile Include="MainApplication.cs" />
+    <Compile Include="Effects\DisabledSelectionEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -599,6 +600,15 @@
     <AndroidResource Include="Resources\drawable\pverde.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
     <AndroidResource Include="Resources\drawable\filter.svg" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\UpVoteIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\UpVoteIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\UpVoteIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\DownVoteIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\DownVoteIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\DownVoteIcon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\SortIcon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\SortIcon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\SortIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">
@@ -611,6 +621,7 @@
     <Folder Include="Dependencies\" />
     <Folder Include="Resources\drawable\" />
     <Folder Include="Resources\xml\" />
+    <Folder Include="Effects\" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\LegalConcerns.txt" />

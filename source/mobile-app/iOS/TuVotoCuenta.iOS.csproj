@@ -285,6 +285,7 @@
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Renderers\CustomMapRenderer.cs" />
     <Compile Include="Renderers\CustomPageRenderer.cs" />
+    <Compile Include="Effects\DisabledSelectionEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">
@@ -313,6 +314,15 @@
     <BundleResource Include="Resources\ppt.png" />
     <BundleResource Include="Resources\pverde.png" />
     <BundleResource Include="Resources\filter.svg" />
+    <BundleResource Include="Resources\UpVoteIcon%401x.png" />
+    <BundleResource Include="Resources\UpVoteIcon%402x.png" />
+    <BundleResource Include="Resources\UpVoteIcon%403x.png" />
+    <BundleResource Include="Resources\DownVoteIcon%401x.png" />
+    <BundleResource Include="Resources\DownVoteIcon%402x.png" />
+    <BundleResource Include="Resources\DownVoteIcon%403x.png" />
+    <BundleResource Include="Resources\SortIcon%401x.png" />
+    <BundleResource Include="Resources\SortIcon%402x.png" />
+    <BundleResource Include="Resources\SortIcon%403x.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets')" />

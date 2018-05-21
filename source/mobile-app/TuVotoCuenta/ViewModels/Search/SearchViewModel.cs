@@ -174,6 +174,34 @@ namespace TuVotoCuenta.ViewModels.Search
             set => SetProperty(ref searchResults, value);
         }
 
+
+        private SearchResult selectedResult;
+
+        public SearchResult SelectedResult
+        {
+            get => selectedResult;
+            set 
+            {
+                SetProperty(ref selectedResult, value);
+                if(selectedResult!=null)
+                {
+                    ResultDetailPage resultDetailPage = new ResultDetailPage();
+                    navigation.PushAsync(resultDetailPage);
+                    resultDetailPage.BindingContext = this;
+                    DetailResult = selectedResult;
+                    SelectedResult = null;
+                }
+            }
+        }
+
+        private SearchResult detailResult;
+
+        public SearchResult DetailResult
+        {
+            get => detailResult;
+            set => SetProperty(ref detailResult, value);
+        }
+
         public Command NextCommand
         {
             get;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.SearchStep2Page" xmlns:vm="clr-namespace:TuVotoCuenta.ViewModels.Search" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.SearchStep2Page" xmlns:vm="clr-namespace:TuVotoCuenta.ViewModels.Search" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:ffImageLoading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:ffSvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:effects="clr-namespace:TuVotoCuenta;assembly=TuVotoCuenta">
     <ContentPage.Resources>
         <ResourceDictionary>
             <cvt:SearchResultToColorConverter x:Key="searchResultToColorConverter" />
@@ -12,7 +12,10 @@
             <Label Text="{Binding SelectedMunicipalityText,StringFormat='Municipio: {0}'}" HorizontalTextAlignment="Center" />
             <Label Text="{Binding SelectedLocalityText,StringFormat='Localidad: {0}'}" HorizontalTextAlignment="Center" />
             <BoxView Margin="40,0" HeightRequest="20" BackgroundColor="{StaticResource DarkSelector}" />
-            <ListView ItemsSource="{Binding SearchResults}" RowHeight="130" Footer="">
+            <ListView ItemsSource="{Binding SearchResults}" SelectedItem="{Binding SelectedResult, Mode=TwoWay}" RowHeight="130" Footer="">
+                <ListView.Effects>
+                    <effects:DisabledSelectionEffect />
+                </ListView.Effects>
                 <ListView.Header>
                     <Grid BackgroundColor="LightYellow">
                         <Grid.ColumnDefinitions>
@@ -22,11 +25,9 @@
                         </Grid.ColumnDefinitions>
                         <Label FontSize="Small" VerticalOptions="Center" Margin="40,0" Text="{Binding SearchResults.Count,StringFormat='{0} casillas encontradas'}" />
                         <BoxView BackgroundColor="Black" Grid.Column="1" />
-                        <ffSvg:SvgCachedImage WidthRequest="20" HeightRequest="20" Grid.Column="2" Source="filter.svg">
-                            <ffSvg:SvgCachedImage.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="Handle_Tapped" />
-                            </ffSvg:SvgCachedImage.GestureRecognizers>
-                        </ffSvg:SvgCachedImage>
+                        <Button Grid.Column="2" HorizontalOptions="Center" Clicked="Handle_Tapped">
+                            <Button.Image Aspect="AspectFill">SortIcon</Button.Image>
+                        </Button>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
