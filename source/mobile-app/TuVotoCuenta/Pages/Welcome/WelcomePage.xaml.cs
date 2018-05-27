@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using TuVotoCuenta.Controls;
-using TuVotoCuenta.ViewModels;
+﻿using TuVotoCuenta.ViewModels;
 using Xamarin.Forms;
 
 namespace TuVotoCuenta.Pages

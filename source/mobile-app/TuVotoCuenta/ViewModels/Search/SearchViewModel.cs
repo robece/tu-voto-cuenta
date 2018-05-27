@@ -214,7 +214,7 @@ namespace TuVotoCuenta.ViewModels.Search
         {
             this.navigation = navigation;
             NextCommand = new Command(async () => await NextAsync());
-            Title = "Búsqueda";
+            Title = "Búsqueda de casilla";
         }
 
 

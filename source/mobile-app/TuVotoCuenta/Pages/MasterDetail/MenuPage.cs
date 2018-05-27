@@ -69,21 +69,29 @@ namespace TuVotoCuenta.Pages
             };
             user_name.SetBinding(Label.TextProperty, "UserFullname");
 
-            var user_email = new Label
+            var user_account = new Label
             {
                 Style = Application.Current.Resources["MasterDetailHeaderEmailCell"] as Style,
+				FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)),
                 LineBreakMode = LineBreakMode.TailTruncation
             };
-            user_email.SetBinding(Label.TextProperty, "UserEmail");
+			user_account.SetBinding(Label.TextProperty, "UserAccount");
 
             user_detail_layout.Children.Add(user_name);
-            user_detail_layout.Children.Add(user_email);
+			user_detail_layout.Children.Add(user_account);
 
             user_layout.Children.Add(user_image);
             user_layout.Children.Add(user_detail_layout);
 
+			var user_detail_vertical = new StackLayout
+			{
+				VerticalOptions = LayoutOptions.End,
+                Orientation = StackOrientation.Vertical,
+                Margin = new Thickness(15, 10, 10, 0)
+			};
+                     
             Menu = new MenuListView();
-            layout.Children.Add(user_layout);
+			layout.Children.Add(user_layout);
             layout.Children.Add(Menu);
             Content = layout;
         }

@@ -15,10 +15,19 @@ namespace TuVotoCuenta
 		public App()
         {
             InitializeComponent();
-            MainPage = new MasterPage();
+	        
+			//set startup app configuration
+			Settings.FunctionURL = "https://{functionURL}.azurewebsites.net";
+			Settings.ImageStorageUrl = "https://{imagestorageurl}.blob.core.windows.net/accountimages/";
 
 			//init catalogs
             Catalogs.InitEntities();
+
+			//if logged in redirect to main page
+            if (Settings.UserAccount != string.Empty)
+                Application.Current.MainPage = new MasterPage();
+            else
+                MainPage = new SignUpPage();
         }
 
         protected override void OnStart()

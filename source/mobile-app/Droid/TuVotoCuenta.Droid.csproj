@@ -64,9 +64,6 @@
     <Reference Include="Xamarin.Android.Arch.Core.Common">
       <HintPath>..\packages\Xamarin.Android.Arch.Core.Common.1.0.0\lib\MonoAndroid80\Xamarin.Android.Arch.Core.Common.dll</HintPath>
     </Reference>
-    <Reference Include="Xamarin.Forms.CarouselView">
-      <HintPath>..\packages\Xamarin.Forms.CarouselView.2.3.0-pre2\lib\MonoAndroid10\Xamarin.Forms.CarouselView.dll</HintPath>
-    </Reference>
     <Reference Include="FormsViewGroup">
       <HintPath>..\packages\Xamarin.Forms.3.0.0.446417\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
@@ -551,6 +548,10 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="Xamarin.Forms.CarouselView">
+      <HintPath>..\packages\Xamarin.Forms.CarouselView.2.3.0-pre2\lib\MonoAndroid10\Xamarin.Forms.CarouselView.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
@@ -609,6 +610,13 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\SortIcon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\SortIcon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\SortIcon.png" />
+    <AndroidResource Include="Resources\drawable\svgdarkpower.svg" />
+    <AndroidResource Include="Resources\drawable\slide3.png" />
+    <AndroidResource Include="Resources\drawable\slide2.png" />
+    <AndroidResource Include="Resources\drawable\slide1.png" />
+    <AndroidResource Include="Resources\drawable\svgdarkpassword.svg" />
+    <AndroidResource Include="Resources\drawable\svgdarkaccount.svg" />
+    <AndroidResource Include="Resources\drawable\svgdarkmail.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">

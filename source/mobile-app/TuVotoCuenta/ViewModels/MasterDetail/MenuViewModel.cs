@@ -15,9 +15,10 @@ namespace TuVotoCuenta.ViewModels
 
         void InitializeViewModel()
         {
-            UserFullname = "TuVotoCuenta";
-            UserPicture = "master.png";
-            UserEmail = "mail@tuvotocuenta.com.mx";
+            UserFullname = Settings.UserFullname;
+            UserPicture = Settings.UserPicture;
+			UserCredits = $"ETH";
+			UserAccount = Settings.UserAccount;
         }
 
         #region Commands
@@ -40,11 +41,18 @@ namespace TuVotoCuenta.ViewModels
             set { SetProperty(ref userFullname, value); }
         }
 
-        string userEmail;
-        public string UserEmail
+		string userCredits;
+		public string UserCredits
         {
-            get { return userEmail; }
-            set { SetProperty(ref userEmail, value); }
+			get { return userCredits; }
+			set { SetProperty(ref userCredits, value); }
+        }
+
+		string userAccount;
+		public string UserAccount
+        {
+			get { return userAccount; }
+			set { SetProperty(ref userAccount, value); }
         }
 
         #endregion

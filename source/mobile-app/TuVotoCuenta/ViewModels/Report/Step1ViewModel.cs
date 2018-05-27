@@ -22,7 +22,7 @@ namespace TuVotoCuenta.ViewModels
         
         void InitializeViewModel()
         {
-            Title = "Casilla";
+			Title = "Registro de casilla";
             
 			if (!String.IsNullOrEmpty(Settings.CurrentRecordItem))
 			{

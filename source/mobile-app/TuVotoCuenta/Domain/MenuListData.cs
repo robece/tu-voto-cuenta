@@ -9,7 +9,7 @@ namespace TuVotoCuenta.Domain
     {
         public MenuListData()
         {
-            Group g1 = new Group("Información de casillas");
+            Group g1 = new Group("Menú Principal");
 
             g1.Add(new MasterPageItem
             {
@@ -20,14 +20,14 @@ namespace TuVotoCuenta.Domain
 
             g1.Add(new MasterPageItem
             {
-                Title = "Registro",
+                Title = "Registro de casilla",
                 IconSource = "svgdarkadd.svg",
                 TargetType = typeof(Step1Page)
             });
 
             g1.Add(new MasterPageItem
             {
-                Title = "Consulta",
+				Title = "Consulta de casilla",
                 IconSource = "svgdarkview.svg",
                 TargetType = typeof(SearchStep1Page)
             });
@@ -37,6 +37,27 @@ namespace TuVotoCuenta.Domain
                 Title = "Uso y privacidad",
                 IconSource = "svgdarkprivacy.svg",
                 TargetType = typeof(LegalConcernsPage)
+            });
+
+			g1.Add(new MasterPageItem
+            {
+                Title = "Preguntas Frecuentes (FAQ)",
+                IconSource = "svgdarkprivacy.svg",
+                TargetType = typeof(LegalConcernsPage)
+            });
+
+			g1.Add(new MasterPageItem
+            {
+                Title = "Mi cuenta",
+                IconSource = "svgdarkaccount.svg",
+                TargetType = typeof(AccountPage)
+            });
+
+			g1.Add(new MasterPageItem
+            {
+                Title = "Desconectar",
+                IconSource = "svgdarkpower.svg",
+                TargetType = typeof(SignOutPage)
             });
 
             this.Add(g1);

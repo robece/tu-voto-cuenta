@@ -15,7 +15,7 @@ namespace TuVotoCuenta.ViewModels
 
         void InitializeViewModel()
         {
-            Title = "Bienvenido a TuVotoCuenta";
+            Title = "Inicio";
         }
 
         #region Commands

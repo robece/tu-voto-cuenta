@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.AccountPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Margin="40,40,40,40">
+                <Label Text="Mi cuenta y la blockchain, cuéntame más?" Style="{DynamicResource PageTitle}" />
+                <Label Text="Al registrarte con nosotros automáticamente estás creando una cuenta en nuestra blockchain pública, de esta forma podrás realizar contribuciones como compartir la información de una casilla o votar por una casilla." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="Cada cuenta tiene un identificador gráfico único." Style="{DynamicResource PageDarkSmall}" /> 
+                <Label Text="{Binding Amount}" HorizontalTextAlignment="Center" Style="{DynamicResource PageTitle}" />
+                <Image Source="{Binding AccountImage}" WidthRequest="160" HeightRequest="160" />
+                <Label Text="{Binding Account}" Margin="0,0,0,30" HorizontalTextAlignment="Center" Style="{DynamicResource PageDarkSmall}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

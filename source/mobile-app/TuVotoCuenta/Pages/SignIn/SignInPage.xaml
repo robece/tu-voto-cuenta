@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.SignInPage">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".3*" />
+                <RowDefinition Height=".7*" />
+            </Grid.RowDefinitions>
+            <carousel:CarouselView Grid.Row="0" ItemsSource="{Binding Slides}" x:Name="CarouselSlides">
+                <carousel:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}" />
+                            <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+                                <Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </carousel:CarouselView.ItemTemplate>
+            </carousel:CarouselView>
+            <ScrollView Grid.Row="1">
+                <StackLayout Orientation="Vertical" Margin="40,30,40,30">
+                    <Label Text="Bienvenido a TuVotoCuenta" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    <StackLayout Spacing="10">
+                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Email}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkmail.svg" Placeholder="Correo electrónico" HorizontalOptions="FillAndExpand">
+                            <Entry.Behaviors>
+                                <behaviors:EmailValidatorBehavior x:Name="emailValidatorBehavior" />
+                            </Entry.Behaviors>
+                        </controls:ImageEntry>
+                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" />
+                    </StackLayout>
+                    <Button Text="Iniciar Sesión" Margin="0,10,0,10" Style="{DynamicResource ExplicitButton}" Command="{Binding SignInCommand}" />
+                    <ActivityIndicator HorizontalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource PrimaryDark}" />
+                    <controls:ImplicitButton Text="Olvidé mi contraseña" Style="{DynamicResource ImplicitButton}" Command="{Binding ForgotPasswordCommand}" />
+                    <controls:ImplicitButton Text="Quiero registrarme" Style="{DynamicResource ImplicitButton}" Command="{Binding SignUpCommand}" />
+                    <Label Text="México - 2018" Margin="0,10,0,10" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

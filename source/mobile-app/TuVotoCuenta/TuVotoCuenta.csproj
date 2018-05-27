@@ -17,8 +17,6 @@
     <Folder Include="Pages\Welcome\" />
     <Folder Include="ViewModels\Welcome\" />
     <Folder Include="ViewModels\MasterDetail\" />
-    <Folder Include="Pages\Settings\" />
-    <Folder Include="ViewModels\Settings\" />
     <Folder Include="Effects\" />
     <Folder Include="Classes\" />
     <Folder Include="ViewModels\Report\" />
@@ -33,6 +31,14 @@
     <Folder Include="Services\MockServices\" />
     <Folder Include="Files\" />
     <Folder Include="Services\RestApi\" />
+    <Folder Include="Pages\SignUp\" />
+    <Folder Include="ViewModels\SignUp\" />
+    <Folder Include="Pages\SignIn\" />
+    <Folder Include="ViewModels\SignIn\" />
+    <Folder Include="Pages\SignOut\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Pages\Account\" />
+    <Folder Include="ViewModels\Account\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
@@ -45,6 +51,7 @@
     <PackageReference Include="Xamarin.Forms.Maps" Version="2.5.1.527436" />
     <PackageReference Include="Xam.Plugin.Media" Version="3.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Xamarin.Forms.CarouselView" Version="2.3.0-pre2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
@@ -109,6 +116,7 @@
     <EmbeddedResource Remove="Pages\Profile\PortionsReportPage.xaml" />
     <EmbeddedResource Remove="Pages\Product\ProductPage.xaml" />
     <EmbeddedResource Remove="Controls\CustomPicker.xaml" />
+    <EmbeddedResource Remove="Pages\Settings\SettingsPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevKit.Xamarin.ImageKit.Abstractions">

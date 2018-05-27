@@ -152,7 +152,7 @@
                     </controls:ImageEntry>
                 </StackLayout>
                 <Button Text="Continuar" Margin="0,10,0,0" Style="{DynamicResource ExplicitButton}" Command="{Binding SignUpCommand}" />
-                <Label Text="México - 2018" Margin="0,30,0,10" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
+                <Label Text="México - 2018" Margin="0,10,0,10" VerticalTextAlignment="End" HorizontalTextAlignment="Center" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
