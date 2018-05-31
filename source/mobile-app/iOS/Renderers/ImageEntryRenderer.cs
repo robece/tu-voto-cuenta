@@ -19,40 +19,47 @@ namespace TuVotoCuenta.iOS.Renderers
     {
         protected async override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
-            base.OnElementChanged(e);
+            try
+			{
+				base.OnElementChanged(e);
 
-            if (e.OldElement != null || e.NewElement == null)
-                return;
+                if (e.OldElement != null || e.NewElement == null)
+                    return;
 
-            var element = (ImageEntry)this.Element;
-            var textField = this.Control;
-            if (!string.IsNullOrEmpty(element.Image))
-            {
-                switch (element.ImageAlignment)
+                var element = (ImageEntry)this.Element;
+                var textField = this.Control;
+                if (!string.IsNullOrEmpty(element.Image))
                 {
-                    case ImageAlignment.Left:
-                        textField.LeftViewMode = UITextFieldViewMode.Always;
-                        textField.LeftView = await GetImageView(element.Image, element.ImageHeight, element.ImageWidth);
-                        break;
-                    case ImageAlignment.Right:
-                        textField.RightViewMode = UITextFieldViewMode.Always;
-                        textField.RightView = await GetImageView(element.Image, element.ImageHeight, element.ImageWidth);
-                        break;
+                    switch (element.ImageAlignment)
+                    {
+                        case ImageAlignment.Left:
+                            textField.LeftViewMode = UITextFieldViewMode.Always;
+                            textField.LeftView = await GetImageView(element.Image, element.ImageHeight, element.ImageWidth);
+                            break;
+                        case ImageAlignment.Right:
+                            textField.RightViewMode = UITextFieldViewMode.Always;
+                            textField.RightView = await GetImageView(element.Image, element.ImageHeight, element.ImageWidth);
+                            break;
+                    }
                 }
-            }
 
-            var dark = new UIColor((System.nfloat)(48.0 / 255.0), (System.nfloat)(48.0 / 255.0), (System.nfloat)(48.0 / 255.0), (System.nfloat)1.0);
-           
-            textField.BorderStyle = UITextBorderStyle.None;
-            CALayer bottomBorder = new CALayer
-            {
-                Frame = new CGRect(0.0f, element.HeightRequest - 1, this.Frame.Width, 1.0f),
-                BorderWidth = 2.0f,
-                BorderColor = dark.CGColor
-            };
+                var dark = new UIColor((System.nfloat)(48.0 / 255.0), (System.nfloat)(48.0 / 255.0), (System.nfloat)(48.0 / 255.0), (System.nfloat)1.0);
 
-            textField.Layer.AddSublayer(bottomBorder);
-            textField.Layer.MasksToBounds = true;
+                textField.BorderStyle = UITextBorderStyle.None;
+                CALayer bottomBorder = new CALayer
+                {
+                    Frame = new CGRect(0.0f, element.HeightRequest - 1, this.Frame.Width, 1.0f),
+                    BorderWidth = 2.0f,
+                    BorderColor = dark.CGColor
+                };
+
+                textField.Layer.AddSublayer(bottomBorder);
+                textField.Layer.MasksToBounds = true;
+			}
+			catch (Exception)
+			{
+				//in case any unknown exception in render prevent any notification or bubble
+			}
         }
 
         async Task<UIView> GetImageView(string imagePath, int height, int width)

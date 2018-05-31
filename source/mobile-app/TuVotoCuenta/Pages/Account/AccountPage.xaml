@@ -3,12 +3,13 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,40,40,40">
-                <Label Text="Mi cuenta y la blockchain, cuéntame más?" Style="{DynamicResource PageTitle}" />
-                <Label Text="Al registrarte con nosotros automáticamente estás creando una cuenta en nuestra blockchain pública, de esta forma podrás realizar contribuciones como compartir la información de una casilla o votar por una casilla." Style="{DynamicResource PageDarkSmall}" />
-                <Label Text="Cada cuenta tiene un identificador gráfico único." Style="{DynamicResource PageDarkSmall}" /> 
-                <Label Text="{Binding Amount}" HorizontalTextAlignment="Center" Style="{DynamicResource PageTitle}" />
                 <Image Source="{Binding AccountImage}" WidthRequest="160" HeightRequest="160" />
-                <Label Text="{Binding Account}" Margin="0,0,0,30" HorizontalTextAlignment="Center" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="{Binding Amount}" HorizontalTextAlignment="Center" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="{Binding Account}" Margin="0,0,0,30" HorizontalTextAlignment="Center" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
+                 <Label Text="Recuerda que al registrarte con nosotros:" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="1. Automáticamente estás creando una cuenta en la cadena de bloques (blockchain)." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="2. Podrás compartir información de una casilla o votar por la información." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="3. Tendrás acceso a un identificador gráfico único." Style="{DynamicResource PageDarkSmall}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

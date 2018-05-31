@@ -31,28 +31,35 @@ namespace TuVotoCuenta.Droid.Renderers
         ImageEntry element;
         protected async override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
-            base.OnElementChanged(e);
+            try
+			{
+				base.OnElementChanged(e);
 
-            if (e.OldElement != null || e.NewElement == null)
-                return;
+                if (e.OldElement != null || e.NewElement == null)
+                    return;
 
-            element = (ImageEntry)this.Element;
+                element = (ImageEntry)this.Element;
 
-            var editText = this.Control;
-            if (!string.IsNullOrEmpty(element.Image))
-            {
-                switch (element.ImageAlignment)
+                var editText = this.Control;
+                if (!string.IsNullOrEmpty(element.Image))
                 {
-                    case ImageAlignment.Left:
-                        editText.SetCompoundDrawablesWithIntrinsicBounds(await GetDrawable(element.Image), null, null, null);
-                        break;
-                    case ImageAlignment.Right:
-                        editText.SetCompoundDrawablesWithIntrinsicBounds(null, null, await GetDrawable(element.Image), null);
-                        break;
+                    switch (element.ImageAlignment)
+                    {
+                        case ImageAlignment.Left:
+                            editText.SetCompoundDrawablesWithIntrinsicBounds(await GetDrawable(element.Image), null, null, null);
+                            break;
+                        case ImageAlignment.Right:
+                            editText.SetCompoundDrawablesWithIntrinsicBounds(null, null, await GetDrawable(element.Image), null);
+                            break;
+                    }
                 }
-            }
-            editText.CompoundDrawablePadding = 25;
-            Control.Background.SetColorFilter(Android.Graphics.Color.Rgb(48,48,48), PorterDuff.Mode.SrcAtop);
+                editText.CompoundDrawablePadding = 25;
+                Control.Background.SetColorFilter(Android.Graphics.Color.Rgb(48, 48, 48), PorterDuff.Mode.SrcAtop);
+			}
+			catch (Exception)
+			{
+                //in case any unknown exception in render prevent any notification or bubble
+			}
         }
 
         async Task<BitmapDrawable> GetDrawable(string imageEntryImage)

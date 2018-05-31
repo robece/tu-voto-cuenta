@@ -14,7 +14,7 @@ namespace TuVotoCuenta.Helpers
     {      
 		public static async Task<SignUpAccountResponse> SignUpAccountAsync(SignUpAccountRequest model)
         {
-			int IterationsToRetry = 5;
+			int IterationsToRetry = 0;
             int TimeToSleepForRetry = 3000;
 			SignUpAccountResponse result = null;
 
@@ -119,48 +119,6 @@ namespace TuVotoCuenta.Helpers
                             if (httpResponse.StatusCode == HttpStatusCode.OK)
                             {
 								result = JsonConvert.DeserializeObject<GetBalanceAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
-                                return result;
-                            }
-                            else
-                            {
-                                Thread.Sleep(TimeToSleepForRetry);
-                                continue;
-                            }
-                        }
-                    }
-                }
-                catch (Exception)
-                {
-                    Thread.Sleep(TimeToSleepForRetry);
-                    continue;
-                }
-            }
-            return result;
-        }
-
-		public static async Task<ForgotPasswordAccountResponse> ForgotPasswordAccountAsync(ForgotPasswordAccountRequest model)
-        {
-            int IterationsToRetry = 5;
-            int TimeToSleepForRetry = 3000;
-			ForgotPasswordAccountResponse result = null;
-
-            for (int i = 0; i <= IterationsToRetry; i++)
-            {
-                try
-                {
-                    using (var client = new HttpClient())
-                    {
-                        var service = $"{Settings.FunctionURL}/api/ForgotPasswordAccount/";
-
-                        byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model));
-                        using (var content = new ByteArrayContent(byteData))
-                        {
-                            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                            var httpResponse = await client.PostAsync(service, content);
-
-                            if (httpResponse.StatusCode == HttpStatusCode.OK)
-                            {
-								result = JsonConvert.DeserializeObject<ForgotPasswordAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
                                 return result;
                             }
                             else

@@ -20,10 +20,9 @@ namespace TuVotoCuenta
 		private const string FunctionURLKey = "FunctionURLKey";
 		private const string ImageStorageUrlKey = "ImageStorageUrlKey";
 		private const string CurrentRecordItemKey = "CurrentRecordItemKey";
-		private const string UserAccountKey = "UserAccountKey";
-		private const string UserEmailKey = "UserEmail";
-        private const string UserPictureKey = "UserPicture";
-        private const string UserFullnameKey = "UserFullname";
+		private const string Profile_AccountKey = "Profile_AccountKey";
+		private const string Profile_UsernameKey = "Profile_UsernameKey";
+		private const string Profile_PictureKey = "Profile_PictureKey";
 
 
         #endregion
@@ -64,52 +63,40 @@ namespace TuVotoCuenta
             }
 		}
 
-		public static string UserAccount
+		public static string Profile_Account
         {
             get
             {
-				return AppSettings.GetValueOrDefault(UserAccountKey, SettingsDefault);
+				return AppSettings.GetValueOrDefault(Profile_AccountKey, SettingsDefault);
             }
             set
             {
-				AppSettings.AddOrUpdateValue(UserAccountKey, value);
+				AppSettings.AddOrUpdateValue(Profile_AccountKey, value);
             }
         }
 
-		public static string UserEmail
+		public static string Profile_Username
         {
             get
             {
-                return AppSettings.GetValueOrDefault(UserEmailKey, SettingsDefault);
+				return AppSettings.GetValueOrDefault(Profile_UsernameKey, SettingsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(UserEmailKey, value);
+				AppSettings.AddOrUpdateValue(Profile_UsernameKey, value);
             }
         }
 
-        public static string UserPicture
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(UserPictureKey, SettingsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(UserPictureKey, value);
-            }
-        }
-
-        public static string UserFullname
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(UserFullnameKey, SettingsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(UserFullnameKey, value);
-            }
-        }
+		public static string Profile_Picture
+		{
+			get
+			{
+				return AppSettings.GetValueOrDefault(Profile_PictureKey, SettingsDefault);
+			}
+			set
+			{
+				AppSettings.AddOrUpdateValue(Profile_PictureKey, value);
+			}
+		}
     }
 }

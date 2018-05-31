@@ -582,7 +582,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\hamburger.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
-    <AndroidResource Include="Resources\drawable\master.png" />
     <AndroidResource Include="Resources\drawable\svgdarkhome.svg" />
     <AndroidResource Include="Resources\drawable\svgdarksettings.svg" />
     <AndroidResource Include="Resources\drawable\svgdarkadd.svg" />
@@ -627,6 +626,8 @@
     <AndroidResource Include="Resources\drawable\ptesmor.png" />
     <AndroidResource Include="Resources\drawable\pvem.jpg" />
     <AndroidResource Include="Resources\drawable\pverna.png" />
+    <AndroidResource Include="Resources\drawable\master.jpg" />
+    <AndroidResource Include="Resources\drawable\svgdarkfaq.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">

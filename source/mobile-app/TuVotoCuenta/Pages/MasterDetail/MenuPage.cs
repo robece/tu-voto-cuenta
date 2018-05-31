@@ -72,7 +72,7 @@ namespace TuVotoCuenta.Pages
             var user_account = new Label
             {
                 Style = Application.Current.Resources["MasterDetailHeaderEmailCell"] as Style,
-				FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)),
+				//FontSize = Device.GetNamedSize(NamedSize.Micro, typeof(Label)),
                 LineBreakMode = LineBreakMode.TailTruncation
             };
 			user_account.SetBinding(Label.TextProperty, "UserAccount");

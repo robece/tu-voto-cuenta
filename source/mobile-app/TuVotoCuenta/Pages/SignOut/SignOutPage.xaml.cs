@@ -12,19 +12,18 @@ namespace TuVotoCuenta.Pages
 
         protected override void OnAppearing()
         {
-            base.OnAppearing();
-			CleanCurrentSession();
-			Device.BeginInvokeOnMainThread(() => { 
+            base.OnAppearing();         
+			Device.BeginInvokeOnMainThread(() => {
+				CleanCurrentSession();
 				Application.Current.MainPage = new SignUpPage();
 			});
         }   
 
         public static void CleanCurrentSession()
 		{
-			Settings.UserAccount = string.Empty;
-            Settings.UserEmail = string.Empty;
-            Settings.UserFullname = string.Empty;
-            Settings.UserPicture = string.Empty;
+			Settings.Profile_Username = string.Empty;
+            Settings.Profile_Account = string.Empty;
+            Settings.Profile_Picture = string.Empty;
 			Settings.CurrentRecordItem = string.Empty;         
 		}
     }

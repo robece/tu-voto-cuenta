@@ -17,14 +17,14 @@ namespace TuVotoCuenta
             InitializeComponent();
 	        
 			//set startup app configuration
-			Settings.FunctionURL = "https://{functionURL}.azurewebsites.net";
-			Settings.ImageStorageUrl = "https://{imagestorageurl}.blob.core.windows.net/accountimages/";
+			Settings.FunctionURL = "https://{FunctionURL}.azurewebsites.net";
+			Settings.ImageStorageUrl = "https://{StorageAccount}.blob.core.windows.net/accountimages/";
 
 			//init catalogs
             Catalogs.InitEntities();
 
 			//if logged in redirect to main page
-            if (Settings.UserAccount != string.Empty)
+            if (Settings.Profile_Account != string.Empty)
                 Application.Current.MainPage = new MasterPage();
             else
                 MainPage = new SignUpPage();
