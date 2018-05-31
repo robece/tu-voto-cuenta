@@ -589,16 +589,6 @@
     <AndroidResource Include="Resources\drawable\svgdarkview.svg" />
     <AndroidResource Include="Resources\drawable\svgdarkprivacy.svg" />
     <AndroidResource Include="Resources\drawable\svgdarkarrow.svg" />
-    <AndroidResource Include="Resources\drawable\phumanista.png" />
-    <AndroidResource Include="Resources\drawable\pmorena.png" />
-    <AndroidResource Include="Resources\drawable\pmovciud.png" />
-    <AndroidResource Include="Resources\drawable\pnuevaalianza.png" />
-    <AndroidResource Include="Resources\drawable\ppan.png" />
-    <AndroidResource Include="Resources\drawable\ppes.png" />
-    <AndroidResource Include="Resources\drawable\pprd.png" />
-    <AndroidResource Include="Resources\drawable\ppri.png" />
-    <AndroidResource Include="Resources\drawable\ppt.png" />
-    <AndroidResource Include="Resources\drawable\pverde.png" />
     <AndroidResource Include="Resources\xml\file_paths.xml" />
     <AndroidResource Include="Resources\drawable\filter.svg" />
     <AndroidResource Include="Resources\drawable-xxhdpi\UpVoteIcon.png" />
@@ -617,6 +607,26 @@
     <AndroidResource Include="Resources\drawable\svgdarkpassword.svg" />
     <AndroidResource Include="Resources\drawable\svgdarkaccount.svg" />
     <AndroidResource Include="Resources\drawable\svgdarkmail.svg" />
+    <AndroidResource Include="Resources\drawable\panmc.png" />
+    <AndroidResource Include="Resources\drawable\panprd.png" />
+    <AndroidResource Include="Resources\drawable\pes.jpg" />
+    <AndroidResource Include="Resources\drawable\pmc.jpg" />
+    <AndroidResource Include="Resources\drawable\pmorena.jpg" />
+    <AndroidResource Include="Resources\drawable\pmores.png" />
+    <AndroidResource Include="Resources\drawable\pmorpt.png" />
+    <AndroidResource Include="Resources\drawable\pna.jpg" />
+    <AndroidResource Include="Resources\drawable\prd.jpg" />
+    <AndroidResource Include="Resources\drawable\prdmc.png" />
+    <AndroidResource Include="Resources\drawable\prdpanmc.png" />
+    <AndroidResource Include="Resources\drawable\pri.jpg" />
+    <AndroidResource Include="Resources\drawable\prina.png" />
+    <AndroidResource Include="Resources\drawable\priver.png" />
+    <AndroidResource Include="Resources\drawable\priverna.png" />
+    <AndroidResource Include="Resources\drawable\pt.jpg" />
+    <AndroidResource Include="Resources\drawable\ptes.png" />
+    <AndroidResource Include="Resources\drawable\ptesmor.png" />
+    <AndroidResource Include="Resources\drawable\pvem.jpg" />
+    <AndroidResource Include="Resources\drawable\pverna.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">

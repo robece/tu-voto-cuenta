@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.Step1Page">
+<controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.Step1Page" xmlns:converters="clr-namespace:TuVotoCuenta.Converters">
     <controls:StepPage.Resources>
         <ResourceDictionary>
-            <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
-                <Setter Property="PlaceholderColor" Value="{StaticResource LightPlaceHolder}" />
-                <Setter Property="TextColor" Value="{StaticResource PrimaryDark}" />
-                <Setter Property="Image" Value="svgdarkarrow.svg" />
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-            </Style>
             <Style BasedOn="{StaticResource arrowEntry}" TargetType="controls:ImageEntry" x:Key="numericArrowEntry">
                 <Setter Property="Keyboard" Value="Numeric" />
                 <Setter Property="FontSize" Value="Large" />
                 <Setter Property="Grid.Column" Value="1" />
             </Style>
+             <converters:IntToStringConverter x:Key="intToStringConverter" />
         </ResourceDictionary>
     </controls:StepPage.Resources>
     <controls:StepPage.ToolbarItems>
@@ -24,13 +19,15 @@
                 <controls:StepProgressBar1 />
                 <Label Text="Casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <controls:ImageEntry Text="{Binding BoxNumber}" Placeholder="No. de casilla" Style="{StaticResource arrowEntry}">
+                    <controls:ImageEntry Text="{Binding BoxNumber}" Placeholder="No. de casilla" Style="{StaticResource numericArrowEntry}">
                         <Entry.Behaviors>
+                            <behaviors:EntryIntValidation />
                             <behaviors:StepImageEntryLostFocus />
                         </Entry.Behaviors>
                     </controls:ImageEntry>
-                    <controls:ImageEntry Text="{Binding BoxSection}" Placeholder="Sección de casilla" Style="{StaticResource arrowEntry}">
+                    <controls:ImageEntry Text="{Binding BoxSection}" Placeholder="Sección de casilla" Style="{StaticResource numericArrowEntry}">
                         <Entry.Behaviors>
+                            <behaviors:EntryIntValidation />
                             <behaviors:StepImageEntryLostFocus />
                         </Entry.Behaviors>
                     </controls:ImageEntry>

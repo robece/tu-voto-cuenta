@@ -33,7 +33,6 @@ namespace TuVotoCuenta.ViewModels
 				PartyNA = item.PartyNA;
 				PartyMOR = item.PartyMOR;
 				PartyES = item.PartyES;
-				partyINDMar = item.PartyINDMar;
 				PartyINDJai = item.PartyINDJai;
 				PartyOtro = item.PartyOtro;
             }
@@ -59,7 +58,6 @@ namespace TuVotoCuenta.ViewModels
 			item.PartyNA = PartyNA;
 			item.PartyMOR = PartyMOR;
 			item.PartyES = PartyES;
-			item.PartyINDMar = partyINDMar;
 			item.PartyINDJai = PartyINDJai;
 			item.PartyOtro = PartyOtro;
 

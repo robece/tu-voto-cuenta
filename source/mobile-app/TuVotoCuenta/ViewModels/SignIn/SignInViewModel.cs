@@ -33,9 +33,17 @@ namespace TuVotoCuenta.ViewModels
 			SignUpCommand = new Command(() => SignUp());
 		}
 
-		async void SignIn()
+        async Task SignIn()
 		{
-			if (!EmailValidation)
+#if DEBUG
+            if ((bool)App.Current.Resources["LoginOk"])
+            {
+                Application.Current.MainPage = new MasterPage();
+                return;
+            }
+#endif
+
+            if (!EmailValidation)
 				await Application.Current.MainPage.DisplayAlert("Aviso", "Verifica tu correo electrónico", "Aceptar");
 			else
 			{

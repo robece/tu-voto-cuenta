@@ -304,16 +304,6 @@
     <BundleResource Include="Resources\svgdarkview.svg" />
     <BundleResource Include="Resources\svgdarkprivacy.svg" />
     <BundleResource Include="Resources\svgdarkarrow.svg" />
-    <BundleResource Include="Resources\phumanista.png" />
-    <BundleResource Include="Resources\pmorena.png" />
-    <BundleResource Include="Resources\pmovciud.png" />
-    <BundleResource Include="Resources\pnuevaalianza.png" />
-    <BundleResource Include="Resources\ppan.png" />
-    <BundleResource Include="Resources\ppes.png" />
-    <BundleResource Include="Resources\pprd.png" />
-    <BundleResource Include="Resources\ppri.png" />
-    <BundleResource Include="Resources\ppt.png" />
-    <BundleResource Include="Resources\pverde.png" />
     <BundleResource Include="Resources\filter.svg" />
     <BundleResource Include="Resources\UpVoteIcon%401x.png" />
     <BundleResource Include="Resources\UpVoteIcon%402x.png" />
@@ -331,6 +321,27 @@
     <BundleResource Include="Resources\svgdarkpassword.svg" />
     <BundleResource Include="Resources\svgdarkaccount.svg" />
     <BundleResource Include="Resources\svgdarkmail.svg" />
+    <BundleResource Include="Resources\pan.jpg" />
+    <BundleResource Include="Resources\panmc.png" />
+    <BundleResource Include="Resources\panprd.png" />
+    <BundleResource Include="Resources\pes.jpg" />
+    <BundleResource Include="Resources\pmc.jpg" />
+    <BundleResource Include="Resources\pmorena.jpg" />
+    <BundleResource Include="Resources\pmores.png" />
+    <BundleResource Include="Resources\pmorpt.png" />
+    <BundleResource Include="Resources\pna.jpg" />
+    <BundleResource Include="Resources\prd.jpg" />
+    <BundleResource Include="Resources\prdmc.png" />
+    <BundleResource Include="Resources\prdpanmc.png" />
+    <BundleResource Include="Resources\pri.jpg" />
+    <BundleResource Include="Resources\prina.png" />
+    <BundleResource Include="Resources\priver.png" />
+    <BundleResource Include="Resources\priverna.png" />
+    <BundleResource Include="Resources\pt.jpg" />
+    <BundleResource Include="Resources\ptes.png" />
+    <BundleResource Include="Resources\ptesmor.png" />
+    <BundleResource Include="Resources\pvem.jpg" />
+    <BundleResource Include="Resources\pverna.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets')" />

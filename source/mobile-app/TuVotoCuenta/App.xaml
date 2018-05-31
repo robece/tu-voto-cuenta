@@ -6,11 +6,23 @@
     <Application.Resources>
         <ResourceDictionary>
             <x:Boolean x:Key="UseMock">true</x:Boolean>
+            <x:Boolean x:Key="LoginOk">false</x:Boolean>
             <Color x:Key="PrimaryDark">#303030</Color>
             <Color x:Key="DarkPlaceHolder">#303030</Color>
             <Color x:Key="LightPlaceHolder">#afafaf</Color>
             <Color x:Key="DarkSelector">#fcbc0b</Color>
+            <Color x:Key="LigthSelector">#fcf79f</Color>
             <!-- Application resource dictionary -->
+            <Style TargetType="controls:ImageEntry" x:Key="arrowEntry">
+                <Setter Property="PlaceholderColor" Value="{StaticResource LightPlaceHolder}" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryDark}" />
+                <Setter Property="Image" Value="svgdarkarrow.svg" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+            <Style BasedOn="{StaticResource arrowEntry}" TargetType="controls:ImageEntry" x:Key="numericArrowEntry">
+                <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="FontSize" Value="Large" />
+            </Style>
             <Style TargetType="ContentPage" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="White" />
             </Style>
@@ -91,10 +103,10 @@
                 <Setter Property="FontSize" Value="Small" />
             </Style>
             <Style x:Key="ProgressBarStepSelectorDark" TargetType="Label">
-                <Setter Property="BackgroundColor" Value="#fcbc0b" />
+                <Setter Property="BackgroundColor" Value="{StaticResource DarkSelector}" />
             </Style>
             <Style x:Key="ProgressBarStepSelectorLight" TargetType="Label">
-                <Setter Property="BackgroundColor" Value="{StaticResource DarkSelector}" />
+                <Setter Property="BackgroundColor" Value="{StaticResource LigthSelector}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
