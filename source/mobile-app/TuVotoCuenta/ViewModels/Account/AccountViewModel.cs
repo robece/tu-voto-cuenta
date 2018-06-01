@@ -21,13 +21,14 @@ namespace TuVotoCuenta.ViewModels
         async void InitializeViewModel()
         {
             Title = "Mi Cuenta";
-			Account = Settings.UserAccount;
-			AccountImage = Settings.UserPicture;
+			Account = Settings.Profile_Account;
+			AccountImage = Settings.Profile_Picture;
 
 			//launch task
+			Amount = $"Tienes 0.0 créditos en tu cuenta"; 
             await Task.Run(async () =>
             {
-				GetBalanceAccountRequest model = new GetBalanceAccountRequest() { account = Settings.UserAccount };
+				GetBalanceAccountRequest model = new GetBalanceAccountRequest() { account = Settings.Profile_Account };
 				GetBalanceAccountResponse response = await RestHelper.GetBalanceAccountAsync(model);
 
                 if (response == null)
@@ -38,7 +39,7 @@ namespace TuVotoCuenta.ViewModels
                 {
                     if (response.IsSucceded)
                     {
-						Amount = $"Tienes {response.Amount} ETH en tu cuenta";
+						Amount = $"Tienes {response.Amount} créditos en tu cuenta";
                     }
                 }            
 			});

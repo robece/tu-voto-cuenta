@@ -41,12 +41,11 @@ namespace TuVotoCuenta.ViewModels
                 {
                     if (response.IsSucceded)
                     {
-                        Settings.UserEmail = model.email;
-                        Settings.UserFullname = model.fullname;
-                        Settings.UserAccount = response.Account;
-                        Settings.UserPicture = $"{Settings.ImageStorageUrl}{response.Image}";
+                        Settings.Profile_Username = model.username.ToLower();
+                        Settings.Profile_Account = response.Account;
+                        Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
                     }
-                    else                  
+                    else
                     {
 						if (response.ResultId == (int)SignUpAccountResultEnum.Failed)                     
                         {
@@ -84,7 +83,7 @@ namespace TuVotoCuenta.ViewModels
                     IsBusy = false;
                     IsContinueEnabled = true;
 					IsContinueGoBackEnabled = false;
-                    MessageTitle = $"Gracias {this.model.fullname}!";
+                    MessageTitle = $"Gracias {Settings.Profile_Username}!";
                     MessageSubTitle = "Tu cuenta ha sido creada satisfactoriamente.";
                 }
             });

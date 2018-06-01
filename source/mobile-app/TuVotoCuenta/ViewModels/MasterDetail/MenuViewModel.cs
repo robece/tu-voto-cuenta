@@ -15,10 +15,9 @@ namespace TuVotoCuenta.ViewModels
 
         void InitializeViewModel()
         {
-            UserFullname = Settings.UserFullname;
-            UserPicture = Settings.UserPicture;
-			UserCredits = $"ETH";
-			UserAccount = Settings.UserAccount;
+			UserFullname = $"Hola, {Settings.Profile_Username}!";;
+			UserAccount = Settings.Profile_Account;
+			UserPicture = Settings.Profile_Picture;
         }
 
         #region Commands
@@ -39,13 +38,6 @@ namespace TuVotoCuenta.ViewModels
         {
             get { return userFullname; }
             set { SetProperty(ref userFullname, value); }
-        }
-
-		string userCredits;
-		public string UserCredits
-        {
-			get { return userCredits; }
-			set { SetProperty(ref userCredits, value); }
         }
 
 		string userAccount;

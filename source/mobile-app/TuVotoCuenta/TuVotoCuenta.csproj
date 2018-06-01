@@ -56,6 +56,9 @@
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
     <Compile Remove="Pages\Profile\PetsProfilePage.xaml.cs" />
+    <Compile Remove="Behaviors\EmailValidatorBehavior.cs" />
+    <Compile Remove="ViewModels\Report\AddReportStep1ViewModel.cs" />
+    <Compile Remove="Pages\Report\AddReportStep1Page.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignUp\LegalConcernsPage.xaml.cs">

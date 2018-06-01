@@ -42,7 +42,7 @@ namespace TuVotoCuenta.Domain
 			g1.Add(new MasterPageItem
             {
                 Title = "Preguntas Frecuentes (FAQ)",
-                IconSource = "svgdarkprivacy.svg",
+                IconSource = "svgdarkfaq.svg",
                 TargetType = typeof(LegalConcernsPage)
             });
 

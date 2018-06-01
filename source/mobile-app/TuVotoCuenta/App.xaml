@@ -55,12 +55,12 @@
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
             <Style x:Key="ExplicitButton" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#4fc2d1" />
+                <Setter Property="BackgroundColor" Value="#37373B" />
                 <Setter Property="TextColor" Value="White" />
             </Style>
             <Style x:Key="ImplicitButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="Transparent" />
-                <Setter Property="TextColor" Value="#4fc2d1" />
+                <Setter Property="TextColor" Value="#37373B" />
                 <Setter Property="BorderWidth" Value="1" />
                 <Setter Property="BorderColor" Value="Transparent" />
             </Style>

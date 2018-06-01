@@ -2451,6 +2451,7 @@ namespace TuVotoCuenta.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f02016c
 			public const int avd_hide_password_1 = 2130837868;
 			
@@ -2459,10 +2460,21 @@ namespace TuVotoCuenta.Droid
 			
 			// aapt resource value: 0x7f02016e
 			public const int avd_hide_password_3 = 2130837870;
+=======
+			// aapt resource value: 0x7f02016d
+			public const int avd_hide_password_1 = 2130837869;
+			
+			// aapt resource value: 0x7f02016e
+			public const int avd_hide_password_2 = 2130837870;
+			
+			// aapt resource value: 0x7f02016f
+			public const int avd_hide_password_3 = 2130837871;
+>>>>>>> 5381137da194667e52e530fe7806708a32446510
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f02016f
 			public const int avd_show_password_1 = 2130837871;
 			
@@ -2471,6 +2483,16 @@ namespace TuVotoCuenta.Droid
 			
 			// aapt resource value: 0x7f020171
 			public const int avd_show_password_3 = 2130837873;
+=======
+			// aapt resource value: 0x7f020170
+			public const int avd_show_password_1 = 2130837872;
+			
+			// aapt resource value: 0x7f020171
+			public const int avd_show_password_2 = 2130837873;
+			
+			// aapt resource value: 0x7f020172
+			public const int avd_show_password_3 = 2130837874;
+>>>>>>> 5381137da194667e52e530fe7806708a32446510
 			
 			// aapt resource value: 0x7f020055
 			public const int common_full_open_on_phone = 2130837589;
@@ -3186,11 +3208,19 @@ namespace TuVotoCuenta.Droid
 			// aapt resource value: 0x7f020142
 			public const int notification_icon_background = 2130837826;
 			
+<<<<<<< HEAD
 			// aapt resource value: 0x7f02016a
 			public const int notification_template_icon_bg = 2130837866;
 			
 			// aapt resource value: 0x7f02016b
 			public const int notification_template_icon_low_bg = 2130837867;
+=======
+			// aapt resource value: 0x7f02016b
+			public const int notification_template_icon_bg = 2130837867;
+			
+			// aapt resource value: 0x7f02016c
+			public const int notification_template_icon_low_bg = 2130837868;
+>>>>>>> 5381137da194667e52e530fe7806708a32446510
 			
 			// aapt resource value: 0x7f020143
 			public const int notification_tile_bg = 2130837827;
@@ -3280,6 +3310,7 @@ namespace TuVotoCuenta.Droid
 			public const int svgdarkarrow = 2130837855;
 			
 			// aapt resource value: 0x7f020160
+<<<<<<< HEAD
 			public const int svgdarkhome = 2130837856;
 			
 			// aapt resource value: 0x7f020161
@@ -3308,6 +3339,39 @@ namespace TuVotoCuenta.Droid
 			
 			// aapt resource value: 0x7f020169
 			public const int UpVoteIcon = 2130837865;
+=======
+			public const int svgdarkfaq = 2130837856;
+			
+			// aapt resource value: 0x7f020161
+			public const int svgdarkhome = 2130837857;
+			
+			// aapt resource value: 0x7f020162
+			public const int svgdarkmail = 2130837858;
+			
+			// aapt resource value: 0x7f020163
+			public const int svgdarkpassword = 2130837859;
+			
+			// aapt resource value: 0x7f020164
+			public const int svgdarkpower = 2130837860;
+			
+			// aapt resource value: 0x7f020165
+			public const int svgdarkprivacy = 2130837861;
+			
+			// aapt resource value: 0x7f020166
+			public const int svgdarksettings = 2130837862;
+			
+			// aapt resource value: 0x7f020167
+			public const int svgdarkview = 2130837863;
+			
+			// aapt resource value: 0x7f020168
+			public const int tooltip_frame_dark = 2130837864;
+			
+			// aapt resource value: 0x7f020169
+			public const int tooltip_frame_light = 2130837865;
+			
+			// aapt resource value: 0x7f02016a
+			public const int UpVoteIcon = 2130837866;
+>>>>>>> 5381137da194667e52e530fe7806708a32446510
 			
 			static Drawable()
 			{
