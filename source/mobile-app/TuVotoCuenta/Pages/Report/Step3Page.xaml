@@ -39,6 +39,18 @@
                             <RowDefinition Height="100" />
                             <RowDefinition Height="100" />
                             <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
                         <Image Grid.Row="0" Grid.Column="0" Source="pan.jpg" VerticalOptions="Start">
                         </Image>
@@ -148,8 +160,156 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Label Grid.Row="9" Grid.Column="0" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                        <Image Grid.Row="9" Grid.Column="0" Source="ptesmor.png" VerticalOptions="Start">
+                        </Image>
                         <StackLayout Grid.Row="9" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPtEsMor, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="10" Grid.Column="0" Source="priverna.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="10" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPriVerNa, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="11" Grid.Column="0" Source="prdpanmc.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="11" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPrdPanMc, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+
+                        <Image Grid.Row="12" Grid.Column="0" Source="ptes.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="12" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPtEs, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="13" Grid.Column="0" Source="priver.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="13" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPriVer, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="14" Grid.Column="0" Source="prdmc.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="14" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPrdMc, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+
+                        <Image Grid.Row="15" Grid.Column="0" Source="pmores.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="15" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMorEs, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="16" Grid.Column="0" Source="prina.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="16" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPriNa, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="17" Grid.Column="0" Source="panmc.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="17" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPanMc, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+
+                        <Image Grid.Row="18" Grid.Column="0" Source="pmorpt.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="18" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMorPt, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="19" Grid.Column="0" Source="pverna.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="19" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyVerNa, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                         <Image Grid.Row="20" Grid.Column="0" Source="panprd.png" VerticalOptions="Start">
+                        </Image>
+                        <StackLayout Grid.Row="20" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPrdPan, Converter={StaticResource intToStringConverter}}">
+                                <Entry.Behaviors>
+                                    <behaviors:EntryIntValidation />
+                                    <behaviors:StepEntryLostFocus />
+                                </Entry.Behaviors>
+                            </Entry>
+                        </StackLayout>
+                        
+                        <Label Grid.Row="21" Grid.Column="0" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                        <StackLayout Grid.Row="21" Grid.Column="1" Orientation="Vertical">
                             <Label Text="JAIME H. RODRIGUEZ" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyINDJai, Converter={StaticResource intToStringConverter}}">
@@ -159,9 +319,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Label Grid.Row="10" Grid.Column="0" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
-                        <StackLayout Grid.Row="10" Grid.Column="1" Orientation="Vertical">
-                            <Label Text="OTROS" Style="{StaticResource PartyTitle}">
+                        <Label Grid.Row="22" Grid.Column="0" Text="No Registrados" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                        <StackLayout Grid.Row="22" Grid.Column="1" Orientation="Vertical">
+                            <Label Text="No registrados" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyOtro, Converter={StaticResource intToStringConverter}}">
                                 <Entry.Behaviors>

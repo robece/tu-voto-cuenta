@@ -26,15 +26,17 @@ namespace TuVotoCuenta.Domain
 		public int PartyOtro { get; set; }
         public int PartyPANMC { get; set; }
         public int PartyPANPRD { get; set; }
-        public int PartyPANPRDMC { get; set; }
-        public int PartyMCPRD { get; set; }
+        public int PartyPRDPANMC { get; set; }
+        public int PartyPRDMC { get; set; }
         public int PartyMORPT { get; set; }
-        public int PartyMORPES { get; set; }
-        public int PartyMORPESPT { get; set; }
+        public int PartyMORES { get; set; }
+        public int PartyPTESMOR { get; set; }
         public int PartyPRIVERNA { get; set; }
         public int PartyPRIVER { get; set; }
         public int PartyPRINA { get; set; }
-        public int PartyNAVER { get; set; }
+        public int PartyVERNA { get; set; }
+        public int PartyPTES { get; set; }
+        public int PartyPRDPAN { get; set; }
 		public string Image { get; set; }
 		public string RecordHash { get; set; }
 		public string BlockchainTransaction { get; set; }

@@ -22,20 +22,20 @@ namespace TuVotoCuenta.Domain
             set => SetProperty(ref downVotes, value);
         }
 
-        private string section;
-
-        public string Section
-        {
-            get => section;
-            set => SetProperty(ref section, value);
-        }
-
         private Uri photoUrl;
 
         public Uri PhotoUrl
         {
             get => photoUrl;
             set => SetProperty(ref photoUrl, value);
+        }
+
+        private RecordItem recordItem;
+
+        public RecordItem RecordItem
+        {
+            get => recordItem;
+            set => SetProperty(ref recordItem, value);
         }
 
     }

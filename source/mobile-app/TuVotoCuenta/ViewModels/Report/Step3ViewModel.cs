@@ -35,6 +35,19 @@ namespace TuVotoCuenta.ViewModels
 				PartyES = item.PartyES;
 				PartyINDJai = item.PartyINDJai;
 				PartyOtro = item.PartyOtro;
+                PartyMorEs = item.PartyMORES;
+                PartyMorPt = item.PartyMORPT;
+                PartyPtEs = item.PartyPTES;
+                PartyPtEsMor = item.PartyPTESMOR;
+                PartyPrdMc = item.PartyPRDMC;
+                PartyPrdPan = item.PartyPRDPAN;
+                PartyPanMc = item.PartyPANMC;
+                PartyPrdPanMc = item.PartyPRDPANMC;
+                PartyPriVer = item.PartyPRIVER;
+                PartyPriNa = item.PartyPRINA;
+                PartyVerNa = item.PartyVERNA;
+                PartyPriVerNa = item.PartyPRIVERNA;
+
             }
 
             NextCommand = new Command(async () => await Next());
@@ -164,6 +177,102 @@ namespace TuVotoCuenta.ViewModels
         {
 			get { return partyOtro; }
             set { SetProperty(ref partyOtro, value); }
+        }
+
+        private int partyPriVerNa = -1;
+
+        public int PartyPriVerNa
+        {
+            get => partyPriVerNa;
+            set => SetProperty(ref partyPriVerNa, value);
+        }
+
+        private int partyPriVer = -1;
+
+        public int PartyPriVer
+        {
+            get => partyPriVer;
+            set => SetProperty(ref partyPriVer, value);
+        }
+
+        private int partyVerNa = -1;
+
+        public int PartyVerNa
+        {
+            get => partyVerNa;
+            set => SetProperty(ref partyVerNa, value);
+        }
+
+        private int partyPriNa = -1;
+
+        public int PartyPriNa
+        {
+            get => partyPriNa;
+            set => SetProperty(ref partyPriNa, value);
+        }
+
+        private int partyPrdPanMc = -1;
+
+        public int PartyPrdPanMc
+        {
+            get => partyPrdPanMc;
+            set => SetProperty(ref partyPrdPanMc, value);
+        }
+
+        private int partyPrdPan = -1;
+
+        public int PartyPrdPan
+        {
+            get => partyPrdPan;
+            set => SetProperty(ref partyPrdPan, value);
+        }
+
+        private int partyPrdMc = -1;
+
+        public int PartyPrdMc
+        {
+            get => partyPrdMc;
+            set => SetProperty(ref partyPrdMc, value);
+        }
+
+        private int partyPanMc = -1;
+
+        public int PartyPanMc
+        {
+            get => partyPanMc;
+            set => SetProperty(ref partyPanMc, value);
+        }
+
+        private int partyPtEsMor = -1;
+
+        public int PartyPtEsMor
+        {
+            get => partyPtEsMor;
+            set => SetProperty(ref partyPtEsMor, value);
+        }
+
+        private int partyPtEs = -1;
+
+        public int PartyPtEs
+        {
+            get => partyPtEs;
+            set => SetProperty(ref partyPtEs, value);
+        }
+
+        private int partyMorEs = -1;
+
+        public int PartyMorEs
+        {
+            get => partyMorEs;
+            set => SetProperty(ref partyMorEs, value);
+        }
+
+        private int partyMorPt = -1;
+
+        public int PartyMorPt
+        {
+            get => partyMorPt;
+            set => SetProperty(ref partyMorPt, value);
         }
 
         #endregion
