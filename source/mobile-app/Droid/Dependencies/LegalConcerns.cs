@@ -14,7 +14,7 @@ namespace TuVotoCuenta.Droid.Dependencies
         public async Task<string> ReadLegalConcerns()
         {
             string result = string.Empty;
-            using (StreamReader sr = new StreamReader(Android.App.Application.Context.Assets.Open("LegalConcerns.txt")))
+            using (StreamReader sr = new StreamReader(Android.App.Application.Context.Assets.Open("LegalConcerns.html")))
             {
                 result = await sr.ReadToEndAsync();
             }

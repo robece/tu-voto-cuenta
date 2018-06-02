@@ -24,7 +24,8 @@
             </carousel:CarouselView>
             <ScrollView Grid.Row="1">
                 <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-                    <Label Text="¿Ya te registraste? ¡Accede a tu cuenta!..." Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    <Label Text="¿Ya te registraste?" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
+                    <Label Text="¡Accede a tu cuenta!..." Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <StackLayout Spacing="10">
                         <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" />
                         <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" />

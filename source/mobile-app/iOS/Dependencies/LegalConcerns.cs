@@ -12,7 +12,7 @@ namespace TuVotoCuenta.iOS.Dependencies
         public async Task<string> ReadLegalConcerns()
         {
             string result = string.Empty;
-            using (StreamReader sr = new StreamReader("LegalConcerns/LegalConcerns.txt"))
+            using (StreamReader sr = new StreamReader("LegalConcerns/LegalConcerns.html"))
             {
                 result = await sr.ReadToEndAsync();
             }
