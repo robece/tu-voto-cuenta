@@ -1,10 +1,11 @@
 ﻿using System;
+
 namespace TuVotoCuenta.Enums
 {
-    public class ConnectivtyResultEnum
+    public enum ConnectivtyResultEnum
     {
-        public ConnectivtyResultEnum()
-        {
-        }
+        Unknow,
+        HasConnectivity,
+        NoConnectivity
     }
 }

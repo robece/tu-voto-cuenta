@@ -1,6 +1,6 @@
 ﻿namespace TuVotoCuenta.Domain
 {
-	public class SignUpAccountResponse
+    public class SignUpAccountResponse : HttpResponseBase
     {
         public bool IsSucceded { get; set; }
         public string Account { get; set; }

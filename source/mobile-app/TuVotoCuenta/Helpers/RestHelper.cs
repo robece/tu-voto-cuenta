@@ -11,18 +11,33 @@ using TuVotoCuenta.Domain;
 namespace TuVotoCuenta.Helpers
 {
     public class RestHelper
-    {      
-		public static async Task<SignUpAccountResponse> SignUpAccountAsync(SignUpAccountRequest model)
+    {
+        static HttpClient client;
+
+        static void InitClient()
         {
-			int IterationsToRetry = 0;
+            if (client == null)
+                client = new HttpClient();
+        }
+
+        public static async Task<SignUpAccountResponse> SignUpAccountAsync(SignUpAccountRequest model)
+        {
+            int IterationsToRetry = 0;
             int TimeToSleepForRetry = 3000;
-			SignUpAccountResponse result = null;
+            SignUpAccountResponse result = new SignUpAccountResponse();
+
+            if (Helpers.ConnectivyHelper.CheckConnectivity() != Enums.ConnectivtyResultEnum.HasConnectivity)
+            {
+                result.Status = Enums.ResponseStatus.CommunicationError;
+                result.ResponseMessage = "El dispositivo no pudo comunicarse con el servidor, comprueba que tengas conexión a internet";
+                return result;
+            }
 
             for (int i = 0; i <= IterationsToRetry; i++)
             {
                 try
                 {
-					using (var client = new HttpClient())
+                    using (var client = new HttpClient())
                     {
                         var service = $"{Settings.FunctionURL}/api/SignUpAccount/";
 
@@ -32,33 +47,45 @@ namespace TuVotoCuenta.Helpers
                             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
                             var httpResponse = await client.PostAsync(service, content);
 
-							if (httpResponse.StatusCode == HttpStatusCode.OK)
-							{
-								result = JsonConvert.DeserializeObject<SignUpAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
-								return result;
-							}
-							else
-							{
-								Thread.Sleep(TimeToSleepForRetry);
-								continue;
-							}
+                            if (httpResponse.StatusCode == HttpStatusCode.OK)
+                            {
+                                result = JsonConvert.DeserializeObject<SignUpAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
+                                result.Status = Enums.ResponseStatus.Ok;
+                                return result;
+                            }
+                            else
+                            {
+                                result.Status = Enums.ResponseStatus.CommunicationError;
+                                result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
+                                Thread.Sleep(TimeToSleepForRetry);
+                                continue;
+                            }
                         }
-                    }              
+                    }
                 }
                 catch (Exception)
                 {
+                    result.Status = Enums.ResponseStatus.CommunicationError;
+                    result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
                     Thread.Sleep(TimeToSleepForRetry);
                     continue;
                 }
             }
-            return result;         
+            return result;
         }
 
-		public static async Task<SignInAccountResponse> SignInAccountAsync(SignInAccountRequest model)
+        public static async Task<SignInAccountResponse> SignInAccountAsync(SignInAccountRequest model)
         {
             int IterationsToRetry = 5;
             int TimeToSleepForRetry = 3000;
-            SignInAccountResponse result = null;
+            SignInAccountResponse result = new SignInAccountResponse();
+
+            if (Helpers.ConnectivyHelper.CheckConnectivity() != Enums.ConnectivtyResultEnum.HasConnectivity)
+            {
+                result.Status = Enums.ResponseStatus.CommunicationError;
+                result.ResponseMessage = "El dispositivo no pudo comunicarse con el servidor, comprueba que tengas conexión a internet";
+                return result;
+            }
 
             for (int i = 0; i <= IterationsToRetry; i++)
             {
@@ -77,10 +104,13 @@ namespace TuVotoCuenta.Helpers
                             if (httpResponse.StatusCode == HttpStatusCode.OK)
                             {
                                 result = JsonConvert.DeserializeObject<SignInAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
+                                result.Status = Enums.ResponseStatus.Ok;
                                 return result;
                             }
                             else
                             {
+                                result.Status = Enums.ResponseStatus.CommunicationError;
+                                result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
                                 Thread.Sleep(TimeToSleepForRetry);
                                 continue;
                             }
@@ -89,6 +119,8 @@ namespace TuVotoCuenta.Helpers
                 }
                 catch (Exception)
                 {
+                    result.Status = Enums.ResponseStatus.CommunicationError;
+                    result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
                     Thread.Sleep(TimeToSleepForRetry);
                     continue;
                 }
@@ -96,11 +128,18 @@ namespace TuVotoCuenta.Helpers
             return result;
         }
 
-		public static async Task<GetBalanceAccountResponse> GetBalanceAccountAsync(GetBalanceAccountRequest model)
+        public static async Task<GetBalanceAccountResponse> GetBalanceAccountAsync(GetBalanceAccountRequest model)
         {
             int IterationsToRetry = 5;
             int TimeToSleepForRetry = 3000;
-			GetBalanceAccountResponse result = null;
+            GetBalanceAccountResponse result = new GetBalanceAccountResponse();
+
+            if (Helpers.ConnectivyHelper.CheckConnectivity() != Enums.ConnectivtyResultEnum.HasConnectivity)
+            {
+                result.Status = Enums.ResponseStatus.CommunicationError;
+                result.ResponseMessage = "El dispositivo no pudo comunicarse con el servidor, comprueba que tengas conexión a internet";
+                return result;
+            }
 
             for (int i = 0; i <= IterationsToRetry; i++)
             {
@@ -118,11 +157,14 @@ namespace TuVotoCuenta.Helpers
 
                             if (httpResponse.StatusCode == HttpStatusCode.OK)
                             {
-								result = JsonConvert.DeserializeObject<GetBalanceAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
+                                result = JsonConvert.DeserializeObject<GetBalanceAccountResponse>(await httpResponse.Content.ReadAsStringAsync());
+                                result.Status = Enums.ResponseStatus.Ok;
                                 return result;
                             }
                             else
                             {
+                                result.Status = Enums.ResponseStatus.CommunicationError;
+                                result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
                                 Thread.Sleep(TimeToSleepForRetry);
                                 continue;
                             }
@@ -131,6 +173,8 @@ namespace TuVotoCuenta.Helpers
                 }
                 catch (Exception)
                 {
+                    result.Status = Enums.ResponseStatus.CommunicationError;
+                    result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
                     Thread.Sleep(TimeToSleepForRetry);
                     continue;
                 }

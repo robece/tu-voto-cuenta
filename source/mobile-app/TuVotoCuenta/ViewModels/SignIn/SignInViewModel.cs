@@ -56,7 +56,7 @@ namespace TuVotoCuenta.ViewModels
                     SignInAccountRequest model = new SignInAccountRequest() { username = Username, password = Password };
                     SignInAccountResponse response = await RestHelper.SignInAccountAsync(model);
 
-                    if (response == null)
+                    if (response.Status !=  ResponseStatus.Ok)
                     {
                         throw new AggregateException(SignInAccountResultEnum.Failed.ToString());
                     }

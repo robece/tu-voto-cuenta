@@ -1,10 +1,21 @@
 ﻿using System;
+using TuVotoCuenta.Enums;
+
 namespace TuVotoCuenta.Domain
 {
-    public class HttpResponseBase
+    public abstract class HttpResponseBase
     {
-        public HttpResponseBase()
+        public ResponseStatus Status
         {
+            get;
+            set;
         }
+
+        public string ResponseMessage
+        {
+            get;
+            set;
+        }
+
     }
 }

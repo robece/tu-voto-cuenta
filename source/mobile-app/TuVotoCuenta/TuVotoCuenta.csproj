@@ -52,6 +52,7 @@
     <PackageReference Include="Xam.Plugin.Media" Version="3.2.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Xamarin.Forms.CarouselView" Version="2.3.0-pre2" />
+    <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />
