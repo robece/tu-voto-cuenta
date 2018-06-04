@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.SignInPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.SignInPage" xmlns:Behaviors="clr-namespace:TuVotoCuenta.Behaviors">
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
@@ -27,8 +27,16 @@
                     <Label Text="¿Ya te registraste?" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <Label Text="¡Accede a tu cuenta!..." Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <StackLayout Spacing="10">
-                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" />
-                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" />
+                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" >
+                            <controls:ImageEntry.Behaviors>
+                                <Behaviors:EntryValidationBehavior ValidationType="UserName"  />
+                            </controls:ImageEntry.Behaviors>
+                        </controls:ImageEntry>
+                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" >
+                            <controls:ImageEntry.Behaviors>
+                                <Behaviors:EntryValidationBehavior ValidationType="Password"  />
+                            </controls:ImageEntry.Behaviors>
+                        </controls:ImageEntry>
                     </StackLayout>
                     <Button Text="Iniciar Sesión" Margin="0,10,0,10" Style="{DynamicResource ExplicitButton}" Command="{Binding SignInCommand}" />
                     <ActivityIndicator HorizontalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource PrimaryDark}" />

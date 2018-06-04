@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Plugin.Geolocator;
+using TuVotoCuenta.Domain;
 using TuVotoCuenta.Pages;
 using Xamarin.Forms;
 
@@ -24,6 +26,11 @@ namespace TuVotoCuenta.ViewModels
 			ChoosePhotoCommand = new Command(async () => await ChoosePhoto());
             
             NextCommand = new Command(async () => await Next());
+
+            RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
+            Photo = Helpers.LocalFilesHelper.ReadFile(item.UID.ToString());
+            App.Latitude = item.Latitude;
+            App.Longitude = item.Longitude;
 		}
 
 		bool IsLocationAvailable()
@@ -63,6 +70,16 @@ namespace TuVotoCuenta.ViewModels
             }
         }
 
+
+        void SavePhoto()
+        {
+            RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
+            Helpers.LocalFilesHelper.SaveFile(item.UID.ToString(), Photo);
+            item.Latitude = App.Latitude;
+            item.Longitude = App.Longitude;
+            Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
+        }
+
         #region Commands
 
 		public Command TakePhotoCommand { get; set; }
@@ -71,6 +88,13 @@ namespace TuVotoCuenta.ViewModels
         async Task ChoosePhoto()
         {
             Photo = await Helpers.MediaHelper.PickPhotoAsync();
+            await Task.Run(async () => {
+                if (IsLocationAvailable())
+                {
+                    await StartLocationAsync();
+                }
+            });
+            SavePhoto();
         }
 
         async Task TakePhoto()
@@ -83,6 +107,7 @@ namespace TuVotoCuenta.ViewModels
                     await StartLocationAsync();
                 }
             });
+            SavePhoto();
         }
         
         public Command NextCommand { get; set; }

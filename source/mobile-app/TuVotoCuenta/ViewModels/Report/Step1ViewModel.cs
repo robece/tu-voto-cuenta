@@ -11,23 +11,24 @@ using Xamarin.Forms;
 namespace TuVotoCuenta.ViewModels
 {
     public class Step1ViewModel : BaseViewModel
-    {        
-		INavigation navigation = null;
+    {
+        INavigation navigation = null;
 
         public Step1ViewModel(INavigation navigation)
-		{
-			this.navigation = navigation;
-			InitializeViewModel();         
+        {
+            this.navigation = navigation;
+            InitializeViewModel();
         }
-        
+
         void InitializeViewModel()
         {
-			Title = "Registro de casilla";
-            
-			if (!String.IsNullOrEmpty(Settings.CurrentRecordItem))
-			{
-				Device.BeginInvokeOnMainThread(async() => { 
-					var answer = await Application.Current.MainPage.DisplayAlert("TuVotoCuenta", "Hemos detectado que ya tienes un reporte en progreso, ¿deseas continuar con él?, si seleccionas 'No' se borrarán todos los datos previamente capturados.", "Si", "No");
+            Title = "Registro de casilla";
+
+            if (!String.IsNullOrEmpty(Settings.CurrentRecordItem))
+            {
+                Device.BeginInvokeOnMainThread(async () =>
+                {
+                    var answer = await Application.Current.MainPage.DisplayAlert("TuVotoCuenta", "Hemos detectado que ya tienes un reporte en progreso, ¿deseas continuar con él?, si seleccionas 'No' se borrarán todos los datos previamente capturados.", "Si", "No");
                     if (answer)
                     {
                         RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
@@ -36,53 +37,58 @@ namespace TuVotoCuenta.ViewModels
                     }
                     else
                     {
-                        Settings.CurrentRecordItem = string.Empty;
+                        RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
+                        if (item != null)
+                        {
+                            Helpers.LocalFilesHelper.DeleteFile(item.UID.ToString());
+                            Settings.CurrentRecordItem = string.Empty;
+                        }
                     }
-				});
-			}
-               
-			NextCommand = new Command(async() => await Next());
+                });
+            }
 
-			Task.Run(() =>
+            NextCommand = new Command(async () => await Next());
+
+            Task.Run(() =>
             {
-                using(var sha256 = SHA256.Create())  
+                using (var sha256 = SHA256.Create())
                 {
                     var dh = sha256.ComputeHash(Encoding.UTF8.GetBytes(CrossDeviceInfo.Current.Id));
-                    DeviceHash = System.BitConverter.ToString(dh).Replace("-", "").ToLower();  
-                }  
-            });  
+                    DeviceHash = System.BitConverter.ToString(dh).Replace("-", "").ToLower();
+                }
+            });
         }
 
-		bool ValidateInformation()
-		{
-			if (String.IsNullOrEmpty(BoxNumber))
+        bool ValidateInformation()
+        {
+            if (String.IsNullOrEmpty(BoxNumber))
                 return false;
-			if (String.IsNullOrEmpty(BoxSection))
+            if (String.IsNullOrEmpty(BoxSection))
                 return false;
-			return true;
-		}
+            return true;
+        }
 
         public void Save()
-		{
-			RecordItem item = (!String.IsNullOrEmpty(Settings.CurrentRecordItem)) ? JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem) : new RecordItem();
+        {
+            RecordItem item = (!String.IsNullOrEmpty(Settings.CurrentRecordItem)) ? JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem) : new RecordItem() { UID = Guid.NewGuid() };
 
             item.BoxNumber = BoxNumber;
             item.BoxSection = BoxSection;
 
             Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
-		}
+        }
 
         #region Commands
-        
-		public Command NextCommand { get; set; }
-      
-		async Task Next()
+
+        public Command NextCommand { get; set; }
+
+        async Task Next()
         {
-			if (!ValidateInformation())
-				await Application.Current.MainPage.DisplayAlert("Error", "Ingresa la información correcta.", "Aceptar");
+            if (!ValidateInformation())
+                await Application.Current.MainPage.DisplayAlert("Error", "Ingresa la información correcta.", "Aceptar");
             else if (!IsBusy)
             {
-				await navigation.PushAsync(new Step2Page());            
+                await navigation.PushAsync(new Step2Page());
             }
         }
 
@@ -90,14 +96,14 @@ namespace TuVotoCuenta.ViewModels
 
         #region Binding attributes
 
-		int id;
+        int id;
         public int Id
         {
             get { return id; }
             set { SetProperty(ref id, value); }
         }
 
-		string deviceHash;
+        string deviceHash;
         public string DeviceHash
         {
             get { return deviceHash; }
@@ -108,14 +114,14 @@ namespace TuVotoCuenta.ViewModels
         public string BoxNumber
         {
             get { return boxNumber; }
-			set { SetProperty(ref boxNumber, value); }
+            set { SetProperty(ref boxNumber, value); }
         }
 
         string boxSection;
         public string BoxSection
         {
             get { return boxSection; }
-			set { SetProperty(ref boxSection, value); }
+            set { SetProperty(ref boxSection, value); }
         }
 
         #endregion

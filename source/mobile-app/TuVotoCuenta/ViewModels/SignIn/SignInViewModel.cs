@@ -28,7 +28,7 @@ namespace TuVotoCuenta.ViewModels
 				new Slide { ImageUrl ="master.jpg", Name = "Bienvenido a TuVotoCuenta" }
 			};
 
-			SignInCommand = new Command(async () => await SignIn());
+            SignInCommand = new Command(async () => await SignIn(),() => ValidateInformation());
 			SignUpCommand = new Command(() => SignUp());
 		}
 
@@ -136,9 +136,9 @@ namespace TuVotoCuenta.ViewModels
 
 		bool ValidateInformation()
 		{
-			if (string.IsNullOrEmpty(Username))
+            if (Helpers.ValidationHelper.ValidateString(Helpers.ValidationType.UserName, Username) != Helpers.ValidationResult.IsValid)
 				return false;
-			if (string.IsNullOrEmpty(Password))
+            if (Helpers.ValidationHelper.ValidateString(Helpers.ValidationType.Password, Password) != Helpers.ValidationResult.IsValid)
 				return false;
 
 			return true;
@@ -157,14 +157,14 @@ namespace TuVotoCuenta.ViewModels
         public string Username
         {
             get { return username; }
-            set { SetProperty(ref username, value); }
+            set { SetProperty(ref username, value); SignInCommand.ChangeCanExecute(); }
         }
 
 		string password;
 		public string Password
 		{
 			get { return password; }
-			set { SetProperty(ref password, value); }
+            set { SetProperty(ref password, value); SignInCommand.ChangeCanExecute(); }
 		}
 
 		#endregion

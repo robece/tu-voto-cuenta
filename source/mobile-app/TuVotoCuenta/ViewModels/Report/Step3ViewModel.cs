@@ -62,17 +62,29 @@ namespace TuVotoCuenta.ViewModels
         {
             RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
 
-			item.PartyPAN = PartyPAN;
-			item.PartyPRI = PartyPRI;
-			item.PartyPRD= PartyPRD;
-			item.PartyVerde = PartyVerde;
-			item.PartyPT = PartyPT;
-			item.PartyMC = PartyMC;
-			item.PartyNA = PartyNA;
-			item.PartyMOR = PartyMOR;
-			item.PartyES = PartyES;
-			item.PartyINDJai = PartyINDJai;
-			item.PartyOtro = PartyOtro;
+            item.PartyPAN = PartyPAN;
+            item.PartyPRI = PartyPRI;
+            item.PartyPRD = PartyPRD;
+            item.PartyVerde = PartyVerde;
+            item.PartyPT = PartyPT;
+            item.PartyMC = PartyMC;
+            item.PartyNA = PartyNA;
+            item.PartyMOR = PartyMOR;
+            item.PartyES = PartyES;
+            item.PartyINDJai = PartyINDJai;
+            item.PartyOtro = PartyOtro;
+            item.PartyMORES = PartyMorEs;
+            item.PartyMORPT = PartyMorPt;
+            item.PartyPTES = PartyPtEs;
+            item.PartyPTESMOR = PartyPtEsMor;
+            item.PartyPRDMC = PartyPrdMc;
+            item.PartyPRDPAN = PartyPrdPan;
+            item.PartyPANMC = PartyPanMc;
+            item.PartyPRDPANMC = PartyPrdPanMc;
+            item.PartyPRIVER = PartyPriVer;
+            item.PartyPRINA = PartyPriNa;
+            item.PartyVERNA = PartyVerNa;
+            item.PartyPRIVERNA = PartyPriVerNa;
 
             Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
         }

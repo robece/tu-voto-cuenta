@@ -7,6 +7,9 @@ namespace TuVotoCuenta.Helpers
 {
     public class LocalFilesHelper
     {
+
+        static string DEFAULTPATH = System.Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+
         public static string ReadFileInPackage(string name)
         {
             string fileContent = string.Empty;
@@ -28,6 +31,30 @@ namespace TuVotoCuenta.Helpers
             }
 
             return fileContent;
+        }
+
+
+        public static void SaveFile(string fileName, byte[] data)
+        {
+            var filePath = Path.Combine(DEFAULTPATH, fileName);
+            File.WriteAllBytes(filePath, data);
+        }
+
+        public static byte[] ReadFile(string fileName)
+        {
+            var filePath = Path.Combine(DEFAULTPATH, fileName);
+            if (!File.Exists(filePath))
+                return null;
+            return File.ReadAllBytes(filePath);
+        }
+
+        public static void DeleteFile(string fileName)
+        {
+            var filePath = Path.Combine(DEFAULTPATH, fileName);
+            if(File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
         }
     }
 }

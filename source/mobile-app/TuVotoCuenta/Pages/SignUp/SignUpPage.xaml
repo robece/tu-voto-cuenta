@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.SignUpPage">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.SignUpPage" xmlns:Behaviors="clr-namespace:TuVotoCuenta.Behaviors">
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
@@ -27,9 +27,22 @@
                     <Label Text="¿Aún no tienes cuenta?" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <Label Text="¡Regístrate!..." Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <StackLayout Spacing="10">
-                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" />
-                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" />
-                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding ConfirmPassword}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Confirmar contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" />
+                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand">
+                            <controls:ImageEntry.Behaviors>
+                                <Behaviors:EntryValidationBehavior ValidationType="UserName"  />
+                            </controls:ImageEntry.Behaviors>
+                        </controls:ImageEntry>
+                        <controls:ImageEntry x:Name="entPassword" TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand">
+                            <controls:ImageEntry.Behaviors>
+                              <Behaviors:EntryValidationBehavior ValidationType="Password"  />
+                            </controls:ImageEntry.Behaviors>
+                        </controls:ImageEntry>
+                        <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding ConfirmPassword}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Confirmar contraseña" IsPassword="true" HorizontalOptions="FillAndExpand">
+                            <controls:ImageEntry.Behaviors>
+                                <Behaviors:EntryValidationBehavior ValidationType="Password"  />
+                                <Behaviors:EntryComparisonBehavior CompareWith="{x:Reference entPassword}"  />
+                            </controls:ImageEntry.Behaviors>
+                        </controls:ImageEntry>
                     </StackLayout>
                     <Button Text="Registrate" Margin="0,10,0,0" Style="{DynamicResource ExplicitButton}" Command="{Binding SignUpCommand}" />
                     <controls:ImplicitButton Text="Ya tengo una cuenta" Style="{DynamicResource ImplicitButton}" Command="{Binding SignInCommand}" />
