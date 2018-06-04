@@ -16,7 +16,7 @@ namespace TuVotoCuenta.ViewModels
         void InitializeViewModel()
         {
 			UserFullname = $"Hola, {Settings.Profile_Username}!";;
-			UserAccount = Settings.Profile_Account;
+			UserAccount = string.Empty;
 			UserPicture = Settings.Profile_Picture;
         }
 

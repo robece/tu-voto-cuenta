@@ -39,7 +39,7 @@ namespace TuVotoCuenta.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Aviso", "Verifica que todos los campos se encuentren completos.", "Aceptar");
                 else if (!IsBusy)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Aviso", "TuVotoCuenta se apoya en el uso de una cadena de bloques (blockchain) donde se responsabiliza a cada usuario por sus claves, nosotros no tenemos acceso a tu contraseña y no podemos ayudarte restablecerla por lo que es importante que la guardes y no la pierdas u olvides, anótala en un lugar seguro ya que la necesitarás para validar el envio de datos que hagas a la blockchain, recuerda que sólo tú podrás acceder con ese usuario y dar autenticidad a la información que envíes, si pierdes la contraseña tendrás que crear un usuario y contraseña nueva, los anteriores quedarán inutilizados.", "Aceptar");
+					await Application.Current.MainPage.DisplayAlert("Aviso", "Importante: dado que no recopilamos información como el correo electrónico no podemos ayudarte restablecer tu contraseña en caso de extravío, por lo que es importante que guardes bien tu nombre de usuario y contraseña, anótalos en un lugar seguro ya que los necesitarás cada que desees iniciar sesión desde un dispositivo móvil.", "Aceptar");
                     IsBusy = true;
                     SignUpAccountRequest model = new SignUpAccountRequest() { username = Username, password = Password };
                     Application.Current.MainPage = new LegalConcernsPage(model);

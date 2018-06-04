@@ -20,7 +20,6 @@ namespace TuVotoCuenta
 		private const string FunctionURLKey = "FunctionURLKey";
 		private const string ImageStorageUrlKey = "ImageStorageUrlKey";
 		private const string CurrentRecordItemKey = "CurrentRecordItemKey";
-		private const string Profile_AccountKey = "Profile_AccountKey";
 		private const string Profile_UsernameKey = "Profile_UsernameKey";
 		private const string Profile_PictureKey = "Profile_PictureKey";
 
@@ -54,26 +53,14 @@ namespace TuVotoCuenta
         public static string CurrentRecordItem
 		{
 			get
-            {
+			{
 				return AppSettings.GetValueOrDefault(CurrentRecordItemKey, string.Empty);
-            }
-            set
-            {
+			}
+			set
+			{
 				AppSettings.AddOrUpdateValue(CurrentRecordItemKey, value);
-            }
+			}
 		}
-
-		public static string Profile_Account
-        {
-            get
-            {
-				return AppSettings.GetValueOrDefault(Profile_AccountKey, SettingsDefault);
-            }
-            set
-            {
-				AppSettings.AddOrUpdateValue(Profile_AccountKey, value);
-            }
-        }
 
 		public static string Profile_Username
         {

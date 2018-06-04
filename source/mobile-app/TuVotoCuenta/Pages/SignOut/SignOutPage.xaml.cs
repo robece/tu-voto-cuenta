@@ -22,7 +22,6 @@ namespace TuVotoCuenta.Pages
         public static void CleanCurrentSession()
 		{
 			Settings.Profile_Username = string.Empty;
-            Settings.Profile_Account = string.Empty;
             Settings.Profile_Picture = string.Empty;
 			Settings.CurrentRecordItem = string.Empty;         
 		}

@@ -65,7 +65,6 @@ namespace TuVotoCuenta.ViewModels
                         if (response.IsSucceded)
                         {
                             Settings.Profile_Username = response.Username;
-                            Settings.Profile_Account = response.Account;
                             Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
                         }
                         else
