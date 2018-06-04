@@ -88,6 +88,7 @@ namespace TuVotoCuenta.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Error", "Ingresa la información correcta.", "Aceptar");
             else if (!IsBusy)
             {
+                Save();
                 await navigation.PushAsync(new Step2Page());
             }
         }

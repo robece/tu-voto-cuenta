@@ -114,7 +114,8 @@ namespace TuVotoCuenta.ViewModels
 
         async Task Next()
         {
-            await navigation.PushAsync(new WelcomePage());
+            SavePhoto();
+            (App.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new WelcomePage());
         }
 
         #endregion
