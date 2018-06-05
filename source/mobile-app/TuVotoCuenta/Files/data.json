@@ -3,1320 +3,1398 @@
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 112,
-    "Section": 251
+    "RecordItem": {
+      "UID": "bab5cc40-9040-462e-ac68-8fea615b8b83",
+      "DeviceHash": "hash",
+      "BoxNumber": 123,
+      "BoxSection": 251,
+      "Latitude": 19.432,
+      "Longitude": -99.133,
+      "LocationDetails": "details",
+      "Entity": "CDMX",
+      "Municipality": "CDMX001",
+      "Locality": "CDMX001",
+      "PartyPAN": 123,
+      "PartyPRI": 456,
+      "PartyPRD": 789,
+      "PartyVerde": 101,
+      "PartyPT": 112,
+      "PartyMC": 131,
+      "PartyNA": 415,
+      "PartyMOR": 161,
+      "PartyES": 718,
+      "PartyINDJai": 192,
+      "PartyOtro": 21,
+      "PartyPANMC": 222,
+      "PartyPANPRD": 324,
+      "PartyPRDPANMC": 252,
+      "PartyPRDMC": 627,
+      "PartyMORPT": 282,
+      "PartyMORES": 930,
+      "PartyPTESMOR": 313,
+      "PartyPRIVERNA": 233,
+      "PartyPRIVER": 343,
+      "PartyPRINA": 536,
+      "PartyVERNA": 373,
+      "PartyPTES": 839,
+      "PartyPRDPAN": 404,
+      "Image": "http://via.placeholder.com/500x750",
+      "RecordHash": "recordhash",
+      "BlockchainTransaction": "blockchaintransaction",
+      "CreatedDate": "2018-06-05 00:00:00"
+    }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 109,
-    "Section": 252
+    "RecordItem": {
+      "UID": "bab5cc40-9040-462e-ac68-8fea615b8b83",
+      "DeviceHash": "hash",
+      "BoxNumber": 123,
+      "BoxSection": 252,
+      "Latitude": 19.432,
+      "Longitude": -99.133,
+      "LocationDetails": "details",
+      "Entity": "CDMX",
+      "Municipality": "CDMX002",
+      "Locality": "CDMX002",
+      "PartyPAN": 123,
+      "PartyPRI": 256,
+      "PartyPRD": 389,
+      "PartyVerde": 401,
+      "PartyPT": 512,
+      "PartyMC": 631,
+      "PartyNA": 715,
+      "PartyMOR": 861,
+      "PartyES": 918,
+      "PartyINDJai": 92,
+      "PartyOtro":121,
+      "PartyPANMC": 222,
+      "PartyPANPRD": 324,
+      "PartyPRDPANMC": 452,
+      "PartyPRDMC": 527,
+      "PartyMORPT": 682,
+      "PartyMORES": 730,
+      "PartyPTESMOR": 813,
+      "PartyPRIVERNA": 933,
+      "PartyPRIVER": 43,
+      "PartyPRINA": 136,
+      "PartyVERNA": 273,
+      "PartyPTES": 339,
+      "PartyPRDPAN": 404,
+      "Image": "http://via.placeholder.com/500x750",
+      "RecordHash": "recordhash",
+      "BlockchainTransaction": "blockchaintransaction",
+      "CreatedDate": "2018-06-03 00:00:00"
+    }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 109,
-    "Section": 253
+    "RecordItem": { "BoxSection": 253 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 111,
-    "Section": 254
+    "RecordItem": { "BoxSection": 254 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 109,
-    "Section": 255
+    "RecordItem": { "BoxSection": 255 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 109,
-    "Section": 256
+    "RecordItem": { "BoxSection": 256 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 100,
-    "Section": 257
+    "RecordItem": { "BoxSection": 257 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 108,
-    "Section": 258
+    "RecordItem": { "BoxSection": 258 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 102,
-    "Section": 259
+    "RecordItem": { "BoxSection": 259 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 99,
-    "Section": 260
+    "RecordItem": { "BoxSection": 260 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 110,
-    "Section": 261
+    "RecordItem": { "BoxSection": 261 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 107,
-    "Section": 262
+    "RecordItem": { "BoxSection": 262 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 109,
-    "Section": 263
+    "RecordItem": { "BoxSection": 263 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 112,
-    "Section": 264
+    "RecordItem": { "BoxSection": 264 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 99,
-    "Section": 265
+    "RecordItem": { "BoxSection": 265 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 118,
-    "Section": 266
+    "RecordItem": { "BoxSection": 266 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 115,
-    "Section": 267
+    "RecordItem": { "BoxSection": 267 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 107,
-    "Section": 268
+    "RecordItem": { "BoxSection": 268 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 112,
-    "Section": 269
+    "RecordItem": { "BoxSection": 269 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 103,
-    "Section": 270
+    "RecordItem": { "BoxSection": 270 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 99,
-    "Section": 271
+    "RecordItem": { "BoxSection": 271 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 109,
-    "Section": 272
+    "RecordItem": { "BoxSection": 272 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 103,
-    "Section": 273
+    "RecordItem": { "BoxSection": 273 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 105,
-    "Section": 274
+    "RecordItem": { "BoxSection": 274 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 99,
     "DownVotes": 105,
-    "Section": 275
+    "RecordItem": { "BoxSection": 275 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 112,
-    "Section": 276
+    "RecordItem": { "BoxSection": 276 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 103,
-    "Section": 277
+    "RecordItem": { "BoxSection": 277 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 98,
-    "Section": 278
+    "RecordItem": { "BoxSection": 278 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 109,
-    "Section": 279
+    "RecordItem": { "BoxSection": 279 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 103,
-    "Section": 280
+    "RecordItem": { "BoxSection": 280 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 100,
-    "Section": 281
+    "RecordItem": { "BoxSection": 281 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 101,
-    "Section": 282
+    "RecordItem": { "BoxSection": 282 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 102,
-    "Section": 283
+    "RecordItem": { "BoxSection": 283 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 105,
-    "Section": 284
+    "RecordItem": { "BoxSection": 284 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 116,
-    "Section": 285
+    "RecordItem": { "BoxSection": 285 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 99,
     "DownVotes": 102,
-    "Section": 286
+    "RecordItem": { "BoxSection": 286 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 115,
-    "Section": 287
+    "RecordItem": { "BoxSection": 287 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 104,
-    "Section": 288
+    "RecordItem": { "BoxSection": 288 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 105,
-    "Section": 289
+    "RecordItem": { "BoxSection": 289 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 105,
     "DownVotes": 99,
-    "Section": 290
+    "RecordItem": { "BoxSection": 290 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 101,
-    "Section": 291
+    "RecordItem": { "BoxSection": 291 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 103,
-    "Section": 292
+    "RecordItem": { "BoxSection": 292 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 111,
-    "Section": 293
+    "RecordItem": { "BoxSection": 293 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 117,
-    "Section": 294
+    "RecordItem": { "BoxSection": 294 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 108,
-    "Section": 295
+    "RecordItem": { "BoxSection": 295 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 99,
-    "Section": 296
+    "RecordItem": { "BoxSection": 296 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 111,
-    "Section": 297
+    "RecordItem": { "BoxSection": 297 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 111,
-    "Section": 298
+    "RecordItem": { "BoxSection": 298 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 112,
-    "Section": 299
+    "RecordItem": { "BoxSection": 299 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 103,
-    "Section": 300
+    "RecordItem": { "BoxSection": 300 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 100,
-    "Section": 301
+    "RecordItem": { "BoxSection": 301 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 114,
-    "Section": 302
+    "RecordItem": { "BoxSection": 302 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 111,
-    "Section": 303
+    "RecordItem": { "BoxSection": 303 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 105,
-    "Section": 304
+    "RecordItem": { "BoxSection": 304 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 115,
-    "Section": 305
+    "RecordItem": { "BoxSection": 305 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 101,
-    "Section": 306
+    "RecordItem": { "BoxSection": 306 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 103,
-    "Section": 307
+    "RecordItem": { "BoxSection": 307 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 101,
-    "Section": 308
+    "RecordItem": { "BoxSection": 308 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 104,
-    "Section": 309
+    "RecordItem": { "BoxSection": 309 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 115,
-    "Section": 310
+    "RecordItem": { "BoxSection": 310 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 105,
-    "Section": 311
+    "RecordItem": { "BoxSection": 311 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 100,
-    "Section": 312
+    "RecordItem": { "BoxSection": 312 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 118,
-    "Section": 313
+    "RecordItem": { "BoxSection": 313 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 116,
-    "Section": 314
+    "RecordItem": { "BoxSection": 314 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 117,
-    "Section": 315
+    "RecordItem": { "BoxSection": 315 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 99,
     "DownVotes": 107,
-    "Section": 316
+    "RecordItem": { "BoxSection": 316 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 103,
-    "Section": 317
+    "RecordItem": { "BoxSection": 317 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 102,
-    "Section": 318
+    "RecordItem": { "BoxSection": 318 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 114,
-    "Section": 319
+    "RecordItem": { "BoxSection": 319 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 116,
-    "Section": 320
+    "RecordItem": { "BoxSection": 320 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 101,
-    "Section": 321
+    "RecordItem": { "BoxSection": 321 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 108,
-    "Section": 322
+    "RecordItem": { "BoxSection": 322 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 100,
-    "Section": 323
+    "RecordItem": { "BoxSection": 323 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 111,
-    "Section": 324
+    "RecordItem": { "BoxSection": 324 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 100,
-    "Section": 325
+    "RecordItem": { "BoxSection": 325 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 115,
-    "Section": 326
+    "RecordItem": { "BoxSection": 326 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 116,
-    "Section": 327
+    "RecordItem": { "BoxSection": 327 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 104,
-    "Section": 328
+    "RecordItem": { "BoxSection": 328 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 116,
-    "Section": 329
+    "RecordItem": { "BoxSection": 329 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 104,
-    "Section": 330
+    "RecordItem": { "BoxSection": 330 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 100,
-    "Section": 331
+    "RecordItem": { "BoxSection": 331 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 99,
     "DownVotes": 109,
-    "Section": 332
+    "RecordItem": { "BoxSection": 332 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 105,
-    "Section": 333
+    "RecordItem": { "BoxSection": 333 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 104,
-    "Section": 334
+    "RecordItem": { "BoxSection": 334 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 101,
-    "Section": 335
+    "RecordItem": { "BoxSection": 335 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 104,
-    "Section": 336
+    "RecordItem": { "BoxSection": 336 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 109,
-    "Section": 337
+    "RecordItem": { "BoxSection": 337 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 116,
-    "Section": 338
+    "RecordItem": { "BoxSection": 338 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 107,
-    "Section": 339
+    "RecordItem": { "BoxSection": 339 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 113,
-    "Section": 340
+    "RecordItem": { "BoxSection": 340 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 117,
-    "Section": 341
+    "RecordItem": { "BoxSection": 341 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 112,
-    "Section": 342
+    "RecordItem": { "BoxSection": 342 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 98,
-    "Section": 343
+    "RecordItem": { "BoxSection": 343 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 109,
-    "Section": 344
+    "RecordItem": { "BoxSection": 344 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 99,
     "DownVotes": 112,
-    "Section": 345
+    "RecordItem": { "BoxSection": 345 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 99,
-    "Section": 346
+    "RecordItem": { "BoxSection": 346 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 103,
-    "Section": 347
+    "RecordItem": { "BoxSection": 347 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 113,
-    "Section": 348
+    "RecordItem": { "BoxSection": 348 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 98,
-    "Section": 349
+    "RecordItem": { "BoxSection": 349 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 98,
-    "Section": 350
+    "RecordItem": { "BoxSection": 350 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 114,
-    "Section": 351
+    "RecordItem": { "BoxSection": 351 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 106,
-    "Section": 352
+    "RecordItem": { "BoxSection": 352 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 105,
     "DownVotes": 116,
-    "Section": 353
+    "RecordItem": { "BoxSection": 353 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 114,
-    "Section": 354
+    "RecordItem": { "BoxSection": 354 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 100,
-    "Section": 355
+    "RecordItem": { "BoxSection": 355 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 110,
-    "Section": 356
+    "RecordItem": { "BoxSection": 356 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 112,
-    "Section": 357
+    "RecordItem": { "BoxSection": 357 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 117,
-    "Section": 358
+    "RecordItem": { "BoxSection": 358 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 102,
-    "Section": 359
+    "RecordItem": { "BoxSection": 359 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 99,
-    "Section": 360
+    "RecordItem": { "BoxSection": 360 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 103,
-    "Section": 361
+    "RecordItem": { "BoxSection": 361 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 117,
-    "Section": 362
+    "RecordItem": { "BoxSection": 362 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 104,
-    "Section": 363
+    "RecordItem": { "BoxSection": 363 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 98,
-    "Section": 364
+    "RecordItem": { "BoxSection": 364 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 113,
-    "Section": 365
+    "RecordItem": { "BoxSection": 365 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 113,
-    "Section": 366
+    "RecordItem": { "BoxSection": 366 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 113,
-    "Section": 367
+    "RecordItem": { "BoxSection": 367 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 112,
-    "Section": 368
+    "RecordItem": { "BoxSection": 368 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 113,
-    "Section": 369
+    "RecordItem": { "BoxSection": 369 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 110,
-    "Section": 370
+    "RecordItem": { "BoxSection": 370 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 116,
-    "Section": 371
+    "RecordItem": { "BoxSection": 371 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 105,
-    "Section": 372
+    "RecordItem": { "BoxSection": 372 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 113,
-    "Section": 373
+    "RecordItem": { "BoxSection": 373 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 98,
-    "Section": 374
+    "RecordItem": { "BoxSection": 374 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 117,
-    "Section": 375
+    "RecordItem": { "BoxSection": 375 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 106,
-    "Section": 376
+    "RecordItem": { "BoxSection": 376 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 108,
-    "Section": 377
+    "RecordItem": { "BoxSection": 377 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 109,
-    "Section": 378
+    "RecordItem": { "BoxSection": 378 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 117,
-    "Section": 379
+    "RecordItem": { "BoxSection": 379 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 99,
-    "Section": 380
+    "RecordItem": { "BoxSection": 380 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 110,
-    "Section": 381
+    "RecordItem": { "BoxSection": 381 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 101,
-    "Section": 382
+    "RecordItem": { "BoxSection": 382 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 104,
-    "Section": 383
+    "RecordItem": { "BoxSection": 383 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 115,
-    "Section": 384
+    "RecordItem": { "BoxSection": 384 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 105,
     "DownVotes": 108,
-    "Section": 385
+    "RecordItem": { "BoxSection": 385 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 111,
-    "Section": 386
+    "RecordItem": { "BoxSection": 386 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 112,
-    "Section": 387
+    "RecordItem": { "BoxSection": 387 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 109,
-    "Section": 388
+    "RecordItem": { "BoxSection": 388 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 102,
-    "Section": 389
+    "RecordItem": { "BoxSection": 389 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 110,
-    "Section": 390
+    "RecordItem": { "BoxSection": 390 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 110,
-    "Section": 391
+    "RecordItem": { "BoxSection": 391 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 109,
-    "Section": 392
+    "RecordItem": { "BoxSection": 392 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 111,
-    "Section": 393
+    "RecordItem": { "BoxSection": 393 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 107,
-    "Section": 394
+    "RecordItem": { "BoxSection": 394 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 108,
-    "Section": 395
+    "RecordItem": { "BoxSection": 395 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 118,
-    "Section": 396
+    "RecordItem": { "BoxSection": 396 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 107,
-    "Section": 397
+    "RecordItem": { "BoxSection": 397 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 98,
-    "Section": 398
+    "RecordItem": { "BoxSection": 398 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 113,
-    "Section": 399
+    "RecordItem": { "BoxSection": 399 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 117,
-    "Section": 400
+    "RecordItem": { "BoxSection": 400 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 104,
-    "Section": 401
+    "RecordItem": { "BoxSection": 401 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 109,
-    "Section": 402
+    "RecordItem": { "BoxSection": 402 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 118,
-    "Section": 403
+    "RecordItem": { "BoxSection": 403 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 106,
-    "Section": 404
+    "RecordItem": { "BoxSection": 404 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 100,
-    "Section": 405
+    "RecordItem": { "BoxSection": 405 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 107,
-    "Section": 406
+    "RecordItem": { "BoxSection": 406 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 111,
-    "Section": 407
+    "RecordItem": { "BoxSection": 407 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 115,
-    "Section": 408
+    "RecordItem": { "BoxSection": 408 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 115,
-    "Section": 409
+    "RecordItem": { "BoxSection": 409 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 112,
-    "Section": 410
+    "RecordItem": { "BoxSection": 410 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 100,
-    "Section": 411
+    "RecordItem": { "BoxSection": 411 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 101,
-    "Section": 412
+    "RecordItem": { "BoxSection": 412 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 98,
-    "Section": 413
+    "RecordItem": { "BoxSection": 413 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 101,
-    "Section": 414
+    "RecordItem": { "BoxSection": 414 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 107,
-    "Section": 415
+    "RecordItem": { "BoxSection": 415 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 100,
-    "Section": 416
+    "RecordItem": { "BoxSection": 416 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 111,
-    "Section": 417
+    "RecordItem": { "BoxSection": 417 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 106,
-    "Section": 418
+    "RecordItem": { "BoxSection": 418 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 109,
-    "Section": 419
+    "RecordItem": { "BoxSection": 419 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 100,
-    "Section": 420
+    "RecordItem": { "BoxSection": 420 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 100,
-    "Section": 421
+    "RecordItem": { "BoxSection": 421 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 102,
-    "Section": 422
+    "RecordItem": { "BoxSection": 422 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 108,
-    "Section": 423
+    "RecordItem": { "BoxSection": 423 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 101,
-    "Section": 424
+    "RecordItem": { "BoxSection": 424 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 98,
-    "Section": 425
+    "RecordItem": { "BoxSection": 425 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 105,
     "DownVotes": 105,
-    "Section": 426
+    "RecordItem": { "BoxSection": 426 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 112,
-    "Section": 427
+    "RecordItem": { "BoxSection": 427 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 103,
     "DownVotes": 105,
-    "Section": 428
+    "RecordItem": { "BoxSection": 428 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 108,
-    "Section": 429
+    "RecordItem": { "BoxSection": 429 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 117,
-    "Section": 430
+    "RecordItem": { "BoxSection": 430 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 118,
-    "Section": 431
+    "RecordItem": { "BoxSection": 431 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 118,
     "DownVotes": 108,
-    "Section": 432
+    "RecordItem": { "BoxSection": 432 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 100,
     "DownVotes": 114,
-    "Section": 433
+    "RecordItem": { "BoxSection": 433 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 98,
-    "Section": 434
+    "RecordItem": { "BoxSection": 434 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 113,
-    "Section": 435
+    "RecordItem": { "BoxSection": 435 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 98,
-    "Section": 436
+    "RecordItem": { "BoxSection": 436 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 101,
-    "Section": 437
+    "RecordItem": { "BoxSection": 437 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 116,
-    "Section": 438
+    "RecordItem": { "BoxSection": 438 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 113,
-    "Section": 439
+    "RecordItem": { "BoxSection": 439 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 99,
-    "Section": 440
+    "RecordItem": { "BoxSection": 440 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 111,
     "DownVotes": 118,
-    "Section": 441
+    "RecordItem": { "BoxSection": 441 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 99,
     "DownVotes": 115,
-    "Section": 442
+    "RecordItem": { "BoxSection": 442 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 109,
     "DownVotes": 112,
-    "Section": 443
+    "RecordItem": { "BoxSection": 443 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 108,
-    "Section": 444
+    "RecordItem": { "BoxSection": 444 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 108,
-    "Section": 445
+    "RecordItem": { "BoxSection": 445 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 107,
-    "Section": 446
+    "RecordItem": { "BoxSection": 446 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 114,
     "DownVotes": 109,
-    "Section": 447
+    "RecordItem": { "BoxSection": 447 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 105,
     "DownVotes": 108,
-    "Section": 448
+    "RecordItem": { "BoxSection": 448 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 101,
     "DownVotes": 117,
-    "Section": 449
+    "RecordItem": { "BoxSection": 449 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 110,
     "DownVotes": 107,
-    "Section": 450
+    "RecordItem": { "BoxSection": 450 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 105,
-    "Section": 451
+    "RecordItem": { "BoxSection": 451 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 98,
-    "Section": 452
+    "RecordItem": { "BoxSection": 452 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 108,
-    "Section": 453
+    "RecordItem": { "BoxSection": 453 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 112,
     "DownVotes": 111,
-    "Section": 454
+    "RecordItem": { "BoxSection": 454 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 102,
     "DownVotes": 115,
-    "Section": 455
+    "RecordItem": { "BoxSection": 455 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 100,
-    "Section": 456
+    "RecordItem": { "BoxSection": 456 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 117,
     "DownVotes": 99,
-    "Section": 457
+    "RecordItem": { "BoxSection": 457 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 115,
-    "Section": 458
+    "RecordItem": { "BoxSection": 458 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 105,
-    "Section": 459
+    "RecordItem": { "BoxSection": 459 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 106,
     "DownVotes": 113,
-    "Section": 460
+    "RecordItem": { "BoxSection": 460 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 113,
-    "Section": 461
+    "RecordItem": { "BoxSection": 461 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 116,
     "DownVotes": 105,
-    "Section": 462
+    "RecordItem": { "BoxSection": 462 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 98,
     "DownVotes": 105,
-    "Section": 463
+    "RecordItem": { "BoxSection": 463 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 107,
     "DownVotes": 116,
-    "Section": 464
+    "RecordItem": { "BoxSection": 464 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 113,
     "DownVotes": 112,
-    "Section": 465
+    "RecordItem": { "BoxSection": 465 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 110,
-    "Section": 466
+    "RecordItem": { "BoxSection": 466 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 105,
-    "Section": 467
+    "RecordItem": { "BoxSection": 467 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 108,
     "DownVotes": 98,
-    "Section": 468
+    "RecordItem": { "BoxSection": 468 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 115,
     "DownVotes": 107,
-    "Section": 469
+    "RecordItem": { "BoxSection": 469 }
   },
   {
     "PhotoUrl": "http://via.placeholder.com/500x750",
     "UpVotes": 104,
     "DownVotes": 107,
-    "Section": 470
+    "RecordItem": { "BoxSection": 470 }
   }
 ]

@@ -27,6 +27,8 @@
                     <Label Text="¿Ya te registraste?" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <Label Text="¡Accede a tu cuenta!..." Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                     <StackLayout Spacing="10">
+                        <Label Text="* El nombre de usuario debe tener entre 6 y 12 caracteres" Margin="0,5" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Italic" />
+                        <Label Text="* La contraseña debe tener entre 6 y 10 caracteres" Margin="0,5" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Italic" />
                         <controls:ImageEntry TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" >
                             <controls:ImageEntry.Behaviors>
                                 <Behaviors:EntryValidationBehavior ValidationType="UserName"  />
