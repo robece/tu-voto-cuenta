@@ -24,7 +24,7 @@ namespace TuVotoCuenta
             Catalogs.InitEntities();
 
 			//if logged in redirect to main page
-            if (Settings.Profile_Account != string.Empty)
+            if (Settings.Profile_Username != string.Empty)
                 Application.Current.MainPage = new MasterPage();
             else
                 MainPage = new SignUpPage();

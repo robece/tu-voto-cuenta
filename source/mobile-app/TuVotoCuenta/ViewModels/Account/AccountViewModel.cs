@@ -18,31 +18,11 @@ namespace TuVotoCuenta.ViewModels
             InitializeViewModel();
         }
 
-        async void InitializeViewModel()
+        void InitializeViewModel()
         {
             Title = "Mi Cuenta";
-			Account = Settings.Profile_Account;
+			Username = Settings.Profile_Username;
 			AccountImage = Settings.Profile_Picture;
-
-			//launch task
-			Amount = $"Tienes 0.0 créditos en tu cuenta"; 
-            await Task.Run(async () =>
-            {
-				GetBalanceAccountRequest model = new GetBalanceAccountRequest() { account = Settings.Profile_Account };
-				GetBalanceAccountResponse response = await RestHelper.GetBalanceAccountAsync(model);
-
-                if (response == null)
-                {
-                    throw new AggregateException(GetBalanceAccountResultEnum.Failed.ToString());
-                }
-                else
-                {
-                    if (response.IsSucceded)
-                    {
-						Amount = $"Tienes {response.Amount} créditos en tu cuenta";
-                    }
-                }            
-			});
         }
 
         #region Commands
@@ -51,11 +31,11 @@ namespace TuVotoCuenta.ViewModels
 
         #region Binding attributes
 
-        string account;
-		public string Account
+        string username;
+		public string Username
         {
-			get { return account; }
-			set { SetProperty(ref account, value); }
+			get { return username; }
+			set { SetProperty(ref username, value); }
         }
 
 		string accountImage;
@@ -63,13 +43,6 @@ namespace TuVotoCuenta.ViewModels
         {
             get { return accountImage; }
             set { SetProperty(ref accountImage, value); }
-        }
-
-		string amount;
-        public string Amount
-        {
-			get { return amount; }
-			set { SetProperty(ref amount, value); }
         }
         
         #endregion

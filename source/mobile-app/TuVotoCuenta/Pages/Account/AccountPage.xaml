@@ -4,12 +4,10 @@
         <ScrollView>
             <StackLayout Orientation="Vertical" Margin="40,40,40,40">
                 <Image Source="{Binding AccountImage}" WidthRequest="160" HeightRequest="160" />
-                <Label Text="{Binding Amount}" HorizontalTextAlignment="Center" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
-                <Label Text="{Binding Account}" Margin="0,0,0,30" HorizontalTextAlignment="Center" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
-                 <Label Text="Recuerda que al registrarte con nosotros:" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
-                <Label Text="1. Automáticamente estás creando una cuenta en la cadena de bloques (blockchain)." Style="{DynamicResource PageDarkSmall}" />
-                <Label Text="2. Podrás compartir información de una casilla o votar por la información." Style="{DynamicResource PageDarkSmall}" />
-                <Label Text="3. Tendrás acceso a un identificador gráfico único." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="{Binding Username}" Margin="0,0,0,30" HorizontalTextAlignment="Center" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="Recuerda que al registrarte con nosotros:" FontAttributes="Bold" Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="1. Podrás compartir información de una casilla o votar por la información." Style="{DynamicResource PageDarkSmall}" />
+                <Label Text="2. Tendrás acceso a un usuario e identificador gráfico único." Style="{DynamicResource PageDarkSmall}" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

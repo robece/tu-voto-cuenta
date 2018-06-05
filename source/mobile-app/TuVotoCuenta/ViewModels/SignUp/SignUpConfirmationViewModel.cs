@@ -42,7 +42,6 @@ namespace TuVotoCuenta.ViewModels
                     if (response.IsSucceded)
                     {
                         Settings.Profile_Username = model.username.ToLower();
-                        Settings.Profile_Account = response.Account;
                         Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
                     }
                     else
