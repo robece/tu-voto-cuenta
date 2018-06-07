@@ -7,7 +7,7 @@
 	<key>CFBundleName</key>
 	<string>TuVotoCuenta</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rcervantes.TuVotoCuenta</string>
+	<string>com.tuvotocuenta.demo</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
