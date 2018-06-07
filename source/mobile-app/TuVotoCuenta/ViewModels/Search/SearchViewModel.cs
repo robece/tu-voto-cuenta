@@ -187,8 +187,8 @@ namespace TuVotoCuenta.ViewModels.Search
                 {
                     ResultDetailPage resultDetailPage = new ResultDetailPage();
                     navigation.PushAsync(resultDetailPage);
-                    resultDetailPage.BindingContext = this;
                     DetailResult = selectedResult;
+                    resultDetailPage.BindingContext = this;
                     SelectedResult = null;
                 }
             }

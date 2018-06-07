@@ -27,7 +27,6 @@ namespace TuVotoCuenta.Domain
 		public int PartyINDJai { get; set; }
 		public int PartyOtro { get; set; }
         public int PartyPANMC { get; set; }
-        public int PartyPANPRD { get; set; }
         public int PartyPRDPANMC { get; set; }
         public int PartyPRDMC { get; set; }
         public int PartyMORPT { get; set; }

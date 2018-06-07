@@ -33,7 +33,7 @@
                     </Button>
                 </Grid>
 
-                <Grid>
+                <Grid Margin="30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*">
                         </ColumnDefinition>
@@ -59,126 +59,53 @@
                         <RowDefinition Height="100" />
                     </Grid.RowDefinitions>
 
-                    <Image Grid.Row="0" Grid.Column="0" Source="pan.jpg" >
-                    </Image>
-                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPAN}" VerticalTextAlignment="Center" FontSize="Large">
-                    </Label>
-
-                    <Image Grid.Row="0" Grid.Column="2" Source="pri.jpg" >
-                    </Image>
-                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPRI}" VerticalTextAlignment="Center" FontSize="Large">
-                    </Label>
-
-                    <Image Grid.Row="1" Grid.Column="0" Source="prd.jpg" >
-                    </Image>
-                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRD}" VerticalTextAlignment="Center" FontSize="Large">
-                    </Label>
-
-                    <Image Grid.Row="1" Grid.Column="2" Source="pvem.jpg" >
-                    </Image>
-                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyVerde}" VerticalTextAlignment="Center" FontSize="Large">
-                    </Label>
-
-                    <Image Grid.Row="2" Grid.Column="0" Source="pt.jpg" >
-                    </Image>
-                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPT}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="2" Grid.Column="2" Source="pmc.jpg" >
-                    </Image>
-                    <Label Grid.Row="2" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyMC}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="3" Grid.Column="0" Source="pna.jpg" >
-                    </Image>
-                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyNA}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="3" Grid.Column="2" Source="pmorena.jpg" >
-                    </Image>
-                    <Label Grid.Row="3" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyMOR}"  VerticalTextAlignment="Center" FontSize="Large">
-                    </Label>
-
-                    <Image Grid.Row="4" Grid.Column="0" Source="pes.jpg" >
-                    </Image>
-                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyES}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="4" Grid.Column="2" Source="ptesmor.png" >
-                    </Image>
-                    <Label Grid.Row="4" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPTESMOR}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="5" Grid.Column="0" Source="priverna.png" >
-                    </Image>
-                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRIVERNA}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="5" Grid.Column="2" Source="prdpanmc.png" >
-                    </Image>
-                    <Label Grid.Row="5" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPRDPANMC}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="6" Grid.Column="0" Source="ptes.png" >
-                    </Image>
-                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPTES}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="6" Grid.Column="2" Source="priver.png" >
-                    </Image>
-                    <Label Grid.Row="6" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPRIVER}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="7" Grid.Column="0" Source="prdmc.png" >
-                    </Image>
-                    <Label Grid.Row="7" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRDMC}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="7" Grid.Column="2" Source="pmores.png" >
-                    </Image>
-                    <Label Grid.Row="7" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyMORES}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="8" Grid.Column="0" Source="prina.png" >
-                    </Image>
-                    <Label Grid.Row="8" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRINA}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="8" Grid.Column="2" Source="panmc.png" >
-                    </Image>
-                    <Label Grid.Row="8" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPANMC}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="9" Grid.Column="0" Source="pmorpt.png" >
-                    </Image>
-                    <Label Grid.Row="9" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyMORPT}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="9" Grid.Column="2" Source="pverna.png" >
-                    </Image>
-                    <Label Grid.Row="9" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyVERNA}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Image Grid.Row="10" Grid.Column="0" Source="panprd.png" >
-                    </Image>
-                    <Label Grid.Row="10" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPANPRD}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Label Grid.Row="10" Grid.Column="2" Text="Cand. Indep."  VerticalTextAlignment="Center" FontSize="Medium">
-                    </Label>
-                    <Label Grid.Row="10" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyINDJai}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-                    <Label Grid.Row="11" Grid.Column="0" Text="No Reg."  VerticalTextAlignment="Center" FontSize="Medium">
-                    </Label>
-                    <Label Grid.Row="11" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyOtro}" VerticalTextAlignment="Center" FontSize="Large" >
-                    </Label>
-
-
-
-
+                    <Image Grid.Row="0" Grid.Column="0" Source="pan.jpg" HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPAN}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Row="0" Grid.Column="2" Source="pri.jpg"  HorizontalOptions="Center"/>
+                    <Label Grid.Row="0" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPRI}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Row="1" Grid.Column="0" Source="prd.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="1" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRD}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Row="1" Grid.Column="2" Source="pvem.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="1" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyVerde}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Row="2" Grid.Column="0" Source="pt.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="2" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPT}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="2" Grid.Column="2" Source="pmc.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="2" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="3" Grid.Column="0" Source="pna.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="3" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="3" Grid.Column="2" Source="pmorena.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="3" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyMOR}"  VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center"/>
+                    <Image Grid.Row="4" Grid.Column="0" Source="pes.jpg" HorizontalOptions="Center" />
+                    <Label Grid.Row="4" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="4" Grid.Column="2" Source="ptesmor.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="4" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPTESMOR}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="5" Grid.Column="0" Source="priverna.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="5" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRIVERNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="5" Grid.Column="2" Source="prdpanmc.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="5" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPRDPANMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="6" Grid.Column="0" Source="ptes.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="6" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPTES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="6" Grid.Column="2" Source="priver.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="6" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPRIVER}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="7" Grid.Column="0" Source="prdmc.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="7" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRDMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="7" Grid.Column="2" Source="pmores.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="7" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyMORES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="8" Grid.Column="0" Source="prina.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="8" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRINA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="8" Grid.Column="2" Source="panmc.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="8" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyPANMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="9" Grid.Column="0" Source="pmorpt.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="9" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyMORPT}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="9" Grid.Column="2" Source="pverna.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="9" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyVERNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Image Grid.Row="10" Grid.Column="0" Source="panprd.png" HorizontalOptions="Center" />
+                    <Label Grid.Row="10" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyPRDPAN}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Label Grid.Row="10" Grid.Column="2" Text="Cand. Indep."  VerticalTextAlignment="Center" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="10" Grid.Column="3" Text="{Binding DetailResult.RecordItem.PartyINDJai}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                    <Label Grid.Row="11" Grid.Column="0" Text="No Reg."  VerticalTextAlignment="Center" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <Label Grid.Row="11" Grid.Column="1" Text="{Binding DetailResult.RecordItem.PartyOtro}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
                 </Grid>
-
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

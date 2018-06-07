@@ -128,7 +128,6 @@ namespace TuVotoCuenta.ViewModels.Report
             sb.Append(item.PartyINDJai);
             sb.Append(item.PartyOtro);
             sb.Append(item.PartyPANMC);
-            sb.Append(item.PartyPANPRD);
             sb.Append(item.PartyPRDPANMC);
             sb.Append(item.PartyPRDMC);
             sb.Append(item.PartyMORPT);

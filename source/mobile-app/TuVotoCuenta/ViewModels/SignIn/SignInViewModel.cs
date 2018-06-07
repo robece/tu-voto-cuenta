@@ -133,23 +133,23 @@ namespace TuVotoCuenta.ViewModels
 			Application.Current.MainPage = new SignUpPage();
 		}
 
-		bool ValidateInformation()
-		{
+        bool ValidateInformation()
+        {
             if (Helpers.ValidationHelper.ValidateString(Helpers.ValidationType.UserName, Username) != Helpers.ValidationResult.IsValid)
-				return false;
+                return false;
             if (Helpers.ValidationHelper.ValidateString(Helpers.ValidationType.Password, Password) != Helpers.ValidationResult.IsValid)
-				return false;
+                return false;
 
-			return true;
-		}
+            return true;
+        }
 
-		#region Commands
+        #region Commands
 
-		public Command SignInCommand { get; set; }
+        public Command SignInCommand { get; set; }
 		public Command SignUpCommand { get; set; }
 
 		#endregion
-
+            
 		#region Binding attributes
 
 		string username;
@@ -165,7 +165,6 @@ namespace TuVotoCuenta.ViewModels
 			get { return password; }
             set { SetProperty(ref password, value); SignInCommand.ChangeCanExecute(); }
 		}
-
-		#endregion
-	}
+        #endregion
+    }
 }
