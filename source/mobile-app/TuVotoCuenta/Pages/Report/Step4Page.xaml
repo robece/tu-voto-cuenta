@@ -23,8 +23,8 @@
                         <!-- <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding ChoosePhotoCommand}" Text="Galería" />-->
                     </StackLayout>
                 </StackLayout>
-                <StackLayout Margin="0,0,0,40">
-                </StackLayout>
+
+                <controls:ImageEntry Placeholder="Contraseña" Style="{StaticResource arrowEntry}" IsPassword="true" Text="{Binding Password}" />
             </StackLayout>
         </ScrollView>
     </controls:StepPage.Content>

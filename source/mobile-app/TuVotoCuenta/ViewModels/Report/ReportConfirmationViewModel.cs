@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -43,6 +44,8 @@ namespace TuVotoCuenta.ViewModels.Report
 
         public Command NextCommand { get; set; }
 
+        public Command ContinueGoBackCommand { get; set; }
+
         RecordItem item;
 
         public ReportConfirmationViewModel(INavigation navigation)
@@ -56,12 +59,17 @@ namespace TuVotoCuenta.ViewModels.Report
             Title = "Envió";
             IsContinueGoBackEnabled = false;
             NextCommand = new Command(async () => await Next());
+            ContinueGoBackCommand = new Command(async () => await Back());
 
             item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
 
             SendReport();
         }
 
+        private async Task Back()
+        {
+            await navigation.PopAsync();
+        }
 
         private async Task SendReport()
         {
@@ -71,6 +79,8 @@ namespace TuVotoCuenta.ViewModels.Report
                 MessageTitle = "Enviando";
                 MessageSubTitle = "Espera un momento";
                 item.RecordHash = CreateHash();
+                item.DeviceHash = Helpers.HashHelper.GetSha256Hash(Plugin.DeviceInfo.CrossDeviceInfo.Current.Id);
+                item.CreatedDate = DateTime.UtcNow.ToString();
 
                 AddReportRequest addReportRequest = new AddReportRequest()
                 {
@@ -89,6 +99,13 @@ namespace TuVotoCuenta.ViewModels.Report
                     IsContinueEnabled = true;
                     MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
                     MessageSubTitle = "Tu registro ha sido completado satisfactoriamente.";
+
+                    for (int i = 0; i < navigation.NavigationStack.Count-2; i++)
+                    {
+                        navigation.RemovePage(navigation.NavigationStack[i]);
+                    }
+                    navigation.InsertPageBefore(navigation.NavigationStack.Last(),new MasterPage());
+
                 }
                     
 
