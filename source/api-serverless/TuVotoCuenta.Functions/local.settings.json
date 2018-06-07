@@ -1,0 +1,20 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "AzureWebJobsDashboard": "",
+    "STORAGE_ACCOUNT": "",
+    "RPC_CLIENT": "",
+    "CONTRACT_ADDRESS": "",
+    "CONTRACT_ABI": "",
+    "MASTER_ADDRESS": "",
+    "MASTER_PRIVATEKEY": "",
+    "CONTAINER_NAME_ACCOUNTIMAGES": "",
+    "COSMOSDB_CONNECTIONSTRING": "",
+    "COSMOSDB_DATABASEID": "",
+    "COSMOSDB_USERACCOUNTCOLLECTION": "",
+    "COSMOSDB_RECORDITEMCOLLECTION": "",
+    "COSMOSDB_RECORDVOTECOLLECTION": "",
+    "SECURITY_SEED": ""
+  }
+}

@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="PendingFunds\**" />
+    <EmbeddedResource Remove="PendingFunds\**" />
+    <None Remove="PendingFunds\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Functions\DequeuePendingRegistration.cs" />
+    <Compile Remove="Functions\DequeuePendingRegistrations1.cs" />
+    <Compile Remove="Functions\QueuePendingRegistration.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Jdenticon-net" Version="2.1.0" />
+    <PackageReference Include="Microsoft.Azure.KeyVault" Version="2.3.2" />
+    <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="3.14.0" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.13" />
+    <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
+    <PackageReference Include="Nethereum.Geth" Version="2.4.0" />
+    <PackageReference Include="Sendgrid" Version="9.9.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TuVotoCuenta.Functions.Domain\TuVotoCuenta.Functions.Domain.csproj" />
+    <ProjectReference Include="..\TuVotoCuenta.Functions.Logic\TuVotoCuenta.Functions.Logic.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>
