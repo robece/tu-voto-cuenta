@@ -25,8 +25,8 @@ namespace TuVotoCuenta.Helpers
 
         public const string EMAIL = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
         public const string PHONE = @"\(?\+[0-9]{1,3}\)? ?-?[0-9]{1,3} ?-?[0-9]{3,5} ?-?[0-9]{4}( ?-?[0-9]{3})? ?(\w{1,10}\s?\d{1,6})?";
-        public const string PASSWORD = @"^[A-Za-z\d!·@_.$%*&()=?¿]{6,10}$";
-        public const string USERNAME = @"^[A-Za-z\d]{6,12}$";
+        public const string PASSWORD = @"^.{6,20}$";
+        public const string USERNAME = @"^[A-Za-z\d]{6,20}$";
 
         public static ValidationResult ValidateString(ValidationType validationType, string valueToValidate)
         {
