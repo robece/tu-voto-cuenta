@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Plugin.Geolocator;
@@ -71,6 +72,14 @@ namespace TuVotoCuenta.ViewModels
             }
         }
 
+        bool ValidateInformation()
+        {
+            if (String.IsNullOrEmpty(Password))
+                return false;
+            if (Photo == null || !Photo.Any())
+                return false;
+            return true;
+        }
 
         void SavePhoto()
         {
@@ -78,6 +87,8 @@ namespace TuVotoCuenta.ViewModels
             Helpers.LocalFilesHelper.SaveFile(item.UID.ToString(), Photo);
             item.Latitude = App.Latitude;
             item.Longitude = App.Longitude;
+            item.Password = Password;
+            item.Account = Settings.Profile_Username;
             Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
         }
 
@@ -115,8 +126,15 @@ namespace TuVotoCuenta.ViewModels
 
         async Task Next()
         {
-            SavePhoto();
-            await navigation.PushAsync(new ReportConfirmationPage());
+
+            if (!ValidateInformation())
+                await Application.Current.MainPage.DisplayAlert("Error", "Ingresa la información correcta.", "Aceptar");
+            else if (!IsBusy)
+            {
+                SavePhoto();
+                await navigation.PushAsync(new ReportConfirmationPage());
+            }
+
         }
 
         #endregion
@@ -130,6 +148,13 @@ namespace TuVotoCuenta.ViewModels
             set { SetProperty(ref photo, value); }
         }
 
+        private string password;
+
+        public string Password
+        {
+            get => password;
+            set => SetProperty(ref password, value);
+        }
         #endregion
     }
 }

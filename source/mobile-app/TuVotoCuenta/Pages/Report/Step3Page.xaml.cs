@@ -23,23 +23,23 @@ namespace TuVotoCuenta.Pages
         {
             base.OnAppearing();
 
-            imPt.Source = "pt";
+            imPt.Source = "pt.jpg";
             await Task.Delay(10);
-            imPan.Source = "pan";
+            imPan.Source = "pan.jpg";
             await Task.Delay(10);
-            imPes.Source = "pes";
+            imPes.Source = "pes.jpg";
             await Task.Delay(10);
-            imPmc.Source = "pmc";
+            imPmc.Source = "pmc.jpg";
             await Task.Delay(10);
-            imPna.Source = "pna";
+            imPna.Source = "pna.jpg";
             await Task.Delay(10);
-            imPrd.Source = "prd";
+            imPrd.Source = "prd.jpg";
             await Task.Delay(10);
-            imPri.Source = "pri";
+            imPri.Source = "pri.jpg";
             await Task.Delay(10);
             imPtes.Source = "ptes";
             await Task.Delay(10);
-            imPvem.Source = "pvem";
+            imPvem.Source = "pvem.jpg";
             await Task.Delay(10);
             imPanmc.Source = "panmc";
             await Task.Delay(10);
@@ -57,7 +57,7 @@ namespace TuVotoCuenta.Pages
             await Task.Delay(10);
             imPverna.Source = "pverna";
             await Task.Delay(10);
-            imPmorena.Source = "pmorena";
+            imPmorena.Source = "pmorena.jpg";
             await Task.Delay(10);
             imPtesmor.Source = "ptesmor";
             await Task.Delay(10);

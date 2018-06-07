@@ -43,5 +43,7 @@ namespace TuVotoCuenta.Domain
 		public string RecordHash { get; set; }
 		public string BlockchainTransaction { get; set; }
 		public string CreatedDate { get; set; }
+        public string Account { get; set; }
+        public string Password { get; set; }
     }
 }
