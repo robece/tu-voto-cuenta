@@ -127,5 +127,60 @@ namespace TuVotoCuenta.Helpers
             }
             return result;
         }
+
+
+        public static async Task<AddReportResponse> AddReportAsync(AddReportRequest model)
+        {
+            int IterationsToRetry = 5;
+            int TimeToSleepForRetry = 3000;
+            AddReportResponse result = new AddReportResponse();
+
+            if (Helpers.ConnectivyHelper.CheckConnectivity() != Enums.ConnectivtyResultEnum.HasConnectivity)
+            {
+                result.Status = Enums.ResponseStatus.CommunicationError;
+                result.ResponseMessage = "El dispositivo no pudo comunicarse con el servidor, comprueba que tengas conexión a internet";
+                return result;
+            }
+
+            for (int i = 0; i <= IterationsToRetry; i++)
+            {
+                try
+                {
+                    using (var client = new HttpClient())
+                    {
+                        var service = $"{Settings.FunctionURL}/api/AddRecordItem/";
+
+                        byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model));
+                        using (var content = new ByteArrayContent(byteData))
+                        {
+                            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+                            var httpResponse = await client.PostAsync(service, content);
+
+                            if (httpResponse.StatusCode == HttpStatusCode.OK)
+                            {
+                                result = JsonConvert.DeserializeObject<AddReportResponse>(await httpResponse.Content.ReadAsStringAsync());
+                                result.Status = Enums.ResponseStatus.Ok;
+                                return result;
+                            }
+                            else
+                            {
+                                result.Status = Enums.ResponseStatus.CommunicationError;
+                                result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
+                                Thread.Sleep(TimeToSleepForRetry);
+                                continue;
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    result.Status = Enums.ResponseStatus.CommunicationError;
+                    result.ResponseMessage = "Ocurrió un error durante el proceso, por favor intenta de nuevo o espera unos minutos antes de vovler a intentar";
+                    Thread.Sleep(TimeToSleepForRetry);
+                    continue;
+                }
+            }
+            return result;
+        }
     }
 }

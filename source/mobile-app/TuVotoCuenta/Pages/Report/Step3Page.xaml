@@ -59,7 +59,7 @@
                             <RowDefinition Height="100" />
                             <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Grid.Column="0" Source="pan.jpg" >
+                        <Image Grid.Row="0" Grid.Column="0" x:Name="imPan" >
                         </Image>
                         <StackLayout Grid.Row="0" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
@@ -71,7 +71,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="1" Grid.Column="0" Source="pri.jpg" >
+                        <Image Grid.Row="1" Grid.Column="0" x:Name="imPri" >
                         </Image>
                         <StackLayout Grid.Row="1" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -83,7 +83,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="2" Grid.Column="0" Source="prd.jpg" >
+                        <Image Grid.Row="2" Grid.Column="0" x:Name="imPrd" >
                         </Image>
                         <StackLayout Grid.Row="2" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
@@ -95,7 +95,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="3" Grid.Column="0" Source="pvem.jpg" >
+                        <Image Grid.Row="3" Grid.Column="0" x:Name="imPvem" >
                         </Image>
                         <StackLayout Grid.Row="3" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -107,7 +107,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="4" Grid.Column="0" Source="pt.jpg" >
+                        <Image Grid.Row="4" Grid.Column="0" x:Name="imPt" >
                         </Image>
                         <StackLayout Grid.Row="4" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -119,7 +119,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="5" Grid.Column="0" Source="pmc.jpg" >
+                        <Image Grid.Row="5" Grid.Column="0" x:Name="imPmc" >
                         </Image>
                         <StackLayout Grid.Row="5" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
@@ -131,7 +131,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="6" Grid.Column="0" Source="pna.jpg" >
+                        <Image Grid.Row="6" Grid.Column="0" x:Name="imPna" >
                         </Image>
                         <StackLayout Grid.Row="6" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -143,7 +143,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="7" Grid.Column="0" Source="pmorena.jpg" >
+                        <Image Grid.Row="7" Grid.Column="0" x:Name="imPmorena" >
                         </Image>
                         <StackLayout Grid.Row="7" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -155,7 +155,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="8" Grid.Column="0" Source="pes.jpg" >
+                        <Image Grid.Row="8" Grid.Column="0" x:Name="imPes" >
                         </Image>
                         <StackLayout Grid.Row="8" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -167,7 +167,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <Image Grid.Row="9" Grid.Column="0" Source="ptesmor.png" >
+                        <Image Grid.Row="9" Grid.Column="0" x:Name="imPtesmor" >
                         </Image>
                         <StackLayout Grid.Row="9" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -179,7 +179,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="10" Grid.Column="0" Source="priverna.png" >
+                         <Image Grid.Row="10" Grid.Column="0" x:Name="imPriverna" >
                         </Image>
                         <StackLayout Grid.Row="10" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -191,7 +191,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="11" Grid.Column="0" Source="prdpanmc.png" >
+                         <Image Grid.Row="11" Grid.Column="0" x:Name="imPrdpanmc" >
                         </Image>
                         <StackLayout Grid.Row="11" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
@@ -204,7 +204,7 @@
                             </Entry>
                         </StackLayout>
 
-                        <Image Grid.Row="12" Grid.Column="0" Source="ptes.png" >
+                        <Image Grid.Row="12" Grid.Column="0" x:Name="imPtes" >
                         </Image>
                         <StackLayout Grid.Row="12" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -216,7 +216,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="13" Grid.Column="0" Source="priver.png" >
+                         <Image Grid.Row="13" Grid.Column="0" x:Name="imPriver" >
                         </Image>
                         <StackLayout Grid.Row="13" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -228,7 +228,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="14" Grid.Column="0" Source="prdmc.png" >
+                         <Image Grid.Row="14" Grid.Column="0" x:Name="imPrdmc" >
                         </Image>
                         <StackLayout Grid.Row="14" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
@@ -241,7 +241,7 @@
                             </Entry>
                         </StackLayout>
 
-                        <Image Grid.Row="15" Grid.Column="0" Source="pmores.png" >
+                        <Image Grid.Row="15" Grid.Column="0" x:Name="imPmores" >
                         </Image>
                         <StackLayout Grid.Row="15" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -253,7 +253,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="16" Grid.Column="0" Source="prina.png" >
+                         <Image Grid.Row="16" Grid.Column="0" x:Name="imPrina" >
                         </Image>
                         <StackLayout Grid.Row="16" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -265,7 +265,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="17" Grid.Column="0" Source="panmc.png" >
+                         <Image Grid.Row="17" Grid.Column="0" x:Name="imPanmc" >
                         </Image>
                         <StackLayout Grid.Row="17" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
@@ -278,7 +278,7 @@
                             </Entry>
                         </StackLayout>
 
-                        <Image Grid.Row="18" Grid.Column="0" Source="pmorpt.png" >
+                        <Image Grid.Row="18" Grid.Column="0" x:Name="imPmorpt" >
                         </Image>
                         <StackLayout Grid.Row="18" Grid.Column="1" >
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
@@ -290,7 +290,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="19" Grid.Column="0" Source="pverna.png" >
+                         <Image Grid.Row="19" Grid.Column="0" x:Name="imPverna" >
                         </Image>
                         <StackLayout Grid.Row="19" Grid.Column="1" >
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
@@ -302,7 +302,7 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <Image Grid.Row="20" Grid.Column="0" Source="panprd.png" >
+                         <Image Grid.Row="20" Grid.Column="0" x:Name="imPanprd" >
                         </Image>
                         <StackLayout Grid.Row="20" Grid.Column="1" >
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">

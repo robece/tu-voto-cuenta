@@ -82,7 +82,7 @@ namespace TuVotoCuenta.ViewModels
                     IsBusy = false;
                     IsContinueEnabled = true;
 					IsContinueGoBackEnabled = false;
-                    MessageTitle = $"Gracias {Settings.Profile_Username}!";
+                    MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
                     MessageSubTitle = "Tu cuenta ha sido creada satisfactoriamente.";
                 }
             });

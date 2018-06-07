@@ -56,5 +56,13 @@ namespace TuVotoCuenta.Helpers
                 File.Delete(filePath);
             }
         }
+
+
+        public static string GetFileHexString(string fileName)
+        {
+            var file = ReadFile(fileName);
+            return BitConverter.ToString(file).Replace("-", "");
+        }
+
     }
 }

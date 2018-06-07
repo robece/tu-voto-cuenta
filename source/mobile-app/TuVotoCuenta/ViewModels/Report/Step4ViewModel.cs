@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Plugin.Geolocator;
 using TuVotoCuenta.Domain;
 using TuVotoCuenta.Pages;
+using TuVotoCuenta.Pages.Report;
 using Xamarin.Forms;
 
 namespace TuVotoCuenta.ViewModels
@@ -115,7 +116,7 @@ namespace TuVotoCuenta.ViewModels
         async Task Next()
         {
             SavePhoto();
-            (App.Current.MainPage as MasterDetailPage).Detail = new NavigationPage(new WelcomePage());
+            await navigation.PushAsync(new ReportConfirmationPage());
         }
 
         #endregion

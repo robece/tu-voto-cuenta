@@ -1,4 +1,6 @@
 ﻿using System;
+using Newtonsoft.Json;
+
 namespace TuVotoCuenta.Domain
 {
     public class RecordItem
@@ -38,6 +40,7 @@ namespace TuVotoCuenta.Domain
         public int PartyPTES { get; set; }
         public int PartyPRDPAN { get; set; }
 		public string Image { get; set; }
+        [JsonProperty("hash")]
 		public string RecordHash { get; set; }
 		public string BlockchainTransaction { get; set; }
 		public string CreatedDate { get; set; }
