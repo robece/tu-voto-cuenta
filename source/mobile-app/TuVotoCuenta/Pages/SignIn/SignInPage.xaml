@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.SignInPage" xmlns:Behaviors="clr-namespace:TuVotoCuenta.Behaviors">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" x:Class="TuVotoCuenta.Pages.SignInPage" xmlns:Behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:converters="clr-namespace:TuVotoCuenta.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:InverseValidationResultToBoolConverter x:Key="inverseValidationResultToBoolConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
@@ -29,28 +35,18 @@
                     <StackLayout Spacing="10">
                         <controls:ImageEntry x:Name="userNameEntry" TextColor="{StaticResource PrimaryDark}" Text="{Binding Username}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkaccount.svg" Placeholder="Nombre de usuario" HorizontalOptions="FillAndExpand" >
                             <controls:ImageEntry.Behaviors>
-                                <Behaviors:EntryValidationBehavior ValidationType="UserName"  />
+                                <Behaviors:EntryValidationBehavior ValidationType="UserName" x:Name="userNameValidator" />
                             </controls:ImageEntry.Behaviors>
                         </controls:ImageEntry>
+                        <Label Text="* El nombre de usuario debe tener entre 6 y 20 caracteres" Margin="0,5" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Italic" TextColor="Red" IsVisible="{Binding Source={x:Reference userNameValidator}, Path=ValidationResult, Converter={StaticResource inverseValidationResultToBoolConverter}}"/>
+
                         <controls:ImageEntry x:Name="passwordEntry" TextColor="{StaticResource PrimaryDark}" Text="{Binding Password}" PlaceholderColor="{StaticResource LightPlaceHolder}" Image="svgdarkpassword.svg" Placeholder="Contraseña" IsPassword="true" HorizontalOptions="FillAndExpand" >
                             <controls:ImageEntry.Behaviors>
-                                <Behaviors:EntryValidationBehavior ValidationType="Password"  />
+                                <Behaviors:EntryValidationBehavior ValidationType="Password" x:Name="passwordValidator" />
                             </controls:ImageEntry.Behaviors>
                         </controls:ImageEntry>
-                        <Label Text="* El nombre de usuario debe tener entre 6 y 12 caracteres" Margin="0,5" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Italic" TextColor="Red">
-                            <Label.Triggers>
-                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference userNameEntry}, Path=TextColor}}" Value="Black">
-                                    <Setter Property="IsVisible" Value="False" />
-                                </DataTrigger>
-                            </Label.Triggers>
-                        </Label>
-                        <Label Text="* La contraseña debe tener entre 6 y 10 caracteres" Margin="0,5" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Italic" TextColor="Red">
-                            <Label.Triggers>
-                                <DataTrigger TargetType="Label" Binding="{Binding Source={x:Reference passwordEntry}, Path=TextColor}}" Value="Black">
-                                    <Setter Property="IsVisible" Value="False" />
-                                </DataTrigger>
-                            </Label.Triggers>
-                        </Label>
+                        <Label Text="* La contraseña debe tener entre 6 y 20 caracteres" Margin="0,5" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Italic" TextColor="Red" IsVisible="{Binding Source={x:Reference passwordValidator}, Path=ValidationResult, Converter={StaticResource inverseValidationResultToBoolConverter}}"/>
+
                     </StackLayout>
                     <Button Text="Iniciar Sesión" Margin="0,10,0,10" Style="{DynamicResource ExplicitButton}" Command="{Binding SignInCommand}" />
                     <ActivityIndicator HorizontalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource PrimaryDark}" />

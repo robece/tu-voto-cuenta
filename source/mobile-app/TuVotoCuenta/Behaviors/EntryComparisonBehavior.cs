@@ -33,7 +33,7 @@ namespace TuVotoCuenta.Behaviors
         }
 
         static readonly BindablePropertyKey ValidationResultPropertyKey =
-            BindableProperty.CreateReadOnly("ValidationResult", typeof(ValidationResult), typeof(EntryValidationBehavior), ValidationResult.IsInvalid);
+            BindableProperty.CreateReadOnly("ValidationResult", typeof(ValidationResult), typeof(EntryValidationBehavior), ValidationResult.NoValue);
 
         public static readonly BindableProperty ValidationResultProperty = ValidationResultPropertyKey.BindableProperty;
 
