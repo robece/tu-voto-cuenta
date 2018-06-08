@@ -16,7 +16,7 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
-        private string USERNAME = @"^[A-Za-z\d]{6,12}$";
+        private string USERNAME = @"^[A-Za-z\d]{6,20}$";
 
         public AddRecordVoteHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
