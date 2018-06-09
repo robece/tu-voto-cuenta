@@ -63,6 +63,7 @@ namespace TuVotoCuenta.ViewModels
                 {
                     Settings.Profile_Username = response.Username;
                     Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
+                    Application.Current.MainPage = new MasterPage();
                 }
                 IsBusy = false;
             }
