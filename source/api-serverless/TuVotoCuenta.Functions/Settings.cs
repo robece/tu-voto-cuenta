@@ -11,6 +11,7 @@ namespace TuVotoCuenta.Functions
         public static string MASTER_ADDRESS = Environment.GetEnvironmentVariable("MASTER_ADDRESS");
         public static string MASTER_PRIVATEKEY = Environment.GetEnvironmentVariable("MASTER_PRIVATEKEY");
         public static string CONTAINER_NAME_ACCOUNTIMAGES = Environment.GetEnvironmentVariable("CONTAINER_NAME_ACCOUNTIMAGES");
+        public static string CONTAINER_NAME_RECORDITEMIMAGES = Environment.GetEnvironmentVariable("CONTAINER_NAME_RECORDITEMIMAGES");
         public static string COSMOSDB_CONNECTIONSTRING = Environment.GetEnvironmentVariable("COSMOSDB_CONNECTIONSTRING");
         public static string COSMOSDB_DATABASEID = Environment.GetEnvironmentVariable("COSMOSDB_DATABASEID");
         public static string COSMOSDB_USERACCOUNTCOLLECTION = Environment.GetEnvironmentVariable("COSMOSDB_USERACCOUNTCOLLECTION");

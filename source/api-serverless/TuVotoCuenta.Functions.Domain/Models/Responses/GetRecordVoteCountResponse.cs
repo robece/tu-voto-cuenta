@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
-
-namespace TuVotoCuenta.Functions.Domain.Models.Responses
+﻿namespace TuVotoCuenta.Functions.Domain.Models.Responses
 {
     public class GetRecordVoteCountResponse
     {

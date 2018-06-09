@@ -6,15 +6,26 @@ namespace TuVotoCuenta.Functions.Domain.Enums
     {
         [Description("Registro realizado satisfactoriamente.")]
         Success = 100,
+
+        [Description("Token extraviado.")]
+        MissingToken = 90,
+
+        [Description("Token inválido.")]
+        InvalidToken = 80,
+
         [Description("Se presentó un problema al realizar el registro.")]
-        Failed = 90,
+        Failed = 70,
+
         [Description("Se presentó un problema al enviar información a la blockchain.")]
-        BlockchainIssue = 80,
+        BlockchainIssue = 60,
+
         [Description("Ya existe un registro con el mismo hash en la base de datos.")]
-        AlreadyExists = 70,
+        AlreadyExists = 50,
+
         [Description("El nombre de usuario no es correcto.")]
-        InvalidUsernameLength = 60,
+        InvalidUsernameLength = 40,
+
         [Description("El nombre de usuario no es correcto.")]
-        UsernameNotExists = 50
+        UsernameNotExists = 30
     }
 }

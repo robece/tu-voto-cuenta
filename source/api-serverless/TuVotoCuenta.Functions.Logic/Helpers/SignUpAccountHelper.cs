@@ -1,18 +1,15 @@
 ﻿using Jdenticon;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
-using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using TuVotoCuenta.Functions.Domain.Enums;
 using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
 using TuVotoCuenta.Functions.Domain.Models.Responses;
 using TuVotoCuenta.Functions.Logic.Classes;
+using TuVotoCuenta.Functions.Logic.Database;
 
 namespace TuVotoCuenta.Functions.Logic.Helpers
 {
@@ -21,7 +18,6 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
-        private string USERNAME = @"^[A-Za-z\d]{6,20}$";
 
         public SignUpAccountHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
@@ -52,36 +48,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 parameters.TryGetValue(ParameterTypeEnum.FunctionDirectory, out global::System.Object ofunctionDirectory);
                 string functionDirectory = ofunctionDirectory.ToString();
 
-                //validate username length
-                Regex regex = new Regex(USERNAME);
-                Match match = regex.Match(username);
-                bool isValidUsernameLength = match.Success;
+                //database helpers
+                DBUserAccountHelper dbUserAccountHelper = new DBUserAccountHelper(DBCONNECTION_INFO);
 
-                if (!isValidUsernameLength)
+                //validate username length
+                if (!RegexValidation.IsValidUsername(username))
                 {
                     result.IsSucceded = false;
                     result.ResultId = (int)SignUpAccountResultEnum.InvalidUsernameLength;
                     return result;
                 }
-                
-                //connecting to mongodb
-                string connectionString = DBCONNECTION_INFO.ConnectionString;
-                MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
-                settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
-                var mongoClient = new MongoClient(settings);
-                var database = mongoClient.GetDatabase(DBCONNECTION_INFO.DatabaseId);
-                var userAccountCollection = database.GetCollection<UserAccount>(DBCONNECTION_INFO.UserAccountCollection);
 
                 //validate if account exists
-                UserAccount userAccount = null;
-                try
-                {
-                    userAccount = userAccountCollection.AsQueryable<UserAccount>().Where<UserAccount>(sb => sb.username == username).SingleOrDefault();
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Trace.TraceWarning($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
-                }
+                UserAccount userAccount = dbUserAccountHelper.GetUser(username);
 
                 if (userAccount != null)
                 {
@@ -90,23 +69,16 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     return result;
                 }
 
-                TimeZoneInfo setTimeZoneInfo;
-                DateTime currentDateTime;
-
-                //Set the time zone information to US Mountain Standard Time 
-                setTimeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("Central Standard Time (Mexico)");
-
-                //Get date and time in US Mountain Standard Time
-                currentDateTime = TimeZoneInfo.ConvertTime(DateTime.Now, setTimeZoneInfo);
-
                 //save username and account in mongodb
-                userAccount = new UserAccount() {
+                userAccount = new UserAccount()
+                {
                     username = username,
                     password = MD5Hash.CalculateMD5Hash(password),
-                    createdDate = currentDateTime.ToString("yyyy-MM-dd HH:mm:ss")
+                    createdDate = Timezone.GetCustomTimeZone()
                 };
 
-                await userAccountCollection.InsertOneAsync(userAccount);
+                //perform insert in mongodb
+                await dbUserAccountHelper.CreateUserAccount(userAccount);
 
                 //create unique icon, upload and delete it
                 var imageName = $"{username}.png";
@@ -160,7 +132,7 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
             CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
             var cloudBlobContainer = cloudBlobClient.GetContainerReference(containerName);
-            cloudBlobContainer.CreateIfNotExistsAsync().Wait();
+            await cloudBlobContainer.CreateIfNotExistsAsync();
             await cloudBlobContainer.SetPermissionsAsync(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Blob });
 
             CloudBlockBlob cloudBlockBlob = cloudBlobContainer.GetBlockBlobReference(imageName);

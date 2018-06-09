@@ -1,13 +1,10 @@
-﻿using MongoDB.Driver;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Authentication;
-using System.Text.RegularExpressions;
 using TuVotoCuenta.Functions.Domain.Enums;
 using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
 using TuVotoCuenta.Functions.Domain.Models.Responses;
 using TuVotoCuenta.Functions.Logic.Classes;
+using TuVotoCuenta.Functions.Logic.Database;
 
 namespace TuVotoCuenta.Functions.Logic.Helpers
 {
@@ -16,7 +13,6 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
-        private string USERNAME = @"^[A-Za-z\d]{6,20}$";
 
         public SignInAccountHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
@@ -41,36 +37,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 parameters.TryGetValue(ParameterTypeEnum.Password, out global::System.Object opassword);
                 string password = opassword.ToString();
 
-                //validate username length
-                Regex regex = new Regex(USERNAME);
-                Match match = regex.Match(username);
-                bool isValidUsernameLength = match.Success;
+                //database helpers
+                DBUserAccountHelper dbUserAccountHelper = new DBUserAccountHelper(DBCONNECTION_INFO);
 
-                if (!isValidUsernameLength)
+                //validate username length
+                if (!RegexValidation.IsValidUsername(username))
                 {
                     result.IsSucceded = false;
                     result.ResultId = (int)SignInAccountResultEnum.InvalidUsernameLength;
                     return result;
                 }
 
-                //connecting to mongodb
-                string connectionString = DBCONNECTION_INFO.ConnectionString;
-                MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
-                settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
-                var mongoClient = new MongoClient(settings);
-                var database = mongoClient.GetDatabase(DBCONNECTION_INFO.DatabaseId);
-                var userAccountCollection = database.GetCollection<UserAccount>(DBCONNECTION_INFO.UserAccountCollection);
-
                 //validate if account exists
-                UserAccount userAccount = null;
-                try
-                {
-                    userAccount = userAccountCollection.AsQueryable<UserAccount>().Where<UserAccount>(sb => sb.username == username).SingleOrDefault();
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Trace.TraceWarning($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
-                }
+                UserAccount userAccount = dbUserAccountHelper.GetUser(username);
 
                 if (userAccount == null)
                 {
