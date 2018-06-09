@@ -15,10 +15,9 @@ namespace TuVotoCuenta
 		public App()
         {
             InitializeComponent();
-	        
-			//set startup app configuration
-			Settings.FunctionURL = "https://{FunctionURL}.azurewebsites.net";
-			Settings.ImageStorageUrl = "https://{StorageAccount}.blob.core.windows.net/accountimages/";
+
+            //set startup app configuration
+            SettingsInitializer.InitSettings();
 
 			//init catalogs
             Catalogs.InitEntities();

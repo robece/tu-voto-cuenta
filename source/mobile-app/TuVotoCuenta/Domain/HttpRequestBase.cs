@@ -1,15 +1,12 @@
 ﻿using System;
-
-
 namespace TuVotoCuenta.Domain
 {
-    public class AddReportRequest : HttpRequestBase
+    public class HttpRequestBase
     {
-        public RecordItem RecordItem
+        public string token
         {
             get;
             set;
         }
-
     }
 }

@@ -11,7 +11,7 @@ namespace TuVotoCuenta.ViewModels
     public class SignUpConfirmationViewModel : BaseViewModel
     {
         INavigation navigation = null;
-		SignUpAccountRequest model = null;
+        SignUpAccountRequest model = null;
 
         public SignUpConfirmationViewModel(INavigation navigation, SignUpAccountRequest model)
         {
@@ -20,75 +20,43 @@ namespace TuVotoCuenta.ViewModels
             InitializeViewModel();
         }
 
-        void InitializeViewModel()
+        async Task InitializeViewModel()
         {
+            ContinueCommand = new Command(() => Continue());
+            ContinueGoBackCommand = new Command(() => ContinueGoBack());
+            
             IsBusy = true;
             IsContinueEnabled = false;
-			IsContinueGoBackEnabled = false;
+            IsContinueGoBackEnabled = false;
             MessageTitle = "Por favor aguarda, estamos creando tu cuenta...";
-            
-			//clean any previous session
-			SignOutPage.CleanCurrentSession();
+
+            //clean any previous session
+            SignOutPage.CleanCurrentSession();
             //launch task
-			Task.Run(async () => {
-                SignUpAccountResponse response = await RestHelper.SignUpAccountAsync(model);
 
-                if (response == null)
-                {
-					throw new AggregateException(SignUpAccountResultEnum.Failed.ToString());
-                }
-                else
-                {
-                    if (response.IsSucceded)
-                    {
-                        Settings.Profile_Username = model.username.ToLower();
-                        Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
-                    }
-                    else
-                    {
-						if (response.ResultId == (int)SignUpAccountResultEnum.Failed)                     
-                        {
-							throw new AggregateException(SignUpAccountResultEnum.Failed.ToString());
-                        }
-						else if (response.ResultId == (int)SignUpAccountResultEnum.AlreadyExists)
-                        {
-							throw new AggregateException(SignUpAccountResultEnum.AlreadyExists.ToString());
-                        }
-                        else
-                        {
-							throw new AggregateException(SignUpAccountResultEnum.Failed.ToString());
-                        }
-                    }
-                }            
-            }).ContinueWith((b) => {
-                if (b.Exception != null)
-                {
-					if (b.Exception.InnerExceptions[0].Message == SignUpAccountResultEnum.Failed.ToString())
-                    {
-                        MessageTitle = "Se presentó un problema al realizar el registro.";
-                    }
-					else if (b.Exception.InnerExceptions[0].Message == SignUpAccountResultEnum.AlreadyExists.ToString())
-                    {
-                        MessageTitle = "Es posible que ya te encuentres registrado con ese correo electrónico.";
-                    }
+            SignUpAccountResponse response = await RestHelper.SignUpAccountAsync(model);
 
-					IsBusy = false;
-					IsContinueEnabled = false;
-					IsContinueGoBackEnabled = true;
-					MessageSubTitle = "El proceso de registro no fue satisfactorio.";
-                }
-                else
-                {
-                    IsBusy = false;
-                    IsContinueEnabled = true;
-					IsContinueGoBackEnabled = false;
-                    MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
-                    MessageSubTitle = "Tu cuenta ha sido creada satisfactoriamente.";
-                }
-            });
 
-            ContinueCommand = new Command(() => Continue());
-			ContinueGoBackCommand = new Command(() => ContinueGoBack());
+            if (response.Status == ResponseStatus.Ok)
+            {
+                Settings.Profile_Username = model.username.ToLower();
+                Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
+                IsBusy = false;
+                IsContinueEnabled = true;
+                IsContinueGoBackEnabled = false;
+                MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
+                MessageSubTitle = "Tu cuenta ha sido creada satisfactoriamente.";
+            }
+            else
+            {
+                IsBusy = false;
+                IsContinueEnabled = false;
+                IsContinueGoBackEnabled = true;
+                MessageTitle = "El proceso de registro no fue satisfactorio.";
+                MessageSubTitle = response.Message;
+            }
+
+           
         }
 
         void Continue()
@@ -96,7 +64,7 @@ namespace TuVotoCuenta.ViewModels
             Application.Current.MainPage = new MasterPage();
         }
 
-		void ContinueGoBack()
+        void ContinueGoBack()
         {
             Application.Current.MainPage = new SignUpPage();
         }
@@ -104,7 +72,7 @@ namespace TuVotoCuenta.ViewModels
         #region Commands
 
         public Command ContinueCommand { get; set; }
-		public Command ContinueGoBackCommand { get; set; }
+        public Command ContinueGoBackCommand { get; set; }
 
         #endregion
 
@@ -131,11 +99,11 @@ namespace TuVotoCuenta.ViewModels
             set { SetProperty(ref isContinueEnabled, value); }
         }
 
-		bool isContinueGoBackEnabled;
-		public bool IsContinueGoBackEnabled
+        bool isContinueGoBackEnabled;
+        public bool IsContinueGoBackEnabled
         {
-			get { return isContinueGoBackEnabled; }
-			set { SetProperty(ref isContinueGoBackEnabled, value); }
+            get { return isContinueGoBackEnabled; }
+            set { SetProperty(ref isContinueGoBackEnabled, value); }
         }
 
         #endregion

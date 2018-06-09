@@ -9,31 +9,31 @@ using Xamarin.Forms;
 
 namespace TuVotoCuenta.ViewModels
 {
-	public class SignInViewModel : BaseViewModel
-	{
-		INavigation navigation = null;
-		public static bool EmailValidation = false;
-		public ObservableCollection<Slide> Slides { get; set; }
+    public class SignInViewModel : BaseViewModel
+    {
+        INavigation navigation = null;
+        public static bool EmailValidation = false;
+        public ObservableCollection<Slide> Slides { get; set; }
 
-		public SignInViewModel(INavigation navigation)
-		{
-			this.navigation = navigation;
-			InitializeViewModel();
-		}
+        public SignInViewModel(INavigation navigation)
+        {
+            this.navigation = navigation;
+            InitializeViewModel();
+        }
 
-		void InitializeViewModel()
-		{
-			Slides = new ObservableCollection<Slide>
-			{
-				new Slide { ImageUrl ="master.jpg", Name = "Bienvenido a TuVotoCuenta" }
-			};
+        void InitializeViewModel()
+        {
+            Slides = new ObservableCollection<Slide>
+            {
+                new Slide { ImageUrl ="master.jpg", Name = "Bienvenido a TuVotoCuenta" }
+            };
 
-            SignInCommand = new Command(async () => await SignIn(),() => ValidateInformation());
-			SignUpCommand = new Command(() => SignUp());
-		}
+            SignInCommand = new Command(async () => await SignIn(), () => ValidateInformation());
+            SignUpCommand = new Command(() => SignUp());
+        }
 
         async Task SignIn()
-		{
+        {
 #if DEBUG
             if ((bool)Application.Current.Resources["LoginOk"])
             {
@@ -42,7 +42,7 @@ namespace TuVotoCuenta.ViewModels
             }
 #endif
 
-			if (!ValidateInformation())
+            if (!ValidateInformation())
                 await Application.Current.MainPage.DisplayAlert("Aviso", "Verifica que todos los campos se encuentren completos.", "Aceptar");
             else if (!IsBusy)
             {
@@ -51,87 +51,27 @@ namespace TuVotoCuenta.ViewModels
                 //clean any previous session
                 SignOutPage.CleanCurrentSession();
                 //launch task
-                await Task.Run(async () =>
+
+                SignInAccountRequest model = new SignInAccountRequest() { username = Username, password = Password };
+                SignInAccountResponse response = await RestHelper.SignInAccountAsync(model);
+
+                if (response.Status != ResponseStatus.Ok)
                 {
-                    SignInAccountRequest model = new SignInAccountRequest() { username = Username, password = Password };
-                    SignInAccountResponse response = await RestHelper.SignInAccountAsync(model);
-
-                    if (response.Status !=  ResponseStatus.Ok)
-                    {
-                        throw new AggregateException(SignInAccountResultEnum.Failed.ToString());
-                    }
-                    else
-                    {
-                        if (response.IsSucceded)
-                        {
-                            Settings.Profile_Username = response.Username;
-                            Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
-                        }
-                        else
-                        {
-                            if (response.ResultId == (int)SignInAccountResultEnum.Failed)
-                            {
-                                throw new AggregateException(SignInAccountResultEnum.Failed.ToString());
-                            }
-                            else if (response.ResultId == (int)SignInAccountResultEnum.IncorrectPassword)
-                            {
-                                throw new AggregateException(SignInAccountResultEnum.IncorrectPassword.ToString());
-                            }
-                            else if (response.ResultId == (int)SignInAccountResultEnum.NotExists)
-                            {
-                                throw new AggregateException(SignInAccountResultEnum.NotExists.ToString());
-                            }
-                            else
-                            {
-                                throw new AggregateException(SignInAccountResultEnum.Failed.ToString());
-                            }
-                        }
-                    }
-
-                }).ContinueWith((b) =>
+                    await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
+                }
+                else
                 {
-                    if (b.Exception != null)
-                    {
-                        if (b.Exception.InnerExceptions[0].Message == SignInAccountResultEnum.Failed.ToString())
-                        {
-                            Device.BeginInvokeOnMainThread(async () =>
-                            {
-                                await Application.Current.MainPage.DisplayAlert("Aviso", "Se presentó un problema al realizar la identificación.", "Aceptar");
-                            });
-                        }
-                        else if (b.Exception.InnerExceptions[0].Message == SignInAccountResultEnum.IncorrectPassword.ToString())
-                        {
-                            Device.BeginInvokeOnMainThread(async () =>
-                            {
-                                await Application.Current.MainPage.DisplayAlert("Aviso", "Contraseña incorrecta.", "Aceptar");
-                            });
-                        }
-                        else if (b.Exception.InnerExceptions[0].Message == SignInAccountResultEnum.NotExists.ToString())
-                        {
-                            Device.BeginInvokeOnMainThread(async () =>
-                            {
-                                await Application.Current.MainPage.DisplayAlert("Aviso", "El usuario no se encuentra registrado.", "Aceptar");
-                            });
-                        }
-
-                        IsBusy = false;
-                    }
-                    else
-                    {
-                        IsBusy = false;
-                        Device.BeginInvokeOnMainThread(() =>
-                        {
-                            Application.Current.MainPage = new MasterPage();
-                        });
-                    }
-                });
+                    Settings.Profile_Username = response.Username;
+                    Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
+                }
+                IsBusy = false;
             }
-		}
+        }
 
-		void SignUp()
-		{
-			Application.Current.MainPage = new SignUpPage();
-		}
+        void SignUp()
+        {
+            Application.Current.MainPage = new SignUpPage();
+        }
 
         bool ValidateInformation()
         {
@@ -146,25 +86,25 @@ namespace TuVotoCuenta.ViewModels
         #region Commands
 
         public Command SignInCommand { get; set; }
-		public Command SignUpCommand { get; set; }
+        public Command SignUpCommand { get; set; }
 
-		#endregion
-            
-		#region Binding attributes
+        #endregion
 
-		string username;
+        #region Binding attributes
+
+        string username;
         public string Username
         {
             get { return username; }
             set { SetProperty(ref username, value); SignInCommand.ChangeCanExecute(); }
         }
 
-		string password;
-		public string Password
-		{
-			get { return password; }
+        string password;
+        public string Password
+        {
+            get { return password; }
             set { SetProperty(ref password, value); SignInCommand.ChangeCanExecute(); }
-		}
+        }
         #endregion
     }
 }

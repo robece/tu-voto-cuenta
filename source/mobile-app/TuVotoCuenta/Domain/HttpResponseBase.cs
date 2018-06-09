@@ -11,7 +11,7 @@ namespace TuVotoCuenta.Domain
             set;
         }
 
-        public string ResponseMessage
+        public string Message
         {
             get;
             set;

@@ -22,7 +22,7 @@ namespace TuVotoCuenta
 		private const string CurrentRecordItemKey = "CurrentRecordItemKey";
 		private const string Profile_UsernameKey = "Profile_UsernameKey";
 		private const string Profile_PictureKey = "Profile_PictureKey";
-
+        private const string CryptographyKey = "CryptographyKey";
 
         #endregion
 
@@ -85,5 +85,17 @@ namespace TuVotoCuenta
 				AppSettings.AddOrUpdateValue(Profile_PictureKey, value);
 			}
 		}
+
+        public static string Cryptography
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(CryptographyKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(CryptographyKey, value);
+            }
+        }
     }
 }
