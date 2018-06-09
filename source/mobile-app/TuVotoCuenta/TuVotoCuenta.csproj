@@ -60,6 +60,7 @@
     <Compile Remove="Behaviors\EmailValidatorBehavior.cs" />
     <Compile Remove="ViewModels\Report\AddReportStep1ViewModel.cs" />
     <Compile Remove="Pages\Report\AddReportStep1Page.xaml.cs" />
+    <Compile Remove="SettingsInitializer %28copy%29.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Pages\SignUp\LegalConcernsPage.xaml.cs">
