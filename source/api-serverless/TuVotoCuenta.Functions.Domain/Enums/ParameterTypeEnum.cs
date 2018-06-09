@@ -15,6 +15,7 @@
         Hash,
         Entity,
         Municipality,
-        Locality
+        Locality,
+        RecordItemImageContainer
     }
 }

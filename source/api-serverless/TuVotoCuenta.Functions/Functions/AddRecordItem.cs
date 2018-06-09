@@ -4,12 +4,16 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using TuVotoCuenta.Functions.Classes;
 using TuVotoCuenta.Functions.Domain.Enums;
 using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
 using TuVotoCuenta.Functions.Domain.Models.Responses;
+using TuVotoCuenta.Functions.Logic.Helpers;
 
 namespace TuVotoCuenta.Functions
 {
@@ -29,105 +33,43 @@ namespace TuVotoCuenta.Functions
             {
                 string requestBody = new StreamReader(req.Body).ReadToEnd();
                 dynamic data = JsonConvert.DeserializeObject(requestBody);
-                //account
-                var account = data?.account;
-                var password = data?.password;
-                //record data
-                var deviceHash = data?.deviceHash;
-                var boxNumber = data?.boxNumber;
-                var boxSection = data?.boxSection;
-                var locationDetails = data?.locationDetails;
-                var entity = data?.entity;
-                var municipality = data?.municipality;
-                var locality = data?.locality;
-                var partyPAN = data?.partyPAN;
-                var partyPRI = data?.partyPRI;
-                var partyPRD = data?.partyPRD;
-                var partyVerde = data?.partyVerde;
-                var partyPT = data?.partyPT;
-                var partyMC = data?.partyMC;
-                var partyNA = data?.partyNA;
-                var partyMOR = data?.partyMOR;
-                var partyES = data?.partyES;
-                var partyINDJai = data?.partyINDJai;
-                var partyOtro = data?.partyOtro;
-                var partyPANMC = data?.partyPANMC;
-                var partyPANPRD = data?.partyPANPRD;
-                var partyPRDPANMC = data?.partyPRDPANMC;
-                var partyPRDMC = data?.partyPRDMC;
-                var partyMORPT = data?.partyMORPT;
-                var partyMORES = data?.partyMORES;
-                var partyPTESMOR = data?.partyPTESMOR;
-                var partyPRIVERNA = data?.partyPRIVERNA;
-                var partyPRIVER = data?.partyPRIVER;
-                var partyPRINA = data?.partyPRINA;
-                var partyVERNA = data?.partyVERNA;
-                var partyPTES = data?.partyPTES;
-                var partyPRDPAN = data?.partyPRDPAN;
-                var image = data?.image;
-                var imageLatitude = data?.imageLatitude;
-                var imageLongitude = data?.imageLongitude;
-                var hash = data?.hash;
+                string token = data?.token;
+                string tempRecordItem = JsonConvert.SerializeObject(data?.recordItem);
+                Domain.Models.Request.RecordItem recordItem = JsonConvert.DeserializeObject<Domain.Models.Request.RecordItem>(tempRecordItem);
 
-                RecordItem recordItem = new RecordItem
+                Dictionary<ParameterTypeEnum, object> parameters = new Dictionary<ParameterTypeEnum, object>
                 {
-                    deviceHash = deviceHash,
-                    boxNumber = boxNumber,
-                    boxSection = boxSection,
-                    locationDetails = locationDetails,
-                    entity = entity,
-                    municipality = municipality,
-                    locality = locality,
-                    partyPAN = partyPAN,
-                    partyPRI = partyPRI,
-                    partyPRD = partyPRD,
-                    partyVerde = partyVerde,
-                    partyPT = partyPT,
-                    partyMC = partyMC,
-                    partyNA = partyNA,
-                    partyMOR = partyMOR,
-                    partyES = partyES,
-                    partyINDJai = partyINDJai,
-                    partyOtro = partyOtro,
-                    partyPANMC = partyPANMC,
-                    partyPANPRD = partyPANPRD,
-                    partyPRDPANMC = partyPRDPANMC,
-                    partyPRDMC = partyPRDMC,
-                    partyMORPT = partyMORPT,
-                    partyMORES = partyMORES,
-                    partyPTESMOR = partyPTESMOR,
-                    partyPRIVERNA = partyPRIVERNA,
-                    partyPRIVER = partyPRIVER,
-                    partyPRINA = partyPRINA,
-                    partyVERNA = partyVERNA,
-                    partyPTES = partyPTES,
-                    partyPRDPAN = partyPRDPAN,
-                    image = image,
-                    imageLatitude = imageLatitude,
-                    imageLongitude = imageLongitude,
-                    hash = hash,
-                    //username = account
+                    { ParameterTypeEnum.RecordItem, recordItem },
+                    { ParameterTypeEnum.MasterAddress, Settings.MASTER_ADDRESS },
+                    { ParameterTypeEnum.MasterPrivateKey, Settings.MASTER_PRIVATEKEY },
+                    { ParameterTypeEnum.ContractAddress, Settings.CONTRACT_ADDRESS },
+                    { ParameterTypeEnum.ContractABI, Settings.CONTRACT_ABI },
+                    { ParameterTypeEnum.RecordItemImageContainer, Settings.CONTAINER_NAME_RECORDITEMIMAGES },
                 };
 
-                //Dictionary<ParameterTypeEnum, object> parameters = new Dictionary<ParameterTypeEnum, object>
-                //{
-                //    { ParameterTypeEnum.RecordAccount, account },
-                //    { ParameterTypeEnum.Password, password },
-                //    { ParameterTypeEnum.MasterAccount, Settings.MASTER_ACCOUNT },
-                //    { ParameterTypeEnum.ContractAddress, Settings.CONTRACT_ADDRESS },
-                //    { ParameterTypeEnum.ContractABI, Settings.CONTRACT_ABI },
-                //    { ParameterTypeEnum.RecordItem, recordItem }
-                //};
-
-                MongoDBConnectionInfo dbConnectionInfo = new MongoDBConnectionInfo()
+                //validate token
+                if (!string.IsNullOrEmpty(token))
                 {
-                    ConnectionString = Settings.COSMOSDB_CONNECTIONSTRING,
-                    DatabaseId = Settings.COSMOSDB_DATABASEID,
-                    RecordItemCollection = Settings.COSMOSDB_RECORDITEMCOLLECTION
-                };
+                    var decrypted_token = SecurityHelper.Decrypt(token, Settings.SECURITY_SEED);
+                    byte[] token_bytes = Convert.FromBase64String(decrypted_token);
+                    DateTime when = DateTime.FromBinary(BitConverter.ToInt64(token_bytes, 0));
 
-                //AddRecordItemHelper helper = new AddRecordItemHelper(Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, dbConnectionInfo);
-                //result = await helper.AddRecordItemAsync(parameters);
+                    if (when < DateTime.UtcNow.AddMinutes(-5))
+                    {
+                        result.IsSucceded = false;
+                        result.ResultId = (int)AddRecordItemResultEnum.InvalidToken;
+                    }
+                    else
+                    {
+                        AddRecordItemHelper recordItemHelper = new AddRecordItemHelper(Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, Configurations.GetMongoDbConnectionInfo());
+                        await recordItemHelper.AddRecordItemAsync(parameters);
+                    }
+                }
+                else
+                {
+                    result.IsSucceded = false;
+                    result.ResultId = (int)AddRecordItemResultEnum.MissingToken;
+                }
             }
             catch (AggregateException ex)
             {
@@ -137,7 +79,7 @@ namespace TuVotoCuenta.Functions
                     exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
                     var stackTrace = string.Empty;
                     stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"Exception: {exception}, StackTrace: {stackTrace}");
+                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {exception}. STACKTRACE: {stackTrace}");
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)AddRecordItemResultEnum.Failed;
@@ -149,7 +91,15 @@ namespace TuVotoCuenta.Functions
                 result.ResultId = (int)AddRecordItemResultEnum.Failed;
             }
 
-            return (ActionResult)new OkObjectResult(result);
+            //get message for result id
+            string message = EnumDescription.GetEnumDescription((AddRecordItemResultEnum)result.ResultId);
+
+            //build json result object
+            dynamic jsonresult = new JObject();
+            jsonresult.message = message;
+
+            //send ok result or bad request
+            return (result.IsSucceded) ? (ActionResult)new OkObjectResult(jsonresult) : (ActionResult)new BadRequestObjectResult(jsonresult);
         }
     }
 }

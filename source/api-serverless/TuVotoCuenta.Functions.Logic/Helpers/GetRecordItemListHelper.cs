@@ -1,13 +1,10 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Authentication;
 using System.Threading.Tasks;
 using TuVotoCuenta.Functions.Domain.Enums;
 using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
 using TuVotoCuenta.Functions.Domain.Models.Responses;
+using TuVotoCuenta.Functions.Logic.Database;
 
 namespace TuVotoCuenta.Functions.Logic.Helpers
 {
@@ -26,9 +23,12 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public async Task<GetRecordItemListResponse> GetRecordsAsync(Dictionary<ParameterTypeEnum, object> parameters)
         {
-            GetRecordItemListResponse result = new GetRecordItemListResponse();
-            result.IsSucceded = true;
-            result.ResultId = (int)GetRecordItemListResultEnum.Success;
+            GetRecordItemListResponse result = new GetRecordItemListResponse
+            {
+                IsSucceded = true,
+                ResultId = (int)GetRecordItemListResultEnum.Success
+            };
+
             try
             {
                 parameters.TryGetValue(ParameterTypeEnum.Entity, out global::System.Object oentity);
@@ -40,19 +40,11 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 parameters.TryGetValue(ParameterTypeEnum.Locality, out global::System.Object olocality);
                 string locality = olocality.ToString();
 
-                //connecting to mongodb
-                string connectionString = DBCONNECTION_INFO.ConnectionString;
-                MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
-                settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
-                var mongoClient = new MongoClient(settings);
-                var database = mongoClient.GetDatabase(DBCONNECTION_INFO.DatabaseId);
-                var recordItemCollection = database.GetCollection<RecordItem>(DBCONNECTION_INFO.RecordItemCollection);
+                //database helpers
+                DBRecordItemHelper dbRecordItemHelper = new DBRecordItemHelper(DBCONNECTION_INFO);
 
                 //get votes
-                var filter = new FilterDefinitionBuilder<RecordItem>().Eq<string>(record => record.entity, entity);
-                filter = filter & new FilterDefinitionBuilder<RecordItem>().Eq<string>(record => record.municipality, municipality);
-                filter = filter & new FilterDefinitionBuilder<RecordItem>().Eq<string>(record => record.locality, locality);
-                result.Records = await recordItemCollection.FindSync<RecordItem>(filter).ToListAsync();
+                result.Records = await dbRecordItemHelper.GetRecordItemListAsync(entity, municipality, locality);
             }
             catch (AggregateException ex)
             {

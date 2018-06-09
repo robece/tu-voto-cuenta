@@ -1,13 +1,10 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Authentication;
 using System.Threading.Tasks;
 using TuVotoCuenta.Functions.Domain.Enums;
 using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
 using TuVotoCuenta.Functions.Domain.Models.Responses;
+using TuVotoCuenta.Functions.Logic.Database;
 
 namespace TuVotoCuenta.Functions.Logic.Helpers
 {
@@ -26,25 +23,22 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public async Task<GetRecordVoteCountResponse> GetCountersAsync(Dictionary<ParameterTypeEnum, object> parameters)
         {
-            GetRecordVoteCountResponse result = new GetRecordVoteCountResponse();
-            result.IsSucceded = true;
-            result.ResultId = (int)GetRecordVoteCountResultEnum.Success;
+            GetRecordVoteCountResponse result = new GetRecordVoteCountResponse
+            {
+                IsSucceded = true,
+                ResultId = (int)GetRecordVoteCountResultEnum.Success
+            };
+
             try
             {
                 parameters.TryGetValue(ParameterTypeEnum.Hash, out global::System.Object ohash);
                 string hash = ohash.ToString().ToLower();
 
-                //connecting to mongodb
-                string connectionString = DBCONNECTION_INFO.ConnectionString;
-                MongoClientSettings settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
-                settings.SslSettings = new SslSettings() { EnabledSslProtocols = SslProtocols.Tls12 };
-                var mongoClient = new MongoClient(settings);
-                var database = mongoClient.GetDatabase(DBCONNECTION_INFO.DatabaseId);
-                var recordVoteCollection = database.GetCollection<RecordVote>(DBCONNECTION_INFO.RecordVoteCollection);
+                //database helpers
+                DBRecordVoteHelper dbRecordVoteHelper = new DBRecordVoteHelper(DBCONNECTION_INFO);
 
                 //get votes
-                var filter = new FilterDefinitionBuilder<RecordVote>().Eq<string>(vote => vote.hash, hash);
-                var votes = await recordVoteCollection.FindSync<RecordVote>(filter).ToListAsync();
+                var votes = await dbRecordVoteHelper.GetRecordVoteList(hash);
 
                 result.Approvals = votes.FindAll(x => x.isApproval == true).Count;
                 result.Disapprovals = votes.FindAll(x => x.isApproval == false).Count;

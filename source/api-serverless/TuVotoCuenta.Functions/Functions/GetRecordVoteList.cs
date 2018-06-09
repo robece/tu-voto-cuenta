@@ -9,8 +9,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using TuVotoCuenta.Functions.Classes;
 using TuVotoCuenta.Functions.Domain.Enums;
-using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
 using TuVotoCuenta.Functions.Domain.Models.Responses;
 using TuVotoCuenta.Functions.Logic.Helpers;
 
@@ -40,13 +40,6 @@ namespace TuVotoCuenta.Functions
                     { ParameterTypeEnum.Hash, hash }
                 };
 
-                MongoDBConnectionInfo dbConnectionInfo = new MongoDBConnectionInfo()
-                {
-                    ConnectionString = Settings.COSMOSDB_CONNECTIONSTRING,
-                    DatabaseId = Settings.COSMOSDB_DATABASEID,
-                    RecordVoteCollection = Settings.COSMOSDB_RECORDVOTECOLLECTION
-                };
-
                 //validate token
                 if (!string.IsNullOrEmpty(token))
                 {
@@ -61,7 +54,7 @@ namespace TuVotoCuenta.Functions
                     }
                     else
                     {
-                        GetRecordVoteListHelper helper = new GetRecordVoteListHelper(Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, dbConnectionInfo);
+                        GetRecordVoteListHelper helper = new GetRecordVoteListHelper(Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, Configurations.GetMongoDbConnectionInfo());
                         result = await helper.GetVotesAsync(parameters);
                     }
                 }
@@ -79,7 +72,7 @@ namespace TuVotoCuenta.Functions
                     exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
                     var stackTrace = string.Empty;
                     stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"Exception: {exception}, StackTrace: {stackTrace}");
+                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {exception}. STACKTRACE: {stackTrace}");
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordVoteListResultEnum.Failed;
