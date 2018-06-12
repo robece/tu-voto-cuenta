@@ -54,13 +54,13 @@ namespace TuVotoCuenta.Domain
 
 			if (entityKey == "CDMX")
 			{
-				municipalities.Add("CDMX001", "MUNICIPIO CDMX 001");
-				municipalities.Add("CDMX002", "MUNICIPIO CDMX 002");
+				municipalities.Add("CDMX", "MUNICIPIO CDMX 001");
+				municipalities.Add("CDMX1", "MUNICIPIO CDMX 002");
 			}
 			else
 			{
-				municipalities.Add("CAM001", "CAMPECHE 001");
-				municipalities.Add("CAM002", "CAMPECHE 002");
+				municipalities.Add("CAM", "CAMPECHE 001");
+				municipalities.Add("CAM1", "CAMPECHE 002");
 			}
 		}
 
@@ -101,13 +101,13 @@ namespace TuVotoCuenta.Domain
 
             if (municipalityKey.StartsWith("CDMX", StringComparison.InvariantCultureIgnoreCase))
 			{
-				localities.Add("CDMX001", "LOCALIDAD CDMX 001");
-				localities.Add("CDMX002", "LOCALIDAD CDMX 002");
+				localities.Add("CDMX", "LOCALIDAD CDMX 001");
+				localities.Add("CDMX1", "LOCALIDAD CDMX 002");
 			}
 			else
 			{
-				localities.Add("CAM001", "LOCALIDAD CAMPECHE 001");
-				localities.Add("CAM002", "LOCALIDAD CAMPECHE 002");
+				localities.Add("CAM", "LOCALIDAD CAMPECHE 001");
+				localities.Add("CAM1", "LOCALIDAD CAMPECHE 002");
 			}
 		}
 

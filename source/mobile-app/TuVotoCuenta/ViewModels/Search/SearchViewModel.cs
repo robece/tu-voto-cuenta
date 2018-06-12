@@ -145,8 +145,8 @@ namespace TuVotoCuenta.ViewModels.Search
                     // trigger some action to take such as updating other labels or fields
                     OnPropertyChanged(nameof(LocalitySelectedIndex));
 
-                    selectedLocalityText = localities[municipalitySelectedIndex];
-                    selectedLocality = Catalogs.GetEntityKey(selectedLocalityText);
+                    selectedLocalityText = localities[localitySelectedIndex];
+                    selectedLocality = Catalogs.GetLocalityKey(selectedLocalityText);
                 }
             }
         }
@@ -262,13 +262,22 @@ namespace TuVotoCuenta.ViewModels.Search
             ISearchService searchService;
 #if DEBUG
             if ((bool)App.Current.Resources["UseMock"])
+            {
                 searchService = new Services.MockServices.SearchMockService();
+                SearchResults = new ObservableCollection<SearchResult>(await searchService.SearchAsync("CDMX","CDMX","CDMX"));
+            }
             else
-                searchService = new Services.RestApi.SearchService();
+            {
+
+                GetRecordItemListRequest recordItemListRequest = new GetRecordItemListRequest();
+                recordItemListRequest.entity = SelectedEntity;
+                recordItemListRequest.locality = selectedLocality;
+                recordItemListRequest.municipality = SelectedMunicipality;
+                var result = await Helpers.RestHelper.GetRecordListAsync(recordItemListRequest);
+            }
 #else
             searchService = new Services.RestApi.SearchService();
 #endif
-            SearchResults = new ObservableCollection<SearchResult>(await searchService.SearchAsync(selectedEntity, selectedMunicipality, selectedLocality));
 
         }
     }

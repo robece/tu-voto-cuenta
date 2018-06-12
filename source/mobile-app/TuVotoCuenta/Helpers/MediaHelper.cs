@@ -19,7 +19,6 @@ namespace TuVotoCuenta.Helpers
                     PhotoSize = Plugin.Media.Abstractions.PhotoSize.Full,
                     Directory = "People",
                     Name = "person.jpg",
-                    MaxWidthHeight = 512,
                     AllowCropping = true
                 });
 
@@ -63,7 +62,7 @@ namespace TuVotoCuenta.Helpers
 
         public static async Task<byte[]> AdjustImageSize(byte[] photo)
         {
-            int maxSize = 800;
+            int maxSize = 100;
             if (photo != null)
             {
                 var imageDetails = await CrossImageData.Current.GetImageDetails(photo);
@@ -79,7 +78,7 @@ namespace TuVotoCuenta.Helpers
                     float extraPercentage = (extra / bigSide) * 100;
                     int newImagePercentage = (int)(100 - extraPercentage);
 
-                    photo = await CrossImageResizer.Current.ScaleImageAsync(photo, newImagePercentage, DevKit.Xamarin.ImageKit.Abstractions.ImageFormat.JPG);
+                    photo = await CrossImageResizer.Current.ScaleImageAsync(photo, newImagePercentage, DevKit.Xamarin.ImageKit.Abstractions.ImageFormat.PNG);
                     var newDetails = await CrossImageData.Current.GetImageDetails(photo);
                 }
             }

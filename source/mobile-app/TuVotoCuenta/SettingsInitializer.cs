@@ -6,9 +6,9 @@ namespace TuVotoCuenta
 
         public static void InitSettings()
         {
-            Settings.FunctionURL = "https://{funtion}.azurewebsites.net/";
-            Settings.ImageStorageUrl = "https://{storage}.blob.core.windows.net/accountimages/";
-            Settings.Cryptography = "{CryptoKey}";
+            Settings.FunctionURL = "FUNCTION_URL";
+            Settings.ImageStorageUrl = "STORAGE_URL";
+            Settings.Cryptography = "CRYPTO_KEY";
         }
 
     }
