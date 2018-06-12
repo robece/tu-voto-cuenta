@@ -26,7 +26,6 @@ namespace TuVotoCuenta.Functions.Logic.Classes
                 partyINDJai = recordItem.partyINDJai,
                 partyOtro = recordItem.partyOtro,
                 partyPANMC = recordItem.partyPANMC,
-                partyPANPRD = recordItem.partyPANPRD,
                 partyPRDPANMC = recordItem.partyPRDPANMC,
                 partyPRDMC = recordItem.partyPRDMC,
                 partyMORPT = recordItem.partyMORPT,

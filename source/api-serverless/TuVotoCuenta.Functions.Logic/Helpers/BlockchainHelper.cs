@@ -7,6 +7,7 @@ using System;
 using System.Numerics;
 using System.Threading;
 using System.Threading.Tasks;
+using TuVotoCuenta.Functions.Logic.Classes;
 
 namespace TuVotoCuenta.Functions.Logic.Helpers
 {
@@ -39,7 +40,7 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     var contract = web3.Eth.GetContract(contractABI, contractAddress);
                     var function = contract.GetFunction("Register");
                     Bytes32TypeEncoder enc = new Bytes32TypeEncoder();
-                    byte[] bhash = enc.Encode(hash);
+                    byte[] bhash = hash.HexToBytes(2, hash.Length);
                     byte[] busername = enc.Encode(username);
                     BigInteger gasPrice = UnitConversion.Convert.ToWei(new BigDecimal(41), UnitConversion.EthUnit.Gwei);
                     HexBigInteger hgasPrice = new HexBigInteger(gasPrice);
@@ -68,7 +69,7 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     var contract = web3.Eth.GetContract(contractABI, contractAddress);
                     var function = contract.GetFunction("IncreaseApprovals");
                     Bytes32TypeEncoder enc = new Bytes32TypeEncoder();
-                    byte[] bhash = enc.Encode(hash);
+                    byte[] bhash = hash.HexToBytes(2, hash.Length);
                     BigInteger gasPrice = UnitConversion.Convert.ToWei(new BigDecimal(41), UnitConversion.EthUnit.Gwei);
                     HexBigInteger hgasPrice = new HexBigInteger(gasPrice);
                     result = await function.SendTransactionAsync(MASTER_ADDRESS, new HexBigInteger(150000), hgasPrice, new HexBigInteger(0), new object[] { bhash });
@@ -96,7 +97,7 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     var contract = web3.Eth.GetContract(contractABI, contractAddress);
                     var function = contract.GetFunction("IncreaseDisapprovals");
                     Bytes32TypeEncoder enc = new Bytes32TypeEncoder();
-                    byte[] bhash = enc.Encode(hash);
+                    byte[] bhash = hash.HexToBytes(2, hash.Length);
                     BigInteger gasPrice = UnitConversion.Convert.ToWei(new BigDecimal(41), UnitConversion.EthUnit.Gwei);
                     HexBigInteger hgasPrice = new HexBigInteger(gasPrice);
                     result = await function.SendTransactionAsync(MASTER_ADDRESS, new HexBigInteger(150000), hgasPrice, new HexBigInteger(0), new object[] { bhash });

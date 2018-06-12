@@ -25,7 +25,6 @@ namespace TuVotoCuenta.Functions.Domain.Models.Base
         public int partyINDJai { get; set; }
         public int partyOtro { get; set; }
         public int partyPANMC { get; set; }
-        public int partyPANPRD { get; set; }
         public int partyPRDPANMC { get; set; }
         public int partyPRDMC { get; set; }
         public int partyMORPT { get; set; }

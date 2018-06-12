@@ -62,7 +62,7 @@ namespace TuVotoCuenta.Functions
                     else
                     {
                         AddRecordItemHelper recordItemHelper = new AddRecordItemHelper(Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, Configurations.GetMongoDbConnectionInfo());
-                        await recordItemHelper.AddRecordItemAsync(parameters);
+                        result = await recordItemHelper.AddRecordItemAsync(parameters);
                     }
                 }
                 else
