@@ -19,5 +19,18 @@ namespace TuVotoCuenta.Helpers
         }
 
 
+        public static string GetSha256Hash(byte[] inputvalue)
+        {
+            var crypt = System.Security.Cryptography.SHA256.Create();
+            var hash = new System.Text.StringBuilder();
+            byte[] crypto = crypt.ComputeHash(inputvalue);
+            foreach (byte theByte in crypto)
+            {
+                hash.Append(theByte.ToString("x2"));
+            }
+            return hash.ToString();
+        }
+
+
     }
 }

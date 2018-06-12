@@ -80,7 +80,6 @@ namespace TuVotoCuenta.ViewModels.Report
                 MessageSubTitle = "Espera un momento";
                 item.RecordHash = CreateHash();
                 item.DeviceHash = Helpers.HashHelper.GetSha256Hash(Plugin.DeviceInfo.CrossDeviceInfo.Current.Id);
-                item.CreatedDate = DateTime.UtcNow.ToString();
                 item.UserName = Settings.Profile_Username;
                 var imagefile = Helpers.LocalFilesHelper.ReadFile(item.UID.ToString());
                 item.Image = HashHelper.GetSha256Hash(imagefile);
@@ -168,7 +167,7 @@ namespace TuVotoCuenta.ViewModels.Report
             sb.Append(HashHelper.GetSha256Hash(imagefile));
             sb.Append(item.RecordHash);
             sb.Append(item.BlockchainTransaction);
-            sb.Append(item.CreatedDate);
+           
 
             var hash = Helpers.HashHelper.GetSha256Hash(sb.ToString());
 
