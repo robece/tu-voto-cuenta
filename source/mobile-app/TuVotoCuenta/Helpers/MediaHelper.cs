@@ -62,7 +62,7 @@ namespace TuVotoCuenta.Helpers
 
         public static async Task<byte[]> AdjustImageSize(byte[] photo)
         {
-            int maxSize = 100;
+            int maxSize = 1000;
             if (photo != null)
             {
                 var imageDetails = await CrossImageData.Current.GetImageDetails(photo);

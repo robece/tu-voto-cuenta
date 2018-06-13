@@ -90,10 +90,7 @@ namespace TuVotoCuenta.Domain
         {
             get
             {
-                if ((bool)App.Current.Resources["UseMock"])
-                    return "http://via.placeholder.com/500x750";
-                else
-                    return $"{Settings.ImageStorageUrl}/{Image}";
+                return $"{Settings.ImageStorageUrl}/{Settings.RedordImageStorageUrl}/{Image}";
             }
         }
 

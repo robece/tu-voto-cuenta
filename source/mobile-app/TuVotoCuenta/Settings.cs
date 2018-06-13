@@ -18,7 +18,9 @@ namespace TuVotoCuenta
         static readonly string SettingsDefault = string.Empty;
 
 		private const string FunctionURLKey = "FunctionURLKey";
-		private const string ImageStorageUrlKey = "ImageStorageUrlKey";
+		private const string AccountImageStorageUrlKey = "AccountImageStorageUrlKey";
+        private const string RecordImageStorageUrlKey = "RecordsImageStorageUrlKey";
+        private const string ImageStorageUrlKey = "ImageStorageUrlKey";
 		private const string CurrentRecordItemKey = "CurrentRecordItemKey";
 		private const string Profile_UsernameKey = "Profile_UsernameKey";
 		private const string Profile_PictureKey = "Profile_PictureKey";
@@ -47,6 +49,31 @@ namespace TuVotoCuenta
             set
             {
                 AppSettings.AddOrUpdateValue(ImageStorageUrlKey, value);
+            }
+        }
+
+
+        public static string RedordImageStorageUrl
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(RecordImageStorageUrlKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(RecordImageStorageUrlKey, value);
+            }
+        }
+
+        public static string AccountImageStorageUrl
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(AccountImageStorageUrlKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(AccountImageStorageUrlKey, value);
             }
         }
 

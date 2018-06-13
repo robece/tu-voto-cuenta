@@ -40,7 +40,7 @@ namespace TuVotoCuenta.ViewModels
             if (response.Status == ResponseStatus.Ok)
             {
                 Settings.Profile_Username = model.username.ToLower();
-                Settings.Profile_Picture = $"{Settings.ImageStorageUrl}{response.Image}";
+                Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
                 IsBusy = false;
                 IsContinueEnabled = true;
                 IsContinueGoBackEnabled = false;
