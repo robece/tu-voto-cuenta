@@ -1,4 +1,5 @@
 ﻿using Jdenticon;
+using Microsoft.ApplicationInsights;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -18,9 +19,11 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
+        private TelemetryClient telemetryClient = null;
 
-        public SignUpAccountHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
+        public SignUpAccountHelper(TelemetryClient telemetryClient, string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
+            this.telemetryClient = telemetryClient;
             this.STORAGE_ACCOUNT = storageAccount;
             this.RPC_CLIENT = rpcClient;
             this.DBCONNECTION_INFO = dbConnectionInfo;
@@ -28,6 +31,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public async Task<SignUpAccountResponse> SignUpAccountAsync(Dictionary<ParameterTypeEnum, object> parameters)
         {
+            telemetryClient.TrackTrace("Starting helper");
+
             SignUpAccountResponse result = new SignUpAccountResponse
             {
                 IsSucceded = true,
@@ -36,6 +41,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
             try
             {
+                telemetryClient.TrackTrace("Getting parameters");
+
                 parameters.TryGetValue(ParameterTypeEnum.Username, out global::System.Object ousername);
                 string username = ousername.ToString().ToLower();
 
@@ -51,6 +58,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 //database helpers
                 DBUserAccountHelper dbUserAccountHelper = new DBUserAccountHelper(DBCONNECTION_INFO);
 
+                telemetryClient.TrackTrace("Validating username length");
+
                 //validate username length
                 if (!RegexValidation.IsValidUsername(username))
                 {
@@ -58,6 +67,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     result.ResultId = (int)SignUpAccountResultEnum.InvalidUsernameLength;
                     return result;
                 }
+
+                telemetryClient.TrackTrace("Validating username existance");
 
                 //validate if account exists
                 UserAccount userAccount = dbUserAccountHelper.GetUser(username);
@@ -69,6 +80,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     return result;
                 }
 
+                telemetryClient.TrackTrace("Adding account to database");
+
                 //save username and account in mongodb
                 userAccount = new UserAccount()
                 {
@@ -79,6 +92,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
                 //perform insert in mongodb
                 await dbUserAccountHelper.CreateUserAccount(userAccount);
+
+                telemetryClient.TrackTrace("Adding account image to storage");
 
                 //create unique icon, upload and delete it
                 var imageName = $"{username}.png";
@@ -105,21 +120,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
             {
                 foreach (var innerException in ex.Flatten().InnerExceptions)
                 {
-                    var exception = string.Empty;
-                    exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
-                    var stackTrace = string.Empty;
-                    stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(innerException);
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)SignUpAccountResultEnum.Failed;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                telemetryClient.TrackException(ex);
                 result.IsSucceded = false;
                 result.ResultId = (int)SignUpAccountResultEnum.Failed;
             }
+
+            telemetryClient.TrackTrace("Finishing helper");
             return result;
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ApplicationInsights;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TuVotoCuenta.Functions.Domain.Enums;
@@ -13,9 +14,11 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
+        private TelemetryClient telemetryClient = null;
 
-        public GetRecordItemListHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
+        public GetRecordItemListHelper(TelemetryClient telemetryClient, string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
+            this.telemetryClient = telemetryClient;
             this.STORAGE_ACCOUNT = storageAccount;
             this.RPC_CLIENT = rpcClient;
             this.DBCONNECTION_INFO = dbConnectionInfo;
@@ -23,6 +26,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public async Task<GetRecordItemListResponse> GetRecordsAsync(Dictionary<ParameterTypeEnum, object> parameters)
         {
+            telemetryClient.TrackTrace("Starting helper");
+
             GetRecordItemListResponse result = new GetRecordItemListResponse
             {
                 IsSucceded = true,
@@ -31,6 +36,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
             try
             {
+                telemetryClient.TrackTrace("Getting parameters");
+
                 parameters.TryGetValue(ParameterTypeEnum.Entity, out global::System.Object oentity);
                 string entity = oentity.ToString();
 
@@ -43,6 +50,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 //database helpers
                 DBRecordItemHelper dbRecordItemHelper = new DBRecordItemHelper(DBCONNECTION_INFO);
 
+                telemetryClient.TrackTrace("Getting record items");
+
                 //get votes
                 result.Records = await dbRecordItemHelper.GetRecordItemListAsync(entity, municipality, locality);
             }
@@ -50,21 +59,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
             {
                 foreach (var innerException in ex.Flatten().InnerExceptions)
                 {
-                    var exception = string.Empty;
-                    exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
-                    var stackTrace = string.Empty;
-                    stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(innerException);
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordItemListResultEnum.Failed;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                telemetryClient.TrackException(ex);
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordItemListResultEnum.Failed;
             }
+
+            telemetryClient.TrackTrace("Finishing helper");
             return result;
         }
     }

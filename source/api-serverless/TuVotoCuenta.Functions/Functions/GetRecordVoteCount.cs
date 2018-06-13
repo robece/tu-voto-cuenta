@@ -1,3 +1,4 @@
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -21,7 +22,12 @@ namespace TuVotoCuenta.Functions
         [FunctionName("GetRecordVoteCount")]
         public static async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]HttpRequest req, TraceWriter log, ExecutionContext context)
         {
-            System.Diagnostics.Trace.TraceInformation("Initialize HttpTrigger - GetRecordVoteCount");
+            TelemetryClient telemetryClient = new TelemetryClient
+            {
+                InstrumentationKey = Settings.APPINSIGHTS_INSTRUMENTATIONKEY
+            };
+            telemetryClient.TrackTrace("Starting function: GetRecordVoteCount");
+
             GetRecordVoteCountResponse result = new GetRecordVoteCountResponse
             {
                 IsSucceded = true,
@@ -40,6 +46,8 @@ namespace TuVotoCuenta.Functions
                     { ParameterTypeEnum.Hash, hash }
                 };
 
+                telemetryClient.TrackTrace("Validating token");
+
                 //validate token
                 if (!string.IsNullOrEmpty(token))
                 {
@@ -54,7 +62,8 @@ namespace TuVotoCuenta.Functions
                     }
                     else
                     {
-                        GetRecordVoteCountHelper helper = new GetRecordVoteCountHelper(Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, Configurations.GetMongoDbConnectionInfo());
+                        telemetryClient.TrackTrace("Calling helper");
+                        GetRecordVoteCountHelper helper = new GetRecordVoteCountHelper(telemetryClient, Settings.STORAGE_ACCOUNT, Settings.RPC_CLIENT, Configurations.GetMongoDbConnectionInfo());
                         result = await helper.GetCountersAsync(parameters);
                     }
                 }
@@ -68,18 +77,14 @@ namespace TuVotoCuenta.Functions
             {
                 foreach (var innerException in ex.Flatten().InnerExceptions)
                 {
-                    var exception = string.Empty;
-                    exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
-                    var stackTrace = string.Empty;
-                    stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {exception}. STACKTRACE: {stackTrace}");
+                    telemetryClient.TrackException(innerException);
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordVoteCountResultEnum.Failed;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                telemetryClient.TrackException(ex);
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordVoteCountResultEnum.Failed;
             }
@@ -92,6 +97,8 @@ namespace TuVotoCuenta.Functions
             jsonresult.message = message;
             jsonresult.approvals = result.Approvals;
             jsonresult.disapprovals = result.Disapprovals;
+
+            telemetryClient.TrackTrace("Finishing function: GetRecordVoteCount");
 
             //send ok result or bad request
             return (result.IsSucceded) ? (ActionResult)new OkObjectResult(jsonresult) : (ActionResult)new BadRequestObjectResult(jsonresult);

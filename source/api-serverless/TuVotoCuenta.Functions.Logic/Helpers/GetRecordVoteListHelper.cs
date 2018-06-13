@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ApplicationInsights;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TuVotoCuenta.Functions.Domain.Enums;
@@ -13,9 +14,11 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
+        private TelemetryClient telemetryClient = null;
 
-        public GetRecordVoteListHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
+        public GetRecordVoteListHelper(TelemetryClient telemetryClient, string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
+            this.telemetryClient = telemetryClient;
             this.STORAGE_ACCOUNT = storageAccount;
             this.RPC_CLIENT = rpcClient;
             this.DBCONNECTION_INFO = dbConnectionInfo;
@@ -23,6 +26,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public async Task<GetRecordVoteListResponse> GetVotesAsync(Dictionary<ParameterTypeEnum, object> parameters)
         {
+            telemetryClient.TrackTrace("Starting helper");
+
             GetRecordVoteListResponse result = new GetRecordVoteListResponse
             {
                 IsSucceded = true,
@@ -31,11 +36,15 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
             try
             {
+                telemetryClient.TrackTrace("Getting parameters");
+
                 parameters.TryGetValue(ParameterTypeEnum.Hash, out global::System.Object ohash);
                 string hash = ohash.ToString().ToLower();
 
                 //database helpers
                 DBRecordVoteHelper dbRecordVoteHelper = new DBRecordVoteHelper(DBCONNECTION_INFO);
+
+                telemetryClient.TrackTrace("Getting record votes");
 
                 //get votes
                 result.Votes = await dbRecordVoteHelper.GetRecordVoteList(hash);
@@ -44,21 +53,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
             {
                 foreach (var innerException in ex.Flatten().InnerExceptions)
                 {
-                    var exception = string.Empty;
-                    exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
-                    var stackTrace = string.Empty;
-                    stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(innerException);
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordVoteListResultEnum.Failed;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                telemetryClient.TrackException(ex);
                 result.IsSucceded = false;
                 result.ResultId = (int)GetRecordVoteListResultEnum.Failed;
             }
+
+            telemetryClient.TrackTrace("Finishing helper");
             return result;
         }
     }

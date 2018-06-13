@@ -1,4 +1,5 @@
-﻿using Microsoft.WindowsAzure.Storage;
+﻿using Microsoft.ApplicationInsights;
+using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
 using System.Collections.Generic;
@@ -16,9 +17,11 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
+        private TelemetryClient telemetryClient = null;
 
-        public AddRecordItemHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
+        public AddRecordItemHelper(TelemetryClient telemetryClient, string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
+            this.telemetryClient = telemetryClient;
             this.STORAGE_ACCOUNT = storageAccount;
             this.RPC_CLIENT = rpcClient;
             this.DBCONNECTION_INFO = dbConnectionInfo;
@@ -26,14 +29,17 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public async Task<AddRecordItemResponse> AddRecordItemAsync(Dictionary<ParameterTypeEnum, object> parameters)
         {
+            telemetryClient.TrackTrace("Starting helper");
+
             AddRecordItemResponse result = new AddRecordItemResponse
             {
                 IsSucceded = true,
                 ResultId = (int)AddRecordItemResultEnum.Success
             };
-
             try
             {
+                telemetryClient.TrackTrace("Getting parameters");
+
                 parameters.TryGetValue(ParameterTypeEnum.RecordItem, out global::System.Object orecordItemRequest);
                 Domain.Models.Request.RecordItem recordItemRequest = orecordItemRequest as Domain.Models.Request.RecordItem;
 
@@ -57,7 +63,9 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 DBUserAccountHelper dbUserAccountHelper = new DBUserAccountHelper(DBCONNECTION_INFO);
 
                 //blockchain helper
-                BlockchainHelper bh = new BlockchainHelper(STORAGE_ACCOUNT, RPC_CLIENT, masterAddress, masterPrivateKey);
+                BlockchainHelper bh = new BlockchainHelper(telemetryClient, STORAGE_ACCOUNT, RPC_CLIENT, masterAddress, masterPrivateKey);
+
+                telemetryClient.TrackTrace("Validating username length");
 
                 //validate username length
                 if (!RegexValidation.IsValidUsername(recordItemRequest.username))
@@ -66,6 +74,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     result.ResultId = (int)AddRecordItemResultEnum.InvalidUsernameLength;
                     return result;
                 }
+
+                telemetryClient.TrackTrace("Validating username existance");
 
                 //validate if account exists
                 UserAccount userAccount = dbUserAccountHelper.GetUser(recordItemRequest.username);
@@ -76,6 +86,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     result.ResultId = (int)AddRecordItemResultEnum.UsernameNotExists;
                     return result;
                 }
+
+                telemetryClient.TrackTrace("Validating record item existance");
 
                 //validate if record item exists for voting
                 RecordItem recordItemExists = dbRecordItemHelper.GetRecordItem(recordItemRequest.hash);
@@ -88,8 +100,10 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 }
                 else
                 {
+                    telemetryClient.TrackTrace("Adding record item to blockchain");
+
                     var res_AddRecordAsync = await bh.AddRecordAsync(recordItemRequest.hash, recordItemRequest.username, contractAddress, contractABI);
-                    System.Diagnostics.Trace.TraceInformation($"Add record item result: {res_AddRecordAsync}");
+                    telemetryClient.TrackTrace($"Add record item result: {res_AddRecordAsync}");
 
                     if (string.IsNullOrEmpty(res_AddRecordAsync))
                     {
@@ -98,6 +112,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                         result.ResultId = (int)AddRecordItemResultEnum.BlockchainIssue;
                         return result;
                     }
+
+                    telemetryClient.TrackTrace("Adding record item to database");
 
                     RecordItem recordItem = RecordItemParser.TransformRecordItem(recordItemRequest);
 
@@ -108,6 +124,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     //perform insert in mongodb
                     await dbRecordItemHelper.CreateRecordItem(recordItem);
 
+                    telemetryClient.TrackTrace("Adding record item image to storage");
+
                     //upload image to blobstorage
                     byte[] buffer = Convert.FromBase64String(recordItemRequest.ImageBytes);
                     await UploadRecordItemImageAsync(recordItemImageContainer, recordItem.image, buffer);
@@ -117,17 +135,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
             {
                 foreach (var innerException in ex.Flatten().InnerExceptions)
                 {
-                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {innerException.Message}. STACKTRACE: {innerException.StackTrace}");
+                    telemetryClient.TrackException(innerException);
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)AddRecordItemResultEnum.Failed;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                telemetryClient.TrackException(ex);
                 result.IsSucceded = false;
                 result.ResultId = (int)AddRecordItemResultEnum.Failed;
             }
+
+            telemetryClient.TrackTrace("Finishing helper");
             return result;
         }
 
