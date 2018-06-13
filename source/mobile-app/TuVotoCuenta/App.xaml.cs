@@ -19,8 +19,6 @@ namespace TuVotoCuenta
             //set startup app configuration
             SettingsInitializer.InitSettings();
 
-			//init catalogs
-            Catalogs.InitEntities();
 
 			//if logged in redirect to main page
             if (Settings.Profile_Username != string.Empty)

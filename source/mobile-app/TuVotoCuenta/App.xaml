@@ -5,7 +5,7 @@
     x:Class="TuVotoCuenta.App" >
     <Application.Resources>
         <ResourceDictionary>
-            <x:Boolean x:Key="UseMock">true</x:Boolean>
+            <x:Boolean x:Key="UseMock">false</x:Boolean>
             <x:Boolean x:Key="LoginOk">false</x:Boolean>
             <Color x:Key="PrimaryDark">#303030</Color>
             <Color x:Key="DarkPlaceHolder">#303030</Color>

@@ -28,142 +28,98 @@ namespace TuVotoCuenta.ViewModels.Search
             set => SetProperty(ref defaultPhoto, value);
         }
 
-        private List<String> entities = Catalogs.GetEntities();
+        #region Catalogs
 
-        public List<String> Entities
+        private List<Entity> entities;
+
+        public List<Entity> Entities
         {
             get => entities;
-            set => SetProperty(ref entities, value);
+            set
+            {
+                if (entities != value && value != null)
+                {
+                    SetProperty(ref entities, value);
+                    SelectedEntity = Catalogs.Entities.First();
+                    Catalogs.InitMunicipalities(selectedEntity.EntityId);
+                    Municipalities = Catalogs.Municipalities;
+                    SelectedMunicipality = Municipalities.First();
+                }
+            }
         }
 
-        private List<String> municipalities;
 
-        public List<String> Municipalities
+        private List<Municipality> municipalities;
+
+        public List<Municipality> Municipalities
         {
             get => municipalities;
-            set => SetProperty(ref municipalities, value);
+            set
+            {
+                SetProperty(ref municipalities, value);
+            }
         }
 
-        private List<String> localities;
 
-        public List<String> Localities
+        private List<Locality> localities;
+
+        public List<Locality> Localities
         {
             get => localities;
             set => SetProperty(ref localities, value);
         }
 
 
-        private string selectedEntity;
-        public string SelectedEntity
+        private Municipality selectedMunicipality;
+
+        public Municipality SelectedMunicipality
+        {
+            get => selectedMunicipality;
+            set
+            {
+                if (selectedMunicipality != value && value != null)
+                {
+                    SetProperty(ref selectedMunicipality, value);
+                    Catalogs.InitLocalities(selectedEntity.EntityId, selectedMunicipality.MunicipalityId);
+                    Localities = Catalogs.Localities;
+                    SelectedLocality = Localities.First();
+                }
+            }
+        }
+
+        private Entity selectedEntity;
+
+        public Entity SelectedEntity
         {
             get => selectedEntity;
-            set => SetProperty(ref selectedEntity, value);
-        }
-
-        private string selectedEntityText;
-        public string SelectedEntityText
-        {
-            get => selectedEntityText;
-            set => SetProperty(ref selectedEntityText, value);
-        }
-
-
-        private int entitySelectedIndex;
-
-        public int EntitySelectedIndex
-        {
-            get => entitySelectedIndex;
             set
             {
-                if (value != -1)
+                if (selectedEntity != value && value != null)
                 {
-                    entitySelectedIndex = value;
+                    SetProperty(ref selectedEntity, value);
+                    Catalogs.InitMunicipalities(selectedEntity.EntityId);
+                    Municipalities = Catalogs.Municipalities;
+                    SelectedMunicipality = Municipalities.First();
 
-                    // trigger some action to take such as updating other labels or fields
-                    OnPropertyChanged(nameof(EntitySelectedIndex));
-
-                    SelectedEntityText = entities[EntitySelectedIndex];
-                    SelectedEntity = Catalogs.GetEntityKey(SelectedEntityText);
-
-                    Catalogs.InitMunicipalities(SelectedEntity);
-                    Municipalities = Catalogs.GetMunicipalities();
-
-                    Catalogs.InitLocalities(SelectedMunicipality);
-                    Localities = Catalogs.GetLocalities();
                 }
             }
         }
 
-        private string selectedMunicipality;
-        public string SelectedMunicipality
-        {
-            get => selectedEntity;
-            set => SetProperty(ref selectedMunicipality, value);
-        }
 
-        private string selectedMunicipalityText;
-        public string SelectedMunicipalityText
-        {
-            get => selectedMunicipalityText;
-            set => SetProperty(ref selectedMunicipalityText, value);
-        }
+        private Locality selectedLocality;
 
-        private int municipalitySelectedIndex;
-
-        public int MunicipalitySelectedIndex
-        {
-            get => municipalitySelectedIndex;
-            set
-            {
-                if (value != -1)
-                {
-                    municipalitySelectedIndex = value;
-
-                    // trigger some action to take such as updating other labels or fields
-                    OnPropertyChanged(nameof(MunicipalitySelectedIndex));
-
-                    SelectedMunicipalityText = municipalities[municipalitySelectedIndex];
-                    SelectedMunicipality = Catalogs.GetMunicipalityKey(SelectedMunicipalityText);
-
-                    Catalogs.InitLocalities(SelectedMunicipality);
-                    Localities = Catalogs.GetLocalities();
-                }
-            }
-        }
-
-        private int localitySelectedIndex;
-
-        public int LocalitySelectedIndex
-        {
-            get => localitySelectedIndex;
-            set
-            {
-                if (value != -1)
-                {
-                    localitySelectedIndex = value;
-
-                    // trigger some action to take such as updating other labels or fields
-                    OnPropertyChanged(nameof(LocalitySelectedIndex));
-
-                    selectedLocalityText = localities[localitySelectedIndex];
-                    selectedLocality = Catalogs.GetLocalityKey(selectedLocalityText);
-                }
-            }
-        }
-
-        private string selectedLocality;
-        public string SelectedLocality
+        public Locality SelectedLocality
         {
             get => selectedLocality;
-            set => SetProperty(ref selectedLocality, value);
+            set
+            {
+                if (value != null)
+                    SetProperty(ref selectedLocality, value);
+            }
         }
 
-        private string selectedLocalityText;
-        public string SelectedLocalityText
-        {
-            get { return selectedLocalityText; }
-            set { SetProperty(ref selectedLocalityText, value); }
-        }
+
+        #endregion
 
 
         private ObservableCollection<SearchResult> searchResults;
@@ -180,10 +136,10 @@ namespace TuVotoCuenta.ViewModels.Search
         public SearchResult SelectedResult
         {
             get => selectedResult;
-            set 
+            set
             {
                 SetProperty(ref selectedResult, value);
-                if(selectedResult!=null)
+                if (selectedResult != null)
                 {
                     ResultDetailPage resultDetailPage = new ResultDetailPage();
                     navigation.PushAsync(resultDetailPage);
@@ -215,6 +171,8 @@ namespace TuVotoCuenta.ViewModels.Search
             this.navigation = navigation;
             NextCommand = new Command(async () => await NextAsync());
             Title = "Búsqueda de casilla";
+            Catalogs.InitEntities();
+            Entities = Catalogs.Entities;
         }
 
 
@@ -264,15 +222,15 @@ namespace TuVotoCuenta.ViewModels.Search
             if ((bool)App.Current.Resources["UseMock"])
             {
                 searchService = new Services.MockServices.SearchMockService();
-                SearchResults = new ObservableCollection<SearchResult>(await searchService.SearchAsync("CDMX","CDMX","CDMX"));
+                SearchResults = new ObservableCollection<SearchResult>(await searchService.SearchAsync("CDMX", "CDMX", "CDMX"));
             }
             else
             {
 
                 GetRecordItemListRequest recordItemListRequest = new GetRecordItemListRequest();
-                recordItemListRequest.entity = SelectedEntity;
-                recordItemListRequest.locality = selectedLocality;
-                recordItemListRequest.municipality = SelectedMunicipality;
+                recordItemListRequest.entity = SelectedEntity.EntityName;
+                recordItemListRequest.locality = selectedLocality.LocalityName;
+                recordItemListRequest.municipality = SelectedMunicipality.MunicipalityName;
                 var result = await Helpers.RestHelper.GetRecordListAsync(recordItemListRequest);
             }
 #else

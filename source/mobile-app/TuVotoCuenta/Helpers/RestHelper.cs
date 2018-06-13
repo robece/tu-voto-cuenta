@@ -23,7 +23,7 @@ namespace TuVotoCuenta.Helpers
 
         static string GetToken()
         {
-            byte[] time = BitConverter.GetBytes((DateTime.UtcNow.AddYears(1)).ToBinary());
+            byte[] time = BitConverter.GetBytes((DateTime.UtcNow).ToBinary());
             byte[] key = Guid.NewGuid().ToByteArray();
             var token = Convert.ToBase64String(time.Concat(key).ToArray());
             token = CryptoHelper.Encrypt(token, Settings.Cryptography);

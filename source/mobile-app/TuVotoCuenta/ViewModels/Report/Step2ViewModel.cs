@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TuVotoCuenta.Domain;
@@ -22,6 +23,9 @@ namespace TuVotoCuenta.ViewModels
         {
             Title = "Ubicación";
 
+            Catalogs.InitEntities();
+            Entities = Catalogs.Entities;
+
             if (!String.IsNullOrEmpty(Settings.CurrentRecordItem))
             {
                 RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
@@ -29,20 +33,18 @@ namespace TuVotoCuenta.ViewModels
 
                 if (item.Entity != null)
                 {
-                    var EntityText = Catalogs.GetEntityValue(item.Entity);
-                    EntitySelectedIndex = Entities.IndexOf(EntityText);
+                    SelectedEntity = Catalogs.GetEntityValue(item.Entity);
+
                 }
 
                 if (item.Municipality != null)
                 {
-                    var MunicipalityText = Catalogs.GetMunicipalityValue(item.Municipality);
-                    MunicipalitySelectedIndex = (MunicipalityText == string.Empty) ? 0 : Municipalities.IndexOf(MunicipalityText);
+                    SelectedMunicipality = Catalogs.GetMunicipalityValue(item.Municipality);
                 }
 
                 if (item.Locality != null)
                 {
-                    var LocalityText = Catalogs.GetLocalityValue(item.Locality);
-                    LocalitySelectedIndex = (LocalityText == string.Empty) ? 0 : Localities.IndexOf(LocalityText);
+                    SelectedLocality = Catalogs.GetLocalityValue(item.Locality);
                 }
             }
 
@@ -61,9 +63,9 @@ namespace TuVotoCuenta.ViewModels
             RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
 
             item.LocationDetails = LocationDetails;
-            item.Entity = SelectedEntity;
-            item.Municipality = SelectedMunicipality;
-            item.Locality = SelectedLocality;
+            item.Entity = SelectedEntity?.EntityName;
+            item.Municipality = SelectedMunicipality?.MunicipalityName;
+            item.Locality = SelectedLocality?.LocalityName;
 
             Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
         }
@@ -94,161 +96,101 @@ namespace TuVotoCuenta.ViewModels
             set { SetProperty(ref locationDetails, value); }
         }
 
-        #region entity
 
-        List<string> entities = Catalogs.GetEntities();
-        public List<string> Entities => entities;
+        #region Catalogs
 
-        private string selectedEntity;
-        public string SelectedEntity
+        private List<Entity> entities;
+
+        public List<Entity> Entities
         {
-            get { return selectedEntity; }
-            set { SetProperty(ref selectedEntity, value); }
-        }
-
-        private string selectedEntityText;
-        public string SelectedEntityText
-        {
-            get { return selectedEntityText; }
-            set { SetProperty(ref selectedEntityText, value); }
-        }
-
-        int entitySelectedIndex;
-        public int EntitySelectedIndex
-        {
-            get
-            {
-                return entitySelectedIndex;
-            }
+            get => entities;
             set
             {
-                if (value != -1)
+                if (entities != value && value != null)
                 {
-                    entitySelectedIndex = value;
-
-                    // trigger some action to take such as updating other labels or fields
-                    OnPropertyChanged(nameof(EntitySelectedIndex));
-
-                    SelectedEntityText = entities[EntitySelectedIndex];
-                    SelectedEntity = Catalogs.GetEntityKey(SelectedEntityText);
-
-                    if (selectedEntity != null)
-                    {
-                        Catalogs.InitMunicipalities(SelectedEntity);
-                        Municipalities = Catalogs.GetMunicipalities();
-                    }
-
-                    if (selectedMunicipality != null)
-                    {
-                        Catalogs.InitLocalities(SelectedMunicipality);
-                        Localities = Catalogs.GetLocalities();
-                    }
+                    SetProperty(ref entities, value);
+                    SelectedEntity = Catalogs.Entities.First();
+                    Catalogs.InitMunicipalities(selectedEntity.EntityId);
+                    Municipalities = Catalogs.Municipalities;
+                    SelectedMunicipality = Municipalities.First();
                 }
             }
         }
 
-        #endregion
 
-        #region municipality
+        private List<Municipality> municipalities;
 
-        List<string> municipalities;
-        public List<string> Municipalities
+        public List<Municipality> Municipalities
         {
-            get { return municipalities; }
-            set { SetProperty(ref municipalities, value); }
-        }
-
-        private string selectedMunicipality;
-        public string SelectedMunicipality
-        {
-            get { return selectedMunicipality; }
-            set { SetProperty(ref selectedMunicipality, value); }
-        }
-
-        private string selectedMunicipalityText;
-        public string SelectedMunicipalityText
-        {
-            get { return selectedMunicipalityText; }
-            set { SetProperty(ref selectedMunicipalityText, value); }
-        }
-
-        int municipalitySelectedIndex;
-        public int MunicipalitySelectedIndex
-        {
-            get
-            {
-                return municipalitySelectedIndex;
-            }
+            get => municipalities;
             set
             {
-                if (value != -1)
+                SetProperty(ref municipalities, value);
+            }
+        }
+
+
+        private List<Locality> localities;
+
+        public List<Locality> Localities
+        {
+            get => localities;
+            set => SetProperty(ref localities, value);
+        }
+
+
+        private Municipality selectedMunicipality;
+
+        public Municipality SelectedMunicipality
+        {
+            get => selectedMunicipality;
+            set
+            {
+                if (selectedMunicipality != value && value != null)
                 {
-                    municipalitySelectedIndex = value;
-
-                    // trigger some action to take such as updating other labels or fields
-                    OnPropertyChanged(nameof(MunicipalitySelectedIndex));
-
-                    SelectedMunicipalityText = Municipalities[MunicipalitySelectedIndex];
-                    SelectedMunicipality = Catalogs.GetMunicipalityKey(SelectedMunicipalityText);
-
-                    if (selectedMunicipality != null)
-                    {
-                        Catalogs.InitLocalities(SelectedMunicipality);
-                        Localities = Catalogs.GetLocalities();
-                    }
+                    SetProperty(ref selectedMunicipality, value);
+                    Catalogs.InitLocalities(selectedEntity.EntityId, selectedMunicipality.MunicipalityId);
+                    Localities = Catalogs.Localities;
+                    SelectedLocality = Localities.First();
                 }
             }
         }
 
-        #endregion
+        private Entity selectedEntity;
 
-        #region locality
-
-        List<string> localities;
-        public List<string> Localities
+        public Entity SelectedEntity
         {
-            get { return localities; }
-            set { SetProperty(ref localities, value); }
-        }
-
-        private string selectedLocality;
-        public string SelectedLocality
-        {
-            get { return selectedLocality; }
-            set { SetProperty(ref selectedLocality, value); }
-        }
-
-        private string selectedLocalityText;
-        public string SelectedLocalityText
-        {
-            get { return selectedLocalityText; }
-            set { SetProperty(ref selectedLocalityText, value); }
-        }
-
-        int localitySelectedIndex;
-        public int LocalitySelectedIndex
-        {
-            get
-            {
-                return localitySelectedIndex;
-            }
+            get => selectedEntity;
             set
             {
-                if (value != -1)
+                if (selectedEntity != value && value != null)
                 {
-                    localitySelectedIndex = value;
+                    SetProperty(ref selectedEntity, value);
+                    Catalogs.InitMunicipalities(selectedEntity.EntityId);
+                    Municipalities = Catalogs.Municipalities;
+                    SelectedMunicipality = Municipalities.First();
 
-                    // trigger some action to take such as updating other labels or fields
-                    OnPropertyChanged(nameof(LocalitySelectedIndex));
-
-                    SelectedLocalityText = Localities[LocalitySelectedIndex];
-                    SelectedLocality = Catalogs.GetLocalityKey(SelectedLocalityText);
                 }
             }
         }
 
+
+        private Locality selectedLocality;
+
+        public Locality SelectedLocality
+        {
+            get => selectedLocality;
+            set
+            {
+                if (value != null)
+                    SetProperty(ref selectedLocality, value);
+            }
+        }
+
+
         #endregion
 
         #endregion
+
     }
 }

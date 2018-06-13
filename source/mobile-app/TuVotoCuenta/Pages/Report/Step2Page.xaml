@@ -24,17 +24,17 @@
                 <controls:StepProgressBar2 />
                 <Label Text="Ubicación" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
-                    <Picker Title="Entidad Federativa" TextColor="Gray" ItemsSource="{Binding Entities}" SelectedIndex="{Binding EntitySelectedIndex}">
+                    <Picker Title="Entidad Federativa" TextColor="Gray" ItemsSource="{Binding Entities}" SelectedItem="{Binding SelectedEntity}">
                         <Entry.Behaviors>
                             <behaviors:StepPickerLostFocus />
                         </Entry.Behaviors>
                     </Picker>
-                    <Picker Title="Municipio" TextColor="Gray" ItemsSource="{Binding Municipalities}" SelectedIndex="{Binding MunicipalitySelectedIndex}">
+                    <Picker Title="Municipio" TextColor="Gray" ItemsSource="{Binding Municipalities}" SelectedItem="{Binding SelectedMunicipality}">
                         <Entry.Behaviors>
                             <behaviors:StepPickerLostFocus />
                         </Entry.Behaviors>
                     </Picker>
-                    <Picker Title="Localidad" TextColor="Gray" ItemsSource="{Binding Localities}" SelectedIndex="{Binding LocalitySelectedIndex}">
+                    <Picker Title="Localidad" TextColor="Gray" ItemsSource="{Binding Localities}" SelectedItem="{Binding SelectedLocality}">
                         <Entry.Behaviors>
                             <behaviors:StepPickerLostFocus />
                         </Entry.Behaviors>

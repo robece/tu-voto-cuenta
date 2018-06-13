@@ -9,9 +9,9 @@
             <BoxView HeightRequest="20" BackgroundColor="{StaticResource DarkSelector}" />
             <ActivityIndicator Color="{StaticResource DarkSelector}" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
             <StackLayout Spacing="10">
-                <Picker Title="Entidad Federativa" TextColor="Gray" ItemsSource="{Binding Entities}" SelectedIndex="{Binding EntitySelectedIndex}" />
-                <Picker Title="Municipio" TextColor="Gray" ItemsSource="{Binding Municipalities}" SelectedIndex="{Binding MunicipalitySelectedIndex}" />
-                <Picker Title="Localidad" TextColor="Gray" ItemsSource="{Binding Localities}" SelectedIndex="{Binding LocalitySelectedIndex}" />
+                <Picker Title="Entidad Federativa" TextColor="Gray" ItemsSource="{Binding Entities}" SelectedItem="{Binding SelectedEntity}" />
+                <Picker Title="Municipio" TextColor="Gray" ItemsSource="{Binding Municipalities}" SelectedItem="{Binding SelectedMunicipality}" />
+                <Picker Title="Localidad" TextColor="Gray" ItemsSource="{Binding Localities}" SelectedItem="{Binding SelectedLocality}" />
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

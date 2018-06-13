@@ -106,6 +106,8 @@ namespace TuVotoCuenta.ViewModels.Report
                     MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
                     MessageSubTitle = "Tu registro ha sido completado satisfactoriamente.";
 
+                    Settings.CurrentRecordItem = string.Empty;
+
                     var count = navigation.NavigationStack.Count;
                     for (int i = 0; i < count - 1; i++)
                     {
@@ -169,7 +171,7 @@ namespace TuVotoCuenta.ViewModels.Report
             sb.Append(item.BlockchainTransaction);
            
 
-            var hash = Helpers.HashHelper.GetSha256Hash(sb.ToString());
+            var hash = $"0x{Helpers.HashHelper.GetSha256Hash(sb.ToString())}";
 
             return hash;
         }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace TuVotoCuenta.Domain
 {
@@ -7,133 +8,44 @@ namespace TuVotoCuenta.Domain
 	{
 		#region Entities
 
-		static Dictionary<string, string> entities = new Dictionary<string, string>();
+        public static List<Entity> Entities = new List<Entity>();
+        public static List<Municipality> Municipalities = new List<Municipality>();
+        public static List<Locality> Localities = new List<Locality>();
 
 		public static void InitEntities()
 		{
-			entities.Clear();
-			//TODO: Implement logic to retrieve real data.
-			entities.Add("CDMX", "Ciudad de MX");
-			entities.Add("CAM", "Campeche");
+            var file = Helpers.LocalFilesHelper.ReadFileInPackage("entities.txt");
+            Entities = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<byte, Entity>>(file).Values.ToList();
+
 		}
 
-		public static List<string> GetEntities()
-		{
-			List<string> result = new List<string>();
+        public static void InitMunicipalities(byte entity)
+        {
+            var file = Helpers.LocalFilesHelper.ReadFileInPackage($"municipalities.{entity}.txt");
+            Municipalities = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Municipality>>(file);
+        }
+		
+        public static void InitLocalities(int entity,int municipality)
+        {
+            var file = Helpers.LocalFilesHelper.ReadCompressedFileInPackage($"localities.{entity}.zip");
+            Localities = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Locality>>(file).Where(lo=> lo.MunicipalityId == municipality).ToList();
+        }
 
-			foreach (KeyValuePair<string, string> kv in entities)
-				result.Add(kv.Value);
+        public static Entity GetEntityValue(string entityName)
+        {
+            return Entities.Where(en => en.EntityName == entityName).First();
+        }
 
-			return result;
-		}
+        public static Municipality GetMunicipalityValue(string municipalityName)
+        {
+            return Municipalities.Where(mu => mu.MunicipalityName == municipalityName).First();
+        }
 
-		public static string GetEntityKey(string value)
-		{
-			string result = string.Empty;
-			foreach (KeyValuePair<string, string> kv in entities)
-				if (kv.Value == value) result = kv.Key;
+        public static Locality GetLocalityValue(string localityName)
+        {
+            return Localities.Where(lo => lo.LocalityName == localityName).First();
+        }
 
-			return result;
-		}
-
-		public static string GetEntityValue(string key)
-		{
-			return entities[key];
-		}
-
-		#endregion
-
-		#region Municipalities
-
-		static Dictionary<string, string> municipalities = new Dictionary<string, string>();
-
-		public static void InitMunicipalities(string entityKey)
-		{
-			municipalities.Clear();
-			//TODO: Implement logic to retrieve real data.
-
-			if (entityKey == "CDMX")
-			{
-				municipalities.Add("CDMX", "MUNICIPIO CDMX 001");
-				municipalities.Add("CDMX1", "MUNICIPIO CDMX 002");
-			}
-			else
-			{
-				municipalities.Add("CAM", "CAMPECHE 001");
-				municipalities.Add("CAM1", "CAMPECHE 002");
-			}
-		}
-
-		public static List<string> GetMunicipalities()
-		{
-			List<string> result = new List<string>();
-
-			foreach (KeyValuePair<string, string> kv in municipalities)
-				result.Add(kv.Value);
-
-			return result;
-		}
-
-		public static string GetMunicipalityKey(string value)
-		{
-			string result = string.Empty;
-			foreach (KeyValuePair<string, string> kv in municipalities)
-				if (kv.Value == value) result = kv.Key;
-
-			return result;
-		}
-
-		public static string GetMunicipalityValue(string key)
-		{
-			return (municipalities.ContainsKey(key)) ? municipalities[key] : string.Empty;
-		}
-
-		#endregion
-
-		#region Localities
-
-		static Dictionary<string, string> localities = new Dictionary<string, string>();
-
-		public static void InitLocalities(string municipalityKey)
-		{
-			localities.Clear();
-			//TODO: Implement logic to retrieve real data.
-
-            if (municipalityKey.StartsWith("CDMX", StringComparison.InvariantCultureIgnoreCase))
-			{
-				localities.Add("CDMX", "LOCALIDAD CDMX 001");
-				localities.Add("CDMX1", "LOCALIDAD CDMX 002");
-			}
-			else
-			{
-				localities.Add("CAM", "LOCALIDAD CAMPECHE 001");
-				localities.Add("CAM1", "LOCALIDAD CAMPECHE 002");
-			}
-		}
-
-		public static List<string> GetLocalities()
-		{
-			List<string> result = new List<string>();
-
-			foreach (KeyValuePair<string, string> kv in localities)
-				result.Add(kv.Value);
-
-			return result;
-		}
-
-		public static string GetLocalityKey(string value)
-		{
-			string result = string.Empty;
-			foreach (KeyValuePair<string, string> kv in localities)
-				if (kv.Value == value) result = kv.Key;
-
-			return result;
-		}
-
-		public static string GetLocalityValue(string key)
-		{
-			return (localities.ContainsKey(key)) ? localities[key] : string.Empty;
-		}
 
 		#endregion
 	}
