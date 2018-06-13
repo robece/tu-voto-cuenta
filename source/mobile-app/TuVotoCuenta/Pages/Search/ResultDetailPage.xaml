@@ -35,10 +35,10 @@
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Grid.Row="0" TextColor="Green" Text="{Binding UpVotes,StringFormat='+ {0}'}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
                         <Label Grid.Column="1" Grid.Row="0" TextColor="Red" Text="{Binding DownVotes,StringFormat='- {0}'}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
-                        <Button Text="Votar" FontSize="Large" TextColor="Green" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="Center">
+                        <Button Command="{Binding UpVoteCommand}" Text="Votar" FontSize="Large" TextColor="Green" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="Center">
                             <Button.Image Aspect="AspectFill">UpVoteIcon</Button.Image>
                         </Button>
-                        <Button Text="Votar" FontSize="Large" TextColor="Red" Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Center">
+                        <Button Command="{Binding DownVoteCommand}" Text="Votar" FontSize="Large" TextColor="Red" Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Center">
                             <Button.Image Aspect="AspectFill">DownVoteIcon</Button.Image>
                         </Button>
                     </Grid>

@@ -5,7 +5,7 @@ namespace TuVotoCuenta.Domain
 {
     public class AddVoteRequest : HttpRequestBase
     {
-        [JsonProperty("userName")]
+        [JsonProperty("username")]
         public string Username { get; set; }
         [JsonProperty("isApproval")]
         public bool IsApproval { get; set; }

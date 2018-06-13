@@ -61,6 +61,9 @@ namespace TuVotoCuenta.ViewModels.Search
 
         public Command ContinueGoBackCommand { get; set; }
 
+        public Command UpVoteCommand { get; set; }
+
+        public Command DownVoteCommand { get; set; }
 
         private RecordItem recordItem;
 
@@ -82,7 +85,54 @@ namespace TuVotoCuenta.ViewModels.Search
             Title = "Envió";
             IsContinueGoBackEnabled = false;
             ContinueGoBackCommand = new Command(async () => await Back());
+            UpVoteCommand = new Command(async () => await UpVote());
+            DownVoteCommand = new Command(async () => await DownVote());
             SendRequest();
+        }
+
+        private async Task DownVote()
+        {
+            await Vote(false);
+        }
+
+        private async Task UpVote()
+        {
+            await Vote(true);
+        }
+
+        private async Task Vote(bool approved)
+        {
+            if (!IsBusy)
+            {
+                IsBusy = true;
+                MessageTitle = "Enviando";
+                MessageSubTitle = "Espera un momento";
+
+
+                AddVoteRequest addVoteRequest = new AddVoteRequest()
+                {
+                    Hash = recordItem.RecordHash,
+                    IsApproval = approved, 
+                    Username = Settings.Profile_Username
+                };
+
+                var response = await RestHelper.AddVoteAsync(addVoteRequest);
+                if (response.Status != Enums.ResponseStatus.Ok)
+                {
+                    IsContinueGoBackEnabled = true;
+                    MessageTitle = "Se presentó un problema al votar por el registro.";
+                    MessageSubTitle = response.Message;
+                }
+                else
+                {
+                    IsContinueGoBackEnabled = false;
+                    if (approved)
+                        UpVotes++;
+                    else
+                        DownVotes++;
+                }
+                IsBusy = false;
+            }
         }
 
         private async Task Back()
@@ -117,8 +167,9 @@ namespace TuVotoCuenta.ViewModels.Search
                     UpVotes = response.Approvals;
                     DownVotes = response.Disapprovals;
                 }
+                IsBusy = false;
             }
-            IsBusy = false;
+
         }
 
     }
