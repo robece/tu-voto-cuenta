@@ -177,6 +177,29 @@
     <None Remove="Files\Localities\13.zip" />
     <None Remove="Files\Localities\1.zip" />
     <None Remove="Files\Localities\.DS_Store" />
+    <None Remove="Files\Localities\10.zip" />
+    <None Remove="Files\Localities\10.zip" />
+    <None Remove="Files\Localities\11.zip" />
+    <None Remove="Files\Localities\11.zip" />
+    <None Remove="Files\Localities\12.zip" />
+    <None Remove="Files\Localities\12.zip" />
+    <None Remove="Files\Localities\4.zip" />
+    <None Remove="Files\Localities\5.zip" />
+    <None Remove="Files\Localities\6.zip" />
+    <None Remove="Files\Localities\7.zip" />
+    <None Remove="Files\Localities\8.zip" />
+    <None Remove="Files\Localities\9.zip" />
+    <None Remove="Files\Municipalities\11.txt" />
+    <None Remove="Files\Municipalities\12.txt" />
+    <None Remove="Files\Municipalities\2.txt" />
+    <None Remove="Files\Municipalities\29.txt" />
+    <None Remove="Files\Municipalities\3.txt" />
+    <None Remove="Files\Municipalities\4.txt" />
+    <None Remove="Files\Municipalities\7.txt" />
+    <None Remove="Files\Municipalities\8.txt" />
+    <None Remove="Files\Municipalities\9.txt" />
+    <None Remove="Files\Municipalities\6.txt" />
+    <None Remove="Files\Municipalities\10.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Files\data.json" />
@@ -222,5 +245,25 @@
     <EmbeddedResource Include="Files\Localities\14.zip" />
     <EmbeddedResource Include="Files\Localities\13.zip" />
     <EmbeddedResource Include="Files\Localities\1.zip" />
+    <EmbeddedResource Include="Files\Localities\10.zip" />
+    <EmbeddedResource Include="Files\Localities\11.zip" />
+    <EmbeddedResource Include="Files\Localities\12.zip" />
+    <EmbeddedResource Include="Files\Localities\4.zip" />
+    <EmbeddedResource Include="Files\Localities\5.zip" />
+    <EmbeddedResource Include="Files\Localities\6.zip" />
+    <EmbeddedResource Include="Files\Localities\7.zip" />
+    <EmbeddedResource Include="Files\Localities\8.zip" />
+    <EmbeddedResource Include="Files\Localities\9.zip" />
+    <EmbeddedResource Include="Files\Municipalities\11.txt" />
+    <EmbeddedResource Include="Files\Municipalities\12.txt" />
+    <EmbeddedResource Include="Files\Municipalities\2.txt" />
+    <EmbeddedResource Include="Files\Municipalities\29.txt" />
+    <EmbeddedResource Include="Files\Municipalities\3.txt" />
+    <EmbeddedResource Include="Files\Municipalities\4.txt" />
+    <EmbeddedResource Include="Files\Municipalities\7.txt" />
+    <EmbeddedResource Include="Files\Municipalities\8.txt" />
+    <EmbeddedResource Include="Files\Municipalities\9.txt" />
+    <EmbeddedResource Include="Files\Municipalities\6.txt" />
+    <EmbeddedResource Include="Files\Municipalities\10.txt" />
   </ItemGroup>
 </Project>
