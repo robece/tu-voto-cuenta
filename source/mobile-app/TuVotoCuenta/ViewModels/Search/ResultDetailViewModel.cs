@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace TuVotoCuenta.ViewModels.Search
 {
-    public class RecordsVoteListViewModel : BaseViewModel
+    public class ResultDetailViewModel : BaseViewModel
     {
         string messageTitle;
         public string MessageTitle
@@ -40,23 +40,40 @@ namespace TuVotoCuenta.ViewModels.Search
             set => SetProperty(ref hash, value);
         }
 
-        private ObservableCollection<Vote> votes;
+        private int upVotes;
 
-        public ObservableCollection<Vote> Votes
+        public int UpVotes
         {
-            get => votes;
-            set => SetProperty(ref votes, value);
+            get => upVotes;
+            set => SetProperty(ref upVotes, value);
+        }
+
+
+        private int downVotes;
+
+        public int DownVotes
+        {
+            get => downVotes;
+            set => SetProperty(ref downVotes, value);
         }
 
         INavigation navigation = null;
 
         public Command ContinueGoBackCommand { get; set; }
 
-       
 
-        public RecordsVoteListViewModel(INavigation navigation)
+        private RecordItem recordItem;
+
+        public RecordItem RecordItem
+        {
+            get => recordItem;
+            set => SetProperty(ref recordItem, value);
+        }
+
+        public ResultDetailViewModel(INavigation navigation, RecordItem recordItem)
         {
             this.navigation = navigation;
+            this.recordItem = recordItem;
             InitializeViewModel();
         }
 
@@ -80,23 +97,25 @@ namespace TuVotoCuenta.ViewModels.Search
                 IsBusy = true;
                 MessageTitle = "Enviando";
                 MessageSubTitle = "Espera un momento";
-               
 
-                GetRecordVoteListRequest recordVoteListRequest = new GetRecordVoteListRequest()
+
+                GetRecordVoteCountRequest recordVoteCountRequest = new GetRecordVoteCountRequest()
                 {
-                    Hash = Hash
+                    Hash = recordItem.RecordHash
                 };
 
-                var response = await RestHelper.GetRecordVoteListAsync(recordVoteListRequest);
+                var response = await RestHelper.GetRecordVoteCountAsync(recordVoteCountRequest);
                 if (response.Status != Enums.ResponseStatus.Ok)
                 {
                     IsContinueGoBackEnabled = true;
-                    MessageTitle = "Se presentó un problema al realizar el registro.";
+                    MessageTitle = "Se presentó un problema al consultar el registro.";
                     MessageSubTitle = response.Message;
                 }
                 else
                 {
-                    Votes = new ObservableCollection<Vote>(response.Votes);
+                    IsContinueGoBackEnabled = false;
+                    UpVotes = response.Approvals;
+                    DownVotes = response.Disapprovals;
                 }
             }
             IsBusy = false;

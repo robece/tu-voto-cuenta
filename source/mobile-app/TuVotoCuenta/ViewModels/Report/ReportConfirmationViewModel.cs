@@ -166,7 +166,7 @@ namespace TuVotoCuenta.ViewModels.Report
             sb.Append(item.PartyVERNA);
             sb.Append(item.PartyPTES);
             sb.Append(item.PartyPRDPAN);
-            sb.Append(HashHelper.GetSha256Hash(imagefile));
+            sb.Append(item.UID);
             sb.Append(item.RecordHash);
             sb.Append(item.BlockchainTransaction);
            

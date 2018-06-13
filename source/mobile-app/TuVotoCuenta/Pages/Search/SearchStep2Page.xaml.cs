@@ -7,9 +7,10 @@ namespace TuVotoCuenta.Pages.Search
 {
     public partial class SearchStep2Page : ContentPage
     {
-        public SearchStep2Page()
+        public SearchStep2Page(SearchViewModel searchViewModel)
         {
             InitializeComponent();
+            this.BindingContext = new ViewModels.Search.SearchResultsViewModel(Navigation,searchViewModel);
         }
 
         public async void Handle_Tapped(object sender, EventArgs e)
@@ -20,13 +21,13 @@ namespace TuVotoCuenta.Pages.Search
                 switch (action)
                 {
                     case "Más positivos":
-                        await viewModel.OrderResults(ListOrder.MoreUpvotes);
+                        //await viewModel.OrderResults(ListOrder.MoreUpvotes);
                         break;
                     case "Más negativos":
-                        await viewModel.OrderResults(ListOrder.MoreDownVotes);
+                        //await viewModel.OrderResults(ListOrder.MoreDownVotes);
                         break;
                     case "Más votos":
-                        await viewModel.OrderResults(ListOrder.MoreVotes);
+                        //await viewModel.OrderResults(ListOrder.MoreVotes);
                         break;
                 }
             }

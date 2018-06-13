@@ -131,24 +131,7 @@ namespace TuVotoCuenta.ViewModels.Search
         }
 
 
-        private SearchResult selectedResult;
-
-        public SearchResult SelectedResult
-        {
-            get => selectedResult;
-            set
-            {
-                SetProperty(ref selectedResult, value);
-                if (selectedResult != null)
-                {
-                    ResultDetailPage resultDetailPage = new ResultDetailPage();
-                    navigation.PushAsync(resultDetailPage);
-                    DetailResult = selectedResult;
-                    resultDetailPage.BindingContext = this;
-                    SelectedResult = null;
-                }
-            }
-        }
+       
 
         private SearchResult detailResult;
 
@@ -176,67 +159,20 @@ namespace TuVotoCuenta.ViewModels.Search
         }
 
 
-        public async Task OrderResults(ListOrder listOrder)
-        {
-            switch (listOrder)
-            {
-                case ListOrder.MoreUpvotes:
-                    SearchResults = new ObservableCollection<SearchResult>(SearchResults.OrderByDescending(result => result.UpVotes));
-                    break;
-                case ListOrder.MoreDownVotes:
-                    SearchResults = new ObservableCollection<SearchResult>(SearchResults.OrderByDescending(result => result.DownVotes));
-                    break;
-                case ListOrder.MoreVotes:
-                    SearchResults = new ObservableCollection<SearchResult>(SearchResults.OrderByDescending(result => result.DownVotes + result.UpVotes));
-                    break;
-                default:
-                    break;
-            }
 
-        }
 
         private async Task NextAsync()
         {
             if (!IsBusy)
             {
-                try
+                IsBusy = true;
                 {
-                    IsBusy = true;
-                    await SearchAsync();
-                    var searchStep2Page = new SearchStep2Page();
+                    var searchStep2Page = new SearchStep2Page(this);
                     await navigation.PushAsync(searchStep2Page);
-                    searchStep2Page.BindingContext = this;
                     IsBusy = false;
                 }
-                catch (Exception ex)
-                {
-
-                }
             }
         }
 
-        private async Task SearchAsync()
-        {
-            ISearchService searchService;
-#if DEBUG
-            if ((bool)App.Current.Resources["UseMock"])
-            {
-                searchService = new Services.MockServices.SearchMockService();
-                SearchResults = new ObservableCollection<SearchResult>(await searchService.SearchAsync("CDMX", "CDMX", "CDMX"));
-            }
-            else
-            {
-
-                GetRecordItemListRequest recordItemListRequest = new GetRecordItemListRequest();
-                recordItemListRequest.entity = SelectedEntity.EntityName;
-                recordItemListRequest.locality = selectedLocality.LocalityName;
-                recordItemListRequest.municipality = SelectedMunicipality.MunicipalityName;
-                var result = await Helpers.RestHelper.GetRecordListAsync(recordItemListRequest);
-            }
-#else
-            searchService = new Services.RestApi.SearchService();
-#endif
-
-        }
     }
 }
