@@ -18,5 +18,6 @@ namespace TuVotoCuenta.Functions
         public static string COSMOSDB_RECORDITEMCOLLECTION = Environment.GetEnvironmentVariable("COSMOSDB_RECORDITEMCOLLECTION");
         public static string COSMOSDB_RECORDVOTECOLLECTION = Environment.GetEnvironmentVariable("COSMOSDB_RECORDVOTECOLLECTION");
         public static string SECURITY_SEED = Environment.GetEnvironmentVariable("SECURITY_SEED");
+        public static string APPINSIGHTS_INSTRUMENTATIONKEY = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
     }
 }

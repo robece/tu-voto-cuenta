@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.ApplicationInsights;
+using System;
 using System.Collections.Generic;
 using TuVotoCuenta.Functions.Domain.Enums;
 using TuVotoCuenta.Functions.Domain.Models.CosmosDB;
@@ -13,9 +14,11 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string STORAGE_ACCOUNT = string.Empty;
         private string RPC_CLIENT = string.Empty;
         private MongoDBConnectionInfo DBCONNECTION_INFO = null;
+        private TelemetryClient telemetryClient = null;
 
-        public SignInAccountHelper(string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
+        public SignInAccountHelper(TelemetryClient telemetryClient, string storageAccount, string rpcClient, MongoDBConnectionInfo dbConnectionInfo)
         {
+            this.telemetryClient = telemetryClient;
             this.STORAGE_ACCOUNT = storageAccount;
             this.RPC_CLIENT = rpcClient;
             this.DBCONNECTION_INFO = dbConnectionInfo;
@@ -23,6 +26,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
         public SignInAccountResponse SignInAccount(Dictionary<ParameterTypeEnum, object> parameters)
         {
+            telemetryClient.TrackTrace("Starting helper");
+
             SignInAccountResponse result = new SignInAccountResponse
             {
                 IsSucceded = true,
@@ -31,6 +36,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
 
             try
             {
+                telemetryClient.TrackTrace("Getting parameters");
+
                 parameters.TryGetValue(ParameterTypeEnum.Username, out global::System.Object ousername);
                 string username = ousername.ToString().ToLower();
 
@@ -40,6 +47,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 //database helpers
                 DBUserAccountHelper dbUserAccountHelper = new DBUserAccountHelper(DBCONNECTION_INFO);
 
+                telemetryClient.TrackTrace("Validating username length");
+
                 //validate username length
                 if (!RegexValidation.IsValidUsername(username))
                 {
@@ -47,6 +56,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     result.ResultId = (int)SignInAccountResultEnum.InvalidUsernameLength;
                     return result;
                 }
+
+                telemetryClient.TrackTrace("Validating username existance");
 
                 //validate if account exists
                 UserAccount userAccount = dbUserAccountHelper.GetUser(username);
@@ -78,21 +89,19 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
             {
                 foreach (var innerException in ex.Flatten().InnerExceptions)
                 {
-                    var exception = string.Empty;
-                    exception = (innerException.InnerException != null) ? innerException.InnerException.Message : innerException.Message;
-                    var stackTrace = string.Empty;
-                    stackTrace = (innerException.InnerException != null) ? innerException.InnerException.StackTrace : innerException.StackTrace;
-                    System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(innerException);
                 }
                 result.IsSucceded = false;
                 result.ResultId = (int)SignUpAccountResultEnum.Failed;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Trace.TraceError($"EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                telemetryClient.TrackException(ex);
                 result.IsSucceded = false;
                 result.ResultId = (int)SignUpAccountResultEnum.Failed;
             }
+
+            telemetryClient.TrackTrace("Finishing helper");
             return result;
         }
     }

@@ -1,4 +1,5 @@
-﻿using Nethereum.ABI.Encoders;
+﻿using Microsoft.ApplicationInsights;
+using Nethereum.ABI.Encoders;
 using Nethereum.Geth;
 using Nethereum.Hex.HexTypes;
 using Nethereum.Util;
@@ -18,10 +19,12 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
         private string MASTER_ADDRESS = string.Empty;
         private string MASTER_PRIVATEKEY = string.Empty;
         private int ITERATIONS_TO_RETRY = 5;
-        private int TIME_TO_SLEEP_FOR_RETRY = 3000;
+        private int TIME_TO_SLEEP_FOR_RETRY = 2000;
+        private TelemetryClient telemetryClient = null;
 
-        public BlockchainHelper(string storageAccount, string rpcClient, string masterAddress, string masterPrivateKey)
+        public BlockchainHelper(TelemetryClient telemetryClient, string storageAccount, string rpcClient, string masterAddress, string masterPrivateKey)
         {
+            this.telemetryClient = telemetryClient;
             STORAGE_ACCOUNT = storageAccount;
             RPC_CLIENT = rpcClient;
             MASTER_ADDRESS = masterAddress;
@@ -49,7 +52,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Trace.TraceInformation($"Retry #{i}, EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(ex);
+                    telemetryClient.TrackTrace($"Retry #{i}, EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
                     Thread.Sleep(TIME_TO_SLEEP_FOR_RETRY);
                     continue;
                 }
@@ -77,7 +81,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Trace.TraceInformation($"Retry #{i}, EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(ex);
+                    telemetryClient.TrackTrace($"Retry #{i}, EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
                     Thread.Sleep(TIME_TO_SLEEP_FOR_RETRY);
                     continue;
                 }
@@ -105,7 +110,8 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                 }
                 catch (Exception ex)
                 {
-                    System.Diagnostics.Trace.TraceInformation($"Retry #{i}, EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
+                    telemetryClient.TrackException(ex);
+                    telemetryClient.TrackTrace($"Retry #{i}, EXCEPTION: {ex.Message}. STACKTRACE: {ex.StackTrace}");
                     Thread.Sleep(TIME_TO_SLEEP_FOR_RETRY);
                     continue;
                 }

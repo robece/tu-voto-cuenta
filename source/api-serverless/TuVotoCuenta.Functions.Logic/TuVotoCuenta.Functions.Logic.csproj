@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Jdenticon-net" Version="2.1.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights" Version="2.6.4" />
     <PackageReference Include="MongoDB.Driver" Version="2.6.1" />
     <PackageReference Include="Nethereum.Geth" Version="2.4.0" />
     <PackageReference Include="Sendgrid" Version="9.9.0" />
