@@ -24,8 +24,7 @@
                     </StackLayout>
                 </StackLayout>
 
-                <controls:ImageEntry Placeholder="Contraseña" Style="{StaticResource arrowEntry}" IsPassword="true" Text="{Binding Password}" />
-            </StackLayout>
+           </StackLayout>
         </ScrollView>
     </controls:StepPage.Content>
 </controls:StepPage>

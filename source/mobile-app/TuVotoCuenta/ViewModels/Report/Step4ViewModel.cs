@@ -31,8 +31,8 @@ namespace TuVotoCuenta.ViewModels
 
             RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
             Photo = Helpers.LocalFilesHelper.ReadFile(item.UID.ToString());
-            App.Latitude = item.Latitude;
-            App.Longitude = item.Longitude;
+            App.Latitude = item.ImageLatitude;
+            App.Longitude = item.ImageLongitude;
 		}
 
 		bool IsLocationAvailable()
@@ -74,8 +74,6 @@ namespace TuVotoCuenta.ViewModels
 
         bool ValidateInformation()
         {
-            if (String.IsNullOrEmpty(Password))
-                return false;
             if (Photo == null || !Photo.Any())
                 return false;
             return true;
@@ -85,10 +83,10 @@ namespace TuVotoCuenta.ViewModels
         {
             RecordItem item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
             Helpers.LocalFilesHelper.SaveFile(item.UID.ToString(), Photo);
-            item.Latitude = App.Latitude;
-            item.Longitude = App.Longitude;
-            item.Password = Password;
-            item.Account = Settings.Profile_Username;
+            item.ImageLatitude = App.Latitude;
+            item.ImageLongitude = App.Longitude;
+            item.UserName = Settings.Profile_Username;
+            item.ImageBytes = Convert.ToBase64String(Photo);
             Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
         }
 
@@ -146,14 +144,6 @@ namespace TuVotoCuenta.ViewModels
         {
             get { return photo; }
             set { SetProperty(ref photo, value); }
-        }
-
-        private string password;
-
-        public string Password
-        {
-            get => password;
-            set => SetProperty(ref password, value);
         }
         #endregion
     }

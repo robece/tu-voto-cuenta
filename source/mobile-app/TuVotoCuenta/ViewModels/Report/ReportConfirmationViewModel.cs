@@ -42,7 +42,7 @@ namespace TuVotoCuenta.ViewModels.Report
 
         INavigation navigation = null;
 
-        public Command NextCommand { get; set; }
+        public Command ContinueCommand { get; set; }
 
         public Command ContinueGoBackCommand { get; set; }
 
@@ -58,7 +58,7 @@ namespace TuVotoCuenta.ViewModels.Report
         {
             Title = "Envió";
             IsContinueGoBackEnabled = false;
-            NextCommand = new Command(async () => await Next());
+            ContinueCommand = new Command(async () => await Next());
             ContinueGoBackCommand = new Command(async () => await Back());
 
             item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
@@ -80,7 +80,10 @@ namespace TuVotoCuenta.ViewModels.Report
                 MessageSubTitle = "Espera un momento";
                 item.RecordHash = CreateHash();
                 item.DeviceHash = Helpers.HashHelper.GetSha256Hash(Plugin.DeviceInfo.CrossDeviceInfo.Current.Id);
-                item.CreatedDate = DateTime.UtcNow.ToString();
+                item.UserName = Settings.Profile_Username;
+                var imagefile = Helpers.LocalFilesHelper.ReadFile(item.UID.ToString());
+                item.Image = HashHelper.GetSha256Hash(imagefile);
+                imagefile = null;
 
                 AddReportRequest addReportRequest = new AddReportRequest()
                 {
@@ -88,47 +91,52 @@ namespace TuVotoCuenta.ViewModels.Report
                 };
 
                 var response = await RestHelper.AddReportAsync(addReportRequest);
-                if (!response.IsSucceded)
+                if (response.Status != Enums.ResponseStatus.Ok)
                 {
                     IsContinueGoBackEnabled = true;
+                    IsContinueEnabled = false;
                     MessageTitle = "Se presentó un problema al realizar el registro.";
-                    MessageSubTitle = "El proceso de registro no fue satisfactorio.";
+                    MessageSubTitle = response.Message;
                 }
                 else
                 {
+
                     IsContinueEnabled = true;
+                    IsContinueGoBackEnabled = false;
                     MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
                     MessageSubTitle = "Tu registro ha sido completado satisfactoriamente.";
 
-                    for (int i = 0; i < navigation.NavigationStack.Count-2; i++)
+                    var count = navigation.NavigationStack.Count;
+                    for (int i = 0; i < count - 1; i++)
                     {
-                        navigation.RemovePage(navigation.NavigationStack[i]);
+                        navigation.RemovePage(navigation.NavigationStack.ElementAt(0));
                     }
-                    navigation.InsertPageBefore(navigation.NavigationStack.Last(),new MasterPage());
+                    navigation.InsertPageBefore(new WelcomePage(), navigation.NavigationStack.Last());
 
                 }
-                    
-
-                await Task.Delay(500);
             }
             IsBusy = false;
         }
 
         private async Task Next()
         {
-            Application.Current.MainPage = new MasterPage();
+            NavigationPage.SetHasBackButton(navigation.NavigationStack.Last(), true);
+            await navigation.PopAsync();
         }
 
 
         string CreateHash()
         {
+
+            var imagefile = Helpers.LocalFilesHelper.ReadFile(item.UID.ToString());
+
             StringBuilder sb = new StringBuilder();
             sb.Append(item.UID);
             sb.Append(item.DeviceHash);
             sb.Append(item.BoxNumber);
             sb.Append(item.BoxSection);
-            sb.Append(item.Latitude);
-            sb.Append(item.Longitude);
+            sb.Append(item.ImageLatitude);
+            sb.Append(item.ImageLongitude);
             sb.Append(item.LocationDetails);
             sb.Append(item.Entity);
             sb.Append(item.Municipality);
@@ -156,10 +164,10 @@ namespace TuVotoCuenta.ViewModels.Report
             sb.Append(item.PartyVERNA);
             sb.Append(item.PartyPTES);
             sb.Append(item.PartyPRDPAN);
-            sb.Append(Helpers.LocalFilesHelper.GetFileHexString(item.UID.ToString()));
+            sb.Append(HashHelper.GetSha256Hash(imagefile));
             sb.Append(item.RecordHash);
             sb.Append(item.BlockchainTransaction);
-            sb.Append(item.CreatedDate);
+           
 
             var hash = Helpers.HashHelper.GetSha256Hash(sb.ToString());
 
