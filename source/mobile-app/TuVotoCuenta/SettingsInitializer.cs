@@ -8,6 +8,8 @@ namespace TuVotoCuenta
         {
             Settings.FunctionURL = "FUNCTION_URL";
             Settings.ImageStorageUrl = "STORAGE_URL";
+            Settings.AccountImageStorageUrl = "ACCOUNT_IMAGE_CONTAINER";
+            Settings.RedordImageStorageUrl = "RECORDS_IMAGE_CONTAINER";
             Settings.Cryptography = "CRYPTO_KEY";
         }
 
