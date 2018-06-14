@@ -1,7 +1,15 @@
-#!/usr/bin/env bash
+echo "Arguments for updating:"
+echo " - CRYPTO_KEY: $CRYPTO_KEY"
+echo " - FUNCTION_URL: $FUNCTION_URL"
+echo " - STORAGE_URL: $STORAGE_URL"
 
-# Example: Change bundle name of an iOS app for non-production
-if [ "$APPCENTER_BRANCH" != "master" ];
-then
-    plutil -replace CFBundleName -string "\$(PRODUCT_NAME) Beta" $APPCENTER_SOURCE_DIRECTORY/MyApp/Info.plist
-fi
+# Updating ids
+
+IdFile=$BUILD_REPOSITORY_LOCALPATH/src/MyApp/Ids.cs
+
+sed -i '' "s/APP_SECRET/$APP_SECRET/g" $IdFile
+
+# Print out file for reference
+cat $IdFile
+
+echo "Updated id!"
