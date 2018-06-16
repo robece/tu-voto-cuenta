@@ -61,7 +61,7 @@ namespace TuVotoCuenta.ViewModels
 
         void Continue()
         {
-            Application.Current.MainPage = new MasterPage();
+            Application.Current.MainPage = new MasterPage() { IsPresented = true };
         }
 
         void ContinueGoBack()

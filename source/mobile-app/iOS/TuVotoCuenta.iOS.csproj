@@ -318,6 +318,7 @@
     <Compile Include="Renderers\CustomMapRenderer.cs" />
     <Compile Include="Renderers\CustomPageRenderer.cs" />
     <Compile Include="Effects\DisabledSelectionEffect.cs" />
+    <Compile Include="Renderers\HyperLinkLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">

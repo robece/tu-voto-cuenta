@@ -22,7 +22,7 @@ namespace TuVotoCuenta
 
 			//if logged in redirect to main page
             if (Settings.Profile_Username != string.Empty)
-                Application.Current.MainPage = new MasterPage();
+                Application.Current.MainPage = new MasterPage() { IsPresented = true };
             else
                 MainPage = new SignUpPage();
         }

@@ -572,6 +572,7 @@
     <Compile Include="Renderers\CustomMapRenderer.cs" />
     <Compile Include="MainApplication.cs" />
     <Compile Include="Effects\DisabledSelectionEffect.cs" />
+    <Compile Include="Renderers\HyperLinkLabelRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

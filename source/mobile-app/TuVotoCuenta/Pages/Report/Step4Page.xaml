@@ -19,7 +19,7 @@
                     </Frame>
                     <Label Margin="5" Style="{DynamicResource PageDarkSmall}" Text="Importante: Centra la imagen para que sea clara y legible, al usar la cámara se tomarán las coordenadas donde fue realizada la captura de la imagen como mecanismo de confianza." HorizontalTextAlignment="Center" />
                     <StackLayout Margin="40,0,40,0" VerticalOptions="Center" Orientation="Horizontal">
-                        <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding TakePhotoCommand}" Text="Cámara" />
+                        <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding TakePhotoCommand}" Text="Tomar Fotografía" />
                         <!-- <Button HorizontalOptions="FillAndExpand" Style="{DynamicResource ImplicitButton}" Command="{Binding ChoosePhotoCommand}" Text="Galería" />-->
                     </StackLayout>
                 </StackLayout>

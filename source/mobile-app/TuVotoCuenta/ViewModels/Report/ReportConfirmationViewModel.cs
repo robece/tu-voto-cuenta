@@ -123,7 +123,7 @@ namespace TuVotoCuenta.ViewModels.Report
         private async Task Next()
         {
             NavigationPage.SetHasBackButton(navigation.NavigationStack.Last(), true);
-            await navigation.PopAsync();
+            Application.Current.MainPage = new MasterPage();
         }
 
 

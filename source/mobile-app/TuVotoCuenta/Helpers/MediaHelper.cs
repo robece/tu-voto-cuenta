@@ -16,10 +16,9 @@ namespace TuVotoCuenta.Helpers
             {
                 var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
                 {
-                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Full,
+                    PhotoSize = Plugin.Media.Abstractions.PhotoSize.Large,
                     Directory = "People",
-                    Name = "person.jpg",
-                    AllowCropping = true
+                    Name = "person.jpg"
                 });
 
                 if (file != null)

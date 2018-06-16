@@ -75,6 +75,7 @@ namespace TuVotoCuenta.ViewModels.Search
 
         public ResultDetailViewModel(INavigation navigation, RecordItem recordItem)
         {
+            
             this.navigation = navigation;
             this.recordItem = recordItem;
             InitializeViewModel();
@@ -82,7 +83,7 @@ namespace TuVotoCuenta.ViewModels.Search
 
         void InitializeViewModel()
         {
-            Title = "Envió";
+            Title = "Detalle";
             IsContinueGoBackEnabled = false;
             ContinueGoBackCommand = new Command(async () => await Back());
             UpVoteCommand = new Command(async () => await UpVote());
@@ -119,9 +120,12 @@ namespace TuVotoCuenta.ViewModels.Search
                 var response = await RestHelper.AddVoteAsync(addVoteRequest);
                 if (response.Status != Enums.ResponseStatus.Ok)
                 {
-                    IsContinueGoBackEnabled = true;
+                    //IsContinueGoBackEnabled = true;
                     MessageTitle = "Se presentó un problema al votar por el registro.";
                     MessageSubTitle = response.Message;
+
+                   await Application.Current.MainPage.DisplayAlert(messageTitle, messageSubTitle, "Aceptar");
+
                 }
                 else
                 {
@@ -137,7 +141,7 @@ namespace TuVotoCuenta.ViewModels.Search
 
         private async Task Back()
         {
-            await navigation.PopAsync();
+            IsContinueGoBackEnabled = false;
         }
 
         private async Task SendRequest()

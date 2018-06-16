@@ -37,7 +37,7 @@ namespace TuVotoCuenta.ViewModels
 #if DEBUG
             if ((bool)Application.Current.Resources["LoginOk"])
             {
-                Application.Current.MainPage = new MasterPage();
+                Application.Current.MainPage = new MasterPage() { IsPresented = true };
                 return;
             }
 #endif
@@ -63,7 +63,7 @@ namespace TuVotoCuenta.ViewModels
                 {
                     Settings.Profile_Username = response.Username;
                     Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
-                    Application.Current.MainPage = new MasterPage();
+                    Application.Current.MainPage = new MasterPage() { IsPresented = true };
                 }
                 IsBusy = false;
             }
