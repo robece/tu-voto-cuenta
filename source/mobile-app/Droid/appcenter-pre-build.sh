@@ -12,6 +12,8 @@ sed -i '' "s#FUNCTION_URL#$FUNCTION_URL#g" $IdFile
 sed -i '' "s#STORAGE_URL#$STORAGE_URL#g" $IdFile
 sed -i '' "s#ACCOUNT_IMAGE_CONTAINER#$ACCOUNT_IMAGE_CONTAINER#g" $IdFile
 sed -i '' "s#RECORDS_IMAGE_CONTAINER#$RECORDS_IMAGE_CONTAINER#g" $IdFile
+sed -i '' "s#APP_CENTER_IOS#$APP_CENTER_IOS#g" $IdFile
+sed -i '' "s#APP_CENTER_DROID#$APP_CENTER_DROID#g" $IdFile
 
 # Print out file for reference
 cat $IdFile
