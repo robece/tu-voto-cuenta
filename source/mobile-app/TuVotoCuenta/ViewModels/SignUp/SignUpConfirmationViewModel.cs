@@ -24,39 +24,50 @@ namespace TuVotoCuenta.ViewModels
         {
             ContinueCommand = new Command(() => Continue());
             ContinueGoBackCommand = new Command(() => ContinueGoBack());
-            
+
             IsBusy = true;
             IsContinueEnabled = false;
             IsContinueGoBackEnabled = false;
             MessageTitle = "Por favor aguarda, estamos creando tu cuenta...";
 
-            //clean any previous session
-            SignOutPage.CleanCurrentSession();
-            //launch task
-
-            SignUpAccountResponse response = await RestHelper.SignUpAccountAsync(model);
-
-
-            if (response.Status == ResponseStatus.Ok)
+            try
             {
-                Settings.Profile_Username = model.username.ToLower();
-                Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
-                IsBusy = false;
-                IsContinueEnabled = true;
-                IsContinueGoBackEnabled = false;
-                MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
-                MessageSubTitle = "Tu cuenta ha sido creada satisfactoriamente.";
+                //clean any previous session
+                SignOutPage.CleanCurrentSession();
+                //launch task
+
+                SignUpAccountResponse response = await RestHelper.SignUpAccountAsync(model);
+
+
+                if (response.Status == ResponseStatus.Ok)
+                {
+                    Settings.Profile_Username = model.username.ToLower();
+                    Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
+                    IsBusy = false;
+                    IsContinueEnabled = true;
+                    IsContinueGoBackEnabled = false;
+                    MessageTitle = $"¡Gracias {Settings.Profile_Username}!";
+                    MessageSubTitle = "Tu cuenta ha sido creada satisfactoriamente.";
+                }
+                else
+                {
+                    IsBusy = false;
+                    IsContinueEnabled = false;
+                    IsContinueGoBackEnabled = true;
+                    MessageTitle = "El proceso de registro no fue satisfactorio.";
+                    MessageSubTitle = response.Message;
+                }
             }
-            else
+            catch (Exception ex)
             {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
                 IsBusy = false;
                 IsContinueEnabled = false;
                 IsContinueGoBackEnabled = true;
                 MessageTitle = "El proceso de registro no fue satisfactorio.";
-                MessageSubTitle = response.Message;
+                MessageSubTitle = "Ocurrió un error inesperado";
             }
 
-           
         }
 
         void Continue()

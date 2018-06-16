@@ -1,4 +1,6 @@
-﻿using TuVotoCuenta.Domain;
+﻿using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using TuVotoCuenta.Domain;
 using TuVotoCuenta.Pages;
 using Xamarin.Forms;
 
@@ -18,6 +20,7 @@ namespace TuVotoCuenta
 
             //set startup app configuration
             SettingsInitializer.InitSettings();
+            Microsoft.AppCenter.AppCenter.Start($"ios={Settings.AppCenterIOS};android={Settings.AppCenterDroid}", typeof(Analytics), typeof(Crashes));
 
 
 			//if logged in redirect to main page

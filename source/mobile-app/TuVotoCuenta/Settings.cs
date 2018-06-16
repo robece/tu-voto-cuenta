@@ -25,6 +25,8 @@ namespace TuVotoCuenta
 		private const string Profile_UsernameKey = "Profile_UsernameKey";
 		private const string Profile_PictureKey = "Profile_PictureKey";
         private const string CryptographyKey = "CryptographyKey";
+        private const string AppCenteriOSKey = "AppCenteriOSKey";
+        private const string AppCenterDroidKey = "AppCenterDroidKey";
 
         #endregion
 
@@ -122,6 +124,30 @@ namespace TuVotoCuenta
             set
             {
                 AppSettings.AddOrUpdateValue(CryptographyKey, value);
+            }
+        }
+
+        public static string AppCenterIOS
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(AppCenteriOSKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(AppCenteriOSKey, value);
+            }
+        }
+
+        public static string AppCenterDroid
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(AppCenterDroidKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(AppCenterDroidKey, value);
             }
         }
     }

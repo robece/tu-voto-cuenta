@@ -34,38 +34,48 @@ namespace TuVotoCuenta.ViewModels
 
         async Task SignIn()
         {
-#if DEBUG
-            if ((bool)Application.Current.Resources["LoginOk"])
+
+            try
             {
-                Application.Current.MainPage = new MasterPage() { IsPresented = true };
-                return;
-            }
+#if DEBUG
+
+                if ((bool)Application.Current.Resources["LoginOk"])
+                {
+                    Application.Current.MainPage = new MasterPage() { IsPresented = true };
+                    return;
+                }
 #endif
 
-            if (!ValidateInformation())
-                await Application.Current.MainPage.DisplayAlert("Aviso", "Verifica que todos los campos se encuentren completos.", "Aceptar");
-            else if (!IsBusy)
+                if (!ValidateInformation())
+                    await Application.Current.MainPage.DisplayAlert("Aviso", "Verifica que todos los campos se encuentren completos.", "Aceptar");
+                else if (!IsBusy)
+                {
+                    IsBusy = true;
+
+                    //clean any previous session
+                    SignOutPage.CleanCurrentSession();
+                    //launch task
+
+                    SignInAccountRequest model = new SignInAccountRequest() { username = Username, password = Password };
+                    SignInAccountResponse response = await RestHelper.SignInAccountAsync(model);
+
+                    if (response.Status != ResponseStatus.Ok)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
+                    }
+                    else
+                    {
+                        Settings.Profile_Username = response.Username;
+                        Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
+                        Application.Current.MainPage = new MasterPage() { IsPresented = true };
+                    }
+                    IsBusy = false;
+                }
+            }
+            catch (Exception ex)
             {
-                IsBusy = true;
-
-                //clean any previous session
-                SignOutPage.CleanCurrentSession();
-                //launch task
-
-                SignInAccountRequest model = new SignInAccountRequest() { username = Username, password = Password };
-                SignInAccountResponse response = await RestHelper.SignInAccountAsync(model);
-
-                if (response.Status != ResponseStatus.Ok)
-                {
-                    await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
-                }
-                else
-                {
-                    Settings.Profile_Username = response.Username;
-                    Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
-                    Application.Current.MainPage = new MasterPage() { IsPresented = true };
-                }
-                IsBusy = false;
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+                await Application.Current.MainPage.DisplayAlert("Error", "Ocurrió un error inesperado", "Aceptar");
             }
         }
 

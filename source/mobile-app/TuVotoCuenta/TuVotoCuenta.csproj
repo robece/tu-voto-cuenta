@@ -53,6 +53,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Xamarin.Forms.CarouselView" Version="2.3.0-pre2" />
     <PackageReference Include="Xam.Plugin.Connectivity" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="1.6.1" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="1.6.1" />
+    <PackageReference Include="AppCenter.Analytics.Metrics" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AppCenter" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\Profile\PetDetailPage.xaml.cs" />

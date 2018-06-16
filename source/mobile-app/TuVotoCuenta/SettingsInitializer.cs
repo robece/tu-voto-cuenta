@@ -11,6 +11,8 @@ namespace TuVotoCuenta
             Settings.AccountImageStorageUrl = "ACCOUNT_IMAGE_CONTAINER";
             Settings.RedordImageStorageUrl = "RECORDS_IMAGE_CONTAINER";
             Settings.Cryptography = "CRYPTO_KEY";
+            Settings.AppCenterIOS = "APP_CENTER_IOS";
+            Settings.AppCenterDroid = "APP_CENTER_DROID";
         }
 
     }
