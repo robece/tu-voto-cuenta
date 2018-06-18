@@ -23,7 +23,7 @@ namespace TuVotoCuenta.ViewModels.Search
             Entity = searchViewModel.SelectedEntity.EntityName;
             Municipality = searchViewModel.SelectedMunicipality.MunicipalityName;
 
-            SearchAsync();
+            Task.Run(async () => { await SearchAsync(); });
 
         }
 
@@ -104,8 +104,7 @@ namespace TuVotoCuenta.ViewModels.Search
             }
         }
 
-
-        public async Task OrderResults(ListOrder listOrder)
+        public void OrderResults(ListOrder listOrder)
         {
             switch (listOrder)
             {
@@ -121,15 +120,16 @@ namespace TuVotoCuenta.ViewModels.Search
                 default:
                     break;
             }
-
         }
 
         private async Task SearchAsync()
         {
-
             if (!IsBusy)
             {
                 IsBusy = true;
+                MessageTitle = "Buscando...";
+                MessageSubTitle = "Espera un momento, estamos buscando la información. El proceso puede tomar unos segundos.";
+
                 GetRecordItemListRequest recordItemListRequest = new GetRecordItemListRequest();
                 recordItemListRequest.entity = searchViewModel.SelectedEntity.EntityName;
                 recordItemListRequest.locality = searchViewModel.SelectedLocality.LocalityName;
@@ -145,7 +145,8 @@ namespace TuVotoCuenta.ViewModels.Search
                 {
                     if (!result.Records.Any())
                     {
-                        MessageTitle = $"Actualmente no hay registros en esta {searchViewModel.SelectedLocality.LocalityName}";
+                        MessageTitle = $"Búsqueda finalizada.";
+                        MessageSubTitle = $"Actualmente no hay registros en esta {searchViewModel.SelectedLocality.LocalityName}.";
                         IsContinueGoBackEnabled = true;
                     }
                     else

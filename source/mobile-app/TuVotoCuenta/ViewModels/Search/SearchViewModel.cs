@@ -48,7 +48,6 @@ namespace TuVotoCuenta.ViewModels.Search
             }
         }
 
-
         private List<Municipality> municipalities;
 
         public List<Municipality> Municipalities
@@ -59,7 +58,6 @@ namespace TuVotoCuenta.ViewModels.Search
                 SetProperty(ref municipalities, value);
             }
         }
-
 
         private List<Locality> localities;
 
@@ -105,7 +103,6 @@ namespace TuVotoCuenta.ViewModels.Search
             }
         }
 
-
         private Locality selectedLocality;
 
         public Locality SelectedLocality
@@ -118,9 +115,7 @@ namespace TuVotoCuenta.ViewModels.Search
             }
         }
 
-
         #endregion
-
 
         private ObservableCollection<SearchResult> searchResults;
 
@@ -129,9 +124,6 @@ namespace TuVotoCuenta.ViewModels.Search
             get => searchResults;
             set => SetProperty(ref searchResults, value);
         }
-
-
-       
 
         private SearchResult detailResult;
 
@@ -158,9 +150,6 @@ namespace TuVotoCuenta.ViewModels.Search
             Entities = Catalogs.Entities;
         }
 
-
-
-
         private async Task NextAsync()
         {
             if (!IsBusy)
@@ -173,6 +162,5 @@ namespace TuVotoCuenta.ViewModels.Search
                 }
             }
         }
-
     }
 }

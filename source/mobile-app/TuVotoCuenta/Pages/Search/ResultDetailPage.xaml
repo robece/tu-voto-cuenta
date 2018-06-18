@@ -8,28 +8,40 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout IsVisible="{Binding IsContinueGoBackEnabled}" Orientation="Vertical" Padding="10,10,10,10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
-                <Label Text="{Binding MessageTitle}" HorizontalTextAlignment="Center" />
-                <Label Text="{Binding MessageSubTitle}" HorizontalTextAlignment="Center" />
-                <ActivityIndicator HorizontalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource PrimaryDark}" />
-                <Button Text="Volver" Margin="0,10,0,10" Style="{DynamicResource ExplicitButton}" Command="{Binding ContinueGoBackCommand}" />
-            </StackLayout>
             <ScrollView>
                 <StackLayout IsVisible="{Binding IsContinueGoBackEnabled, Converter={StaticResource oppositeBoolCoverter}}" Orientation="Vertical" Margin="40,30,40,0">
                     <Label Text="Imagen capturada" Margin="0,0,0,10" HorizontalTextAlignment="Start" FontAttributes="Bold" />
                     <Frame Margin="0,5,0,10" WidthRequest="254" HeightRequest="354" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Black" OutlineColor="Black" Padding="2">
                         <ffimage:CachedImage DownsampleUseDipUnits="true" DownsampleToViewSize="true" WidthRequest="280" HeightRequest="380" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" Source="{Binding RecordItem.StorageUrl}" />
                     </Frame>
-                    <Label Text="Valoración pública" Margin="0,0,0,10" HorizontalTextAlignment="Start" FontAttributes="Bold" />
-                    <Label Text="(presiona para emitir tu voto, recuerda solo puedes votar una vez por captura y tu voto es irreversible)" HorizontalTextAlignment="Start" FontSize="Small" /> 
-                    <StackLayout Orientation="Horizontal">
-                        <ffimagesvg:SvgCachedImage Source="svgdarkvoteup.svg" WidthRequest="30" HeightRequest="30" />
-                        <controls:ImplicitButton TextColor="Green" Text="{Binding UpVotes,StringFormat='Aprobaciones: + {0}'}" Style="{DynamicResource ImplicitButton}" Command="{Binding UpVoteCommand}" VerticalOptions="Center" HorizontalOptions="Start" />
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <ffimagesvg:SvgCachedImage Source="svgdarkvotedown.svg" WidthRequest="30" HeightRequest="30" />
-                        <controls:ImplicitButton TextColor="Red" Text="{Binding DownVotes,StringFormat='Desaprobaciones: - {0}'}" Style="{DynamicResource ImplicitButton}" Command="{Binding DownVoteCommand}" VerticalOptions="Center" HorizontalOptions="Start" />
-                    </StackLayout>
+                    <Label Text="Valoración pública" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                    <Label Text="Presiona dos veces seguidas sobre el icono para emitir tu voto, recuerda solo puedes votar una vez por captura y tu voto es irreversible." Margin="0,0,0,10" HorizontalTextAlignment="Start" FontSize="Small" />
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+                        <ffimagesvg:SvgCachedImage Grid.Row="0" Grid.Column="0" Source="svgdarkvoteup.svg" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start">
+                            <ffimagesvg:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding UpVoteCommand}" NumberOfTapsRequired="2" />
+                            </ffimagesvg:SvgCachedImage.GestureRecognizers>
+                        </ffimagesvg:SvgCachedImage>
+                        <Label Grid.Row="0" Grid.Column="1" TextColor="Green" Text="{Binding UpVotes,StringFormat='+ {0}'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                        <ffimagesvg:SvgCachedImage Grid.Row="0" Grid.Column="4" Source="svgdarkvotedown.svg" WidthRequest="30" HeightRequest="30" HorizontalOptions="End">
+                            <ffimagesvg:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding DownVoteCommand}" NumberOfTapsRequired="2" />
+                            </ffimagesvg:SvgCachedImage.GestureRecognizers>
+                        </ffimagesvg:SvgCachedImage>
+                        <Label Grid.Row="0" Grid.Column="5" TextColor="Red" Text="{Binding DownVotes,StringFormat='- {0}'}" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                    </Grid>
+                    <Label Text="{Binding EmitingVoteMessage}" Margin="0,0,0,10" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                     <Label Text="Sección de casilla:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.BoxSection}" HorizontalTextAlignment="Start" />
                     <Label Text="Número de casilla:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
@@ -43,7 +55,7 @@
                     <Label Text="Hash:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.RecordHash}" HorizontalTextAlignment="Start" />
                     <Label Text="Identificador de transacción de blockchain:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
-                    <Label Text="(presiona el identificador para consultar)" HorizontalTextAlignment="Start" FontSize="Small" />
+                    <Label Text="Presiona el identificador para consultar." HorizontalTextAlignment="Start" FontSize="Small" />
                     <controls:HyperLinkLabel Text="{Binding RecordItem.TransactionId}" FontSize="Small" HorizontalOptions="Start" UriToNavigate="{Binding RecordItem.TransactionId, Converter={StaticResource stringToUriConverter}}" />
                     <Label Text="Fecha de registro:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.CreatedDate}" HorizontalTextAlignment="Start" />

@@ -18,6 +18,13 @@ namespace TuVotoCuenta.ViewModels.Search
             set { SetProperty(ref messageTitle, value); }
         }
 
+        string emitingVoteMessage;
+        public string EmitingVoteMessage
+        {
+            get { return emitingVoteMessage; }
+            set { SetProperty(ref emitingVoteMessage, value); }
+        }
+
         string messageSubTitle;
         public string MessageSubTitle
         {
@@ -59,8 +66,6 @@ namespace TuVotoCuenta.ViewModels.Search
 
         INavigation navigation = null;
 
-        public Command ContinueGoBackCommand { get; set; }
-
         public Command UpVoteCommand { get; set; }
 
         public Command DownVoteCommand { get; set; }
@@ -85,15 +90,9 @@ namespace TuVotoCuenta.ViewModels.Search
         {
             Title = "Registro de captura";
             IsContinueGoBackEnabled = false;
-            ContinueGoBackCommand = new Command(async () => await Back());
             UpVoteCommand = new Command(async () => await UpVote());
             DownVoteCommand = new Command(async () => await DownVote());
-            Task.Run(async () => { await SendRequest(); });
-        }
-
-        private async Task DownVote()
-        {
-            await Vote(false);
+            Task.Run(async () => { await GetRecordVoteCountAsync(); });
         }
 
         private async Task UpVote()
@@ -101,14 +100,20 @@ namespace TuVotoCuenta.ViewModels.Search
             await Vote(true);
         }
 
+        private async Task DownVote()
+        {
+            await Vote(false);
+        }
+
         private async Task Vote(bool approved)
         {
             if (!IsBusy)
             {
                 IsBusy = true;
-                MessageTitle = "Enviando";
-                MessageSubTitle = "Espera un momento";
+                MessageTitle = "Realizando voto...";
+                MessageSubTitle = "Espera un momento.";
 
+                EmitingVoteMessage = (approved) ? "Emitiendo aprobación" : "Emitiendo desaprobación"; 
 
                 AddVoteRequest addVoteRequest = new AddVoteRequest()
                 {
@@ -123,12 +128,12 @@ namespace TuVotoCuenta.ViewModels.Search
                     //IsContinueGoBackEnabled = true;
                     MessageTitle = "Se presentó un problema al votar por el registro.";
                     MessageSubTitle = response.Message;
-
+                    EmitingVoteMessage = "";
                     await Application.Current.MainPage.DisplayAlert(messageTitle, messageSubTitle, "Aceptar");
-
                 }
                 else
                 {
+                    EmitingVoteMessage = "";
                     IsContinueGoBackEnabled = false;
                     if (approved)
                         UpVotes++;
@@ -139,12 +144,7 @@ namespace TuVotoCuenta.ViewModels.Search
             }
         }
 
-        private async Task Back()
-        {
-            IsContinueGoBackEnabled = false;
-        }
-
-        private async Task SendRequest()
+        private async Task GetRecordVoteCountAsync()
         {
             if (!IsBusy)
             {
