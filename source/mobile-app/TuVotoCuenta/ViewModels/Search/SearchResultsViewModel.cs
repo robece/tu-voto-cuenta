@@ -128,7 +128,7 @@ namespace TuVotoCuenta.ViewModels.Search
             {
                 IsBusy = true;
                 MessageTitle = "Buscando...";
-                MessageSubTitle = "Espera un momento, estamos buscando la información. El proceso puede tomar unos segundos.";
+                MessageSubTitle = "Espera un momento, el proceso puede tomar unos segundos.";
 
                 GetRecordItemListRequest recordItemListRequest = new GetRecordItemListRequest();
                 recordItemListRequest.entity = searchViewModel.SelectedEntity.EntityName;
