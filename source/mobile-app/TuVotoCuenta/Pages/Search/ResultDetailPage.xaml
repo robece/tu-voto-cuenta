@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.ResultDetailPage" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:controls="clr-namespace:TuVotoCuenta.Controls">
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.ResultDetailPage" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:controls="clr-namespace:TuVotoCuenta.Controls">
     <ContentPage.Resources>
         <ResourceDictionary>
-          <converters:StringToUriConverter x:Key="stringToUriConverter"/>
+            <converters:StringToUriConverter x:Key="stringToUriConverter" />
             <cvt:OppositeBoolConverter x:Key="oppositeBoolCoverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
+        <StackLayout Orientation="Vertical">
             <StackLayout IsVisible="{Binding IsContinueGoBackEnabled}" Orientation="Vertical" Padding="10,10,10,10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
                 <Label Text="{Binding MessageTitle}" HorizontalTextAlignment="Center" />
                 <Label Text="{Binding MessageSubTitle}" HorizontalTextAlignment="Center" />
@@ -15,109 +15,41 @@
                 <Button Text="Volver" Margin="0,10,0,10" Style="{DynamicResource ExplicitButton}" Command="{Binding ContinueGoBackCommand}" />
             </StackLayout>
             <ScrollView>
-                <StackLayout IsVisible="{Binding IsContinueGoBackEnabled, Converter={StaticResource oppositeBoolCoverter}}" Orientation="Vertical" Margin="0,30,0,0">
-                    <Label Text="Resultados" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
-                    <Label Text="{Binding RecordItem.Entity,StringFormat='Entidad: {0}'}" HorizontalTextAlignment="Center" />
-                    <Label Text="{Binding RecordItem.Municipality,StringFormat='Municipio: {0}'}" HorizontalTextAlignment="Center" />
-                    <Label Text="{Binding RecordItem.Locality,StringFormat='Localidad: {0}'}" HorizontalTextAlignment="Center" />
-                    <BoxView Margin="40,0" HeightRequest="20" BackgroundColor="{StaticResource DarkSelector}" />
-                    <Frame Margin="0,5,0,0" WidthRequest="254" HeightRequest="354" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Black" OutlineColor="Black" Padding="2">
-                        <ffimage:CachedImage DownsampleUseDipUnits="true" DownsampleToViewSize="true" WidthRequest="250" HeightRequest="350" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFill" Source="{Binding RecordItem.StorageUrl}" />
+                <StackLayout IsVisible="{Binding IsContinueGoBackEnabled, Converter={StaticResource oppositeBoolCoverter}}" Orientation="Vertical" Margin="40,30,40,0">
+                    <Label Text="Imagen capturada" Margin="0,0,0,10" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                    <Frame Margin="0,5,0,10" WidthRequest="254" HeightRequest="354" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Black" OutlineColor="Black" Padding="2">
+                        <ffimage:CachedImage DownsampleUseDipUnits="true" DownsampleToViewSize="true" WidthRequest="280" HeightRequest="380" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" Source="{Binding RecordItem.StorageUrl}" />
                     </Frame>
-                    <controls:HyperLinkLabel Margin="0,10" Text="Ver en Blockchain" FontSize="Medium" HorizontalOptions="Center" UriToNavigate="{Binding RecordItem.TransactionId, Converter={StaticResource stringToUriConverter}}" />
-                    <Grid HorizontalOptions="Center">
-                        <Grid.RowDefinitions>
-                            <RowDefinition />
-                            <RowDefinition />
-                            <RowDefinition />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="75" />
-                            <ColumnDefinition Width="75" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Grid.Row="0" TextColor="Green" Text="{Binding UpVotes,StringFormat='+ {0}'}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
-                        <Label Grid.Column="1" Grid.Row="0" TextColor="Red" Text="{Binding DownVotes,StringFormat='- {0}'}" FontSize="Large" VerticalOptions="Center" HorizontalOptions="Center" />
-                        <Button BackgroundColor="White" BorderColor="Green" BorderWidth="2" Command="{Binding UpVoteCommand}" Text="Votar" FontSize="Large" TextColor="Green" Grid.ColumnSpan="2" Grid.Row="1" HorizontalOptions="Center">
-                            <Button.Image Aspect="AspectFill">UpVoteIcon</Button.Image>
-                        </Button>
-                        <Button BackgroundColor="White" BorderColor="Red" BorderWidth="2"  Command="{Binding DownVoteCommand}" Text="Votar" FontSize="Large" TextColor="Red" Grid.ColumnSpan="2" Grid.Row="2" HorizontalOptions="Center">
-                            <Button.Image Aspect="AspectFill">DownVoteIcon</Button.Image>
-                        </Button>
-                    </Grid>
-                    <Grid Padding="10,0">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*">
-                            </ColumnDefinition>
-                            <ColumnDefinition Width="*">
-                            </ColumnDefinition>
-                            <ColumnDefinition Width="*">
-                            </ColumnDefinition>
-                            <ColumnDefinition Width="*">
-                            </ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                            <RowDefinition Height="100" />
-                        </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Grid.Column="0" Source="pan.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding RecordItem.PartyPAN}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="0" Grid.Column="2" Source="pri.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="0" Grid.Column="3" Text="{Binding RecordItem.PartyPRI}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="1" Grid.Column="0" Source="prd.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="1" Grid.Column="1" Text="{Binding RecordItem.PartyPRD}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="1" Grid.Column="2" Source="pvem.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="1" Grid.Column="3" Text="{Binding RecordItem.PartyVerde}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="2" Grid.Column="0" Source="pt.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="2" Grid.Column="1" Text="{Binding RecordItem.PartyPT}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="2" Grid.Column="2" Source="pmc.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="2" Grid.Column="3" Text="{Binding RecordItem.PartyMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="3" Grid.Column="0" Source="pna.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="3" Grid.Column="1" Text="{Binding RecordItem.PartyNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="3" Grid.Column="2" Source="pmorena.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="3" Grid.Column="3" Text="{Binding RecordItem.PartyMOR}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="4" Grid.Column="0" Source="pes.jpg" HorizontalOptions="Center" />
-                        <Label Grid.Row="4" Grid.Column="1" Text="{Binding RecordItem.PartyES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="4" Grid.Column="2" Source="ptesmor.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="4" Grid.Column="3" Text="{Binding RecordItem.PartyPTESMOR}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="5" Grid.Column="0" Source="priverna.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="5" Grid.Column="1" Text="{Binding RecordItem.PartyPRIVERNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="5" Grid.Column="2" Source="prdpanmc.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="5" Grid.Column="3" Text="{Binding RecordItem.PartyPRDPANMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="6" Grid.Column="0" Source="ptes.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="6" Grid.Column="1" Text="{Binding RecordItem.PartyPTES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="6" Grid.Column="2" Source="priver.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="6" Grid.Column="3" Text="{Binding RecordItem.PartyPRIVER}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="7" Grid.Column="0" Source="prdmc.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="7" Grid.Column="1" Text="{Binding RecordItem.PartyPRDMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="7" Grid.Column="2" Source="pmores.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="7" Grid.Column="3" Text="{Binding RecordItem.PartyMORES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="8" Grid.Column="0" Source="prina.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="8" Grid.Column="1" Text="{Binding RecordItem.PartyPRINA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="8" Grid.Column="2" Source="panmc.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="8" Grid.Column="3" Text="{Binding RecordItem.PartyPANMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="9" Grid.Column="0" Source="pmorpt.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="9" Grid.Column="1" Text="{Binding RecordItem.PartyMORPT}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="9" Grid.Column="2" Source="pverna.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="9" Grid.Column="3" Text="{Binding RecordItem.PartyVERNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Image Grid.Row="10" Grid.Column="0" Source="panprd.png" HorizontalOptions="Center" />
-                        <Label Grid.Row="10" Grid.Column="1" Text="{Binding RecordItem.PartyPRDPAN}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Label Grid.Row="10" Grid.Column="2" Text="Cand. Indep." VerticalTextAlignment="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
-                        <Label Grid.Row="10" Grid.Column="3" Text="{Binding RecordItem.PartyINDJai}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                        <Label Grid.Row="11" Grid.Column="0" Text="No Reg." VerticalTextAlignment="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
-                        <Label Grid.Row="11" Grid.Column="1" Text="{Binding RecordItem.PartyOtro}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
-                    </Grid>
+                    <Label Text="Valoración pública" Margin="0,0,0,10" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                    <Label Text="(presiona para emitir tu voto, recuerda solo puedes votar una vez por captura y tu voto es irreversible)" HorizontalTextAlignment="Start" FontSize="Small" /> 
+                    <StackLayout Orientation="Horizontal">
+                        <ffimagesvg:SvgCachedImage Source="svgdarkvoteup.svg" WidthRequest="30" HeightRequest="30" />
+                        <controls:ImplicitButton TextColor="Green" Text="{Binding UpVotes,StringFormat='Aprobaciones: + {0}'}" Style="{DynamicResource ImplicitButton}" Command="{Binding UpVoteCommand}" VerticalOptions="Center" HorizontalOptions="Start" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <ffimagesvg:SvgCachedImage Source="svgdarkvotedown.svg" WidthRequest="30" HeightRequest="30" />
+                        <controls:ImplicitButton TextColor="Red" Text="{Binding DownVotes,StringFormat='Desaprobaciones: - {0}'}" Style="{DynamicResource ImplicitButton}" Command="{Binding DownVoteCommand}" VerticalOptions="Center" HorizontalOptions="Start" />
+                    </StackLayout>
+                    <Label Text="Sección de casilla:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.BoxSection}" HorizontalTextAlignment="Start" />
+                    <Label Text="Número de casilla:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.BoxNumber}" HorizontalTextAlignment="Start" />
+                    <Label Text="Entidad:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.Entity}" HorizontalTextAlignment="Start" />
+                    <Label Text="Municipio:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.Municipality}" HorizontalTextAlignment="Start" />
+                    <Label Text="Localidad:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.Locality}" HorizontalTextAlignment="Start" />
+                    <Label Text="Hash:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.RecordHash}" HorizontalTextAlignment="Start" />
+                    <Label Text="Identificador de transacción de blockchain:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="(presiona el identificador para consultar)" HorizontalTextAlignment="Start" FontSize="Small" />
+                    <controls:HyperLinkLabel Text="{Binding RecordItem.TransactionId}" FontSize="Small" HorizontalOptions="Start" UriToNavigate="{Binding RecordItem.TransactionId, Converter={StaticResource stringToUriConverter}}" />
+                    <Label Text="Fecha de registro:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.CreatedDate}" HorizontalTextAlignment="Start" />
+                    <Label Text="Votos" Margin="0,0,0,10" HorizontalTextAlignment="Start" FontAttributes="Bold" />
                 </StackLayout>
             </ScrollView>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

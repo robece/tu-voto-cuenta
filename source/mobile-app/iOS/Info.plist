@@ -4,10 +4,8 @@
 <dict>
 	<key>CFBundleDisplayName</key>
 	<string>TuVotoCuenta</string>
-	<key>CFBundleName</key>
-	<string>TuVotoCuenta</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.tuvotocuenta.beta</string>
+	<string>com.tuvotocuenta.app</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>MinimumOSVersion</key>
@@ -64,5 +62,7 @@
 	<string>1.2</string>
 	<key>CFBundleVersion</key>
 	<string>1.2</string>
+	<key>CFBundleName</key>
+	<string>TuVotoCuenta</string>
 </dict>
 </plist>

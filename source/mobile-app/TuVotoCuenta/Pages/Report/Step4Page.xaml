@@ -6,7 +6,7 @@
         </ResourceDictionary>
     </controls:StepPage.Resources>
     <controls:StepPage.ToolbarItems>
-        <ToolbarItem Text="Siguiente" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
+        <ToolbarItem Text="Finalizar" Priority="1" Order="Primary" Command="{Binding NextCommand}" />
     </controls:StepPage.ToolbarItems>
     <controls:StepPage.Content>
         <ScrollView>

@@ -56,14 +56,14 @@ namespace TuVotoCuenta.ViewModels.Report
 
         void InitializeViewModel()
         {
-            Title = "Envió";
+            Title = "Guardando reporte de captura";
             IsContinueGoBackEnabled = false;
-            ContinueCommand = new Command(async () => await Next());
+            ContinueCommand = new Command(() => Next());
             ContinueGoBackCommand = new Command(async () => await Back());
 
             item = JsonConvert.DeserializeObject<RecordItem>(Settings.CurrentRecordItem);
 
-            SendReport();
+            Task.Run(async() => { await SendReport(); }); 
         }
 
         private async Task Back()
@@ -76,11 +76,11 @@ namespace TuVotoCuenta.ViewModels.Report
             if (!IsBusy)
             {
                 IsBusy = true;
-                MessageTitle = "Enviando";
-                MessageSubTitle = "Espera un momento";
+                MessageTitle = "Enviando...";
+                MessageSubTitle = "Espera un momento, estamos enviando la información. El proceso puede tomar unos segundos.";
                 item.RecordHash = CreateHash();
                 item.DeviceHash = Helpers.HashHelper.GetSha256Hash(Plugin.DeviceInfo.CrossDeviceInfo.Current.Id);
-                item.UserName = Settings.Profile_Username;
+                item.Username = Settings.Profile_Username;
                 var imagefile = Helpers.LocalFilesHelper.ReadFile(item.UID.ToString());
                 item.Image = HashHelper.GetSha256Hash(imagefile);
                 imagefile = null;
@@ -120,12 +120,11 @@ namespace TuVotoCuenta.ViewModels.Report
             IsBusy = false;
         }
 
-        private async Task Next()
+        private void Next()
         {
             NavigationPage.SetHasBackButton(navigation.NavigationStack.Last(), true);
             Application.Current.MainPage = new MasterPage();
         }
-
 
         string CreateHash()
         {
@@ -170,11 +169,9 @@ namespace TuVotoCuenta.ViewModels.Report
             sb.Append(item.RecordHash);
             sb.Append(item.BlockchainTransaction);
            
-
             var hash = $"0x{Helpers.HashHelper.GetSha256Hash(sb.ToString())}";
 
             return hash;
         }
-
     }
 }

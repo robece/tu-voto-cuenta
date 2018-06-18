@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>TuVotoCuenta.Droid</RootNamespace>
     <AssemblyName>TuVotoCuenta.Droid</AssemblyName>
-    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1.99</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -666,6 +666,8 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
     <AndroidResource Include="Resources\drawable\pan.jpg" />
     <AndroidResource Include="Resources\drawable\svgdarksponsor.svg" />
+    <AndroidResource Include="Resources\drawable\svgdarkvotedown.svg" />
+    <AndroidResource Include="Resources\drawable\svgdarkvoteup.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TuVotoCuenta\TuVotoCuenta.csproj">

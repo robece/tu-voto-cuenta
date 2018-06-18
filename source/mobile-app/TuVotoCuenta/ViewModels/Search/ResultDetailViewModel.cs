@@ -75,7 +75,7 @@ namespace TuVotoCuenta.ViewModels.Search
 
         public ResultDetailViewModel(INavigation navigation, RecordItem recordItem)
         {
-            
+
             this.navigation = navigation;
             this.recordItem = recordItem;
             InitializeViewModel();
@@ -83,12 +83,12 @@ namespace TuVotoCuenta.ViewModels.Search
 
         void InitializeViewModel()
         {
-            Title = "Detalle";
+            Title = "Registro de captura";
             IsContinueGoBackEnabled = false;
             ContinueGoBackCommand = new Command(async () => await Back());
             UpVoteCommand = new Command(async () => await UpVote());
             DownVoteCommand = new Command(async () => await DownVote());
-            SendRequest();
+            Task.Run(async () => { await SendRequest(); });
         }
 
         private async Task DownVote()
@@ -113,7 +113,7 @@ namespace TuVotoCuenta.ViewModels.Search
                 AddVoteRequest addVoteRequest = new AddVoteRequest()
                 {
                     Hash = recordItem.RecordHash,
-                    IsApproval = approved, 
+                    IsApproval = approved,
                     Username = Settings.Profile_Username
                 };
 
@@ -124,7 +124,7 @@ namespace TuVotoCuenta.ViewModels.Search
                     MessageTitle = "Se presentó un problema al votar por el registro.";
                     MessageSubTitle = response.Message;
 
-                   await Application.Current.MainPage.DisplayAlert(messageTitle, messageSubTitle, "Aceptar");
+                    await Application.Current.MainPage.DisplayAlert(messageTitle, messageSubTitle, "Aceptar");
 
                 }
                 else

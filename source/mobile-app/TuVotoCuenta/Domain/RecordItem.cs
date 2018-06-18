@@ -82,7 +82,7 @@ namespace TuVotoCuenta.Domain
         [JsonProperty("createdDate")]
         public string CreatedDate { get; set; }
         [JsonProperty("username")]
-        public string UserName { get; set; }
+        public string Username { get; set; }
         [JsonProperty("transactionId")]
         public string TransactionId { get; set; }
         [JsonIgnore]
