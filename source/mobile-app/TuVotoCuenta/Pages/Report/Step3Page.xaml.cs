@@ -5,15 +5,15 @@ using Xamarin.Forms;
 
 namespace TuVotoCuenta.Pages
 {
-	public partial class Step3Page : StepPage
+    public partial class Step3Page : StepPage
     {
         public Step3Page()
         {
             InitializeComponent();
-			BindingContext = new Step3ViewModel(this.Navigation);
+            BindingContext = new Step3ViewModel(this.Navigation);
         }
 
-		public override void UnfocusSave()
+        public override void UnfocusSave()
         {
             base.UnfocusSave();
             ((Step3ViewModel)BindingContext).Save();
@@ -65,6 +65,33 @@ namespace TuVotoCuenta.Pages
             await Task.Delay(10);
             imPriverna.Source = "priverna";
             await Task.Delay(10);
+
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            imPt.Source = null;
+            imPan.Source = null;
+            imPes.Source = null;
+            imPmc.Source = null;
+            imPna.Source = null;
+            imPrd.Source = null;
+            imPri.Source = null;
+            imPtes.Source = null;
+            imPvem.Source = null;
+            imPanmc.Source = null;
+            imPrdmc.Source = null;
+            imPrina.Source = null;
+            imPanprd.Source = null;
+            imPmores.Source = null;
+            imPmorpt.Source = null;
+            imPriver.Source = null;
+            imPverna.Source = null;
+            imPmorena.Source = null;
+            imPtesmor.Source = null;
+            imPrdpanmc.Source = null;
+            imPriverna.Source = null;
 
         }
 
