@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="Preguntas Frecuentes" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.FAQ.FaqPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Margin="20,20,20,20">
+            <WebView x:Name="browser" IsEnabled="true" IsVisible="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            </WebView>
+         </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

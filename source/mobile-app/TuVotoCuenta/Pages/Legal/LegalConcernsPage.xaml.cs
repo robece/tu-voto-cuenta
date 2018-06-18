@@ -9,41 +9,36 @@ using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace TuVotoCuenta.Pages
 {
-	public partial class LegalConcernsPage : ContentPage
-	{
-		public LegalConcernsPage()
-		{
-			InitializeComponent();
+    public partial class LegalConcernsPage : ContentPage
+    {
+        public LegalConcernsPage()
+        {
+            InitializeComponent();
 
             Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, true);
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
-			BindingContext = new LegalConcernsViewModel(this.Navigation);
-		}
+            BindingContext = new LegalConcernsViewModel(this.Navigation);
+        }
 
-		public LegalConcernsPage(SignUpAccountRequest model)
-		{
-			InitializeComponent();
+        public LegalConcernsPage(SignUpAccountRequest model)
+        {
+            InitializeComponent();
 
-			Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
 
-			BindingContext = new LegalConcernsViewModel(this.Navigation, model);
-		}
+            BindingContext = new LegalConcernsViewModel(this.Navigation, model);
+        }
 
-		protected override void OnAppearing()
-		{
-			base.OnAppearing();
-			Task.Run(async () =>
-			{
-				var legalConcerns = await DependencyService.Get<ILegalConcerns>().ReadLegalConcerns();
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
-				Device.BeginInvokeOnMainThread(() => { 
-					var htmlSource = new HtmlWebViewSource();
-					htmlSource.Html = legalConcerns;
-                    browser.Source = htmlSource;
-				});            
-			});
-		}
-	}
+            var legalConcerns = Helpers.LocalFilesHelper.ReadFileInPackage("LegalConcerns.html"); ;
+            var htmlSource = new HtmlWebViewSource();
+            htmlSource.Html = legalConcerns;
+            browser.Source = htmlSource;
+        }
+    }
 }

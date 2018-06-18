@@ -39,6 +39,7 @@
     <Folder Include="Enums\" />
     <Folder Include="Pages\Account\" />
     <Folder Include="ViewModels\Account\" />
+    <Folder Include="Pages\FAQ\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />
@@ -204,6 +205,8 @@
     <None Remove="Files\Municipalities\9.txt" />
     <None Remove="Files\Municipalities\6.txt" />
     <None Remove="Files\Municipalities\10.txt" />
+    <None Remove="Files\LegalConcerns.html" />
+    <None Remove="Files\Faqs.html" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Files\data.json" />
@@ -269,5 +272,7 @@
     <EmbeddedResource Include="Files\Municipalities\9.txt" />
     <EmbeddedResource Include="Files\Municipalities\6.txt" />
     <EmbeddedResource Include="Files\Municipalities\10.txt" />
+    <EmbeddedResource Include="Files\LegalConcerns.html" />
+    <EmbeddedResource Include="Files\Faqs.html" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using TuVotoCuenta.MasterDetail;
 using TuVotoCuenta.Pages;
+using TuVotoCuenta.Pages.FAQ;
 using TuVotoCuenta.Pages.Search;
 
 namespace TuVotoCuenta.Domain
@@ -43,7 +44,7 @@ namespace TuVotoCuenta.Domain
             {
                 Title = "Preguntas Frecuentes (FAQ)",
                 IconSource = "svgdarkfaq.svg",
-                TargetType = typeof(LegalConcernsPage)
+                TargetType = typeof(FaqPage)
             });
 
 			g1.Add(new MasterPageItem

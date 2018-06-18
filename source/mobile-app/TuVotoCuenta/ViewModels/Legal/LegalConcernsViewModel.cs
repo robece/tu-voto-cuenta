@@ -32,10 +32,7 @@ namespace TuVotoCuenta.ViewModels
         void InitializeViewModel()
         {
             Title = "Uso y privacidad";
-            Task.Run(async() => { 
-                LegalConcerns = await DependencyService.Get<ILegalConcerns>().ReadLegalConcerns();
-            });
-
+            LegalConcerns =  Helpers.LocalFilesHelper.ReadFileInPackage("LegalConcerns.html");
 			SignUpCommand = new Command(() => SignUp());
             CancelSignUpCommand = new Command(() => CancelSignUp());
         }
