@@ -40,6 +40,7 @@
     <Folder Include="Pages\Account\" />
     <Folder Include="ViewModels\Account\" />
     <Folder Include="Pages\FAQ\" />
+    <Folder Include="Pages\Sponsors\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.5.1.527436" />

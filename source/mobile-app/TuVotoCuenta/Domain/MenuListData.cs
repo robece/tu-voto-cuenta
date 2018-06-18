@@ -3,6 +3,7 @@ using TuVotoCuenta.MasterDetail;
 using TuVotoCuenta.Pages;
 using TuVotoCuenta.Pages.FAQ;
 using TuVotoCuenta.Pages.Search;
+using TuVotoCuenta.Pages.Sponsors;
 
 namespace TuVotoCuenta.Domain
 {
@@ -45,6 +46,13 @@ namespace TuVotoCuenta.Domain
                 Title = "Preguntas Frecuentes (FAQ)",
                 IconSource = "svgdarkfaq.svg",
                 TargetType = typeof(FaqPage)
+            });
+
+            g1.Add(new MasterPageItem
+            {
+                Title = "Patrocinadores",
+                IconSource = "svgdarksponsor.svg",
+                TargetType = typeof(SponsorsPage)
             });
 
 			g1.Add(new MasterPageItem

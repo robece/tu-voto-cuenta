@@ -398,6 +398,7 @@
     <BundleResource Include="Resources\master.jpg" />
     <BundleResource Include="Resources\svgdarkfaq.svg" />
     <BundleResource Include="Resources\infografiaintro.jpg" />
+    <BundleResource Include="Resources\svgdarksponsor.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.5.1.527436\build\netstandard1.0\Xamarin.Forms.targets')" />
