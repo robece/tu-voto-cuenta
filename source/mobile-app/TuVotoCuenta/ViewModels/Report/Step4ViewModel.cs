@@ -85,7 +85,7 @@ namespace TuVotoCuenta.ViewModels
             Helpers.LocalFilesHelper.SaveFile(item.UID.ToString(), Photo);
             item.ImageLatitude = App.Latitude;
             item.ImageLongitude = App.Longitude;
-            item.UserName = Settings.Profile_Username;
+            item.Username = Settings.Profile_Username;
             item.ImageBytes = Convert.ToBase64String(Photo);
             Settings.CurrentRecordItem = JsonConvert.SerializeObject(item);
         }

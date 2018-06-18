@@ -39,7 +39,7 @@
                             <behaviors:StepPickerLostFocus />
                         </Entry.Behaviors>
                     </Picker>
-                    <controls:ImageEntry Text="{Binding LocationDetails}" Placeholder="Detalles de la ubicación" Style="{StaticResource arrowEntry}">
+                    <controls:ImageEntry Text="{Binding LocationDetails}" Placeholder="Detalles de la ubicación (opcional)" Style="{StaticResource arrowEntry}">
                         <Entry.Behaviors>
                             <behaviors:StepImageEntryLostFocus />
                         </Entry.Behaviors>

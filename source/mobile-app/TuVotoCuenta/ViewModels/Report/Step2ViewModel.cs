@@ -53,8 +53,6 @@ namespace TuVotoCuenta.ViewModels
 
         bool ValidateInformation()
         {
-            if (String.IsNullOrEmpty(LocationDetails))
-                return false;
             return true;
         }
 

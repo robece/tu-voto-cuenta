@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.SearchStep1Page" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:vm="clr-namespace:TuVotoCuenta.ViewModels.Search">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Siguiente" Command="{Binding NextCommand}" />
+        <ToolbarItem Text="Buscar" Command="{Binding NextCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Margin="40,30,40,30">
-            <Label Text="Encuentra una casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
-            <BoxView HeightRequest="20" BackgroundColor="{StaticResource DarkSelector}" />
+            <Label Text="Encuentra una casilla" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" /> 
             <ActivityIndicator Color="{StaticResource DarkSelector}" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" />
             <StackLayout Spacing="10">
                 <Picker Title="Entidad Federativa" TextColor="Gray" ItemsSource="{Binding Entities}" SelectedItem="{Binding SelectedEntity}" />
