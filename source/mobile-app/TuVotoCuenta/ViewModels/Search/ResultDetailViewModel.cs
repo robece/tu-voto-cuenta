@@ -113,7 +113,7 @@ namespace TuVotoCuenta.ViewModels.Search
                 MessageTitle = "Realizando voto...";
                 MessageSubTitle = "Espera un momento.";
 
-                EmitingVoteMessage = (approved) ? "Emitiendo aprobación" : "Emitiendo desaprobación"; 
+                EmitingVoteMessage = "Emitiendo voto..."; 
 
                 AddVoteRequest addVoteRequest = new AddVoteRequest()
                 {

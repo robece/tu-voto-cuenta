@@ -14,16 +14,16 @@
                     <Frame Margin="0,5,0,10" WidthRequest="254" HeightRequest="354" HorizontalOptions="Center" VerticalOptions="Center" BackgroundColor="Black" OutlineColor="Black" Padding="2">
                         <ffimage:CachedImage DownsampleUseDipUnits="true" DownsampleToViewSize="true" WidthRequest="280" HeightRequest="380" HorizontalOptions="Center" VerticalOptions="Center" Aspect="AspectFit" Source="{Binding RecordItem.StorageUrl}" />
                     </Frame>
+                    <controls:HyperLinkLabel Text="Descargar imagen" Margin="0,0,0,10" FontSize="Small" HorizontalOptions="Center" UriToNavigate="{Binding RecordItem.StorageUrl}" />
                     <Label Text="Valoración pública" HorizontalTextAlignment="Start" FontAttributes="Bold" />
                     <Label Text="Presiona dos veces seguidas sobre el icono para emitir tu voto, recuerda solo puedes votar una vez por captura y tu voto es irreversible." Margin="0,0,0,10" HorizontalTextAlignment="Start" FontSize="Small" />
-                    <Grid>
+                    <Grid Margin="0,0,0,10">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="30" />
+                            <ColumnDefinition Width="30" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
@@ -34,14 +34,14 @@
                             </ffimagesvg:SvgCachedImage.GestureRecognizers>
                         </ffimagesvg:SvgCachedImage>
                         <Label Grid.Row="0" Grid.Column="1" TextColor="Green" Text="{Binding UpVotes,StringFormat='+ {0}'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
-                        <ffimagesvg:SvgCachedImage Grid.Row="0" Grid.Column="4" Source="svgdarkvotedown.svg" WidthRequest="30" HeightRequest="30" HorizontalOptions="End">
+                        <Label Grid.Row="0" Grid.Column="2" Text="{Binding EmitingVoteMessage}" FontSize="Small" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        <ffimagesvg:SvgCachedImage Grid.Row="0" Grid.Column="3" Source="svgdarkvotedown.svg" WidthRequest="30" HeightRequest="30" HorizontalOptions="End">
                             <ffimagesvg:SvgCachedImage.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding DownVoteCommand}" NumberOfTapsRequired="2" />
                             </ffimagesvg:SvgCachedImage.GestureRecognizers>
                         </ffimagesvg:SvgCachedImage>
-                        <Label Grid.Row="0" Grid.Column="5" TextColor="Red" Text="{Binding DownVotes,StringFormat='- {0}'}" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
+                        <Label Grid.Row="0" Grid.Column="4" TextColor="Red" Text="{Binding DownVotes,StringFormat='- {0}'}" VerticalTextAlignment="Center" HorizontalTextAlignment="End" />
                     </Grid>
-                    <Label Text="{Binding EmitingVoteMessage}" Margin="0,0,0,10" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
                     <Label Text="Sección de casilla:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.BoxSection}" HorizontalTextAlignment="Start" />
                     <Label Text="Número de casilla:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
