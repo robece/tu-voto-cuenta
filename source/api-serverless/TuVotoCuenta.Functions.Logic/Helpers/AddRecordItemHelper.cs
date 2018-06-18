@@ -120,6 +120,7 @@ namespace TuVotoCuenta.Functions.Logic.Helpers
                     recordItem.hash = recordItem.hash.ToLower();
                     recordItem.transactionId = res_AddRecordAsync;
                     recordItem.createdDate = Timezone.GetCustomTimeZone();
+                    recordItem.image = recordItem.image + ".png";
 
                     //perform insert in mongodb
                     await dbRecordItemHelper.CreateRecordItem(recordItem);
