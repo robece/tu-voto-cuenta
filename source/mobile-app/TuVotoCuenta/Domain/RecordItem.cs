@@ -93,6 +93,29 @@ namespace TuVotoCuenta.Domain
                 return $"{Settings.ImageStorageUrl}/{Settings.RedordImageStorageUrl}/{Image}";
             }
         }
-
+        [JsonIgnore]
+        public bool HasLatitudeLongitude
+        {
+            get
+            {
+                return (!ImageLatitude.Equals(0));
+            }
+        }
+        [JsonIgnore]
+        public string LatitudeLongitude
+        {
+            get
+            {
+                return $"{ImageLatitude}/{ImageLongitude}";
+            }
+        }
+        [JsonIgnore]
+        public string GoogleMapsLocationURL
+        {
+            get
+            {
+                return $"https://www.google.com.mx/maps/@{ImageLatitude},{ImageLongitude},15z";
+            }
+        }
     }
 }

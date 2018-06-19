@@ -52,6 +52,9 @@
                     <Label Text="{Binding RecordItem.Municipality}" HorizontalTextAlignment="Start" />
                     <Label Text="Localidad:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.Locality}" HorizontalTextAlignment="Start" />
+                    <Label Text="Latitud/Longitud:" IsVisible="{Binding RecordItem.HasLatitudeLongitude}" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
+                    <Label Text="{Binding RecordItem.LatitudeLongitude}" IsVisible="{Binding RecordItem.HasLatitudeLongitude}" HorizontalTextAlignment="Start" />
+                    <controls:HyperLinkLabel Text="Consulta la ubicación en Google Maps" IsVisible="{Binding RecordItem.HasLatitudeLongitude}" FontSize="Small" HorizontalOptions="Start" UriToNavigate="{Binding RecordItem.GoogleMapsLocationURL}" />
                     <Label Text="Hash:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.RecordHash}" HorizontalTextAlignment="Start" />
                     <Label Text="Identificador de transacción de blockchain:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
