@@ -2,6 +2,19 @@
 <ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.ResultDetailPage" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:controls="clr-namespace:TuVotoCuenta.Controls">
     <ContentPage.Resources>
         <ResourceDictionary>
+             <Style TargetType="ffimage:CachedImage">
+                <Setter Property="DownsampleToViewSize" Value="true" />
+                <Setter Property="DownsampleUseDipUnits" Value="true" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="WidthRequest" Value="70" />
+                <Setter Property="HeightRequest" Value="70" />
+            </Style>
+            <Style x:Key="PartyTitle" TargetType="Label">
+                <Setter Property="VerticalTextAlignment" Value="End" />
+                <Setter Property="FontSize" Value="Small" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
             <converters:StringToUriConverter x:Key="stringToUriConverter" />
             <cvt:OppositeBoolConverter x:Key="oppositeBoolCoverter" />
         </ResourceDictionary>
@@ -63,6 +76,177 @@
                     <Label Text="Fecha de registro:" HorizontalTextAlignment="Start" FontSize="Small" FontAttributes="Bold" />
                     <Label Text="{Binding RecordItem.CreatedDate}" HorizontalTextAlignment="Start" />
                     <Label Text="Votos" Margin="0,0,0,10" HorizontalTextAlignment="Start" FontAttributes="Bold" />
+                    <Grid Padding="10,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100">
+                            </ColumnDefinition>
+                            <ColumnDefinition Width="*">
+                            </ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                        </Grid.RowDefinitions>
+                        <ffimage:CachedImage Grid.Row="0" Grid.Column="0" x:Name="imPan" />
+                        <StackLayout Grid.Row="0" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPAN}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="1" Grid.Column="0" x:Name="imPri" />
+                        <StackLayout Grid.Row="1" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRI}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="2" Grid.Column="0" x:Name="imPrd" />
+                        <StackLayout Grid.Row="2" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRD}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="3" Grid.Column="0" x:Name="imPvem" />
+                        <StackLayout Grid.Row="3" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyVerde}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="4" Grid.Column="0" x:Name="imPt" />
+                        <StackLayout Grid.Row="4" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPT}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="5" Grid.Column="0" x:Name="imPmc" />
+                        <StackLayout Grid.Row="5" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="6" Grid.Column="0" x:Name="imPna" />
+                        <StackLayout Grid.Row="6" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="7" Grid.Column="0" x:Name="imPmorena" />
+                        <StackLayout Grid.Row="7" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyMOR}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="8" Grid.Column="0" x:Name="imPes" />
+                        <StackLayout Grid.Row="8" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="9" Grid.Column="0" x:Name="imPtesmor" />
+                        <StackLayout Grid.Row="9" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPTESMOR}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="10" Grid.Column="0" x:Name="imPriverna" />
+                        <StackLayout Grid.Row="10" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRIVERNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="11" Grid.Column="0" x:Name="imPrdpanmc" />
+                        <StackLayout Grid.Row="11" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRDPANMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="12" Grid.Column="0" x:Name="imPtes" />
+                        <StackLayout Grid.Row="12" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPTES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="13" Grid.Column="0" x:Name="imPriver" />
+                        <StackLayout Grid.Row="13" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRIVER}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="14" Grid.Column="0" x:Name="imPrdmc" />
+                        <StackLayout Grid.Row="14" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRDMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="15" Grid.Column="0" x:Name="imPmores" />
+                        <StackLayout Grid.Row="15" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyMORES}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="16" Grid.Column="0" x:Name="imPrina" />
+                        <StackLayout Grid.Row="16" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRINA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="17" Grid.Column="0" x:Name="imPanmc" />
+                        <StackLayout Grid.Row="17" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPANMC}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="18" Grid.Column="0" x:Name="imPmorpt" />
+                        <StackLayout Grid.Row="18" Grid.Column="1">
+                            <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyMORPT}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="19" Grid.Column="0" x:Name="imPverna" />
+                        <StackLayout Grid.Row="19" Grid.Column="1">
+                            <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyVERNA}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <ffimage:CachedImage Grid.Row="20" Grid.Column="0" x:Name="imPanprd" />
+                        <StackLayout Grid.Row="20" Grid.Column="1">
+                            <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyPRDPAN}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <Label Grid.Row="21" Grid.Column="0" Text="Cand. Indep." VerticalTextAlignment="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
+                        <StackLayout Grid.Row="21" Grid.Column="1">
+                            <Label Text="JAIME H. RODRIGUEZ" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyINDJai}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                        <Label Grid.Row="22" Grid.Column="0" Text="No Reg." VerticalTextAlignment="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
+                        <StackLayout Grid.Row="22" Grid.Column="1">
+                            <Label Text="No registrados" Style="{StaticResource PartyTitle}">
+                            </Label>
+                            <Label Text="{Binding RecordItem.PartyOtro}" VerticalTextAlignment="Center" FontSize="Large" HorizontalTextAlignment="Center" />
+                        </StackLayout>
+                    </Grid>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
