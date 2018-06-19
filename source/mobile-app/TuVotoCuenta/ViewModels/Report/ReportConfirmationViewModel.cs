@@ -77,7 +77,7 @@ namespace TuVotoCuenta.ViewModels.Report
             {
                 IsBusy = true;
                 MessageTitle = "Enviando...";
-                MessageSubTitle = "Espera un momento, estamos enviando la información. El proceso puede tomar unos segundos.";
+                MessageSubTitle = "Espera un momento, el proceso puede tomar unos segundos.";
                 item.RecordHash = CreateHash();
                 item.DeviceHash = Helpers.HashHelper.GetSha256Hash(Plugin.DeviceInfo.CrossDeviceInfo.Current.Id);
                 item.Username = Settings.Profile_Username;

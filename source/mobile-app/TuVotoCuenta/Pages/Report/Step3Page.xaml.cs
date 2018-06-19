@@ -65,12 +65,12 @@ namespace TuVotoCuenta.Pages
             await Task.Delay(10);
             imPriverna.Source = "priverna";
             await Task.Delay(10);
-
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+
             imPt.Source = null;
             imPan.Source = null;
             imPes.Source = null;
@@ -92,7 +92,6 @@ namespace TuVotoCuenta.Pages
             imPtesmor.Source = null;
             imPrdpanmc.Source = null;
             imPriverna.Source = null;
-
         }
 
     }

@@ -2,16 +2,14 @@
 <controls:StepPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" x:Class="TuVotoCuenta.Pages.Step3Page" xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms">
     <controls:StepPage.Resources>
         <ResourceDictionary>
-
-            <Style  TargetType="ffimage:CachedImage">
-                <Setter Property="DownsampleToViewSize" Value="true"/>
-                <Setter Property="DownsampleUseDipUnits" Value="true"/>
+            <Style TargetType="ffimage:CachedImage">
+                <Setter Property="DownsampleToViewSize" Value="true" />
+                <Setter Property="DownsampleUseDipUnits" Value="true" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="WidthRequest" Value="70" />
                 <Setter Property="HeightRequest" Value="70" />
             </Style>
-            
             <Style x:Key="PartyTitle" TargetType="Label">
                 <Setter Property="VerticalTextAlignment" Value="End" />
                 <Setter Property="FontSize" Value="Small" />
@@ -25,7 +23,7 @@
     </controls:StepPage.ToolbarItems>
     <controls:StepPage.Content>
         <ScrollView>
-            <StackLayout  Margin="40,30,40,30">
+            <StackLayout Margin="40,30,40,30">
                 <controls:StepProgressBar3 />
                 <Label Text="Candidatos" Margin="0,0,0,10" HorizontalTextAlignment="Center" FontAttributes="Bold" />
                 <StackLayout Spacing="10">
@@ -61,9 +59,9 @@
                             <RowDefinition Height="100" />
                             <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
-                        <ffimage:CachedImage Grid.Row="0" Grid.Column="0" x:Name="imPan" >
+                        <ffimage:CachedImage Grid.Row="0" Grid.Column="0" x:Name="imPan">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="0" Grid.Column="1" >
+                        <StackLayout Grid.Row="0" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPAN, Converter={StaticResource intToStringConverter}}">
@@ -73,9 +71,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="1" Grid.Column="0" x:Name="imPri" >
+                        <ffimage:CachedImage Grid.Row="1" Grid.Column="0" x:Name="imPri">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="1" Grid.Column="1" >
+                        <StackLayout Grid.Row="1" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPRI, Converter={StaticResource intToStringConverter}}">
@@ -85,9 +83,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="2" Grid.Column="0" x:Name="imPrd" >
+                        <ffimage:CachedImage Grid.Row="2" Grid.Column="0" x:Name="imPrd">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="2" Grid.Column="1" >
+                        <StackLayout Grid.Row="2" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPRD, Converter={StaticResource intToStringConverter}}">
@@ -97,9 +95,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="3" Grid.Column="0" x:Name="imPvem" >
+                        <ffimage:CachedImage Grid.Row="3" Grid.Column="0" x:Name="imPvem">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="3" Grid.Column="1" >
+                        <StackLayout Grid.Row="3" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyVerde, Converter={StaticResource intToStringConverter}}">
@@ -109,9 +107,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="4" Grid.Column="0" x:Name="imPt" >
+                        <ffimage:CachedImage Grid.Row="4" Grid.Column="0" x:Name="imPt">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="4" Grid.Column="1" >
+                        <StackLayout Grid.Row="4" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPT, Converter={StaticResource intToStringConverter}}">
@@ -121,9 +119,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="5" Grid.Column="0" x:Name="imPmc" >
+                        <ffimage:CachedImage Grid.Row="5" Grid.Column="0" x:Name="imPmc">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="5" Grid.Column="1" >
+                        <StackLayout Grid.Row="5" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMC, Converter={StaticResource intToStringConverter}}">
@@ -133,9 +131,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="6" Grid.Column="0" x:Name="imPna" >
+                        <ffimage:CachedImage Grid.Row="6" Grid.Column="0" x:Name="imPna">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="6" Grid.Column="1" >
+                        <StackLayout Grid.Row="6" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyNA, Converter={StaticResource intToStringConverter}}">
@@ -145,9 +143,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="7" Grid.Column="0" x:Name="imPmorena" >
+                        <ffimage:CachedImage Grid.Row="7" Grid.Column="0" x:Name="imPmorena">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="7" Grid.Column="1" >
+                        <StackLayout Grid.Row="7" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMOR, Converter={StaticResource intToStringConverter}}">
@@ -157,9 +155,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="8" Grid.Column="0" x:Name="imPes" >
+                        <ffimage:CachedImage Grid.Row="8" Grid.Column="0" x:Name="imPes">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="8" Grid.Column="1" >
+                        <StackLayout Grid.Row="8" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyES, Converter={StaticResource intToStringConverter}}">
@@ -169,9 +167,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        <ffimage:CachedImage Grid.Row="9" Grid.Column="0" x:Name="imPtesmor" >
+                        <ffimage:CachedImage Grid.Row="9" Grid.Column="0" x:Name="imPtesmor">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="9" Grid.Column="1" >
+                        <StackLayout Grid.Row="9" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPtEsMor, Converter={StaticResource intToStringConverter}}">
@@ -181,9 +179,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="10" Grid.Column="0" x:Name="imPriverna" >
+                        <ffimage:CachedImage Grid.Row="10" Grid.Column="0" x:Name="imPriverna">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="10" Grid.Column="1" >
+                        <StackLayout Grid.Row="10" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPriVerNa, Converter={StaticResource intToStringConverter}}">
@@ -193,9 +191,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="11" Grid.Column="0" x:Name="imPrdpanmc" >
+                        <ffimage:CachedImage Grid.Row="11" Grid.Column="0" x:Name="imPrdpanmc">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="11" Grid.Column="1" >
+                        <StackLayout Grid.Row="11" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPrdPanMc, Converter={StaticResource intToStringConverter}}">
@@ -205,10 +203,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-
-                        <ffimage:CachedImage Grid.Row="12" Grid.Column="0" x:Name="imPtes" >
+                        <ffimage:CachedImage Grid.Row="12" Grid.Column="0" x:Name="imPtes">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="12" Grid.Column="1" >
+                        <StackLayout Grid.Row="12" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPtEs, Converter={StaticResource intToStringConverter}}">
@@ -218,9 +215,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="13" Grid.Column="0" x:Name="imPriver" >
+                        <ffimage:CachedImage Grid.Row="13" Grid.Column="0" x:Name="imPriver">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="13" Grid.Column="1" >
+                        <StackLayout Grid.Row="13" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPriVer, Converter={StaticResource intToStringConverter}}">
@@ -230,9 +227,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="14" Grid.Column="0" x:Name="imPrdmc" >
+                        <ffimage:CachedImage Grid.Row="14" Grid.Column="0" x:Name="imPrdmc">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="14" Grid.Column="1" >
+                        <StackLayout Grid.Row="14" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPrdMc, Converter={StaticResource intToStringConverter}}">
@@ -242,10 +239,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-
-                        <ffimage:CachedImage Grid.Row="15" Grid.Column="0" x:Name="imPmores" >
+                        <ffimage:CachedImage Grid.Row="15" Grid.Column="0" x:Name="imPmores">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="15" Grid.Column="1" >
+                        <StackLayout Grid.Row="15" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMorEs, Converter={StaticResource intToStringConverter}}">
@@ -255,9 +251,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="16" Grid.Column="0" x:Name="imPrina" >
+                        <ffimage:CachedImage Grid.Row="16" Grid.Column="0" x:Name="imPrina">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="16" Grid.Column="1" >
+                        <StackLayout Grid.Row="16" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPriNa, Converter={StaticResource intToStringConverter}}">
@@ -267,9 +263,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="17" Grid.Column="0" x:Name="imPanmc" >
+                        <ffimage:CachedImage Grid.Row="17" Grid.Column="0" x:Name="imPanmc">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="17" Grid.Column="1" >
+                        <StackLayout Grid.Row="17" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPanMc, Converter={StaticResource intToStringConverter}}">
@@ -279,10 +275,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-
-                        <ffimage:CachedImage Grid.Row="18" Grid.Column="0" x:Name="imPmorpt" >
+                        <ffimage:CachedImage Grid.Row="18" Grid.Column="0" x:Name="imPmorpt">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="18" Grid.Column="1" >
+                        <StackLayout Grid.Row="18" Grid.Column="1">
                             <Label Text="ANDRES M. LOPEZ OBRADOR" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyMorPt, Converter={StaticResource intToStringConverter}}">
@@ -292,9 +287,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="19" Grid.Column="0" x:Name="imPverna" >
+                        <ffimage:CachedImage Grid.Row="19" Grid.Column="0" x:Name="imPverna">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="19" Grid.Column="1" >
+                        <StackLayout Grid.Row="19" Grid.Column="1">
                             <Label Text="JOSE A. MEADE KURIBREÑA" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyVerNa, Converter={StaticResource intToStringConverter}}">
@@ -304,9 +299,9 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                         <ffimage:CachedImage Grid.Row="20" Grid.Column="0" x:Name="imPanprd" >
+                        <ffimage:CachedImage Grid.Row="20" Grid.Column="0" x:Name="imPanprd">
                         </ffimage:CachedImage>
-                        <StackLayout Grid.Row="20" Grid.Column="1" >
+                        <StackLayout Grid.Row="20" Grid.Column="1">
                             <Label Text="RICARDO ANAYA CORTES" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyPrdPan, Converter={StaticResource intToStringConverter}}">
@@ -316,9 +311,8 @@
                                 </Entry.Behaviors>
                             </Entry>
                         </StackLayout>
-                        
                         <Label Grid.Row="21" Grid.Column="0" Text="Cand. Indep." FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
-                        <StackLayout Grid.Row="21" Grid.Column="1" >
+                        <StackLayout Grid.Row="21" Grid.Column="1">
                             <Label Text="JAIME H. RODRIGUEZ" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyINDJai, Converter={StaticResource intToStringConverter}}">
@@ -329,7 +323,7 @@
                             </Entry>
                         </StackLayout>
                         <Label Grid.Row="22" Grid.Column="0" Text="No Registrados" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
-                        <StackLayout Grid.Row="22" Grid.Column="1" >
+                        <StackLayout Grid.Row="22" Grid.Column="1">
                             <Label Text="No registrados" Style="{StaticResource PartyTitle}">
                             </Label>
                             <Entry Style="{StaticResource numericArrowEntry}" Text="{Binding PartyOtro, Converter={StaticResource intToStringConverter}}">
