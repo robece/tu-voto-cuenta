@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.ResultDetailPage" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:controls="clr-namespace:TuVotoCuenta.Controls">
+<ContentPage IsBusy="{Binding IsBusy}" Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.ResultDetailPage" xmlns:converters="clr-namespace:TuVotoCuenta.Converters" xmlns:ffimagesvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:ffimage="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" xmlns:cvt="clr-namespace:TuVotoCuenta.Converters" xmlns:controls="clr-namespace:TuVotoCuenta.Controls">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:StringToUriConverter x:Key="stringToUriConverter" />

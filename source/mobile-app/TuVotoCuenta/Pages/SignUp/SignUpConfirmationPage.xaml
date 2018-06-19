@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.SignUpConfirmationPage">
+<ContentPage IsBusy="{Binding IsBusy}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.SignUpConfirmationPage">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="10,10,10,10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
             <Label Text="{Binding MessageTitle}" HorizontalTextAlignment="Center" />

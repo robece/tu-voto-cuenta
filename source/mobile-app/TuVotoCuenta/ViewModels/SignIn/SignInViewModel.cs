@@ -58,7 +58,7 @@ namespace TuVotoCuenta.ViewModels
 
                     SignInAccountRequest model = new SignInAccountRequest() { username = Username, password = Password };
                     SignInAccountResponse response = await RestHelper.SignInAccountAsync(model);
-
+                  
                     if (response.Status != ResponseStatus.Ok)
                     {
                         await Application.Current.MainPage.DisplayAlert("Error", response.Message, "Aceptar");
@@ -67,6 +67,8 @@ namespace TuVotoCuenta.ViewModels
                     {
                         Settings.Profile_Username = response.Username;
                         Settings.Profile_Picture = $"{Settings.ImageStorageUrl}/{Settings.AccountImageStorageUrl}/{response.Image}";
+                        IsBusy = false;
+                        await Task.Delay(10);
                         Application.Current.MainPage = new MasterPage() { IsPresented = true };
                     }
                     IsBusy = false;

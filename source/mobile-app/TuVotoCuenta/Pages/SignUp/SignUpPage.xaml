@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.SignUpPage" xmlns:Behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:converters="clr-namespace:TuVotoCuenta.Converters">
+<ContentPage IsBusy="{Binding IsBusy}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carousel="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" xmlns:controls="clr-namespace:TuVotoCuenta.Controls" xmlns:behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" x:Class="TuVotoCuenta.Pages.SignUpPage" xmlns:Behaviors="clr-namespace:TuVotoCuenta.Behaviors" xmlns:converters="clr-namespace:TuVotoCuenta.Converters">
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:InverseValidationResultToBoolConverter x:Key="inverseValidationResultToBoolConverter" />
