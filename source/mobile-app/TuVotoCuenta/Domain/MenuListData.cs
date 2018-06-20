@@ -48,12 +48,12 @@ namespace TuVotoCuenta.Domain
                 TargetType = typeof(FaqPage)
             });
 
-            g1.Add(new MasterPageItem
-            {
-                Title = "Patrocinadores",
-                IconSource = "svgdarksponsor.svg",
-                TargetType = typeof(SponsorsPage)
-            });
+            //g1.Add(new MasterPageItem
+            //{
+            //    Title = "Patrocinadores",
+            //    IconSource = "svgdarksponsor.svg",
+            //    TargetType = typeof(SponsorsPage)
+            //});
 
 			g1.Add(new MasterPageItem
             {
