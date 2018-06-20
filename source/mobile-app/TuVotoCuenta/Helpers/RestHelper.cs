@@ -382,7 +382,7 @@ namespace TuVotoCuenta.Helpers
                 {
                     using (var client = new HttpClient())
                     {
-                        var service = $"{Settings.FunctionURL}/api/GetRecordVoteList/";
+                        var service = $"{Settings.FunctionURL}api/GetRecordVoteList/";
 
                         byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model));
                         using (var content = new ByteArrayContent(byteData))

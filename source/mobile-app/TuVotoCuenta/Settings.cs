@@ -18,6 +18,7 @@ namespace TuVotoCuenta
         static readonly string SettingsDefault = string.Empty;
 
 		private const string FunctionURLKey = "FunctionURLKey";
+        private const string BlockchainURLKey = "BlockchainURLKey";
 		private const string AccountImageStorageUrlKey = "AccountImageStorageUrlKey";
         private const string RecordImageStorageUrlKey = "RecordsImageStorageUrlKey";
         private const string ImageStorageUrlKey = "ImageStorageUrlKey";
@@ -39,6 +40,18 @@ namespace TuVotoCuenta
             set
             {
                 AppSettings.AddOrUpdateValue(FunctionURLKey, value);
+            }
+        }
+
+        public static string BlockchainURL
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(BlockchainURLKey, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(BlockchainURLKey, value);
             }
         }
 

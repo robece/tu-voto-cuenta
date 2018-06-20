@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage Title="{Binding Title}" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="TuVotoCuenta.Pages.Search.VoteHistoryPage" xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms" xmlns:converters="clr-namespace:TuVotoCuenta.Converters">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:BooleanToSvgConverter x:Key="booleanToSvgConverter" />
+            <converters:OppositeBoolConverter x:Key="oppositeBoolCoverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+            <StackLayout IsVisible="{Binding IsContinueGoBackEnabled}" Orientation="Vertical" Padding="10,10,10,10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding MessageTitle}" HorizontalTextAlignment="Center" />
+                <Label Text="{Binding MessageSubTitle}" HorizontalTextAlignment="Center" />
+                <ActivityIndicator HorizontalOptions="CenterAndExpand" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" Color="{StaticResource PrimaryDark}" />
+            </StackLayout>
+            <Label Margin="10" Text="Al presionar un elemento serás enviado al detalle de la transacción en blockcahin" />
+            <ListView IsVisible="{Binding IsContinueGoBackEnabled, Converter={StaticResource oppositeBoolCoverter}}" ItemsSource="{Binding Votes}" SelectedItem="{Binding SelectedVote}" HasUnevenRows="true">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Margin="40,10,40,10">
+                                <ffimageloading:SvgCachedImage Source="{Binding IsApproval, Converter={StaticResource booleanToSvgConverter}}" CacheDuration="2" DownsampleToViewSize="true" DownsampleUseDipUnits="true" WidthRequest="50" HeightRequest="50" VerticalOptions="Center" HorizontalOptions="Center" />
+                                <StackLayout Margin="10,0,10,0" Orientation="Vertical" VerticalOptions="CenterAndExpand">
+                                    <Label Text="Registrado por:" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" />
+                                    <Label Text="{Binding Username}" FontSize="Small" VerticalOptions="Center" />
+                                    <Label Text="Fecha de registro:" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" />
+                                    <Label Text="{Binding CreatedDate}" FontSize="Small" VerticalOptions="Center" />
+                                    <Label Text="Identificador en blockchain:" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center" />
+                                    <Label Text="{Binding TransactionId}" FontSize="Small" VerticalOptions="Center" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

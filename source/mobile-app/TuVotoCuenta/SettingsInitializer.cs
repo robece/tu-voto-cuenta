@@ -13,6 +13,7 @@ namespace TuVotoCuenta
             Settings.Cryptography = "CRYPTO_KEY";
             Settings.AppCenterIOS = "APP_CENTER_IOS";
             Settings.AppCenterDroid = "APP_CENTER_DROID";
+            Settings.BlockchainURL = "BLOCKCHAIN_URL";
         }
 
     }

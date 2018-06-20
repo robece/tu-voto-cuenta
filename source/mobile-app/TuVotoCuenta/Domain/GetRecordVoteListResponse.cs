@@ -13,7 +13,7 @@ namespace TuVotoCuenta.Domain
     public class Vote
     {
         [JsonProperty("_id")]
-        public Id Id { get; set; }
+        public string Id { get; set; }
 
         [JsonProperty("username")]
         public string Username { get; set; }
@@ -28,24 +28,8 @@ namespace TuVotoCuenta.Domain
         public string TransactionId { get; set; }
 
         [JsonProperty("createdDate")]
-        public DateTimeOffset CreatedDate { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 
-    public class Id
-    {
-        [JsonProperty("Timestamp")]
-        public long Timestamp { get; set; }
 
-        [JsonProperty("Machine")]
-        public long Machine { get; set; }
-
-        [JsonProperty("Pid")]
-        public long Pid { get; set; }
-
-        [JsonProperty("Increment")]
-        public long Increment { get; set; }
-
-        [JsonProperty("CreationTime")]
-        public DateTimeOffset CreationTime { get; set; }
-    }
 }

@@ -17,7 +17,7 @@ namespace TuVotoCuenta.Converters
 
             var input = (string)value;
 
-            Uri uri = new Uri($"https://rinkeby.etherscan.io/tx/{input}");
+            Uri uri = new Uri($"{Settings.BlockchainURL}{input}");
 
             return uri;
         }

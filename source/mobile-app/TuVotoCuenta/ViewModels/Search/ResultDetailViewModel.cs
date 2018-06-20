@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using TuVotoCuenta.Domain;
 using TuVotoCuenta.Helpers;
+using TuVotoCuenta.Pages.Search;
 using Xamarin.Forms;
 
 namespace TuVotoCuenta.ViewModels.Search
@@ -78,6 +79,12 @@ namespace TuVotoCuenta.ViewModels.Search
             set => SetProperty(ref recordItem, value);
         }
 
+        public Command NextCommand
+        {
+            get;
+            set;
+        }
+
         public ResultDetailViewModel(INavigation navigation, RecordItem recordItem)
         {
 
@@ -88,11 +95,17 @@ namespace TuVotoCuenta.ViewModels.Search
 
         void InitializeViewModel()
         {
-            Title = "Registro de captura";
+            Title = "Datos de registro";
             IsContinueGoBackEnabled = false;
             UpVoteCommand = new Command(async () => await UpVote());
             DownVoteCommand = new Command(async () => await DownVote());
             Task.Run(async () => { await GetRecordVoteCountAsync(); });
+            NextCommand = new Command(async () => await Next());
+        }
+
+        private async Task Next()
+        {
+            await navigation.PushAsync(new VoteHistoryPage(recordItem));
         }
 
         private async Task UpVote()
