@@ -128,7 +128,7 @@
     <EmbeddedResource Remove="Pages\Product\ProductPage.xaml" />
     <EmbeddedResource Remove="Controls\CustomPicker.xaml" />
     <EmbeddedResource Remove="Pages\Settings\SettingsPage.xaml" />
-    <EmbeddedResource Remove="Pages\Search\VoteHistoryPage.xaml" />
+    <EmbeddedResource Remove="Pages\Search\VoteHistoryPage1.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevKit.Xamarin.ImageKit.Abstractions">
@@ -278,9 +278,7 @@
     <EmbeddedResource Include="Files\Faqs.html" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Pages\Search\VoteHistoryPage.xaml" />
-    <None Include="Pages\Search\VoteHistoryPage.xaml" />
-    <None Include="Pages\Search\VoteHistoryPage.xaml" />
-    <None Include="Pages\Search\VoteHistoryPage.xaml" />
+    <None Include="Pages\Search\VoteHistoryPage1.xaml" />
+    <None Include="Pages\Search\VoteHistoryPage1.xaml" />
   </ItemGroup>
 </Project>
