@@ -10,7 +10,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>TuVotoCuenta.Droid</RootNamespace>
     <AssemblyName>TuVotoCuenta.Droid</AssemblyName>
-    <TargetFrameworkVersion>v8.1.99</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
