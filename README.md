@@ -28,4 +28,4 @@ This unique identifier is stored along with other numeric data (the total votes,
 
 ## Architecture
 
-<img src="http://rcervantes.me/images/tu-voto-cuenta-architecture.png" width="500" />
+<img src="http://rcervantes.me/images/tu-voto-cuenta-architecture.png" />
