@@ -1,6 +1,4 @@
-# TuVotoCuenta
-
-## Intro
+## TuVotoCuenta
 
 TuVotoCuenta is a free and open digital platform developed independently by a group of Mexicans of diverse profiles with the intention of serving as support to protect the integrity of the vote in this and any electoral process. Its main function is to keep inviolable (that is, immutable) a regsitro of the voting totals of each box. To meet this objective, an encryption process is applied to each data collected by citizens and a record is kept in a secure and distributed network called Blockchain. The data can not be modified in any way by anyone (including ourselves) without generating an indelible record that shows that the data was altered; which provides confidence and transparency in the authenticity of the information.
 
@@ -24,8 +22,11 @@ The platform of TuVotoCuenta keeps a cryptographic stamp of each data raised by 
 
 TuVotoCuenta calculates a hash value of the photograph and data that is sent from each box. A hash function is extremely sensitive, therefore even changing a pixel of the photo would profoundly alter the result of the function.
 
-This unique identifier is stored along with other numeric data (the total votes, the geographical location of the box) in one of the most stable and reliable blockchains at this moment, the Ethereum platform. We have all the power of the Ethereum nodes to carry out the cryptographic sealing of the blocks, ensuring that nobody, including us, can modify the data once sent to the block chain.
+This unique identifier is stored along with other numeric data (the total votes, the geographical location of the box) in one of the most stable and reliable blockchains at this moment, the Ethereum platform. We have all the power of the Ethereum nodes to carry out the cryptographic sealing of the blocks, ensuring that nobody, including us, can modify the data once sent to the blockchain.
 
 ## Architecture
 
-<img src="http://rcervantes.me/images/tu-voto-cuenta-architecture.png" />
+<div style="text-align:center">
+    <img src="https://github.com/robece/tu-voto-cuenta/blob/master/images/tu-voto-cuenta-architecture.png?raw=true" width="800" />
+</div>
+<br/>
